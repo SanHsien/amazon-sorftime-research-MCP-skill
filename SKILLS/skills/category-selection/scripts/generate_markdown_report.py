@@ -260,9 +260,9 @@ class MarkdownReportGenerator:
 | **总分** | **{total_score}/100** |
 | **评级** | **{rating}** |
 | **建议** | **{self._get_recommendation(total_score)}** |
-| 月市场规模 | \${metrics.get('total_revenue', 0):,.0f} |
+| 月市场规模 | \\${metrics.get('total_revenue', 0):,.0f} |
 | Top100 月销量 | {metrics.get('total_sales', 0):,} |
-| 平均价格 | \${metrics.get('avg_price', 0):.2f} |
+| 平均价格 | \\${metrics.get('avg_price', 0):.2f} |
 | 平均评分 | {metrics.get('avg_rating', 0):.2f} |
 
 ---
@@ -277,12 +277,12 @@ class MarkdownReportGenerator:
 | 增长潜力 | {scores.get('增长潜力', 0)}/25 | 25 | 低评论产品占比: {metrics.get('low_review_share', 0):.1f}% |
 | 竞争烈度 | {scores.get('竞争烈度', 0)}/20 | 20 | Top3 品牌占比: {metrics.get('top3_share', 0):.1f}% |
 | 进入壁垒 | {scores.get('进入壁垒', 0)}/20 | 20 | Amazon 占比: {metrics.get('amazon_share', 0):.1f}% |
-| 利润空间 | {scores.get('利润空间', 0)}/15 | 15 | 平均价格: \${metrics.get('avg_price', 0):.2f} |
+| 利润空间 | {scores.get('利润空间', 0)}/15 | 15 | 平均价格: \\${metrics.get('avg_price', 0):.2f} |
 
 ### 详细分析
 
 #### 1. 市场规模 (得分: {scores.get('市场规模', 0)}/20)
-- **月总销额**: \${metrics.get('total_revenue', 0):,.0f}
+- **月总销额**: \\${metrics.get('total_revenue', 0):,.0f}
 - **月总销量**: {metrics.get('total_sales', 0):,}
 - **市场规模评估**: {self._get_market_size_desc(metrics.get('total_revenue', 0))}
 
@@ -304,8 +304,8 @@ class MarkdownReportGenerator:
 **进入难度**: {'较低' if metrics.get('amazon_share', 0) < 20 else '中等' if metrics.get('amazon_share', 0) < 40 else '较高'}
 
 #### 5. 利润空间 (得分: {scores.get('利润空间', 0)}/15)
-- **平均价格**: \${metrics.get('avg_price', 0):.2f}
-- **价格区间**: \${metrics.get('min_price', 0):.2f} - \${metrics.get('max_price', 0):.2f}
+- **平均价格**: \\${metrics.get('avg_price', 0):.2f}
+- **价格区间**: \\${metrics.get('min_price', 0):.2f} - \\${metrics.get('max_price', 0):.2f}
 - **利润评估**: {self._get_profit_desc(metrics.get('avg_price', 0))}
 
 ---
@@ -324,7 +324,7 @@ class MarkdownReportGenerator:
 
         for i, (brand, stats) in enumerate(sorted_brands[:10], 1):
             share = stats['revenue'] / total_revenue * 100 if total_revenue > 0 else 0
-            report += f"| {i} | {brand} | {stats['count']} | \${stats['revenue']:,.0f} | {share:.2f}% |\n"
+            report += f"| {i} | {brand} | {stats['count']} | \\${stats['revenue']:,.0f} | {share:.2f}% |\n"
 
         report += f"""
 
@@ -359,7 +359,7 @@ class MarkdownReportGenerator:
             rating = p.get('评分', 0)
             reviews = p.get('评论数', 0)
 
-            report += f"| {i} | {asin} | {brand} | \${price:.2f} | {sales:,} | \${revenue:,.0f} | {rating} | {reviews} |\n"
+            report += f"| {i} | {asin} | {brand} | \\${price:.2f} | {sales:,} | \\${revenue:,.0f} | {rating} | {reviews} |\n"
 
         report += f"""
 
@@ -552,11 +552,11 @@ class MarkdownReportGenerator:
         avg_price = metrics.get('avg_price', 0)
 
         if revenue > 10_000_000:
-            advantages.append(f"1. **市场规模巨大**: 月销额超过 \${revenue/1_000_000:.1f}M，属于高流量品类")
+            advantages.append(f"1. **市场规模巨大**: 月销额超过 \\${revenue/1_000_000:.1f}M，属于高流量品类")
         elif revenue > 1_000_000:
-            advantages.append(f"1. **市场规模可观**: 月销额达 \${revenue/1_000_000:.1f}M")
+            advantages.append(f"1. **市场规模可观**: 月销额达 \\${revenue/1_000_000:.1f}M")
 
-        price_range = f"\${metrics.get('min_price', 0):.0f}-\${metrics.get('max_price', 0):.0f}"
+        price_range = f"\\${metrics.get('min_price', 0):.0f}-\\${metrics.get('max_price', 0):.0f}"
         advantages.append(f"2. **价格带丰富**: {price_range} 价格区间，满足不同消费需求")
 
         return '\n'.join(advantages) if advantages else "暂无明显优势"
@@ -595,7 +595,7 @@ class MarkdownReportGenerator:
 
         avg_price = metrics.get('avg_price', 0)
         if avg_price > 100:
-            opportunities.append("3. **中端市场**: \$$100-\$$300 价格区间有一定机会")
+            opportunities.append("3. **中端市场**: \\$$100-\\$$300 价格区间有一定机会")
 
         return '\n'.join(opportunities) if opportunities else "需要深入调研寻找机会"
 
@@ -633,7 +633,7 @@ class MarkdownReportGenerator:
 - 确保供应链有成本优势"""
         elif total_score >= 50:
             return f"""**谨慎考虑的方向**:
-- \${avg_price:.0f}-\${avg_price*1.5:.0f} 价格区间的产品
+- \\${avg_price:.0f}-\\${avg_price*1.5:.0f} 价格区间的产品
 - 寻找细分市场机会
 
 **建议谨慎**:
@@ -655,9 +655,9 @@ class MarkdownReportGenerator:
         avg_price = metrics.get('avg_price', 0)
 
         if revenue > 1_000_000:
-            desc = f"月销额达 \${revenue/1_000_000:.1f}M+"
+            desc = f"月销额达 \\${revenue/1_000_000:.1f}M+"
         else:
-            desc = f"月销额达 \${revenue:,.0f}"
+            desc = f"月销额达 \\${revenue:,.0f}"
 
         competition = "极其激烈" if top3_share > 50 else "较为激烈" if top3_share > 30 else "相对分散"
         value = "高价值" if avg_price > 300 else "中高价值" if avg_price > 150 else "中低端"
