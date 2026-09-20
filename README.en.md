@@ -126,6 +126,40 @@ Run skills directly in the chat:
 
 ---
 
+### 4. Run with Codex (Desktop / CLI) (Addresses Upstream Issue #6)
+
+This project is fully compatible with OpenAI Codex (both Desktop App and CLI):
+
+- **Workspace Mode**: Run `codex` directly inside the project root and invoke skills via chat (e.g., `/amazon-analyse B0D9ZTW7PS US`).
+- **Global Skill Installation**: To make these skills accessible from any directory, copy folders in `SKILLS/skills/` to your global Codex skills directory:
+  ```powershell
+  New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\skills"
+  Copy-Item -Recurse -Force "SKILLS\skills\*" "$env:USERPROFILE\.codex\skills"
+  ```
+- **MCP Configuration**: Add the MCP server entries from `.mcp.json` into your Codex config.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Q1: 1688 cost acquisition failed or returned "Unknown tool"? (Addresses Upstream Issue #1)
+- **Root Cause**: Sorftime official MCP updated the tool name to `ali1688_similar_product` (previously `ali1688_similar_product` (原 `products_1688`)).
+- **Resolution**: This fork updates all tool mappings and adds graceful fallback handling so downstream reports complete smoothly even if supply chain endpoints are offline.
+
+### Q2: Why do traffic keywords include terms outside this ASIN? (Addresses Upstream Issue #2)
+- **Explanation**: Amazon's algorithmic recommendation and organic traffic streams include competitor cross-traffic. Our skills apply LLM-driven 8-dimension filtering to separate core keywords from scenario and competitor terms.
+
+### Q3: Can I use standard web accounts without an MCP API Key? (Addresses Upstream Issue #5)
+- **Answer**: MCP protocol endpoints require dedicated API credentials from respective providers (Sorftime, Sif, Xiyou, SellerSprite).
+
+### Q4: How can I quickly test product-research locally? (Addresses Upstream Issue #3)
+- **Answer**: Run the local test suite directly without third-party web dependencies:
+  ```powershell
+  python -m pytest tests -v
+  ```
+
+---
+
 ## Quality Gate & Governance
 
 ```powershell

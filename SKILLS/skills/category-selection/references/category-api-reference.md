@@ -137,7 +137,7 @@ curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":300,"method":"tools/call","params":{"name":"products_1688","arguments":{"searchName":"沙發","page":1}}}'
+  -d '{"jsonrpc":"2.0","id":300,"method":"tools/call","params":{"name":"ali1688_similar_product","arguments":{"searchName":"沙發","page":1}}}'
 ```
 
 ---

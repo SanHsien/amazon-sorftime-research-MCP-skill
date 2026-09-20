@@ -33,7 +33,7 @@ python .claude/skills/category-selection/scripts/workflow.py "Kitchen" US 50
 | 3. 產品詳情 | `product_detail` | 獲取單個產品詳情 | 小 |
 | 4. 類目關鍵詞 | `category_keywords` | 獲取類目核心關鍵詞 | **大 (>25KB)** |
 | 5. 類目趨勢 | `category_trend` | 獲取25個月曆史趨勢 | 中 |
-| 6. 1688採購 | `products_1688` | 獲取採購成本資料 | 小 |
+| 6. 1688採購 | `ali1688_similar_product` (原 `products_1688`) | 獲取採購成本資料 | 小 |
 
 ### 呼叫格式
 ```bash

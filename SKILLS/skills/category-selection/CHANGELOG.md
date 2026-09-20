@@ -378,7 +378,7 @@ Claude Code 解析
 
 #### 可選工具
 4. `category_keywords` - 獲取類目核心關鍵詞
-5. `products_1688` - 1688 採購成本分析
+5. `ali1688_similar_product` (原 `products_1688`) - 1688 採購成本分析
 
 #### 保留的輔助工具
 - `scripts/data_utils.py` - 資料處理工具（HHI、分組、評分計算等）

@@ -387,7 +387,7 @@ US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 #### 1688 供貨平臺 (1個)
 | 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `products_1688` | 1688產品搜尋/採購成本分析 | 1 |
+| `ali1688_similar_product` (原 `products_1688`) | 1688產品搜尋/採購成本分析 | 1 |
 
 #### TikTok 電商平臺 (8個)
 | 介面 | 用途 | 呼叫消耗 |
@@ -453,7 +453,7 @@ US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 #### 供應鏈成本調研
 | 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **1688採購成本** | `products_1688` | searchName |
+| **1688採購成本** | `ali1688_similar_product` (原 `products_1688`) | searchName |
 
 ### 支援的平臺站點
 

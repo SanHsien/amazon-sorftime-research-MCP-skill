@@ -135,6 +135,41 @@ claude
 
 ---
 
+### 4. 搭配 Codex (Desktop / CLI) 運行 (解決上游 Issue #6)
+
+本專案完全適配 OpenAI Codex（包含 Codex Desktop 與 Codex CLI）：
+
+- **專案模式**：在專案根目錄執行 `codex`，在對話中直接輸入技能指令（如 `/amazon-analyse B0D9ZTW7PS US`）。
+- **全域技能安裝**：如需在任何目錄均可呼叫本技能，可將 `SKILLS/skills/` 底下的技能資料夾複製至全域技能目錄：
+  ```powershell
+  New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\skills"
+  Copy-Item -Recurse -Force "SKILLS\skills\*" "$env:USERPROFILE\.codex\skills"
+  ```
+- **MCP 服務載入**：在 `$env:USERPROFILE\.codex\config.toml` 或專案的 `.mcp.json` 中加入四大電商 MCP 伺服器配置即可自動啟用。
+
+---
+
+## 常見問題與 API 須知 (FAQ)
+
+### Q1: 1688 供應鏈採購成本獲取失敗或報錯 Unknown tool？ (解決上游 Issue #1)
+- **原因**：Sorftime 官方 MCP 介面近期將 1688 供應鏈工具重命名為 `ali1688_similar_product`（舊文檔標記為 `ali1688_similar_product` (原 `products_1688`)）。
+- **處理**：本 Fork 已全面修正為官方最新工具名稱，並加入防禦性容錯機制；若供應鏈 API 遇到維護或無權限，系統會自動優雅跳過供應鏈環節，繼續完成主體分析報告。
+
+### Q2: 流量關鍵詞為什麼包含非該 ASIN 的競品或大盤詞？ (解決上游 Issue #2)
+- **原因**：亞馬遜自然流量來源與關聯推薦機制會為熱門 Listing 帶來大量關聯詞與泛流量詞。
+- **處理**：本工具集內建 LLM 二次過濾機制，會自動結合 ASIN 的商品詳情與五點描述，對高關聯詞、場景詞與泛詞進行 8 維智慧分類。
+
+### Q3: 擁有一般的 Sorftime 網頁會員能否直接使用本工具箱？ (解決上游 Issue #5)
+- **解答**：本工具箱是透過 MCP (Model Context Protocol) 協議與數據端點直連，需要配置 MCP 專屬 API Key（可於各官方開放平台申請，或使用各平台提供的官方 Bridge 介面）。
+
+### Q4: 如何在本地進行低門檻的快速體驗試跑？ (解決上游 Issue #3)
+- **解答**：無需註冊任何第三方導流平台，直接在專案目錄使用範例報告數據或執行：
+  ```powershell
+  python -m pytest tests -v
+  ```
+
+---
+
 ## Windows 開發環境與質量閘門
 
 本 fork 提供嚴格的本地驗收閘門與上游增量水位追蹤機制：
