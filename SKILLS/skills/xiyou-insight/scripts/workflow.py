@@ -3,18 +3,18 @@
 """
 西柚洞察通用工作流引擎
 
-统一入口，通过--scenario参数区分7个场景
+統一入口，透過--scenario引數區分7個場景
 
 使用方式:
-    python workflow.py --scenario <场景名> --asin <ASIN> --site <站点>
+    python workflow.py --scenario <場景名> --asin <ASIN> --site <站點>
     
-场景列表:
-    ad_monitoring         - 实时监控广告投放效果
-    traffic_gap           - 快速找到高性价比流量缺口
-    competitor_analysis   - 精准拆解竞品流量以及广告策略
-    new_product           - 提升新品推广效率
-    ad_budget             - 透视竞品广告策略和预算
-    keyword_database      - 高效搭建关键词库
+場景列表:
+    ad_monitoring         - 實時監控廣告投放效果
+    traffic_gap           - 快速找到高價效比流量缺口
+    competitor_analysis   - 精準拆解競品流量以及廣告策略
+    new_product           - 提升新品推廣效率
+    ad_budget             - 透視競品廣告策略和預算
+    keyword_database      - 高效搭建關鍵詞庫
 
 示例:
     python workflow.py --scenario competitor_analysis --asin B07PQFT83F --site US
@@ -47,22 +47,22 @@ class WorkflowEngine:
 
     def run(self, scenario_name: str, params: Dict[str, Any], output_dir: str = None) -> Dict[str, Any]:
         """
-        执行工作流
+        執行工作流
 
         Args:
-            scenario_name: 场景名称
-            params: 用户输入参数
-            output_dir: 输出目录
+            scenario_name: 場景名稱
+            params: 使用者輸入引數
+            output_dir: 輸出目錄
 
         Returns:
-            dict: 分析结果
+            dict: 分析結果
         """
         scenario_class = get_scenario(scenario_name)
         scenario = scenario_class()
 
         is_valid, missing = scenario.validate_params(params)
         if not is_valid:
-            raise ValueError(f"缺少必要参数: {', '.join(missing)}")
+            raise ValueError(f"缺少必要引數: {', '.join(missing)}")
 
         if not output_dir:
             date_str = datetime.now().strftime('%Y%m%d')
@@ -70,11 +70,11 @@ class WorkflowEngine:
             output_dir = os.path.join('xiyou-insight-reports', f'{scenario_name}_{target}_{params.get("site", "US")}_{date_str}')
         os.makedirs(output_dir, exist_ok=True)
 
-        print(f"🚀 开始执行场景: {scenario.NAME}")
-        print(f"📁 输出目录: {output_dir}")
+        print(f"🚀 開始執行場景: {scenario.NAME}")
+        print(f"📁 輸出目錄: {output_dir}")
 
         mcp_tools = scenario.get_mcp_tools(params)
-        print(f"\n📋 需要调用的MCP工具 ({len(mcp_tools)}个):")
+        print(f"\n📋 需要呼叫的MCP工具 ({len(mcp_tools)}個):")
         for i, tool in enumerate(mcp_tools, 1):
             print(f"   {i}. {tool['tool_name']}")
 
@@ -103,18 +103,18 @@ class WorkflowEngine:
         self.dashboard_generator.render(aggregated_data, dashboard_file)
 
         print(f"\n✅ 分析完成!")
-        print(f"   📊 数据文件: {data_file}")
-        print(f"   📝 报告文件: {report_file}")
+        print(f"   📊 資料檔案: {data_file}")
+        print(f"   📝 報告檔案: {report_file}")
         print(f"   📈 Dashboard: {dashboard_file}")
 
         return aggregated_data
 
     def _collect_mcp_data(self, mcp_tools: list, params: Dict[str, Any]) -> Dict[str, Any]:
         """
-        收集MCP数据（模拟模式）
+        收集MCP資料（模擬模式）
         
-        注意: 实际使用时，这些数据需要通过LLM调用MCP工具获取
-        这里提供模拟数据，用于测试工作流流程
+        注意: 實際使用時，這些資料需要透過LLM呼叫MCP工具獲取
+        這裡提供模擬資料，用於測試工作流流程
         """
         from datetime import datetime, timedelta
 
@@ -349,16 +349,16 @@ class WorkflowEngine:
 
 def main():
     parser = argparse.ArgumentParser(description='西柚洞察通用工作流引擎')
-    parser.add_argument('--scenario', required=True, choices=list(list_scenarios()), help='场景名称')
-    parser.add_argument('--asin', help='目标ASIN')
-    parser.add_argument('--own_asin', help='自身ASIN（用于流量缺口分析）')
-    parser.add_argument('--competitor_asins', help='竞品ASIN列表，逗号分隔')
-    parser.add_argument('--site', default='US', help='站点国家码（默认US）')
-    parser.add_argument('--keyword', help='关键词（用于广告监控）')
-    parser.add_argument('--core_keywords', help='核心关键词列表，逗号分隔')
-    parser.add_argument('--output_dir', help='输出目录')
-    parser.add_argument('--start_date', help='开始日期 YYYY-MM-DD')
-    parser.add_argument('--end_date', help='结束日期 YYYY-MM-DD')
+    parser.add_argument('--scenario', required=True, choices=list(list_scenarios()), help='場景名稱')
+    parser.add_argument('--asin', help='目標ASIN')
+    parser.add_argument('--own_asin', help='自身ASIN（用於流量缺口分析）')
+    parser.add_argument('--competitor_asins', help='競品ASIN列表，逗號分隔')
+    parser.add_argument('--site', default='US', help='站點國家碼（預設US）')
+    parser.add_argument('--keyword', help='關鍵詞（用於廣告監控）')
+    parser.add_argument('--core_keywords', help='核心關鍵詞列表，逗號分隔')
+    parser.add_argument('--output_dir', help='輸出目錄')
+    parser.add_argument('--start_date', help='開始日期 YYYY-MM-DD')
+    parser.add_argument('--end_date', help='結束日期 YYYY-MM-DD')
 
     args = parser.parse_args()
 

@@ -58,16 +58,16 @@
     }
   ],
   "product_types": [
-    {"type": "Creator 3-in-1", "count": 15, "description": "多变动物/交通工具"},
-    {"type": "Speed Champions", "count": 12, "description": "赛车系列"},
-    {"type": "Botanicals", "count": 8, "description": "花卉植物装饰"},
-    {"type": "Minecraft", "count": 10, "description": "游戏IP联动"},
-    {"type": "Star Wars", "count": 8, "description": "星战IP"},
-    {"type": "City", "count": 8, "description": "城市场景"},
-    {"type": "NINJAGO", "count": 6, "description": "忍者主题"},
-    {"type": "DUPLO", "count": 3, "description": "幼童大颗粒"},
-    {"type": "Classic", "count": 3, "description": "基础积木盒"},
-    {"type": "Other", "count": 27, "description": "其他主题"}
+    {"type": "Creator 3-in-1", "count": 15, "description": "多變動物/交通工具"},
+    {"type": "Speed Champions", "count": 12, "description": "賽車系列"},
+    {"type": "Botanicals", "count": 8, "description": "花卉植物裝飾"},
+    {"type": "Minecraft", "count": 10, "description": "遊戲IP聯動"},
+    {"type": "Star Wars", "count": 8, "description": "星戰IP"},
+    {"type": "City", "count": 8, "description": "城市場景"},
+    {"type": "NINJAGO", "count": 6, "description": "忍者主題"},
+    {"type": "DUPLO", "count": 3, "description": "幼童大顆粒"},
+    {"type": "Classic", "count": 3, "description": "基礎積木盒"},
+    {"type": "Other", "count": 27, "description": "其他主題"}
   ],
   "cross_analysis": {
     "price_type_matrix": [
@@ -76,7 +76,7 @@
       {"price_range": "$60-100", "creator": 0, "speed_champions": 1, "botanicals": 1, "minecraft": 0, "star_wars": 1, "duplo": 0}
     ],
     "opportunities": [
-      {"dimension": "DUPLO幼童市场", "status": "相对机会", "reason": "竞争较少，但需解决安全认证"}
+      {"dimension": "DUPLO幼童市場", "status": "相對機會", "reason": "競爭較少，但需解決安全認證"}
     ]
   },
   "top_brands": [
@@ -126,7 +126,7 @@
       "monthly_sales": 36277,
       "reviews": 1893,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2024-11-08"
     },
     {
@@ -137,7 +137,7 @@
       "monthly_sales": 23855,
       "reviews": 117,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2025-08-20"
     },
     {
@@ -148,7 +148,7 @@
       "monthly_sales": 18713,
       "reviews": 2958,
       "rating": 4.9,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2025-01-15"
     },
     {
@@ -159,7 +159,7 @@
       "monthly_sales": 17279,
       "reviews": 387,
       "rating": 4.9,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2025-12-31"
     },
     {
@@ -170,7 +170,7 @@
       "monthly_sales": 15921,
       "reviews": 725,
       "rating": 4.9,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2025-10-08"
     },
     {
@@ -181,7 +181,7 @@
       "monthly_sales": 10948,
       "reviews": 5666,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-11-18"
     },
     {
@@ -192,7 +192,7 @@
       "monthly_sales": 10562,
       "reviews": 7387,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-12-21"
     },
     {
@@ -203,7 +203,7 @@
       "monthly_sales": 9126,
       "reviews": 206,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2026-01-01"
     },
     {
@@ -214,7 +214,7 @@
       "monthly_sales": 8767,
       "reviews": 233,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2026-01-01"
     },
     {
@@ -225,88 +225,88 @@
       "monthly_sales": 8680,
       "reviews": 56381,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2014-12-13"
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "缺件问题",
-        "pain_point": "缺少零件/配件导致无法完成拼装",
+        "dimension": "缺件問題",
+        "pain_point": "缺少零件/配件導致無法完成拼裝",
         "frequency": 8,
         "percentage": "42%",
         "affected_brands": ["LEGO"],
-        "brand_opportunity": "严格QC流程+10%备用件+快速补件服务",
-        "product_solution": "每套含10%备用零件，扫码申请免费补件48小时内发货"
+        "brand_opportunity": "嚴格QC流程+10%備用件+快速補件服務",
+        "product_solution": "每套含10%備用零件，掃碼申請免費補件48小時內發貨"
       },
       {
-        "dimension": "包装破损",
-        "pain_point": "运输导致盒子压坏，影响送礼体验",
+        "dimension": "包裝破損",
+        "pain_point": "運輸導致盒子壓壞，影響送禮體驗",
         "frequency": 4,
         "percentage": "21%",
         "affected_brands": ["LEGO"],
-        "brand_opportunity": "加强物流包装，使用双层纸箱",
-        "product_solution": "双层瓦楞纸箱+气泡袋缓冲，箱体标注'礼品请轻放'"
+        "brand_opportunity": "加強物流包裝，使用雙層紙箱",
+        "product_solution": "雙層瓦楞紙箱+氣泡袋緩衝，箱體標註'禮品請輕放'"
       },
       {
-        "dimension": "说明问题",
-        "pain_point": "说明书缺失、错误或只有部分图纸",
+        "dimension": "說明問題",
+        "pain_point": "說明書缺失、錯誤或只有部分圖紙",
         "frequency": 3,
         "percentage": "16%",
         "affected_brands": ["LEGO"],
-        "brand_opportunity": "数字化说明书+视频教程",
-        "product_solution": "扫码获取全套视频教程+AR拼装指引"
+        "brand_opportunity": "數字化說明書+影片教程",
+        "product_solution": "掃碼獲取全套影片教程+AR拼裝指引"
       },
       {
-        "dimension": "难度不符",
-        "pain_point": "标注年龄与实际难度不符，孩子无法独立完成",
+        "dimension": "難度不符",
+        "pain_point": "標註年齡與實際難度不符，孩子無法獨立完成",
         "frequency": 2,
         "percentage": "11%",
         "affected_brands": ["LEGO"],
-        "brand_opportunity": "重新进行年龄评级测试",
-        "product_solution": "按实际测试结果标注年龄，提供难度分级标签"
+        "brand_opportunity": "重新進行年齡評級測試",
+        "product_solution": "按實際測試結果標註年齡，提供難度分級標籤"
       },
       {
-        "dimension": "质量问题",
-        "pain_point": "零件不匹配、质量差或数量不符",
+        "dimension": "質量問題",
+        "pain_point": "零件不匹配、質量差或數量不符",
         "frequency": 2,
         "percentage": "11%",
         "affected_brands": ["LEGO", "其他品牌"],
-        "brand_opportunity": "提高模具精度和品控标准",
-        "product_solution": "ISO 9001认证+100%尺寸检测"
+        "brand_opportunity": "提高模具精度和品控標準",
+        "product_solution": "ISO 9001認證+100%尺寸檢測"
       }
     ],
-    "summary": "主要痛点集中在缺件(42%)、包装破损(21%)、说明书问题(16%)。缺件是行业共性问题，但包装和说明书可通过改进解决。"
+    "summary": "主要痛點集中在缺件(42%)、包裝破損(21%)、說明書問題(16%)。缺件是行業共性問題，但包裝和說明書可透過改進解決。"
   },
   "barriers": [
-    {"type": "品牌壁垒", "level": "极高", "data_anchor": "LEGO 98%市场份额", "estimated_cost": "无法量化", "solution": "无有效绕过方案"},
-    {"type": "Review壁垒", "level": "极高", "data_anchor": "Top10均值5000+评论", "estimated_cost": "$50,000+", "solution": "Vine+PPC但仍需时间积累"},
-    {"type": "资金壁垒", "level": "高", "data_anchor": "备货+广告+IP授权", "estimated_cost": "¥2,000,000+", "solution": "控制MOQ但起订量仍高"},
-    {"type": "供应链壁垒", "level": "极高", "data_anchor": "精度要求+IP授权", "estimated_cost": "N/A", "solution": "需正版IP授权"},
-    {"type": "渠道壁垒", "level": "中", "data_anchor": "Amazon自营为主", "estimated_cost": "适中", "solution": "FBA可解决但竞争激烈"}
+    {"type": "品牌壁壘", "level": "極高", "data_anchor": "LEGO 98%市場份額", "estimated_cost": "無法量化", "solution": "無有效繞過方案"},
+    {"type": "Review壁壘", "level": "極高", "data_anchor": "Top10均值5000+評論", "estimated_cost": "$50,000+", "solution": "Vine+PPC但仍需時間積累"},
+    {"type": "資金壁壘", "level": "高", "data_anchor": "備貨+廣告+IP授權", "estimated_cost": "¥2,000,000+", "solution": "控制MOQ但起訂量仍高"},
+    {"type": "供應鏈壁壘", "level": "極高", "data_anchor": "精度要求+IP授權", "estimated_cost": "N/A", "solution": "需正版IP授權"},
+    {"type": "渠道壁壘", "level": "中", "data_anchor": "Amazon自營為主", "estimated_cost": "適中", "solution": "FBA可解決但競爭激烈"}
   ],
   "decision": {
     "overall_score": 3.35,
-    "verdict": "不建议进入",
+    "verdict": "不建議進入",
     "scores": [
-      {"dimension": "市场规模", "weight": 0.20, "score": 8, "weighted_score": 1.60, "rationale": "月销$974万，规模可观"},
-      {"dimension": "竞争格局", "weight": 0.25, "score": 1, "weighted_score": 0.25, "rationale": "LEGO垄断98%，无生存空间"},
-      {"dimension": "增长潜力", "weight": 0.15, "score": 6, "weighted_score": 0.90, "rationale": "稳定增长但被头部垄断"},
-      {"dimension": "进入壁垒", "weight": 0.20, "score": 1, "weighted_score": 0.20, "rationale": "壁垒极高难以突破"},
-      {"dimension": "利润空间", "weight": 0.20, "score": 2, "weighted_score": 0.40, "rationale": "需IP授权+高精度模具"}
+      {"dimension": "市場規模", "weight": 0.20, "score": 8, "weighted_score": 1.60, "rationale": "月銷$974萬，規模可觀"},
+      {"dimension": "競爭格局", "weight": 0.25, "score": 1, "weighted_score": 0.25, "rationale": "LEGO壟斷98%，無生存空間"},
+      {"dimension": "增長潛力", "weight": 0.15, "score": 6, "weighted_score": 0.90, "rationale": "穩定增長但被頭部壟斷"},
+      {"dimension": "進入壁壘", "weight": 0.20, "score": 1, "weighted_score": 0.20, "rationale": "壁壘極高難以突破"},
+      {"dimension": "利潤空間", "weight": 0.20, "score": 2, "weighted_score": 0.40, "rationale": "需IP授權+高精度模具"}
     ],
-    "entry_conditions": "无 - 不建议进入",
+    "entry_conditions": "無 - 不建議進入",
     "exception_cases": [
-      "DUPLO幼童市场：竞争相对较少，但需解决安全认证",
-      "磁性积木：MAGNA-TILES已验证，但需专利规避",
-      "教育STEM套装：与编程/机器人结合，需差异化定位"
+      "DUPLO幼童市場：競爭相對較少，但需解決安全認證",
+      "磁性積木：MAGNA-TILES已驗證，但需專利規避",
+      "教育STEM套裝：與程式設計/機器人結合，需差異化定位"
     ],
     "minimum_requirements": {
       "budget": "¥2,000,000+",
-      "timeline": "12-18个月品牌建设期",
-      "differentiation": "必须有明确差异化",
-      "ip_license": "或使用原创IP但品牌建设更难"
+      "timeline": "12-18個月品牌建設期",
+      "differentiation": "必須有明確差異化",
+      "ip_license": "或使用原創IP但品牌建設更難"
     }
   },
   "trend_data": [

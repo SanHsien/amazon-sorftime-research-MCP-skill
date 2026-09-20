@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-品类选品 Excel 报告生成脚本
-功能: 根据收集的数据生成包含12个sheets的Excel报告
+品類選品 Excel 報告生成指令碼
+功能: 根據收集的資料生成包含12個sheets的Excel報告
 """
 
 import json
@@ -12,7 +12,7 @@ from openpyxl.utils import get_column_letter
 from datetime import datetime
 import os
 
-# 样式定义
+# 樣式定義
 HEADER_FILL = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
 HEADER_FONT = Font(bold=True, color="FFFFFF", size=11)
 TITLE_FONT = Font(bold=True, size=14)
@@ -29,66 +29,66 @@ BORDER = Border(
 class CategoryReportGenerator:
     def __init__(self, category_data, output_path):
         """
-        初始化报告生成器
+        初始化報告生成器
 
         Args:
-            category_data: dict, 包含所有收集的数据
-            output_path: str, 输出文件路径
+            category_data: dict, 包含所有收集的資料
+            output_path: str, 輸出檔案路徑
         """
         self.data = category_data
         self.output_path = output_path
         self.wb = openpyxl.Workbook()
 
     def generate(self):
-        """生成完整报告"""
-        print("开始生成 Excel 报告...")
+        """生成完整報告"""
+        print("開始生成 Excel 報告...")
 
-        # 生成12个sheets
-        self._create_overview_sheet()      # Sheet 1: 市场概览
-        self._create_top100_sheet()        # Sheet 2: Top100产品
+        # 生成12個sheets
+        self._create_overview_sheet()      # Sheet 1: 市場概覽
+        self._create_top100_sheet()        # Sheet 2: Top100產品
         self._create_brand_sheet()         # Sheet 3: 品牌分析
-        self._create_price_dist_sheet()    # Sheet 4: 价格分布
-        self._create_rating_dist_sheet()   # Sheet 5: 评分分布
-        self._create_seller_sheet()        # Sheet 6: 卖家来源
-        self._create_new_product_sheet()   # Sheet 7: 新产品分析
-        self._create_trend_sales_sheet()   # Sheet 8: 销量趋势
-        self._create_trend_price_sheet()   # Sheet 9: 价格趋势
-        self._create_trend_score_sheet()   # Sheet 10: 评分趋势
-        self._create_trend_brand_sheet()   # Sheet 11: 品牌数趋势
-        self._create_supply_chain_sheet()  # Sheet 12: 供应链
+        self._create_price_dist_sheet()    # Sheet 4: 價格分佈
+        self._create_rating_dist_sheet()   # Sheet 5: 評分分佈
+        self._create_seller_sheet()        # Sheet 6: 賣家來源
+        self._create_new_product_sheet()   # Sheet 7: 新產品分析
+        self._create_trend_sales_sheet()   # Sheet 8: 銷量趨勢
+        self._create_trend_price_sheet()   # Sheet 9: 價格趨勢
+        self._create_trend_score_sheet()   # Sheet 10: 評分趨勢
+        self._create_trend_brand_sheet()   # Sheet 11: 品牌數趨勢
+        self._create_supply_chain_sheet()  # Sheet 12: 供應鏈
 
-        # 保存文件
+        # 儲存檔案
         self.wb.save(self.output_path)
-        print(f"Excel 报告已生成: {self.output_path}")
+        print(f"Excel 報告已生成: {self.output_path}")
 
     def _create_overview_sheet(self):
-        """Sheet 1: 市场概览 - 五维评分模型 + KPI指标"""
+        """Sheet 1: 市場概覽 - 五維評分模型 + KPI指標"""
         ws = self.wb.active
-        ws.title = "市场概览"
+        ws.title = "市場概覽"
 
         row = 1
 
-        # 报告标题
-        ws.cell(row, 1, f"{self.data.get('category_name', '')} 品类市场调研报告")
+        # 報告標題
+        ws.cell(row, 1, f"{self.data.get('category_name', '')} 品類市場調研報告")
         ws.cell(row, 1).font = TITLE_FONT
         row += 2
 
-        # 五维评分模型
-        ws.cell(row, 1, "五维评分模型")
+        # 五維評分模型
+        ws.cell(row, 1, "五維評分模型")
         ws.cell(row, 1).font = HEADER_FONT
         ws.cell(row, 1).fill = HEADER_FILL
         row += 1
 
         scores = self.data.get('five_dimension_score', {})
         score_data = [
-            ["评分维度", "得分", "满分", "占比"],
-            ["市场规模", scores.get("market_size", 0), 20, f"{scores.get('market_size', 0)/20*100:.0f}%"],
-            ["增长潜力", scores.get("growth_potential", 0), 25, f"{scores.get('growth_potential', 0)/25*100:.0f}%"],
-            ["竞争烈度", scores.get("competition", 0), 20, f"{scores.get('competition', 0)/20*100:.0f}%"],
-            ["进入壁垒", scores.get("entry_barrier", 0), 20, f"{scores.get('entry_barrier', 0)/20*100:.0f}%"],
-            ["利润空间", scores.get("profit_margin", 0), 15, f"{scores.get('profit_margin', 0)/15*100:.0f}%"],
+            ["評分維度", "得分", "滿分", "佔比"],
+            ["市場規模", scores.get("market_size", 0), 20, f"{scores.get('market_size', 0)/20*100:.0f}%"],
+            ["增長潛力", scores.get("growth_potential", 0), 25, f"{scores.get('growth_potential', 0)/25*100:.0f}%"],
+            ["競爭烈度", scores.get("competition", 0), 20, f"{scores.get('competition', 0)/20*100:.0f}%"],
+            ["進入壁壘", scores.get("entry_barrier", 0), 20, f"{scores.get('entry_barrier', 0)/20*100:.0f}%"],
+            ["利潤空間", scores.get("profit_margin", 0), 15, f"{scores.get('profit_margin', 0)/15*100:.0f}%"],
             ["", "", "", ""],
-            ["总分", scores.get("total", 0), 100, "100%"],
+            ["總分", scores.get("total", 0), 100, "100%"],
         ]
 
         for r in score_data:
@@ -104,31 +104,31 @@ class CategoryReportGenerator:
 
         row += 2
 
-        # 评级和建议
+        # 評級和建議
         total_score = scores.get("total", 0)
         rating = self._get_rating(total_score)
-        ws.cell(row, 1, f"评级: {rating}")
+        ws.cell(row, 1, f"評級: {rating}")
         ws.cell(row, 1).font = Font(bold=True, size=12, color="FF0000" if total_score < 40 else "008000")
         row += 1
-        ws.cell(row, 1, f"建议: {self._get_recommendation(total_score)}")
+        ws.cell(row, 1, f"建議: {self._get_recommendation(total_score)}")
         row += 3
 
-        # KPI指标
-        ws.cell(row, 1, "关键指标 (KPI)")
+        # KPI指標
+        ws.cell(row, 1, "關鍵指標 (KPI)")
         ws.cell(row, 1).font = HEADER_FONT
         ws.cell(row, 1).fill = HEADER_FILL
         row += 1
 
         kpi = self.data.get('kpi', {})
         kpi_data = [
-            ["指标", "数值"],
-            ["产品总数", kpi.get("total_products", 0)],
-            ["平均价格", f"${kpi.get("avg_price", 0):.2f}"],
-            ["平均月销量", f"{kpi.get("avg_sales", 0):.0f}"],
-            ["平均评分", f"{kpi.get("avg_rating", 0):.2f}"],
-            ["总月销额", f"${kpi.get("total_sales", 0):,.0f}"],
+            ["指標", "數值"],
+            ["產品總數", kpi.get("total_products", 0)],
+            ["平均價格", f"${kpi.get("avg_price", 0):.2f}"],
+            ["平均月銷量", f"{kpi.get("avg_sales", 0):.0f}"],
+            ["平均評分", f"{kpi.get("avg_rating", 0):.2f}"],
+            ["總月銷額", f"${kpi.get("total_sales", 0):,.0f}"],
             ["CR3集中度", f"{kpi.get("cr3", 0):.2f}%"],
-            ["HHI指数", f"{kpi.get("hhi", 0):.2f}"],
+            ["HHI指數", f"{kpi.get("hhi", 0):.2f}"],
         ]
 
         for r in kpi_data:
@@ -141,12 +141,12 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_top100_sheet(self):
-        """Sheet 2: Top100产品"""
-        ws = self.wb.create_sheet(title="Top100产品")
+        """Sheet 2: Top100產品"""
+        ws = self.wb.create_sheet(title="Top100產品")
 
-        # 表头
-        headers = ["排名", "ASIN", "产品标题", "品牌", "价格", "评分", "评论数",
-                   "月销量", "月销额($)", "市场份额", "卖家", "卖家来源"]
+        # 表頭
+        headers = ["排名", "ASIN", "產品標題", "品牌", "價格", "評分", "評論數",
+                   "月銷量", "月銷額($)", "市場份額", "賣家", "賣家來源"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -156,7 +156,7 @@ class CategoryReportGenerator:
             cell.alignment = CENTER_ALIGN
             cell.border = BORDER
 
-        # 数据行
+        # 資料行
         products = self.data.get('top100_products', [])
         for idx, p in enumerate(products, 2):
             ws.cell(idx, 1, idx - 1)  # 排名
@@ -172,14 +172,14 @@ class CategoryReportGenerator:
             ws.cell(idx, 11, p.get("seller", ""))
             ws.cell(idx, 12, p.get("seller_source", ""))
 
-            # 应用样式
+            # 應用樣式
             for c in range(1, 13):
                 cell = ws.cell(idx, c)
                 cell.font = DATA_FONT
                 cell.border = BORDER
                 if c in [1]:  # 排名列居中
                     cell.alignment = CENTER_ALIGN
-                elif c in [3]:  # 标题左对齐
+                elif c in [3]:  # 標題左對齊
                     cell.alignment = LEFT_ALIGN
 
         self._adjust_column_width(ws)
@@ -188,8 +188,8 @@ class CategoryReportGenerator:
         """Sheet 3: 品牌分析"""
         ws = self.wb.create_sheet(title="品牌分析")
 
-        # 表头
-        headers = ["排名", "品牌", "产品数", "月销量", "月销额($)", "市场份额", "平均评分"]
+        # 表頭
+        headers = ["排名", "品牌", "產品數", "月銷量", "月銷額($)", "市場份額", "平均評分"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -199,7 +199,7 @@ class CategoryReportGenerator:
             cell.alignment = CENTER_ALIGN
             cell.border = BORDER
 
-        # 数据行
+        # 資料行
         brands = self.data.get('brand_analysis', [])
         for idx, b in enumerate(brands, 2):
             ws.cell(idx, 1, idx - 1)
@@ -219,10 +219,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_price_dist_sheet(self):
-        """Sheet 4: 价格分布"""
-        ws = self.wb.create_sheet(title="价格分布")
+        """Sheet 4: 價格分佈"""
+        ws = self.wb.create_sheet(title="價格分佈")
 
-        headers = ["价格区间", "产品数", "占比", "销量", "销额", "平均评分"]
+        headers = ["價格區間", "產品數", "佔比", "銷量", "銷額", "平均評分"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -250,10 +250,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_rating_dist_sheet(self):
-        """Sheet 5: 评分分布"""
-        ws = self.wb.create_sheet(title="评分分布")
+        """Sheet 5: 評分分佈"""
+        ws = self.wb.create_sheet(title="評分分佈")
 
-        headers = ["评分区间", "产品数", "占比", "销量占比"]
+        headers = ["評分割槽間", "產品數", "佔比", "銷量佔比"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -279,10 +279,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_seller_sheet(self):
-        """Sheet 6: 卖家来源"""
-        ws = self.wb.create_sheet(title="卖家来源")
+        """Sheet 6: 賣家來源"""
+        ws = self.wb.create_sheet(title="賣家來源")
 
-        headers = ["来源地", "卖家数", "产品数", "占比", "销额"]
+        headers = ["來源地", "賣家數", "產品數", "佔比", "銷額"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -309,10 +309,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_new_product_sheet(self):
-        """Sheet 7: 新产品分析"""
-        ws = self.wb.create_sheet(title="新产品分析")
+        """Sheet 7: 新產品分析"""
+        ws = self.wb.create_sheet(title="新產品分析")
 
-        headers = ["ASIN", "产品标题", "品牌", "价格", "评分", "评论数", "月销量", "上架天数"]
+        headers = ["ASIN", "產品標題", "品牌", "價格", "評分", "評論數", "月銷量", "上架天數"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -337,18 +337,18 @@ class CategoryReportGenerator:
                 cell = ws.cell(idx, c)
                 cell.font = DATA_FONT
                 cell.border = BORDER
-                if c in [1, 8]:  # ASIN和上架天数居中
+                if c in [1, 8]:  # ASIN和上架天數居中
                     cell.alignment = CENTER_ALIGN
-                elif c in [2]:  # 标题左对齐
+                elif c in [2]:  # 標題左對齊
                     cell.alignment = LEFT_ALIGN
 
         self._adjust_column_width(ws)
 
     def _create_trend_sales_sheet(self):
-        """Sheet 8: 销量趋势"""
-        ws = self.wb.create_sheet(title="趋势-销量")
+        """Sheet 8: 銷量趨勢"""
+        ws = self.wb.create_sheet(title="趨勢-銷量")
 
-        headers = ["日期", "月销量", "环比", "同比"]
+        headers = ["日期", "月銷量", "環比", "同比"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -374,10 +374,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_trend_price_sheet(self):
-        """Sheet 9: 价格趋势"""
-        ws = self.wb.create_sheet(title="趋势-价格")
+        """Sheet 9: 價格趨勢"""
+        ws = self.wb.create_sheet(title="趨勢-價格")
 
-        headers = ["日期", "平均价格", "环比"]
+        headers = ["日期", "平均價格", "環比"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -402,10 +402,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_trend_score_sheet(self):
-        """Sheet 10: 评分趋势"""
-        ws = self.wb.create_sheet(title="趋势-评分")
+        """Sheet 10: 評分趨勢"""
+        ws = self.wb.create_sheet(title="趨勢-評分")
 
-        headers = ["日期", "平均评分", "环比"]
+        headers = ["日期", "平均評分", "環比"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -430,10 +430,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_trend_brand_sheet(self):
-        """Sheet 11: 品牌数趋势"""
-        ws = self.wb.create_sheet(title="趋势-品牌数")
+        """Sheet 11: 品牌數趨勢"""
+        ws = self.wb.create_sheet(title="趨勢-品牌數")
 
-        headers = ["日期", "品牌数", "新品牌数", "退出品牌数"]
+        headers = ["日期", "品牌數", "新品牌數", "退出品牌數"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -459,10 +459,10 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _create_supply_chain_sheet(self):
-        """Sheet 12: 供应链-1688"""
-        ws = self.wb.create_sheet(title="供应链-1688")
+        """Sheet 12: 供應鏈-1688"""
+        ws = self.wb.create_sheet(title="供應鏈-1688")
 
-        headers = ["产品名称", "1688价格", "Amazon均价", "预估毛利率", "1688链接"]
+        headers = ["產品名稱", "1688價格", "Amazon均價", "預估毛利率", "1688連結"]
 
         row = 1
         for c, h in enumerate(headers, 1):
@@ -484,7 +484,7 @@ class CategoryReportGenerator:
                 cell = ws.cell(idx, c)
                 cell.font = DATA_FONT
                 cell.border = BORDER
-                if c in [5]:  # 链接列左对齐
+                if c in [5]:  # 連結列左對齊
                     cell.alignment = LEFT_ALIGN
                 else:
                     cell.alignment = CENTER_ALIGN
@@ -492,29 +492,29 @@ class CategoryReportGenerator:
         self._adjust_column_width(ws)
 
     def _get_rating(self, score):
-        """根据分数获取评级"""
+        """根據分數獲取評級"""
         if score >= 80:
-            return "优秀"
+            return "優秀"
         elif score >= 60:
             return "良好"
         elif score >= 40:
             return "一般"
         else:
-            return "较差"
+            return "較差"
 
     def _get_recommendation(self, score):
-        """根据分数获取建议"""
+        """根據分數獲取建議"""
         if score >= 80:
-            return "强烈推荐进入"
+            return "強烈推薦進入"
         elif score >= 60:
-            return "可以考虑进入"
+            return "可以考慮進入"
         elif score >= 40:
-            return "谨慎进入"
+            return "謹慎進入"
         else:
-            return "不建议进入"
+            return "不建議進入"
 
     def _adjust_column_width(self, ws):
-        """自动调整列宽"""
+        """自動調整列寬"""
         column_widths = {
             'A': 8, 'B': 15, 'C': 40, 'D': 15, 'E': 10, 'F': 10,
             'G': 12, 'H': 12, 'I': 15, 'J': 12, 'K': 15, 'L': 12
@@ -525,7 +525,7 @@ class CategoryReportGenerator:
 
 def main():
     """示例用法"""
-    # 示例数据结构
+    # 示例資料結構
     category_data = {
         "category_name": "Sofas",
         "five_dimension_score": {

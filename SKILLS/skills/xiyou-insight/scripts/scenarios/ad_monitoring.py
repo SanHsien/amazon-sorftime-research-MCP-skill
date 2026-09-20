@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class AdMonitoringScenario(BaseScenario):
-    """实时监控广告投放效果"""
+    """實時監控廣告投放效果"""
 
     NAME = "ad_monitoring"
-    DESCRIPTION = "实时监控广告投放效果"
+    DESCRIPTION = "實時監控廣告投放效果"
     REQUIRED_PARAMS = ['asin', 'site', 'keyword']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -23,7 +23,7 @@ class AdMonitoringScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'广告监控：获取{asin}基础信息'
+                    'intent_summary': f'廣告監控：獲取{asin}基礎資訊'
                 }
             },
             {
@@ -33,7 +33,7 @@ class AdMonitoringScenario(BaseScenario):
                     'keyword': keyword,
                     'country': site,
                     'date': date,
-                    'intent_summary': f'广告监控：获取{asin}在关键词{keyword}下的小时级排名'
+                    'intent_summary': f'廣告監控：獲取{asin}在關鍵詞{keyword}下的小時級排名'
                 }
             },
             {
@@ -44,7 +44,7 @@ class AdMonitoringScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'广告监控：获取{asin}在关键词{keyword}下的日排名趋势'
+                    'intent_summary': f'廣告監控：獲取{asin}在關鍵詞{keyword}下的日排名趨勢'
                 }
             },
             {
@@ -54,7 +54,7 @@ class AdMonitoringScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'广告监控：获取{asin}广告活动变化趋势'
+                    'intent_summary': f'廣告監控：獲取{asin}廣告活動變化趨勢'
                 }
             },
             {
@@ -65,7 +65,7 @@ class AdMonitoringScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'广告监控：获取{asin}在关键词{keyword}下的流量趋势'
+                    'intent_summary': f'廣告監控：獲取{asin}在關鍵詞{keyword}下的流量趨勢'
                 }
             }
         ]
@@ -78,10 +78,10 @@ class AdMonitoringScenario(BaseScenario):
         keyword = params['keyword']
 
         data = {
-            'title': f'广告投放监控 - {asin} - {keyword}',
+            'title': f'廣告投放監控 - {asin} - {keyword}',
             'target': asin,
             'site': site,
-            'scenario': '广告监控',
+            'scenario': '廣告監控',
             'keyword': keyword
         }
 
@@ -117,30 +117,30 @@ class AdMonitoringScenario(BaseScenario):
                 ad_improved = last_ad < first_ad and last_ad != 0
 
                 if natural_improved and ad_improved:
-                    insights.append("广告投放效果优秀，自然排名和广告排名均有提升")
+                    insights.append("廣告投放效果優秀，自然排名和廣告排名均有提升")
                 elif natural_improved:
-                    insights.append("广告投放带动了自然排名上升，属于正向干预")
+                    insights.append("廣告投放帶動了自然排名上升，屬於正向干預")
                 elif ad_improved and not natural_improved:
-                    insights.append("广告排名有提升但自然排名未上升，需关注广告有效性")
+                    insights.append("廣告排名有提升但自然排名未上升，需關注廣告有效性")
                 else:
-                    insights.append("广告投放未能有效提升排名，建议调整关键词或竞价策略")
+                    insights.append("廣告投放未能有效提升排名，建議調整關鍵詞或競價策略")
 
         if data.get('ad_changes'):
             added = sum(day.get('added', 0) for day in data['ad_changes'])
             removed = sum(day.get('removed', 0) for day in data['ad_changes'])
             if added > removed:
-                insights.append(f"近期新增{added}个广告活动，广告投放力度在加大")
+                insights.append(f"近期新增{added}個廣告活動，廣告投放力度在加大")
             elif removed > added:
-                insights.append(f"近期移除{removed}个广告活动，广告策略正在调整")
+                insights.append(f"近期移除{removed}個廣告活動，廣告策略正在調整")
 
         if data.get('hourly_rank'):
             ad_rank_occurrences = sum(1 for h in data['hourly_rank'] if h.get('ad_rank', 999) <= 10)
             if ad_rank_occurrences >= 18:
-                insights.append("广告位置稳定，大部分时间都在首页前10名")
+                insights.append("廣告位置穩定，大部分時間都在首頁前10名")
             elif ad_rank_occurrences >= 12:
-                insights.append("广告位置尚可，约一半时间在首页")
+                insights.append("廣告位置尚可，約一半時間在首頁")
             else:
-                insights.append("广告位置不稳定，需要优化竞价策略")
+                insights.append("廣告位置不穩定，需要最佳化競價策略")
 
         return insights
 

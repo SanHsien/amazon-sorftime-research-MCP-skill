@@ -1,8 +1,8 @@
 {
-  "title": "广告策略与预算分析 - B07PQFT83F",
+  "title": "廣告策略與預算分析 - B07PQFT83F",
   "target": "B07PQFT83F",
   "site": "US",
-  "scenario": "广告预算",
+  "scenario": "廣告預算",
   "asin_info": {
     "B07PQFT83F": {
       "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
@@ -34,8 +34,8 @@
     }
   },
   "overview": {
-    "B07PQFT83F - 总流量": 127.8,
-    "B07PQFT83F - 广告流量占比": "33.1%"
+    "B07PQFT83F - 總流量": 127.8,
+    "B07PQFT83F - 廣告流量佔比": "33.1%"
   },
   "traffic_trends": {
     "B07PQFT83F": [
@@ -269,19 +269,19 @@
   ],
   "ad_type_share": {
     "自然流量": 66.9,
-    "广告流量": 33.1
+    "廣告流量": 33.1
   },
   "budget_inference": {
     "trend": "increasing",
-    "peak_hours": "推测为美国时间上午10点-下午4点",
+    "peak_hours": "推測為美國時間上午10點-下午4點",
     "adjustment_dates": [],
     "estimated_monthly": 2400
   },
   "insights": [
-    "广告流量占比33.1%，竞品保持适度的广告投入",
-    "识别出5个核心广告关键词",
-    "最核心广告关键词：'bluetooth headphones'，流量15000",
-    "竞品广告预算呈上升趋势，可能正在扩大市场份额",
-    "预估月广告预算约$2400"
+    "廣告流量佔比33.1%，競品保持適度的廣告投入",
+    "識別出5個核心廣告關鍵詞",
+    "最核心廣告關鍵詞：'bluetooth headphones'，流量15000",
+    "競品廣告預算呈上升趨勢，可能正在擴大市場份額",
+    "預估月廣告預算約$2400"
   ]
 }

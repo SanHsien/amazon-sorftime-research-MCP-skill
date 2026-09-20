@@ -103,17 +103,17 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L("# DJI Osmo Pocket 3 Accessories — 综合调研报告")
+L("# DJI Osmo Pocket 3 Accessories — 綜合調研報告")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite MCP | 站点: Amazon US")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite MCP | 站點: Amazon US")
 L()
 
 # ====== SECTION 1: KEYWORD ANALYSIS ======
 L("---")
 L()
-L("## 一、关键词「dji osmo pocket 3 accessories」深度评估")
+L("## 一、關鍵詞「dji osmo pocket 3 accessories」深度評估")
 L()
-L("| 评估维度 | 数值 | 评分 |")
+L("| 評估維度 | 數值 | 評分 |")
 L("|---------|:----:|:---:|")
 
 # Use keyword_miner data for the specific keyword
@@ -135,34 +135,34 @@ if target_kw:
     spr = float(target_kw.get('spr', 0) or 0)
 
     sv_score = "🟢 高" if sv > 30000 else "🟡 中" if sv > 10000 else "🔴 低"
-    cc_score = "🟢 分散" if cc < 0.3 else "🟡 中等" if cc < 0.5 else "🔴 垄断"
-    sdr_score = "🟢 供不应求" if sdr > 20 else "🟡 平衡" if sdr > 5 else "🔴 饱和"
-    overall = "✅ **强烈推荐**" if cc < 0.3 and sdr > 10 and sv > 10000 else "🟡 **可以考虑**"
+    cc_score = "🟢 分散" if cc < 0.3 else "🟡 中等" if cc < 0.5 else "🔴 壟斷"
+    sdr_score = "🟢 供不應求" if sdr > 20 else "🟡 平衡" if sdr > 5 else "🔴 飽和"
+    overall = "✅ **強烈推薦**" if cc < 0.3 and sdr > 10 and sv > 10000 else "🟡 **可以考慮**"
 
-    L(f"| 月搜索量 | {fmt_num(sv)} | {sv_score} |")
-    L(f"| 点击集中度 | {fmt_pct(cc)} | {cc_score} — 流量非常分散 |")
+    L(f"| 月搜尋量 | {fmt_num(sv)} | {sv_score} |")
+    L(f"| 點選集中度 | {fmt_pct(cc)} | {cc_score} — 流量非常分散 |")
     L(f"| 供需比 | {sdr:.1f} | {sdr_score} |")
-    L(f"| 商品数 | {fmt_num(prods)} | 竞争商品少 |")
-    L(f"| 平均售价 | {fmt_money(price)} | 低客单价，容易转化 |")
-    L(f"| 转化率 (CVR) | {fmt_pct(cvr)} | {'🟢 转化率不错' if cvr > 0.1 else '参考值'} |")
-    L(f"| 标题密度 | {fmt_pct(td)} | {'✅ 标题优化空间大' if td < 0.05 else '标题已饱和'} |")
-    L(f"| 综合评估 | | {overall} |")
+    L(f"| 商品數 | {fmt_num(prods)} | 競爭商品少 |")
+    L(f"| 平均售價 | {fmt_money(price)} | 低客單價，容易轉化 |")
+    L(f"| 轉化率 (CVR) | {fmt_pct(cvr)} | {'🟢 轉化率不錯' if cvr > 0.1 else '參考值'} |")
+    L(f"| 標題密度 | {fmt_pct(td)} | {'✅ 標題最佳化空間大' if td < 0.05 else '標題已飽和'} |")
+    L(f"| 綜合評估 | | {overall} |")
 L()
-L("### 结论：关键词价值分析")
+L("### 結論：關鍵詞價值分析")
 L()
 if target_kw:
-    L(f"**「dji osmo pocket 3 accessories」是一个高潜力蓝海关键词**，原因如下：")
+    L(f"**「dji osmo pocket 3 accessories」是一個高潛力藍海關鍵詞**，原因如下：")
     L()
-    L(f"1. **搜索量高**（{fmt_num(sv)}/月）— 用户需求明确且量大")
-    L(f"2. **点击集中度极低**（{fmt_pct(cc)}）— 没有品牌垄断点击，新品也能获取流量")
-    L(f"3. **供需比优秀**（{sdr:.1f}）— 商品相对搜索量少，竞争压力小")
-    L(f"4. **客单价友好**（{fmt_money(price)}）— 低价位，冲动消费决策快")
-    L(f"5. **标题密度极低**（{fmt_pct(td)}）— 竞品标题很少包含该词，Listing 优化空间大")
+    L(f"1. **搜尋量高**（{fmt_num(sv)}/月）— 使用者需求明確且量大")
+    L(f"2. **點選集中度極低**（{fmt_pct(cc)}）— 沒有品牌壟斷點選，新品也能獲取流量")
+    L(f"3. **供需比優秀**（{sdr:.1f}）— 商品相對搜尋量少，競爭壓力小")
+    L(f"4. **客單價友好**（{fmt_money(price)}）— 低價位，衝動消費決策快")
+    L(f"5. **標題密度極低**（{fmt_pct(td)}）— 競品標題很少包含該詞，Listing 最佳化空間大")
 L()
 
 # Also use the original keyword_miner data to compare
 L()
-L("### 关键词对比：为什么这个值得做？")
+L("### 關鍵詞對比：為什麼這個值得做？")
 L()
 # Compare with other DJI keywords
 dji_kws = []
@@ -175,16 +175,16 @@ for kw in orig_items:
         cc_v = float(kw.get('monopolyClickRate', 1) or 1)
         dji_kws.append((kw_name, float(kw.get('searches',0) or 0), cc_v, float(kw.get('supplyDemandRatio',0) or 0) if kw.get('supplyDemandRatio') else 0))
 
-L("| 关键词 | 搜索量 | 点击集中度 | 供需比 | 竞争评估 |")
+L("| 關鍵詞 | 搜尋量 | 點選集中度 | 供需比 | 競爭評估 |")
 L("|--------|:-----:|:---------:|:-----:|---------|")
 for name, sv, cc, sdr in sorted(dji_kws, key=lambda x: x[1], reverse=True)[:8]:
-    judge = "🟢 蓝海" if cc < 0.3 and sdr > 10 else "🟡 中等" if cc < 0.5 else "🔴 激烈"
+    judge = "🟢 藍海" if cc < 0.3 and sdr > 10 else "🟡 中等" if cc < 0.5 else "🔴 激烈"
     L(f"| {name} | {fmt_num(sv)} | {fmt_pct(cc)} | {sdr:.1f} | {judge} |")
 L()
 
 L("---")
 L()
-L("## 二、竞品 ASIN 分析")
+L("## 二、競品 ASIN 分析")
 L()
 
 # Find top products for this keyword
@@ -197,7 +197,7 @@ if pr_items:
             dji_pocket_asins.append(p)
 
 if dji_pocket_asins:
-    L("### 搜索「dji osmo pocket 3」找到的 ASIN")
+    L("### 搜尋「dji osmo pocket 3」找到的 ASIN")
     L()
     for p in dji_pocket_asins[:5]:
         asin = p.get('asin', 'N/A')
@@ -210,15 +210,15 @@ if dji_pocket_asins:
         bsr = fmt_num(p.get('bsr', 0))
         fba = fmt_money(p.get('fbaFee', 0))
         L(f"- **{asin}**: {title}")
-        L(f"  售价 {price} | 月销 {units} | 月销售额 {rev} | 评分 {rating} ({ratings}) | BSR {bsr} | FBA费 {fba}")
+        L(f"  售價 {price} | 月銷 {units} | 月銷售額 {rev} | 評分 {rating} ({ratings}) | BSR {bsr} | FBA費 {fba}")
         L()
 else:
-    L("*搜索未找到完全匹配 Pocket 3 的 ASIN，可能需要精确 ASIN*")
+    L("*搜尋未找到完全匹配 Pocket 3 的 ASIN，可能需要精確 ASIN*")
     L()
 
 L("---")
 L()
-L("## 三、需求趋势分析")
+L("## 三、需求趨勢分析")
 L()
 
 # Keyword trends
@@ -231,9 +231,9 @@ else:
     trend_items = []
 
 if trend_items:
-    L("### 搜索趋势")
+    L("### 搜尋趨勢")
     L()
-    L("| 月份 | 搜索量 | 变化 |")
+    L("| 月份 | 搜尋量 | 變化 |")
     L("|------|:-----:|:----:|")
     for t in trend_items[-12:]:
         month = t.get('month', t.get('label', 'N/A'))
@@ -247,9 +247,9 @@ if trend_items:
 aba_data = get_data(results.get("aba_trend", {}))
 aba_items = safe_items(results.get("aba_trend", {}))
 if aba_items:
-    L("### ABA 品牌集中度趋势")
+    L("### ABA 品牌集中度趨勢")
     L()
-    L("| 时间 | 搜索排名 | 点击份额 | 转化份额 |")
+    L("| 時間 | 搜尋排名 | 點選份額 | 轉化份額 |")
     L("|------|:-------:|:--------:|:--------:|")
     for item in aba_items[-12:]:
         time_label = item.get('label', item.get('month', 'N/A'))
@@ -259,12 +259,12 @@ if aba_items:
         L(f"| {time_label} | {rank} | {cs} | {cvs} |")
     L()
 else:
-    L("*ABA 趋势数据暂缺*")
+    L("*ABA 趨勢資料暫缺*")
     L()
 
 L("---")
 L()
-L("## 四、高潜力关键词挖掘")
+L("## 四、高潛力關鍵詞挖掘")
 L()
 
 # From the keyword_miner results for "dji osmo pocket 3"
@@ -276,7 +276,7 @@ if miner_items:
     high_opp.sort(key=lambda x: float(x.get('searches', 0) or 0), reverse=True)
 
     if high_opp:
-        L("| 关键词 | 月搜索量 | 点击集中度 | 供需比 | 商品数 | 平均售价 | 推荐策略 |")
+        L("| 關鍵詞 | 月搜尋量 | 點選集中度 | 供需比 | 商品數 | 平均售價 | 推薦策略 |")
         L("|--------|:-------:|:---------:|:-----:|:-----:|:-------:|---------|")
         for kw in high_opp[:20]:
             keyword = kw.get('keyword', 'N/A')
@@ -286,42 +286,42 @@ if miner_items:
             sdr_str = f"{float(sdr):.1f}" if sdr else "N/A"
             prods = fmt_num(kw.get('products', 0))
             price = fmt_money(kw.get('avgPrice', 0)) if kw.get('avgPrice') else "N/A"
-            L(f"| {keyword} | {sv} | {cc} | {sdr_str} | {prods} | {price} | Listing + 广告 |")
+            L(f"| {keyword} | {sv} | {cc} | {sdr_str} | {prods} | {price} | Listing + 廣告 |")
         L()
     else:
-        L("*未找到符合条件的潜力关键词*")
+        L("*未找到符合條件的潛力關鍵詞*")
         L()
 
 L("---")
 L()
-L("## 五、综合结论与行动建议")
+L("## 五、綜合結論與行動建議")
 L()
-L("### 核心结论")
+L("### 核心結論")
 L()
-L("**关键词「dji osmo pocket 3 accessories」值得做。**")
+L("**關鍵詞「dji osmo pocket 3 accessories」值得做。**")
 L()
-L("| 维度 | 结论 |")
+L("| 維度 | 結論 |")
 L("|------|------|")
-L("| 搜索需求 | 月搜索量 49K，真实且持续 |")
-L("| 竞争程度 | 点击集中度 19.9%，无垄断，新品友好 |")
-L("| 利润空间 | 均价 $16.99，轻小件 FBA 运费低 |")
-L("| 供需关系 | 供需比 21.3，商品相对少 |")
-L("| 进入难度 | 标题密度极低，Listing 优化即可见效 |")
+L("| 搜尋需求 | 月搜尋量 49K，真實且持續 |")
+L("| 競爭程度 | 點選集中度 19.9%，無壟斷，新品友好 |")
+L("| 利潤空間 | 均價 $16.99，輕小件 FBA 運費低 |")
+L("| 供需關係 | 供需比 21.3，商品相對少 |")
+L("| 進入難度 | 標題密度極低，Listing 最佳化即可見效 |")
 L()
-L("### 具体行动方案")
+L("### 具體行動方案")
 L()
-L("| 优先级 | 行动 | 预期效果 |")
+L("| 優先順序 | 行動 | 預期效果 |")
 L("|:-----:|------|---------|")
-L("| P0 | 标题/Search Terms 加入「dji osmo pocket 3 accessories」| 快速获取搜索排名 |")
-L("| P0 | 创建一个适配 Pocket 3 的配件（如领夹麦支架/转接头）| 物理关联，转化率高 |")
-L("| P1 | 广告投放该词 — 竞价应较低（供需比高=竞争少）| 低成本获取精准流量 |")
-L("| P1 | 同时覆盖「dji pocket 3 accessories」「osmo pocket 3 mic」| 扩大长尾词覆盖 |")
-L("| P2 | 关联销售 Pocket 3 保护套/三脚架等配件 | 扩展品类覆盖 |")
+L("| P0 | 標題/Search Terms 加入「dji osmo pocket 3 accessories」| 快速獲取搜尋排名 |")
+L("| P0 | 建立一個適配 Pocket 3 的配件（如領夾麥支架/轉接頭）| 物理關聯，轉化率高 |")
+L("| P1 | 廣告投放該詞 — 競價應較低（供需比高=競爭少）| 低成本獲取精準流量 |")
+L("| P1 | 同時覆蓋「dji pocket 3 accessories」「osmo pocket 3 mic」| 擴大長尾詞覆蓋 |")
+L("| P2 | 關聯銷售 Pocket 3 保護套/三腳架等配件 | 擴充套件品類覆蓋 |")
 L()
 
 L("---")
 L()
-L(f"*报告生成: 2026-07-05 | 数据工具: 卖家精灵 SellerSprite MCP | 站点: Amazon US*")
+L(f"*報告生成: 2026-07-05 | 資料工具: 賣家精靈 SellerSprite MCP | 站點: Amazon US*")
 
 report = "\n".join(lines)
 with open(f"{OUT_DIR}/dji_pocket3_report.md", "w", encoding="utf-8") as f:

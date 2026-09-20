@@ -1,48 +1,48 @@
 # Keyword Research Skill
 
-亚马逊关键词深度调研与智能分类分析技能。
+亞馬遜關鍵詞深度調研與智慧分類分析技能。
 
-## 功能特点
+## 功能特點
 
-- 基于 **Sorftime MCP** 数据采集 2000+ 关键词
-- 通过 **LLM Agent** 按 8 维度智能分类
-- 生成 Markdown 报告、CSV 词库和 HTML 仪表板
+- 基於 **Sorftime MCP** 資料採集 2000+ 關鍵詞
+- 透過 **LLM Agent** 按 8 維度智慧分類
+- 生成 Markdown 報告、CSV 詞庫和 HTML 儀表板
 
-## 8 维分类模型
+## 8 維分類模型
 
-| 分类 | 说明 | 应用策略 |
+| 分類 | 說明 | 應用策略 |
 |------|------|----------|
-| NEGATIVE | 否定/敏感词 | 直接添加为否定关键词 |
-| BRAND | 品牌词 | 竞品打法或否定 |
-| MATERIAL | 材质词 | 精准词组匹配 |
-| SCENARIO | 使用场景词 | 按场景拆分广告组 |
-| ATTRIBUTE | 属性修饰词 | 长尾精准匹配 |
-| FUNCTION | 功能词 | 广泛匹配扩流 |
-| CORE | 核心产品词 | 大词投放占领坑位 |
-| OTHER | 其他 | 补充埋词 |
+| NEGATIVE | 否定/敏感詞 | 直接新增為否定關鍵詞 |
+| BRAND | 品牌詞 | 競品打法或否定 |
+| MATERIAL | 材質詞 | 精準片語匹配 |
+| SCENARIO | 使用場景詞 | 按場景拆分廣告組 |
+| ATTRIBUTE | 屬性修飾詞 | 長尾精準匹配 |
+| FUNCTION | 功能詞 | 廣泛匹配擴流 |
+| CORE | 核心產品詞 | 大詞投放佔領坑位 |
+| OTHER | 其他 | 補充埋詞 |
 
 ## 使用方法
 
-### 通过 Skill 触发
+### 透過 Skill 觸發
 
 ```bash
 /keyword-research B07PWTJ4H1 US
 ```
 
-### 命令行直接运行
+### 命令列直接執行
 
 ```bash
-# 基础用法
+# 基礎用法
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US
 
-# 带产品信息
+# 帶產品資訊
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --product-info product.json
 
-# 指定长尾词扩展数量
+# 指定長尾詞擴充套件數量
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --long-tail-limit 20
 ```
 
-## 产品信息文件（可选）
+## 產品資訊檔案（可選）
 
 ```json
 {
@@ -54,75 +54,75 @@ python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --long-
 }
 ```
 
-## 输出文件
+## 輸出檔案
 
 ```
 keyword-reports/
 └── {ASIN}_{Site}_{YYYYMMDD}/
-    ├── report.md                    # Markdown 分析报告
-    ├── keywords.csv                 # 完整词库（分类后）
-    ├── keywords_negative.csv        # 否定词专用
-    ├── negative_words.txt           # 否定词清单
-    ├── brand_words.txt              # 品牌词清单
-    ├── categorized_summary.json     # 分类统计
-    ├── dashboard.html               # HTML 仪表板
-    └── execution.log                # 执行日志
+    ├── report.md                    # Markdown 分析報告
+    ├── keywords.csv                 # 完整詞庫（分類後）
+    ├── keywords_negative.csv        # 否定詞專用
+    ├── negative_words.txt           # 否定詞清單
+    ├── brand_words.txt              # 品牌詞清單
+    ├── categorized_summary.json     # 分類統計
+    ├── dashboard.html               # HTML 儀表板
+    └── execution.log                # 執行日誌
 ```
 
-## 数据采集流程
+## 資料採集流程
 
-1. **产品流量词** (product_traffic_terms): 50-200 个
-2. **竞品布局词** (competitor_product_keywords): 100-500 个
-3. **类目核心词** (category_keywords): 100-500 个
-4. **长尾词扩展** (keyword_related_words): 1000-2000 个
+1. **產品流量詞** (product_traffic_terms): 50-200 個
+2. **競品佈局詞** (competitor_product_keywords): 100-500 個
+3. **類目核心詞** (category_keywords): 100-500 個
+4. **長尾詞擴充套件** (keyword_related_words): 1000-2000 個
 
-## API 依赖
+## API 依賴
 
-本技能使用 Sorftime MCP 以下接口：
+本技能使用 Sorftime MCP 以下介面：
 
-- `product_traffic_terms` - 产品流量关键词
-- `competitor_product_keywords` - 竞品布局关键词
-- `category_keywords` - 类目核心关键词
-- `keyword_related_words` - 长尾词扩展
-- `product_detail` - 产品详情（获取 NodeID）
+- `product_traffic_terms` - 產品流量關鍵詞
+- `competitor_product_keywords` - 競品佈局關鍵詞
+- `category_keywords` - 類目核心關鍵詞
+- `keyword_related_words` - 長尾詞擴充套件
+- `product_detail` - 產品詳情（獲取 NodeID）
 
-## 注意事项
+## 注意事項
 
-1. **API Key**: 自动从 `.mcp.json` 读取
-2. **分类方式**: 使用 LLM Agent 批量分类（每批 150 个关键词）
-3. **数据去重**: 自动归一化处理（小写、去除特殊字符）
-4. **编码**: UTF-8，支持中文和特殊字符
+1. **API Key**: 自動從 `.mcp.json` 讀取
+2. **分類方式**: 使用 LLM Agent 批次分類（每批 150 個關鍵詞）
+3. **資料去重**: 自動歸一化處理（小寫、去除特殊字元）
+4. **編碼**: UTF-8，支援中文和特殊字元
 
 ## 故障排查
 
-### API 认证失败
+### API 認證失敗
 ```
 ❌ Authentication required - Invalid API Key
 ```
-**解决**: 检查 `.mcp.json` 中的 API Key 是否正确
+**解決**: 檢查 `.mcp.json` 中的 API Key 是否正確
 
-### 产品未找到
+### 產品未找到
 ```
-未查询到对应产品
+未查詢到對應產品
 ```
-**解决**: 确认 ASIN 是否存在于 Sorftime 数据库
+**解決**: 確認 ASIN 是否存在於 Sorftime 資料庫
 
-### 分类结果不准确
-**解决**: 提供产品信息 JSON 文件以提高分类准确性
+### 分類結果不準確
+**解決**: 提供產品資訊 JSON 檔案以提高分類準確性
 
-## 文件结构
+## 檔案結構
 
 ```
 .claude/skills/keyword-research/
-├── SKILL.md                          # 技能定义
-├── README.md                         # 本文件
+├── SKILL.md                          # 技能定義
+├── README.md                         # 本檔案
 ├── scripts/
 │   ├── workflow.py                   # 主工作流
-│   ├── keyword_collector.py          # 关键词采集
-│   ├── data_parser.py                # SSE 数据解析
+│   ├── keyword_collector.py          # 關鍵詞采集
+│   ├── data_parser.py                # SSE 資料解析
 │   ├── csv_generator.py              # CSV 生成
-│   ├── generate_markdown_report.py   # Markdown 报告
-│   └── generate_html_dashboard.py    # HTML 仪表板
+│   ├── generate_markdown_report.py   # Markdown 報告
+│   └── generate_html_dashboard.py    # HTML 儀表板
 └── templates/
     └── dashboard_template.html       # HTML 模板
 ```

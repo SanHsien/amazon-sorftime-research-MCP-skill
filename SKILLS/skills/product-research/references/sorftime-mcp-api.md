@@ -1,6 +1,6 @@
-# Sorftime MCP API 接口文档
+# Sorftime MCP API 介面文件
 
-## 调用方式
+## 呼叫方式
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
   -H "Content-Type: application/json" \
@@ -9,500 +9,500 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
 
 ---
 
-## 一、产品相关接口
+## 一、產品相關介面
 
-### 1.1 产品详情 (product_detail)
-**调用消耗**: 1
+### 1.1 產品詳情 (product_detail)
+**呼叫消耗**: 1
 
-**用途**: 查询亚马逊电商平台上产品的详情数据
+**用途**: 查詢亞馬遜電商平臺上產品的詳情資料
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | 是 | 亚马逊站点 US/GB/DE/FR/IN/CA/JP/ES/IT/MX/AE/AU/BR/SA |
-| asin | string | 是 | 产品ASIN |
+| amzSite | string | 是 | 亞馬遜站點 US/GB/DE/FR/IN/CA/JP/ES/IT/MX/AE/AU/BR/SA |
+| asin | string | 是 | 產品ASIN |
 
-**返回数据**: 标题、价格、评分、评论数、品牌、类目、排名、销量等
+**返回資料**: 標題、價格、評分、評論數、品牌、類目、排名、銷量等
 
 ---
 
-### 1.2 产品子体明细 (product_variations)
-**调用消耗**: 1
+### 1.2 產品子體明細 (product_variations)
+**呼叫消耗**: 1
 
-**用途**: 查询亚马逊电商平台产品的子体明细
+**用途**: 查詢亞馬遜電商平臺產品的子體明細
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN（仅支持单ASIN） |
+| amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN（僅支援單ASIN） |
 
 ---
 
-### 1.3 产品历史趋势 (product_trend)
-**调用消耗**: 1
+### 1.3 產品歷史趨勢 (product_trend)
+**呼叫消耗**: 1
 
-**用途**: 查询产品的历史趋势数据，支持月销量/月销额/价格/排名趋势
+**用途**: 查詢產品的歷史趨勢資料，支援月銷量/月銷額/價格/排名趨勢
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN |
-| productTrendType | string | 否 | 月销量趋势/月销额趋势/价格趋势/所属大类排名趋势 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN |
+| productTrendType | string | 否 | 月銷量趨勢/月銷額趨勢/價格趨勢/所屬大類排名趨勢 |
 
 ---
 
-### 1.4 产品评论 (product_reviews)
-**调用消耗**: 1
+### 1.4 產品評論 (product_reviews)
+**呼叫消耗**: 1
 
-**用途**: 查询产品近一年的用户留评，最多返回100条
+**用途**: 查詢產品近一年的使用者留評，最多返回100條
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN |
-| reviewType | string | 否 | 全部（不限星级）/积极评论（4-5星）/消极评论（1-3星） |
+|amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN |
+| reviewType | string | 否 | 全部（不限星級）/積極評論（4-5星）/消極評論（1-3星） |
 
 ---
 
-### 1.5 产品流量关键词 (product_traffic_terms)
-**调用消耗**: 1
+### 1.5 產品流量關鍵詞 (product_traffic_terms)
+**呼叫消耗**: 1
 
-**用途**: 产品反查关键词，返回产品在哪些关键词前3页中曝光
+**用途**: 產品反查關鍵詞，返回產品在哪些關鍵詞前3頁中曝光
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN |
-| page | int | 否 | 页码索引，默认第1页，每页50条 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN |
+| page | int | 否 | 頁碼索引，預設第1頁，每頁50條 |
 
 ---
 
-### 1.6 竞品关键词布局 (competitor_product_keywords)
-**调用消耗**: 1
+### 1.6 競品關鍵詞佈局 (competitor_product_keywords)
+**呼叫消耗**: 1
 
-**用途**: 获取竞品在各核心关键词下的曝光位置（自然曝光）
+**用途**: 獲取競品在各核心關鍵詞下的曝光位置（自然曝光）
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN |
-| page | int | 否 | 页码索引，默认第1页 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN |
+| page | int | 否 | 頁碼索引，預設第1頁 |
 
 ---
 
-### 1.7 产品关键词排名趋势 (product_keyword_rank_trend)
-**调用消耗**: 1
+### 1.7 產品關鍵詞排名趨勢 (product_keyword_rank_trend)
+**呼叫消耗**: 1
 
-**用途**: 产品在指定关键词下曝光的排名趋势
+**用途**: 產品在指定關鍵詞下曝光的排名趨勢
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| asin | string | 是 | 产品ASIN |
-| keyword | string | 是 | 关键词 |
-| page | int | 否 | 页码索引，默认第1页 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| asin | string | 是 | 產品ASIN |
+| keyword | string | 是 | 關鍵詞 |
+| page | int | 否 | 頁碼索引，預設第1頁 |
 
 ---
 
-### 1.8 产品搜索 (product_search)
-**调用消耗**: 1
+### 1.8 產品搜尋 (product_search)
+**呼叫消耗**: 1
 
-**用途**: 搜索或筛选亚马逊产品，支持多维度筛选实现选品功能
+**用途**: 搜尋或篩選亞馬遜產品，支援多維度篩選實現選品功能
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchName | string | 否 | 搜索产品名称 |
-| brand | string | 否 | 筛选品牌 |
-| delivery_type | string | 否 | 发货方式 |
-| month_sales_volume_range | string | 否 | 月销量范围[x,y] |
-| price_range | string | 否 | 价格范围[x,y] |
-| property_name | string | 否 | 标题或属性包含词 |
-| ratings_count_range | string | 否 | 评论数量范围[x,y] |
-| ratings_range | string | 否 | 星级范围[x,y] |
-| seasonal_popular_product | string | 否 | 热销旺季产品 |
-| seller_name | string | 否 | 卖家名称 |
-| subcategory_rank_range | string | 否 | 细分类目排名范围[x,y] |
-| variation_count_range | string | 否 | 子体数量范围[x,y] |
-| sortby_potential_index | string | 否 | 按潜力指数排序 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchName | string | 否 | 搜尋產品名稱 |
+| brand | string | 否 | 篩選品牌 |
+| delivery_type | string | 否 | 發貨方式 |
+| month_sales_volume_range | string | 否 | 月銷量範圍[x,y] |
+| price_range | string | 否 | 價格範圍[x,y] |
+| property_name | string | 否 | 標題或屬性包含詞 |
+| ratings_count_range | string | 否 | 評論數量範圍[x,y] |
+| ratings_range | string | 否 | 星級範圍[x,y] |
+| seasonal_popular_product | string | 否 | 熱銷旺季產品 |
+| seller_name | string | 否 | 賣家名稱 |
+| subcategory_rank_range | string | 否 | 細分類目排名範圍[x,y] |
+| variation_count_range | string | 否 | 子體數量範圍[x,y] |
+| sortby_potential_index | string | 否 | 按潛力指數排序 |
 
 ---
 
-### 1.9 潜力产品搜索 (potential_product_search)
-**调用消耗**: 1
+### 1.9 潛力產品搜尋 (potential_product_search)
+**呼叫消耗**: 1
 
-**用途**: 搜索亚马逊平台上的潜力产品
+**用途**: 搜尋亞馬遜平臺上的潛力產品
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 支持的站点 US/GB/DE |
-| searchName | string | 否 | 产品名称 |
-| price_range | string | 否 | 价格范围[x,y] |
-| month_sales_volume_range | string | 否 | 月销量范围[x,y] |
-| delivery_type | string | 否 | 发货方式 |
+|amzSite | string | 是 | 支援的站點 US/GB/DE |
+| searchName | string | 否 | 產品名稱 |
+| price_range | string | 否 | 價格範圍[x,y] |
+| month_sales_volume_range | string | 否 | 月銷量範圍[x,y] |
+| delivery_type | string | 否 | 發貨方式 |
 
 ---
 
-## 二、类目相关接口
+## 二、類目相關介面
 
-### 2.1 类目名称搜索 (category_name_search)
-**调用消耗**: 1
+### 2.1 類目名稱搜尋 (category_name_search)
+**呼叫消耗**: 1
 
-**用途**: 基于名称查询细分类目市场，返回nodeid和name
+**用途**: 基於名稱查詢細分類目市場，返回nodeid和name
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchName | string | 是 | 类目市场名称 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchName | string | 是 | 類目市場名稱 |
 
 ---
 
-### 2.2 类目树结构 (category_tree)
-**调用消耗**: 5
+### 2.2 類目樹結構 (category_tree)
+**呼叫消耗**: 5
 
-**用途**: 查询类目产品的特点
+**用途**: 查詢類目產品的特點
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchName | string | 是 | 类目名称 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchName | string | 是 | 類目名稱 |
 
 ---
 
-### 2.3 细分类目报告 (category_report)
-**调用消耗**: 1
+### 2.3 細分類目報告 (category_report)
+**呼叫消耗**: 1
 
-**用途**: 细分类目实时数据报告，基于Top100产品统计
+**用途**: 細分類目實時資料包告，基於Top100產品統計
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| nodeId | string | 否 | 细分类目nodeid |
+|amzSite | string | 是 | 亞馬遜站點 |
+| nodeId | string | 否 | 細分類目nodeid |
 
 ---
 
-### 2.4 细分类目历史报告 (category_history_report)
-**调用消耗**: 1
+### 2.4 細分類目歷史報告 (category_history_report)
+**呼叫消耗**: 1
 
-**用途**: 细分类目历史指定时间段数据报告
+**用途**: 細分類目歷史指定時間段資料包告
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| nodeId | string | 否 | 细分类目nodeid |
-| startDate | string | 是 | 起始时间(yyyy-MM-dd) |
-| endDate | string | 否 | 截止时间，最长40天 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| nodeId | string | 否 | 細分類目nodeid |
+| startDate | string | 是 | 起始時間(yyyy-MM-dd) |
+| endDate | string | 否 | 截止時間，最長40天 |
 
 ---
 
-### 2.5 类目趋势 (category_trend)
-**调用消耗**: 1
+### 2.5 類目趨勢 (category_trend)
+**呼叫消耗**: 1
 
-**用途**: 查询类目市场趋势数据，基于Top100统计
+**用途**: 查詢類目市場趨勢資料，基於Top100統計
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| nodeId | string | 是 | 细分类目nodeid |
-| trendIndex | string | 是 | 趋势类型（见下方） |
+|amzSite | string | 是 | 亞馬遜站點 |
+| nodeId | string | 是 | 細分類目nodeid |
+| trendIndex | string | 是 | 趨勢型別（見下方） |
 
-**趋势类型 (trendIndex)**:
-- 类目月销量趋势
-- 品牌数量趋势
-- 卖家数量趋势
-- 平均售价趋势
-- 平均评论数量趋势
-- 平均星级趋势
-- 上架3个月内新品销量占比趋势
-- 亚马逊自营销量占比趋势
-- 销量前3的产品销量占比趋势
-- 销量前3的品牌销量占比趋势
-- 销量前3的卖家销量占比趋势
+**趨勢型別 (trendIndex)**:
+- 類目月銷量趨勢
+- 品牌數量趨勢
+- 賣家數量趨勢
+- 平均售價趨勢
+- 平均評論數量趨勢
+- 平均星級趨勢
+- 上架3個月內新品銷量佔比趨勢
+- 亞馬遜自營銷量佔比趨勢
+- 銷量前3的產品銷量佔比趨勢
+- 銷量前3的品牌銷量佔比趨勢
+- 銷量前3的賣家銷量佔比趨勢
 
 ---
 
-### 2.6 类目市场搜索 (category_market_search)
-**调用消耗**: 1
+### 2.6 類目市場搜尋 (category_market_search)
+**呼叫消耗**: 1
 
-**用途**: 查询或搜索细分类目市场
+**用途**: 查詢或搜尋細分類目市場
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchName | string | 否 | 类目市场名称 |
-| month_sales_volume_range | string | 否 | 月销量范围[x,y] |
-| ratings_range | string | 否 | 星级范围[x,y] |
-| ratings_count_range | string | 否 | 评论数范围[x,y] |
-| price_range | string | 否 | 平均销售价范围[x,y] |
-| seasonal_popular_product | string | 否 | 热销旺季 |
-| top3Product_sales_share | string | 否 | Top3产品销量占比[x,y](0-1) |
-| amazonOwned_sales_share | string | 否 | 亚马逊自营占比[x,y](0-1) |
-| top100_top400_sales_share | string | 否 | Top100在Top400占比[x,y](0-1) |
-| newproduct_sales_share | string | 否 | 新品销量占比[x,y](0-1) |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchName | string | 否 | 類目市場名稱 |
+| month_sales_volume_range | string | 否 | 月銷量範圍[x,y] |
+| ratings_range | string | 否 | 星級範圍[x,y] |
+| ratings_count_range | string | 否 | 評論數範圍[x,y] |
+| price_range | string | 否 | 平均銷售價範圍[x,y] |
+| seasonal_popular_product | string | 否 | 熱銷旺季 |
+| top3Product_sales_share | string | 否 | Top3產品銷量佔比[x,y](0-1) |
+| amazonOwned_sales_share | string | 否 | 亞馬遜自營佔比[x,y](0-1) |
+| top100_top400_sales_share | string | 否 | Top100在Top400佔比[x,y](0-1) |
+| newproduct_sales_share | string | 否 | 新品銷量佔比[x,y](0-1) |
 
 ---
 
-### 2.7 类目核心关键词 (category_keywords)
-**调用消耗**: 1
+### 2.7 類目核心關鍵詞 (category_keywords)
+**呼叫消耗**: 1
 
-**用途**: 查询细分类目市场的核心关键词
+**用途**: 查詢細分類目市場的核心關鍵詞
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| nodeId | string | 是 | 细分类目nodeid |
-| page | int | 否 | 页码索引，默认第1页 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| nodeId | string | 是 | 細分類目nodeid |
+| page | int | 否 | 頁碼索引，預設第1頁 |
 
 ---
 
-## 三、关键词相关接口
+## 三、關鍵詞相關介面
 
-### 3.1 关键词详情 (keyword_detail)
-**调用消耗**: 1
+### 3.1 關鍵詞詳情 (keyword_detail)
+**呼叫消耗**: 1
 
-**用途**: 查询热搜关键词详情
+**用途**: 查詢熱搜關鍵詞詳情
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| keyword | string | 是 | 查询的关键词 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| keyword | string | 是 | 查詢的關鍵詞 |
 
 ---
 
-### 3.2 关键词搜索结果 (keyword_search_result)
-**调用消耗**: 1
+### 3.2 關鍵詞搜尋結果 (keyword_search_result)
+**呼叫消耗**: 1
 
-**用途**: 查询关键词搜索结果自然位产品清单
+**用途**: 查詢關鍵詞搜尋結果自然位產品清單
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchKeyword | string | 是 | 查询的关键词 |
-| page | int | 否 | 页码索引，默认第1页 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchKeyword | string | 是 | 查詢的關鍵詞 |
+| page | int | 否 | 頁碼索引，預設第1頁 |
 
 ---
 
-### 3.3 关键词历史趋势 (keyword_trend)
-**调用消耗**: 1
+### 3.3 關鍵詞歷史趨勢 (keyword_trend)
+**呼叫消耗**: 1
 
-**用途**: 查询关键词历史趋势（搜索量/搜索排名/CPC价格）
+**用途**: 查詢關鍵詞歷史趨勢（搜尋量/搜尋排名/CPC價格）
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchKeyword | string | 是 | 查询的关键词 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchKeyword | string | 是 | 查詢的關鍵詞 |
 
 ---
 
-### 3.4 关键词延伸词 (keyword_related_words)
-**调用消耗**: 1
+### 3.4 關鍵詞延伸詞 (keyword_related_words)
+**呼叫消耗**: 1
 
-**用途**: 查询关键词的延伸词，用于发现长尾词
+**用途**: 查詢關鍵詞的延伸詞，用於發現長尾詞
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | 亚马逊站点 |
-| searchKeyword | string | 是 | 查询的关键词 |
-| page | int | 否 | 页码索引，默认第1页 |
+|amzSite | string | 是 | 亞馬遜站點 |
+| searchKeyword | string | 是 | 查詢的關鍵詞 |
+| page | int | 否 | 頁碼索引，預設第1頁 |
 
 ---
 
-## 四、关键词词库管理接口
+## 四、關鍵詞詞庫管理介面
 
-### 4.1 添加关键词收藏 (add_keyword)
-**调用消耗**: 1
+### 4.1 新增關鍵詞收藏 (add_keyword)
+**呼叫消耗**: 1
 
-**参数**: site, keyword, dict(可选)
-
----
-
-### 4.2 移动关键词到收藏夹 (move_keyword)
-**调用消耗**: 1
-
-**参数**: site, keyword, toDict, fromDict(可选)
+**引數**: site, keyword, dict(可選)
 
 ---
 
-### 4.3 删除关键词收藏 (remove_keyword)
-**调用消耗**: 1
+### 4.2 移動關鍵詞到收藏夾 (move_keyword)
+**呼叫消耗**: 1
 
-**参数**: site, keyword, dict(可选)
-
----
-
-### 4.4 查询收藏夹列表 (query_keyword_dict_list)
-**调用消耗**: 1
-
-**参数**: site, page
+**引數**: site, keyword, toDict, fromDict(可選)
 
 ---
 
-### 4.5 查询收藏的词 (query_keyword_dict)
-**调用消耗**: 1
+### 4.3 刪除關鍵詞收藏 (remove_keyword)
+**呼叫消耗**: 1
 
-**参数**: site, dict(可选，all查询全部), page
+**引數**: site, keyword, dict(可選)
 
 ---
 
-## 五、1688 供货平台接口
+### 4.4 查詢收藏夾列表 (query_keyword_dict_list)
+**呼叫消耗**: 1
 
-### 5.1 1688产品搜索 (products_1688)
-**调用消耗**: 1
+**引數**: site, page
 
-**用途**: 通过1688平台找产品的采购货源，分析产品采购成本价
+---
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+### 4.5 查詢收藏的詞 (query_keyword_dict)
+**呼叫消耗**: 1
+
+**引數**: site, dict(可選，all查詢全部), page
+
+---
+
+## 五、1688 供貨平臺介面
+
+### 5.1 1688產品搜尋 (products_1688)
+**呼叫消耗**: 1
+
+**用途**: 透過1688平臺找產品的採購貨源，分析產品採購成本價
+
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| searchName | string | 是 | 查询的产品名称 |
-| page | int | 否 | 页码索引，默认第1页，每页50条 |
+| searchName | string | 是 | 查詢的產品名稱 |
+| page | int | 否 | 頁碼索引，預設第1頁，每頁50條 |
 
 ---
 
-## 六、TikTok 电商平台接口
+## 六、TikTok 電商平臺介面
 
-### 6.1 TikTok产品搜索 (tiktok_product_search)
-**调用消耗**: 1
+### 6.1 TikTok產品搜尋 (tiktok_product_search)
+**呼叫消耗**: 1
 
-**用途**: 查询产品在TikTok平台上的相似产品，分析销售情况
+**用途**: 查詢產品在TikTok平臺上的相似產品，分析銷售情況
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| searchName | string | 是 | 查询的产品名称 |
-| page | int | 是 | 页码索引，默认第1页，每页50条 |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| searchName | string | 是 | 查詢的產品名稱 |
+| page | int | 是 | 頁碼索引，預設第1頁，每頁50條 |
 
 ---
 
-### 6.2 TikTok产品详情 (tiktok_product_detail)
-**调用消耗**: 1
+### 6.2 TikTok產品詳情 (tiktok_product_detail)
+**呼叫消耗**: 1
 
-**用途**: 查询TikTok平台产品详情
+**用途**: 查詢TikTok平臺產品詳情
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| productId | string | 是 | 产品ID |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| productId | string | 是 | 產品ID |
 
 ---
 
-### 6.3 TikTok带货视频 (tiktok_product_videos)
-**调用消耗**: 1
+### 6.3 TikTok帶貨影片 (tiktok_product_videos)
+**呼叫消耗**: 1
 
-**用途**: 查询TikTok平台产品的带货视频
+**用途**: 查詢TikTok平臺產品的帶貨影片
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| productId | string | 是 | 产品ID |
-| page | int | 是 | 页码索引，默认第1页，每页50条 |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| productId | string | 是 | 產品ID |
+| page | int | 是 | 頁碼索引，預設第1頁，每頁50條 |
 
 ---
 
-### 6.4 TikTok带货达人分析 (tiktok_product_influencers)
-**调用消耗**: 1
+### 6.4 TikTok帶貨達人分析 (tiktok_product_influencers)
+**呼叫消耗**: 1
 
-**用途**: TikTok平台产品的带货达人分析
+**用途**: TikTok平臺產品的帶貨達人分析
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| productId | string | 是 | 产品ID |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| productId | string | 是 | 產品ID |
 
 ---
 
-### 6.5 TikTok产品趋势 (tiktok_product_trend)
-**调用消耗**: 1
+### 6.5 TikTok產品趨勢 (tiktok_product_trend)
+**呼叫消耗**: 1
 
-**用途**: 查询TikTok平台产品趋势，返回销量、价格、星级、评论数量、新增带货视频数、新增带货达人数
+**用途**: 查詢TikTok平臺產品趨勢，返回銷量、價格、星級、評論數量、新增帶貨影片數、新增帶貨達人數
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| productId | string | 是 | 产品ID |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| productId | string | 是 | 產品ID |
 
 ---
 
-### 6.6 TikTok达人搜索 (tiktok_influencer_search)
-**调用消耗**: 1
+### 6.6 TikTok達人搜尋 (tiktok_influencer_search)
+**呼叫消耗**: 1
 
-**用途**: 按产品名称搜索相关带货达人
+**用途**: 按產品名稱搜尋相關帶貨達人
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| searchName | string | 是 | 搜索的产品名称 |
-| page | int | 是 | 页码索引，默认第1页，每页50条 |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| searchName | string | 是 | 搜尋的產品名稱 |
+| page | int | 是 | 頁碼索引，預設第1頁，每頁50條 |
 
 ---
 
-### 6.7 TikTok类目搜索 (tiktok_category_name_search)
-**调用消耗**: 1
+### 6.7 TikTok類目搜尋 (tiktok_category_name_search)
+**呼叫消耗**: 1
 
-**用途**: 按名称搜索TikTok上相关类目市场，返回类目市场名称和nodeid
+**用途**: 按名稱搜尋TikTok上相關類目市場，返回類目市場名稱和nodeid
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| searchName | string | 是 | 搜索的产品名称 |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| searchName | string | 是 | 搜尋的產品名稱 |
 
 ---
 
-### 6.8 TikTok类目报告 (tiktok_category_report)
-**调用消耗**: 1
+### 6.8 TikTok類目報告 (tiktok_category_report)
+**呼叫消耗**: 1
 
-**用途**: 查询TikTok电商平台指定类目的类目数据报告
+**用途**: 查詢TikTok電商平臺指定類目的類目資料包告
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-|amzSite | string | 是 | TikTok站点 US/GB/MY/PH/VN/ID |
-| nodeId | string | 是 | 类目市场nodeid，可通过tiktok_category_name_search获得 |
+|amzSite | string | 是 | TikTok站點 US/GB/MY/PH/VN/ID |
+| nodeId | string | 是 | 類目市場nodeid，可透過tiktok_category_name_search獲得 |
 
 ---
 
-## 支持的平台站点
+## 支援的平臺站點
 
-### 亚马逊 (14个站点)
+### 亞馬遜 (14個站點)
 `US`, `GB`, `DE`, `FR`, `IN`, `CA`, `JP`, `ES`, `IT`, `MX`, `AE`, `AU`, `BR`, `SA`
 
-### TikTok (6个站点)
+### TikTok (6個站點)
 `US`, `GB`, `MY`, `PH`, `VN`, `ID`
 
-### 1688 供货平台
-国内批发采购平台
+### 1688 供貨平臺
+國內批發採購平臺
 
-## 调用限制
-- 大部分接口调用消耗: 1
+## 呼叫限制
+- 大部分介面呼叫消耗: 1
 - category_tree: 5
-- 返回数据为SSE格式，需解析
+- 返回資料為SSE格式，需解析
 
 ---
 
-*最后更新: 2026-03-03*
+*最後更新: 2026-03-03*

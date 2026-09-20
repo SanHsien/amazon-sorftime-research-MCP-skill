@@ -1,20 +1,20 @@
 {
   "dog food": {
-    "关键词": "dog food",
-    "周搜索量": "128480",
-    "周搜索排名": "268",
-    "月搜索量": "486921",
-    "推荐cpc竞价": "12.58",
-    "词搜索量旺季": "均衡",
-    "搜索结果竞品数量": "167922",
-    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比26.00%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为15.09%/15.09%/15.09%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为100.00%/100.00%/100.00%,\r\n                    平均星级为1,\r\n                    平均评价数为4.67,\r\n                    做coupon促销产品数量/占比分别为3个 /4.48% ",
-    "近15日前3页自然位销量Top100产品统计": {
+    "關鍵詞": "dog food",
+    "周搜尋量": "128480",
+    "周搜尋排名": "268",
+    "月搜尋量": "486921",
+    "推薦cpc競價": "12.58",
+    "詞搜尋量旺季": "均衡",
+    "搜尋結果競品數量": "167922",
+    "搜尋結果首頁統計": "近15日關鍵詞搜尋首頁產品銷量Top100資料包告：\r\n                    自然位非Best Seller Top100產品數量佔比26.00%,\r\n                    自然位評價數低於100/300/500的產品數量佔比分別為15.09%/15.09%/15.09%,\r\n                    廣告位評價數低於100/300/500的產品數量佔比分別為100.00%/100.00%/100.00%,\r\n                    平均星級為1,\r\n                    平均評價數為4.67,\r\n                    做coupon促銷產品數量/佔比分別為3個 /4.48% ",
+    "近15日前3頁自然位銷量Top100產品統計": {
       "top5_product": [
         {
           "asin": "B07S2TDDCK",
           "price": 17.49,
           "title": "Greenies Pill Pockets for Dogs Large Size, Dog Treat Pouch for Capsule Medication, Peanut Butter Flavor, 15.8 oz. Pouch",
-          "monthly_sales": "本产品月销量：151253（占比：8.21%）",
+          "monthly_sales": "本產品月銷量：151253（佔比：8.21%）",
           "brand": "Greenies",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B07S2TDDCK?psc=1"
@@ -23,7 +23,7 @@
           "asin": "B0009YWKUA",
           "price": 67.98,
           "title": "Blue Buffalo Life Protection Formula Adult Dry Dog Food, Helps Build and Maintain Strong Muscles, Made with Natural Ingredients, Chicken & Brown Rice Recipe, 30-lb. Bag",
-          "monthly_sales": "本产品月销量：116255（占比：6.31%）",
+          "monthly_sales": "本產品月銷量：116255（佔比：6.31%）",
           "brand": "Blue Buffalo",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B0009YWKUA?psc=1"
@@ -32,7 +32,7 @@
           "asin": "B0000AH3QW",
           "price": 16.28,
           "title": "Purina ONE Dry Dog Food Lamb and Rice Formula - 8 lb. Bag",
-          "monthly_sales": "本产品月销量：57537（占比：3.12%）",
+          "monthly_sales": "本產品月銷量：57537（佔比：3.12%）",
           "brand": "Purina ONE",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B0000AH3QW?psc=1"
@@ -41,7 +41,7 @@
           "asin": "B071J1BFTX",
           "price": 35.94,
           "title": "Cesar Wet Dog Food Classic Loaf in Sauce Grilled Chicken, Filet Mignon, Porterhouse Steak, Beef, Chicken & Liver and Turkey Variety Pack 3.5 oz. Easy Peel Trays (36 Count, Pack of 1)",
-          "monthly_sales": "本产品月销量：51762（占比：2.81%）",
+          "monthly_sales": "本產品月銷量：51762（佔比：2.81%）",
           "brand": "Cesar",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B071J1BFTX?psc=1"
@@ -50,7 +50,7 @@
           "asin": "B001QCKS4O",
           "price": 74.48,
           "title": "Purina Pro Plan Complete Essentials Shredded Blend Chicken and Rice Dog Food Dry Formula with Probiotics for Dogs - 35 lb. Bag",
-          "monthly_sales": "本产品月销量：51433（占比：2.79%）",
+          "monthly_sales": "本產品月銷量：51433（佔比：2.79%）",
           "brand": "Purina Pro Plan",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B001QCKS4O?psc=1"
@@ -59,60 +59,60 @@
       "top5_brand": [
         {
           "brand": "Blue Buffalo",
-          "product_count": "在统计样本中，产品数量:6",
-          "monthly_sales": "统计样本中本品牌月销量和：203329（占比：11.04%）"
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：203329（佔比：11.04%）"
         },
         {
           "brand": "Purina Pro Plan",
-          "product_count": "在统计样本中，产品数量:6",
-          "monthly_sales": "统计样本中本品牌月销量和：178604（占比：9.70%）"
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：178604（佔比：9.70%）"
         },
         {
           "brand": "Purina ONE",
-          "product_count": "在统计样本中，产品数量:5",
-          "monthly_sales": "统计样本中本品牌月销量和：164593（占比：8.94%）"
+          "product_count": "在統計樣本中，產品數量:5",
+          "monthly_sales": "統計樣本中本品牌月銷量和：164593（佔比：8.94%）"
         },
         {
           "brand": "Greenies",
-          "product_count": "在统计样本中，产品数量:1",
-          "monthly_sales": "统计样本中本品牌月销量和：151253（占比：8.21%）"
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：151253（佔比：8.21%）"
         },
         {
           "brand": "Pedigree",
-          "product_count": "在统计样本中，产品数量:5",
-          "monthly_sales": "统计样本中本品牌月销量和：147200（占比：7.99%）"
+          "product_count": "在統計樣本中，產品數量:5",
+          "monthly_sales": "統計樣本中本品牌月銷量和：147200（佔比：7.99%）"
         }
       ],
       "top5_seller": [
         {
           "seller": "Amazon",
-          "product_count": "在统计样本中，产品数量:49",
-          "monthly_sales": "统计样本中本品牌月销量和：1463238（占比：79.47%）"
+          "product_count": "在統計樣本中，產品數量:49",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1463238（佔比：79.47%）"
         },
         {
           "seller": "R-lian",
-          "product_count": "在统计样本中，产品数量:1",
-          "monthly_sales": "统计样本中本品牌月销量和：19274（占比：1.05%）"
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：19274（佔比：1.05%）"
         }
       ]
     }
   },
   "dog foods": {
-    "关键词": "dog foods",
-    "周搜索量": "19",
-    "周搜索排名": "1576741",
-    "月搜索量": "85",
-    "推荐cpc竞价": "12.58",
-    "词搜索量旺季": "8月, 9月, 2月",
-    "搜索结果竞品数量": "186987",
-    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比6.25%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为100.00%/100.00%/100.00%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为62.50%/62.50%/62.50%,\r\n                    平均星级为1,\r\n                    平均评价数为4.64,\r\n                    做coupon促销产品数量/占比分别为8个 /17.02% ",
-    "近15日前3页自然位销量Top100产品统计": {
+    "關鍵詞": "dog foods",
+    "周搜尋量": "19",
+    "周搜尋排名": "1576741",
+    "月搜尋量": "85",
+    "推薦cpc競價": "12.58",
+    "詞搜尋量旺季": "8月, 9月, 2月",
+    "搜尋結果競品數量": "186987",
+    "搜尋結果首頁統計": "近15日關鍵詞搜尋首頁產品銷量Top100資料包告：\r\n                    自然位非Best Seller Top100產品數量佔比6.25%,\r\n                    自然位評價數低於100/300/500的產品數量佔比分別為100.00%/100.00%/100.00%,\r\n                    廣告位評價數低於100/300/500的產品數量佔比分別為62.50%/62.50%/62.50%,\r\n                    平均星級為1,\r\n                    平均評價數為4.64,\r\n                    做coupon促銷產品數量/佔比分別為8個 /17.02% ",
+    "近15日前3頁自然位銷量Top100產品統計": {
       "top5_product": [
         {
           "asin": "B0000AH3QW",
           "price": 16.28,
           "title": "Purina ONE Dry Dog Food Lamb and Rice Formula - 8 lb. Bag",
-          "monthly_sales": "本产品月销量：57537（占比：3.41%）",
+          "monthly_sales": "本產品月銷量：57537（佔比：3.41%）",
           "brand": "Purina ONE",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B0000AH3QW?psc=1"
@@ -121,7 +121,7 @@
           "asin": "B071J1BFTX",
           "price": 35.94,
           "title": "Cesar Wet Dog Food Classic Loaf in Sauce Grilled Chicken, Filet Mignon, Porterhouse Steak, Beef, Chicken & Liver and Turkey Variety Pack 3.5 oz. Easy Peel Trays (36 Count, Pack of 1)",
-          "monthly_sales": "本产品月销量：51762（占比：3.07%）",
+          "monthly_sales": "本產品月銷量：51762（佔比：3.07%）",
           "brand": "Cesar",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B071J1BFTX?psc=1"
@@ -130,7 +130,7 @@
           "asin": "B001QCKS4O",
           "price": 74.48,
           "title": "Purina Pro Plan Complete Essentials Shredded Blend Chicken and Rice Dog Food Dry Formula with Probiotics for Dogs - 35 lb. Bag",
-          "monthly_sales": "本产品月销量：51433（占比：3.05%）",
+          "monthly_sales": "本產品月銷量：51433（佔比：3.05%）",
           "brand": "Purina Pro Plan",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B001QCKS4O?psc=1"
@@ -139,7 +139,7 @@
           "asin": "B003CL3PTM",
           "price": 23.99,
           "title": "Hill‘s Science Diet Small & Mini, Adult 1-6, Small & Mini Breeds Premium Nutrition, Dry Dog Food, Chicken & Brown Rice, 4.5 lb Bag",
-          "monthly_sales": "本产品月销量：50381（占比：2.98%）",
+          "monthly_sales": "本產品月銷量：50381（佔比：2.98%）",
           "brand": "Hill‘s Science Diet",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B003CL3PTM?psc=1"
@@ -148,7 +148,7 @@
           "asin": "B0G46LNTCP",
           "price": 26.99,
           "title": "Pedigree Choice Cuts in Gravy Adult Wet Dog Food 30-Count Beef Flavor Variety Pack, 3.5 oz. Pouches",
-          "monthly_sales": "本产品月销量：40055（占比：2.37%）",
+          "monthly_sales": "本產品月銷量：40055（佔比：2.37%）",
           "brand": "Pedigree",
           "seller": "Amazon",
           "url": "https://www.amazon.com/dp/B0G46LNTCP?psc=1"
@@ -157,40 +157,40 @@
       "top5_brand": [
         {
           "brand": "Pedigree",
-          "product_count": "在统计样本中，产品数量:5",
-          "monthly_sales": "统计样本中本品牌月销量和：126286（占比：7.48%）"
+          "product_count": "在統計樣本中，產品數量:5",
+          "monthly_sales": "統計樣本中本品牌月銷量和：126286（佔比：7.48%）"
         },
         {
           "brand": "Purina Pro Plan",
-          "product_count": "在统计样本中，产品数量:5",
-          "monthly_sales": "统计样本中本品牌月销量和：125070（占比：7.41%）"
+          "product_count": "在統計樣本中，產品數量:5",
+          "monthly_sales": "統計樣本中本品牌月銷量和：125070（佔比：7.41%）"
         },
         {
           "brand": "Hill’s Science Diet",
-          "product_count": "在统计样本中，产品数量:6",
-          "monthly_sales": "统计样本中本品牌月销量和：124364（占比：7.37%）"
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：124364（佔比：7.37%）"
         },
         {
           "brand": "Purina ONE",
-          "product_count": "在统计样本中，产品数量:4",
-          "monthly_sales": "统计样本中本品牌月销量和：111910（占比：6.63%）"
+          "product_count": "在統計樣本中，產品數量:4",
+          "monthly_sales": "統計樣本中本品牌月銷量和：111910（佔比：6.63%）"
         },
         {
           "brand": "Cesar",
-          "product_count": "在统计样本中，产品数量:4",
-          "monthly_sales": "统计样本中本品牌月销量和：106064（占比：6.28%）"
+          "product_count": "在統計樣本中，產品數量:4",
+          "monthly_sales": "統計樣本中本品牌月銷量和：106064（佔比：6.28%）"
         }
       ],
       "top5_seller": [
         {
           "seller": "Amazon",
-          "product_count": "在统计样本中，产品数量:49",
-          "monthly_sales": "统计样本中本品牌月销量和：1088093（占比：64.46%）"
+          "product_count": "在統計樣本中，產品數量:49",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1088093（佔比：64.46%）"
         },
         {
           "seller": "Ultimate Pet Nutrition",
-          "product_count": "在统计样本中，产品数量:1",
-          "monthly_sales": "统计样本中本品牌月销量和：18531（占比：1.10%）"
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：18531（佔比：1.10%）"
         }
       ]
     }

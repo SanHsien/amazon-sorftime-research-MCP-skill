@@ -40,26 +40,26 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L("# Wireless Lavalier Microphones — 关键词深度分析与洞察")
+L("# Wireless Lavalier Microphones — 關鍵詞深度分析與洞察")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite MCP + 竞品流量反查")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite MCP + 競品流量反查")
 L()
 
 L("---")
 L()
-L("## 一、关键词宇宙总览")
+L("## 一、關鍵詞宇宙總覽")
 L()
 
 # 1.1 Universe size
 total_kw = len(miner_items)
 total_sv = sum(float(kw.get('searches', 0) or 0) for kw in miner_items)
-L(f"| 维度 | 数值 |")
+L(f"| 維度 | 數值 |")
 L(f"|------|:----:|")
-L(f"| 关键词总数 | {total_kw} |")
-L(f"| 总搜索量（月） | {fmt_num(total_sv)} |")
-L(f"| 平均搜索量 | {fmt_num(total_sv/total_kw) if total_kw else 0} |")
-L(f"| 中位数搜索量 | {fmt_num(sorted([float(kw.get('searches',0) or 0) for kw in miner_items])[total_kw//2]) if total_kw else 0} |")
-L(f"| Mini Mic Pro 已覆盖关键词 | {len(traffic_items)} |")
+L(f"| 關鍵詞總數 | {total_kw} |")
+L(f"| 總搜尋量（月） | {fmt_num(total_sv)} |")
+L(f"| 平均搜尋量 | {fmt_num(total_sv/total_kw) if total_kw else 0} |")
+L(f"| 中位數搜尋量 | {fmt_num(sorted([float(kw.get('searches',0) or 0) for kw in miner_items])[total_kw//2]) if total_kw else 0} |")
+L(f"| Mini Mic Pro 已覆蓋關鍵詞 | {len(traffic_items)} |")
 L()
 
 # 1.2 Search volume distribution
@@ -73,18 +73,18 @@ for kw in miner_items:
     elif sv < 100000: sv_buckets["50K-100K"] += 1
     else: sv_buckets[">100K"] += 1
 
-L("### 搜索量分布")
+L("### 搜尋量分佈")
 L()
-L("| 搜索量范围 | 关键词数 | 占比 |")
+L("| 搜尋量範圍 | 關鍵詞數 | 佔比 |")
 L("|-----------|:-------:|:---:|")
 for bucket, count in sv_buckets.items():
     L(f"| {bucket} | {count} | {count/total_kw*100:.1f}% |")
 L()
 
 # 1.3 Top 20 by search volume
-L("### Top 20 高搜索量关键词")
+L("### Top 20 高搜尋量關鍵詞")
 L()
-L("| 排名 | 关键词 | 月搜索量 | 商品数 | 供需比 | 点击集中度 | 平均售价 | 策略定位 |")
+L("| 排名 | 關鍵詞 | 月搜尋量 | 商品數 | 供需比 | 點選集中度 | 平均售價 | 策略定位 |")
 L("|:---:|--------|:-------:|:-----:|:-----:|:---------:|:-------:|---------|")
 sorted_sv = sorted(miner_items, key=lambda x: float(x.get('searches', 0) or 0), reverse=True)
 for i, kw in enumerate(sorted_sv[:20], 1):
@@ -99,45 +99,45 @@ for i, kw in enumerate(sorted_sv[:20], 1):
     cc_val = float(kw.get('monopolyClickRate', 1) or 1)
     sdr_val = float(sdr) if sdr else 0
     if cc_val < 0.3 and sdr_val > 10:
-        strat = "🟢 蓝海词"
+        strat = "🟢 藍海詞"
     elif cc_val < 0.3:
-        strat = "🟢 低竞争"
+        strat = "🟢 低競爭"
     elif cc_val < 0.5:
-        strat = "🟡 中等竞争"
+        strat = "🟡 中等競爭"
     else:
-        strat = "🔴 高竞争"
+        strat = "🔴 高競爭"
     L(f"| {i} | {keyword} | {sv} | {prods} | {sdr_str} | {cc} | {price} | {strat} |")
 L()
 
 L("---")
 L()
-L("## 二、竞争格局深度分析")
+L("## 二、競爭格局深度分析")
 L()
 
 # 2.1 Competition distribution
-L("### 2.1 关键词竞争层级")
+L("### 2.1 關鍵詞競爭層級")
 L()
-L("| 竞争等级 | 点击集中度 | 关键词数 | 平均搜索量 | 说明 |")
+L("| 競爭等級 | 點選集中度 | 關鍵詞數 | 平均搜尋量 | 說明 |")
 L("|---------|:---------:|:-------:|:---------:|------|")
 low_cc = [kw for kw in miner_items if float(kw.get('monopolyClickRate', 0) or 0) < 0.3]
 mid_cc = [kw for kw in miner_items if 0.3 <= float(kw.get('monopolyClickRate', 0) or 0) < 0.6]
 high_cc = [kw for kw in miner_items if float(kw.get('monopolyClickRate', 0) or 0) >= 0.6]
 
 for label, items_list, desc in [
-    ("🟢 低竞争", low_cc, "流量分散，新品易获取点击"),
-    ("🟡 中等竞争", mid_cc, "有一定集中度，需差异化"),
-    ("🔴 高竞争", high_cc, "头部垄断，进入门槛高")
+    ("🟢 低競爭", low_cc, "流量分散，新品易獲取點選"),
+    ("🟡 中等競爭", mid_cc, "有一定集中度，需差異化"),
+    ("🔴 高競爭", high_cc, "頭部壟斷，進入門檻高")
 ]:
     avg_sv = sum(float(k.get('searches',0) or 0) for k in items_list) / len(items_list) if items_list else 0
     L(f"| {label} | {'<30%' if '低' in label else '30-60%' if '中等' in label else '>60%'} | {len(items_list)} | {fmt_num(avg_sv)} | {desc} |")
 L()
 
 # 2.2 Supply-demand analysis
-L("### 2.2 供需比分析（供不应求 = 机会）")
+L("### 2.2 供需比分析（供不應求 = 機會）")
 L()
-L("供需比 (Supply/Demand Ratio) 越高，表示商品数相对搜索量越少，竞争压力越小。")
+L("供需比 (Supply/Demand Ratio) 越高，表示商品數相對搜尋量越少，競爭壓力越小。")
 L()
-L("| 供需等级 | 供需比 | 关键词数 | 代表关键词 |")
+L("| 供需等級 | 供需比 | 關鍵詞數 | 代表關鍵詞 |")
 L("|---------|:-----:|:-------:|-----------|")
 high_sdr = [(kw, float(kw.get('supplyDemandRatio', 0) or 0)) for kw in miner_items
              if kw.get('supplyDemandRatio') and float(kw.get('supplyDemandRatio', 0)) > 20]
@@ -147,18 +147,18 @@ low_sdr = [(kw, float(kw.get('supplyDemandRatio', 0) or 0)) for kw in miner_item
             if kw.get('supplyDemandRatio') and float(kw.get('supplyDemandRatio', 0)) <= 5]
 
 for label, items_list, desc in [
-    ("🟢 供不应求", high_sdr, "竞争极低，蓝海"),
-    ("🟡 供需平衡", mid_sdr, "中等竞争"),
-    ("🔴 供过于求", low_sdr, "竞争激烈")
+    ("🟢 供不應求", high_sdr, "競爭極低，藍海"),
+    ("🟡 供需平衡", mid_sdr, "中等競爭"),
+    ("🔴 供過於求", low_sdr, "競爭激烈")
 ]:
     examples = ", ".join([k[0].get('keyword', '') for k in items_list[:5]])
     L(f"| {label} | {desc} | {len(items_list)} | {examples} |")
 L()
 
 # 2.3 Opportunity matrix
-L("### 2.3 机会矩阵（高搜索量 + 低竞争）")
+L("### 2.3 機會矩陣（高搜尋量 + 低競爭）")
 L()
-L("> 核心机会：搜索量 ≥ 5,000 & 点击集中度 < 30% & 供需比 > 10 的关键词")
+L("> 核心機會：搜尋量 ≥ 5,000 & 點選集中度 < 30% & 供需比 > 10 的關鍵詞")
 L()
 opportunity_kw = [kw for kw in miner_items
     if float(kw.get('searches', 0) or 0) >= 5000
@@ -166,7 +166,7 @@ opportunity_kw = [kw for kw in miner_items
     and kw.get('supplyDemandRatio') and float(kw.get('supplyDemandRatio', 0)) > 10]
 
 if opportunity_kw:
-    L("| 关键词 | 月搜索量 | 点击集中度 | 供需比 | 商品数 | 平均售价 | 推荐策略 |")
+    L("| 關鍵詞 | 月搜尋量 | 點選集中度 | 供需比 | 商品數 | 平均售價 | 推薦策略 |")
     L("|--------|:-------:|:---------:|:-----:|:-----:|:-------:|---------|")
     for kw in sorted(opportunity_kw, key=lambda x: float(x.get('searches', 0) or 0), reverse=True)[:15]:
         keyword = kw.get('keyword', 'N/A')
@@ -175,19 +175,19 @@ if opportunity_kw:
         sdr = f"{float(kw.get('supplyDemandRatio', 0)):.1f}"
         prods = fmt_num(kw.get('products', 0))
         price = fmt_money(kw.get('avgPrice', 0)) if kw.get('avgPrice') else "N/A"
-        L(f"| {keyword} | {sv} | {cc} | {sdr} | {prods} | {price} | Listing优化 + 广告投放 |")
+        L(f"| {keyword} | {sv} | {cc} | {sdr} | {prods} | {price} | Listing最佳化 + 廣告投放 |")
     L()
 else:
-    L("*无条件完全匹配的核心机会词*")
+    L("*無條件完全匹配的核心機會詞*")
     L()
 
 L("---")
 L()
-L("## 三、定价与利润机会分析")
+L("## 三、定價與利潤機會分析")
 L()
 
 # 3.1 Price segmentation
-L("### 3.1 按价格带的关键词机会")
+L("### 3.1 按價格帶的關鍵詞機會")
 L()
 price_buckets = {"<$10": 0, "$10-20": 0, "$20-40": 0, "$40-80": 0, "$80-150": 0, ">$150": 0, "未知": 0}
 price_revenue = {k: 0 for k in price_buckets}
@@ -202,40 +202,40 @@ for kw in miner_items:
     elif price < 150: price_buckets["$80-150"] += 1; price_revenue["$80-150"] += sv
     else: price_buckets[">$150"] += 1; price_revenue[">$150"] += sv
 
-L("| 价格带 | 关键词数 | 总搜索量 | 潜在机会 |")
+L("| 價格帶 | 關鍵詞數 | 總搜尋量 | 潛在機會 |")
 L("|-------|:-------:|:-------:|---------|")
 for bucket in ["<$10", "$10-20", "$20-40", "$40-80", "$80-150", ">$150"]:
     cnt = price_buckets.get(bucket, 0)
     rev = price_revenue.get(bucket, 0)
     if bucket == "$20-40":
-        opp = "🟢 Mini Mic Pro 主战场，竞争最激烈但容量最大"
+        opp = "🟢 Mini Mic Pro 主戰場，競爭最激烈但容量最大"
     elif bucket == "$40-80":
-        opp = "🟢 品质升级空白带，高利润空间"
+        opp = "🟢 品質升級空白帶，高利潤空間"
     elif bucket == "$10-20":
-        opp = "🟡 低价走量市场，利润薄"
+        opp = "🟡 低價走量市場，利潤薄"
     elif bucket in ("$80-150", ">$150"):
-        opp = "🔵 专业级市场，门槛高利润高"
+        opp = "🔵 專業級市場，門檻高利潤高"
     else:
-        opp = "ℹ️ 参考"
+        opp = "ℹ️ 參考"
     L(f"| {bucket} | {cnt} | {fmt_num(rev)} | {opp} |")
 L()
 
 # 3.2 Best price point recommendation
-L("### 3.2 最优定价区间建议")
+L("### 3.2 最優定價區間建議")
 L()
-L("基于竞品分析和关键词数据：")
+L("基於競品分析和關鍵詞資料：")
 L()
-L("| 定价策略 | 价格区间 | 理论月搜索量 | 竞争程度 | 推荐场景 |")
+L("| 定價策略 | 價格區間 | 理論月搜尋量 | 競爭程度 | 推薦場景 |")
 L("|---------|:-------:|:----------:|:-------:|---------|")
-L("| 走量性价比 | **$15-25** | 500K+ | 🔴 高 | Mini Mic Pro 地盘，差异化切入 |")
-L("| 品质升级 | **$30-50** | 200K+ | 🟡 中 | ✅ **推荐**：空白带，对手少 |")
-L("| 中高端 | **$50-100** | 100K+ | 🟢 低 | BOYA/Rode 区间，需品牌支撑 |")
-L("| 专业设备 | **$100+** | 50K+ | 🟢 低 | DJI 区间，门槛高 |")
+L("| 走量價效比 | **$15-25** | 500K+ | 🔴 高 | Mini Mic Pro 地盤，差異化切入 |")
+L("| 品質升級 | **$30-50** | 200K+ | 🟡 中 | ✅ **推薦**：空白帶，對手少 |")
+L("| 中高階 | **$50-100** | 100K+ | 🟢 低 | BOYA/Rode 區間，需品牌支撐 |")
+L("| 專業裝置 | **$100+** | 50K+ | 🟢 低 | DJI 區間，門檻高 |")
 L()
 
 L("---")
 L()
-L("## 四、Mini Mic Pro 流量结构深度拆解")
+L("## 四、Mini Mic Pro 流量結構深度拆解")
 L()
 
 if traffic_items:
@@ -245,18 +245,18 @@ if traffic_items:
 
     L("### 4.1 流量集中度")
     L()
-    L(f"| 维度 | 数值 |")
+    L(f"| 維度 | 數值 |")
     L(f"|------|:----:|")
-    L(f"| 总流量关键词 | {len(traffic_items)} |")
-    L(f"| 总流量占比（样本） | {fmt_pct(total_traffic_pct)} |")
-    L(f"| Top 10 词汇占比 | {fmt_pct(top_10_traffic)} |")
-    L(f"| 流量集中度 | {'🟢 分散（健康）' if top_10_traffic/total_traffic_pct < 0.6 else '🔴 集中（风险）'} |")
+    L(f"| 總流量關鍵詞 | {len(traffic_items)} |")
+    L(f"| 總流量佔比（樣本） | {fmt_pct(total_traffic_pct)} |")
+    L(f"| Top 10 詞彙佔比 | {fmt_pct(top_10_traffic)} |")
+    L(f"| 流量集中度 | {'🟢 分散（健康）' if top_10_traffic/total_traffic_pct < 0.6 else '🔴 集中（風險）'} |")
     L()
 
     # Natural vs Paid
-    L("### 4.2 自然流量 vs 广告流量")
+    L("### 4.2 自然流量 vs 廣告流量")
     L()
-    L("| 关键词 | 搜索量 | 总流量占比 | 自然占比 | 广告占比 | 流量类型 |")
+    L("| 關鍵詞 | 搜尋量 | 總流量佔比 | 自然佔比 | 廣告佔比 | 流量型別 |")
     L("|--------|:-----:|:---------:|:-------:|:-------:|---------|")
     sorted_traffic = sorted(traffic_items, key=lambda x: float(x.get('trafficPercentage', 0) or 0), reverse=True)
     for kw in sorted_traffic[:15]:
@@ -267,54 +267,54 @@ if traffic_items:
         ad = float(kw.get('adRatio', 0) or 0)
         nat_str = f"{nat*100:.1f}%"
         ad_str = f"{ad*100:.1f}%"
-        flow_type = "🌿 自然为主" if nat > 0.7 else "📢 广告为主" if ad > 0.7 else "🔄 混合"
+        flow_type = "🌿 自然為主" if nat > 0.7 else "📢 廣告為主" if ad > 0.7 else "🔄 混合"
         L(f"| {keyword} | {sv} | {tp} | {nat_str} | {ad_str} | {flow_type} |")
     L()
 
     # Classification
-    L("### 4.3 流量词分类")
+    L("### 4.3 流量詞分類")
     L()
     precise_kw = [kw for kw in traffic_items if kw.get('trafficKeywordType') == 'precise']
     broad_kw = [kw for kw in traffic_items if kw.get('trafficKeywordType') != 'precise']
-    L(f"- **精准词** ({len(precise_kw)}个)：搜索意图明确，转化率高")
-    L(f"- **广泛词** ({len(broad_kw)}个)：覆盖面广，适合品牌曝光")
+    L(f"- **精準詞** ({len(precise_kw)}個)：搜尋意圖明確，轉化率高")
+    L(f"- **廣泛詞** ({len(broad_kw)}個)：覆蓋面廣，適合品牌曝光")
     L()
 
     # Brand vs non-brand
     brand_keywords = [kw for kw in traffic_items if 'mini' in kw.get('keyword','').lower()]
     non_brand = [kw for kw in traffic_items if 'mini' not in kw.get('keyword','').lower()]
-    L(f"- **品牌词** ({len(brand_keywords)}个)：直接搜索 Mini Mic 品牌")
-    L(f"- **非品牌词** ({len(non_brand)}个)：品类通用搜索，可争取")
+    L(f"- **品牌詞** ({len(brand_keywords)}個)：直接搜尋 Mini Mic 品牌")
+    L(f"- **非品牌詞** ({len(non_brand)}個)：品類通用搜尋，可爭取")
     L()
 
 L("---")
 L()
-L("## 五、长尾词与标题密度机会")
+L("## 五、長尾詞與標題密度機會")
 L()
 
 # Title density analysis
-L("### 5.1 标题密度漏洞")
+L("### 5.1 標題密度漏洞")
 L()
-L("> 标题密度 ≤ 5% 的关键词，说明竞品标题中很少包含该词，是 Listing 优化的蓝海。")
+L("> 標題密度 ≤ 5% 的關鍵詞，說明競品標題中很少包含該詞，是 Listing 最佳化的藍海。")
 L()
 td_low = [(kw, float(kw.get('searches', 0) or 0), float(kw.get('titleDensity', 0) or 0))
           for kw in miner_items
           if kw.get('titleDensity') is not None and float(kw.get('titleDensity', 0)) <= 0.05
           and float(kw.get('searches', 0) or 0) >= 2000]
 if td_low:
-    L("| 关键词 | 月搜索量 | 标题密度 | 商品数 | 说明 |")
+    L("| 關鍵詞 | 月搜尋量 | 標題密度 | 商品數 | 說明 |")
     L("|--------|:-------:|:-------:|:-----:|------|")
     for kw, sv, td in sorted(td_low, key=lambda x: x[1], reverse=True)[:15]:
         keyword = kw.get('keyword', 'N/A')
         prods = fmt_num(kw.get('products', 0))
-        note = "✅ 加标题可快速提升排名" if sv > 10000 else "加标题优化"
+        note = "✅ 加標題可快速提升排名" if sv > 10000 else "加標題最佳化"
         L(f"| {keyword} | {fmt_num(sv)} | {td*100:.1f}% | {prods} | {note} |")
     L()
 else:
-    L("*无符合条件的标题密度漏洞词*")
+    L("*無符合條件的標題密度漏洞詞*")
     L()
 
-L("### 5.2 长尾关键词机会")
+L("### 5.2 長尾關鍵詞機會")
 L()
 long_tail = sorted([kw for kw in miner_items
                     if kw.get('wordCount') and float(kw.get('wordCount', 0)) >= 3
@@ -322,7 +322,7 @@ long_tail = sorted([kw for kw in miner_items
                     and float(kw.get('monopolyClickRate', 1) or 1) < 0.4],
                    key=lambda x: float(x.get('searches', 0) or 0), reverse=True)
 if long_tail:
-    L("| 长尾关键词 | 月搜索量 | 词数 | 点击集中度 | 供需比 | 平均售价 |")
+    L("| 長尾關鍵詞 | 月搜尋量 | 詞數 | 點選集中度 | 供需比 | 平均售價 |")
     L("|-----------|:-------:|:----:|:---------:|:-----:|:-------:|")
     for kw in long_tail[:15]:
         keyword = kw.get('keyword', 'N/A')
@@ -338,17 +338,17 @@ L()
 
 L("---")
 L()
-L("## 六、语义聚类与主题策略")
+L("## 六、語義聚類與主題策略")
 L()
 
 # Build semantic clusters
 clusters = {
-    "手机麦克风": ["iphone", "android", "phone", "smartphone", "cell", "mobile"],
-    "内容创作": ["tiktok", "youtube", "content creator", "podcast", "video", "vlog", "interview", "stream"],
-    "功能属性": ["noise cancelling", "wireless", "bluetooth", "clip on", "lapel", "lavalier", "portable"],
-    "竞品品牌": ["dji", "hollyland", "rode", "boya", "shure", "mini mic"],
-    "使用场景": ["recording", "live", "gaming", "music", "voic", "presentation"],
-    "配件相关": ["adapter", "cable", "case", "battery", "charger", "stand"],
+    "手機麥克風": ["iphone", "android", "phone", "smartphone", "cell", "mobile"],
+    "內容創作": ["tiktok", "youtube", "content creator", "podcast", "video", "vlog", "interview", "stream"],
+    "功能屬性": ["noise cancelling", "wireless", "bluetooth", "clip on", "lapel", "lavalier", "portable"],
+    "競品品牌": ["dji", "hollyland", "rode", "boya", "shure", "mini mic"],
+    "使用場景": ["recording", "live", "gaming", "music", "voic", "presentation"],
+    "配件相關": ["adapter", "cable", "case", "battery", "charger", "stand"],
 }
 
 cluster_data = {}
@@ -366,7 +366,7 @@ for cluster_name, keywords in clusters.items():
         "avg_cc": avg_cc
     }
 
-L("| 主题簇 | 关键词数 | 总搜索量 | 平均点击集中度 | 竞争评估 |")
+L("| 主題簇 | 關鍵詞數 | 總搜尋量 | 平均點選集中度 | 競爭評估 |")
 L("|-------|:-------:|:-------:|:-------------:|---------|")
 for name, cd in sorted(cluster_data.items(), key=lambda x: x[1]["total_sv"], reverse=True):
     cc = fmt_pct(cd["avg_cc"])
@@ -374,47 +374,47 @@ for name, cd in sorted(cluster_data.items(), key=lambda x: x[1]["total_sv"], rev
     L(f"| **{name}** | {cd['count']} | {fmt_num(cd['total_sv'])} | {cc} | {level} |")
 L()
 
-L("### 6.1 推荐内容策略")
+L("### 6.1 推薦內容策略")
 L()
-L("| 主题簇 | 策略 | 优先级 |")
+L("| 主題簇 | 策略 | 優先順序 |")
 L("|-------|------|:-----:|")
-L("| **手机麦克风** | 强调 iPhone/Android 双平台兼容，解决差评中的兼容性痛点 | 🔴 |")
-L("| **内容创作** | 布局 TikTok/YouTube 创作者场景，内容营销精准触达 | 🔴 |")
-L("| **功能属性** | 突出降噪、无线、便携等差异化卖点 | 🟡 |")
-L("| **竞品品牌** | 对标竞品关键词做拦截广告，抢夺竞品流量 | 🟡 |")
-L("| **使用场景** | 覆盖 vlog/直播/采访等具体场景词，提高转化率 | 🟡 |")
-L("| **配件相关** | 交叉销售配件，提升客单价 | 🟢 |")
+L("| **手機麥克風** | 強調 iPhone/Android 雙平臺相容，解決差評中的相容性痛點 | 🔴 |")
+L("| **內容創作** | 佈局 TikTok/YouTube 創作者場景，內容營銷精準觸達 | 🔴 |")
+L("| **功能屬性** | 突出降噪、無線、便攜等差異化賣點 | 🟡 |")
+L("| **競品品牌** | 對標競品關鍵詞做攔截廣告，搶奪競品流量 | 🟡 |")
+L("| **使用場景** | 覆蓋 vlog/直播/採訪等具體場景詞，提高轉化率 | 🟡 |")
+L("| **配件相關** | 交叉銷售配件，提升客單價 | 🟢 |")
 L()
 
 L("---")
 L()
-L("## 七、ABA 品牌垄断分析")
+L("## 七、ABA 品牌壟斷分析")
 L()
 
 # Brand word analysis
-L("### 7.1 品牌词 vs 通用词")
+L("### 7.1 品牌詞 vs 通用詞")
 L()
 brand_words = [kw for kw in miner_items if kw.get('hasBrandWord')]
 generic_words = [kw for kw in miner_items if not kw.get('hasBrandWord')]
-L(f"- **品牌关键词**：{len(brand_words)} 个（如 dji, hollyland, rode 等）")
-L(f"- **品类通用词**：{len(generic_words)} 个（如 microphone, wireless microphone 等）")
+L(f"- **品牌關鍵詞**：{len(brand_words)} 個（如 dji, hollyland, rode 等）")
+L(f"- **品類通用詞**：{len(generic_words)} 個（如 microphone, wireless microphone 等）")
 L()
 
 # Brand monopoly analysis
-L("| 指标 | 数值 | 说明 |")
+L("| 指標 | 數值 | 說明 |")
 L("|------|:----:|------|")
 total_brand_sv = sum(float(k.get('searches', 0) or 0) for k in brand_words)
 total_generic_sv = sum(float(k.get('searches', 0) or 0) for k in generic_words)
 brand_ratio = total_brand_sv / (total_brand_sv + total_generic_sv) * 100 if (total_brand_sv + total_generic_sv) > 0 else 0
-L(f"| 品牌搜索占比 | {brand_ratio:.1f}% | 搜索中带有品牌词的占比 |")
-L(f"| 通用搜索占比 | {100-brand_ratio:.1f}% | 品类通用搜索占比 |")
-L(f"| 品牌垄断度 | {'🟢 低' if brand_ratio < 30 else '🟡 中等' if brand_ratio < 50 else '🔴 高'} | {'新品牌有机会' if brand_ratio < 30 else '品牌认知已形成'} |")
+L(f"| 品牌搜尋佔比 | {brand_ratio:.1f}% | 搜尋中帶有品牌詞的佔比 |")
+L(f"| 通用搜尋佔比 | {100-brand_ratio:.1f}% | 品類通用搜尋佔比 |")
+L(f"| 品牌壟斷度 | {'🟢 低' if brand_ratio < 30 else '🟡 中等' if brand_ratio < 50 else '🔴 高'} | {'新品牌有機會' if brand_ratio < 30 else '品牌認知已形成'} |")
 L()
 
-L("### 7.2 品类核心大词分析")
+L("### 7.2 品類核心大詞分析")
 L()
 core_words = [kw for kw in miner_items if float(kw.get('searches', 0) or 0) >= 30000 and not kw.get('hasBrandWord')]
-L("| 通用大词 | 月搜索量 | 点击集中度 | 供需比 | 竞争判断 |")
+L("| 通用大詞 | 月搜尋量 | 點選集中度 | 供需比 | 競爭判斷 |")
 L("|---------|:-------:|:---------:|:-----:|---------|")
 for kw in sorted(core_words, key=lambda x: float(x.get('searches', 0) or 0), reverse=True):
     keyword = kw.get('keyword', 'N/A')
@@ -422,55 +422,55 @@ for kw in sorted(core_words, key=lambda x: float(x.get('searches', 0) or 0), rev
     cc = float(kw.get('monopolyClickRate', 0) or 0)
     sdr = kw.get('supplyDemandRatio', '')
     sdr_str = f"{float(sdr):.1f}" if sdr else "N/A"
-    judge = "🟢 可争夺" if cc < 0.3 else "🟡 需差异化" if cc < 0.5 else "🔴 陷阵"
+    judge = "🟢 可爭奪" if cc < 0.3 else "🟡 需差異化" if cc < 0.5 else "🔴 陷陣"
     L(f"| {keyword} | {sv} | {fmt_pct(cc)} | {sdr_str} | {judge} |")
 L()
 
 L("---")
 L()
-L("## 八、行动路线图")
+L("## 八、行動路線圖")
 L()
-L("### 短期（1-2周）：Listing 优化 + 广告投放")
+L("### 短期（1-2周）：Listing 最佳化 + 廣告投放")
 L()
-L("| 优先级 | 关键词 | 操作 | 预期效果 |")
+L("| 優先順序 | 關鍵詞 | 操作 | 預期效果 |")
 L("|:-----:|--------|------|---------|")
-L("| P0 | microphone for content creators | 加标题/Search Terms | 搜索量 47K，标题密度 ≤5%，提升自然排名 |")
-L("| P0 | content creator essentials | 加标题 + 广告投放 | 搜索量 50K，供需比 100.7，竞争极低 |")
-L("| P1 | microfonos inalambricos professional | 西班牙语标题优化 | 搜索量 57K，点击集中度 18.3%，蓝海 |")
-L("| P1 | mini microphone | 精准广告投放 | 搜索量 81K，Mini Mic Pro 自然流量仅占 40% |")
+L("| P0 | microphone for content creators | 加標題/Search Terms | 搜尋量 47K，標題密度 ≤5%，提升自然排名 |")
+L("| P0 | content creator essentials | 加標題 + 廣告投放 | 搜尋量 50K，供需比 100.7，競爭極低 |")
+L("| P1 | microfonos inalambricos professional | 西班牙語標題最佳化 | 搜尋量 57K，點選集中度 18.3%，藍海 |")
+L("| P1 | mini microphone | 精準廣告投放 | 搜尋量 81K，Mini Mic Pro 自然流量僅佔 40% |")
 L()
 
-L("### 中期（2-4周）：内容营销 + 变体扩展")
+L("### 中期（2-4周）：內容營銷 + 變體擴充套件")
 L()
-L("1. **短视频内容**：围绕 TikTok/YouTube 场景制作内容，布局相关长尾词")
-L("2. **变体扩展**：增加 USB-C/Lightning 双接口变体，覆盖更多兼容性搜索")
-L("3. **A+ 内容优化**：针对降噪、续航、兼容性等关键词优化 A+ 页面")
+L("1. **短影片內容**：圍繞 TikTok/YouTube 場景製作內容，佈局相關長尾詞")
+L("2. **變體擴充套件**：增加 USB-C/Lightning 雙介面變體，覆蓋更多相容性搜尋")
+L("3. **A+ 內容最佳化**：針對降噪、續航、相容性等關鍵詞最佳化 A+ 頁面")
 L()
-L("### 长期（1-3月）：品牌建设 + 品类扩展")
+L("### 長期（1-3月）：品牌建設 + 品類擴充套件")
 L()
-L("1. **品牌词积累**：通过广告投放和内容营销积累品牌搜索量")
-L("2. **品类扩展**：从 Lavalier 扩展到 Handheld Wireless Microphones（Top3集中度34.8%，更低）")
-L("3. **价格带延伸**：在 $30-50 区间推出品质升级版，避开 $25 红海")
+L("1. **品牌詞積累**：透過廣告投放和內容營銷積累品牌搜尋量")
+L("2. **品類擴充套件**：從 Lavalier 擴充套件到 Handheld Wireless Microphones（Top3集中度34.8%，更低）")
+L("3. **價格帶延伸**：在 $30-50 區間推出品質升級版，避開 $25 紅海")
 L()
 
 L("---")
 L()
-L("## 九、关键洞察总结")
+L("## 九、關鍵洞察總結")
 L()
-L("| 洞察 | 详情 |")
+L("| 洞察 | 詳情 |")
 L("|------|------|")
-L("| **蓝海词充足** | 79 个搜索量≥5000 + 点击集中度<50% 的关键词等待利用 |")
-L("| **供需比红利** | content creator essentials (供需比100.7) 等词竞争极低 |")
-L("| **自然流量空间** | Mini Mic Pro 核心词「mini microphone」仅 40% 自然流量，60% 靠广告 |")
-L("| **标题优化机会** | 多个搜索量 2K-50K 的关键词标题密度≤5% |")
-L("| **$30-50 空白带** | 搜索量 200K+ 但竞品少，最佳定价区间 |")
-L("| **手机兼容性需求** | iPhone+iPad 相关词搜索量大，但差评中 Android 兼容差 |")
-L("| **品牌垄断低** | 品牌搜索占比 < 30%，新品牌有空间 |")
+L("| **藍海詞充足** | 79 個搜尋量≥5000 + 點選集中度<50% 的關鍵詞等待利用 |")
+L("| **供需比紅利** | content creator essentials (供需比100.7) 等詞競爭極低 |")
+L("| **自然流量空間** | Mini Mic Pro 核心詞「mini microphone」僅 40% 自然流量，60% 靠廣告 |")
+L("| **標題最佳化機會** | 多個搜尋量 2K-50K 的關鍵詞標題密度≤5% |")
+L("| **$30-50 空白帶** | 搜尋量 200K+ 但競品少，最佳定價區間 |")
+L("| **手機相容性需求** | iPhone+iPad 相關詞搜尋量大，但差評中 Android 相容差 |")
+L("| **品牌壟斷低** | 品牌搜尋佔比 < 30%，新品牌有空間 |")
 L()
 
 L("---")
 L()
-L(f"*报告生成: 2026-07-05 | 数据工具: 卖家精灵 SellerSprite MCP + 竞品流量反查 | 站点: Amazon US*")
+L(f"*報告生成: 2026-07-05 | 資料工具: 賣家精靈 SellerSprite MCP + 競品流量反查 | 站點: Amazon US*")
 
 report = "\n".join(lines)
 os.makedirs(OUT_DIR, exist_ok=True)

@@ -83,13 +83,13 @@ def extract_text(r):
 
 # Build pain point categories
 pain_keywords = {
-    "音质/音效问题": ["sound", "audio", "quality", "static", "noise", "distortion", "crackling", "tinny", "muffled", "quiet", "volume", "echo", "voice"],
-    "连接/蓝牙问题": ["connect", "pair", "bluetooth", "sync", "drop", "interference", "range", "signal", "disconnect", "link"],
-    "充电/电池问题": ["charge", "battery", "power", "die", "dead", "overheat", "melt", "hot", "charging", "usb", "port", "cable"],
-    "兼容性问题": ["compatible", "android", "iphone", "ipad", "usb-c", "lightning", "device", "adapter", "work with", "not work"],
-    "做工/质量": ["cheap", "flimsy", "break", "crack", "fragile", "build", "quality control", "defect", "stop working", "broken"],
-    "使用体验": ["difficult", "hard to", "setup", "confusing", "instructions", "clunky", "convenient", "button", "indicator"],
-    "降噪/环境音": ["wind", "background", "noise cancellation", "ambient", "environment", "outdoor", "breeze"],
+    "音質/音效問題": ["sound", "audio", "quality", "static", "noise", "distortion", "crackling", "tinny", "muffled", "quiet", "volume", "echo", "voice"],
+    "連線/藍芽問題": ["connect", "pair", "bluetooth", "sync", "drop", "interference", "range", "signal", "disconnect", "link"],
+    "充電/電池問題": ["charge", "battery", "power", "die", "dead", "overheat", "melt", "hot", "charging", "usb", "port", "cable"],
+    "相容性問題": ["compatible", "android", "iphone", "ipad", "usb-c", "lightning", "device", "adapter", "work with", "not work"],
+    "做工/質量": ["cheap", "flimsy", "break", "crack", "fragile", "build", "quality control", "defect", "stop working", "broken"],
+    "使用體驗": ["difficult", "hard to", "setup", "confusing", "instructions", "clunky", "convenient", "button", "indicator"],
+    "降噪/環境音": ["wind", "background", "noise cancellation", "ambient", "environment", "outdoor", "breeze"],
 }
 
 def classify_pain(text):
@@ -123,34 +123,34 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L(f"# Mini Mic Pro (B0CMJTSVRW) — 差评深度分析报告")
+L(f"# Mini Mic Pro (B0CMJTSVRW) — 差評深度分析報告")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite + NLP 分析")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite + NLP 分析")
 L()
 
 L("---")
 L()
-L("## 一、评论总览")
+L("## 一、評論總覽")
 L()
 total = len(reviews)
-L(f"| 维度 | 数值 |")
+L(f"| 維度 | 數值 |")
 L(f"|------|:----:|")
 L(f"| ASIN | {ASIN} |")
-L(f"| 整体评分 | 4.4 / 5.0 |")
-L(f"| 总评分数 | 7,182 |")
-L(f"| 本次分析样本 | {total} 条 |")
-L(f"| 好评 (4-5★) | {len(positive)} 条 ({len(positive)/total*100:.1f}%) |")
-L(f"| 中评 (3★) | {len(neutral)} 条 ({len(neutral)/total*100:.1f}%) |")
-L(f"| 差评 (1-2★) | {len(negative)} 条 ({len(negative)/total*100:.1f}%) |")
+L(f"| 整體評分 | 4.4 / 5.0 |")
+L(f"| 總評分數 | 7,182 |")
+L(f"| 本次分析樣本 | {total} 條 |")
+L(f"| 好評 (4-5★) | {len(positive)} 條 ({len(positive)/total*100:.1f}%) |")
+L(f"| 中評 (3★) | {len(neutral)} 條 ({len(neutral)/total*100:.1f}%) |")
+L(f"| 差評 (1-2★) | {len(negative)} 條 ({len(negative)/total*100:.1f}%) |")
 L()
 
 L("---")
 L()
-L("## 二、差评痛点聚类分析")
+L("## 二、差評痛點聚類分析")
 L()
-L("### 痛点分布")
+L("### 痛點分佈")
 L()
-L("| 排名 | 痛点类别 | 提及次数 | 占比 |")
+L("| 排名 | 痛點類別 | 提及次數 | 佔比 |")
 L("|:---:|---------|:-------:|:---:|")
 sorted_pains = pain_counter.most_common()
 for i, (cat, cnt) in enumerate(sorted_pains, 1):
@@ -164,7 +164,7 @@ for cat, cnt in sorted_pains:
     L()
     examples = pain_examples.get(cat, [])
     if examples:
-        L("| 评分 | 日期 | 评论原文摘要 |")
+        L("| 評分 | 日期 | 評論原文摘要 |")
         L("|:---:|:----:|-------------|")
         for ex in examples:
             star = ex['star']
@@ -179,7 +179,7 @@ L("---")
 L()
 
 # Detailed negative reviews
-L("## 三、差评原文（完整）")
+L("## 三、差評原文（完整）")
 L()
 if negative:
     for i, r in enumerate(negative[:15], 1):
@@ -194,71 +194,71 @@ if negative:
         L(f"> {text}")
         L()
 else:
-    L("*样本中无差评*")
+    L("*樣本中無差評*")
     L()
 
 L("---")
 L()
 
 # Product improvement recommendations
-L("## 四、产品改良建议")
+L("## 四、產品改良建議")
 L()
 improvements = {
-    "音质问题": [
-        "升级麦克风元件，提升信噪比",
-        "增加音频处理芯片，减少底噪和杂音",
-        "优化音量均衡，避免忽大忽小"
+    "音質問題": [
+        "升級麥克風元件，提升訊雜比",
+        "增加音訊處理晶片，減少底噪和雜音",
+        "最佳化音量均衡，避免忽大忽小"
     ],
-    "充电/电池": [
-        "改进充电接口质量，防止过热熔化",
-        "增加过温保护电路",
-        "提升电池容量或快充支持"
+    "充電/電池": [
+        "改進充電介面質量，防止過熱熔化",
+        "增加過溫保護電路",
+        "提升電池容量或快充支援"
     ],
-    "连接稳定性": [
-        "增强射频设计，提升传输距离和抗干扰能力",
-        "改进自动重连机制"
+    "連線穩定性": [
+        "增強射頻設計，提升傳輸距離和抗干擾能力",
+        "改進自動重連機制"
     ],
-    "兼容性": [
-        "优化 Android 设备兼容性测试",
-        "提供更全的适配器配件"
+    "相容性": [
+        "最佳化 Android 裝置相容性測試",
+        "提供更全的介面卡配件"
     ],
-    "做工质量": [
-        "提升外壳材料品质",
-        "加强质检流程"
+    "做工質量": [
+        "提升外殼材料品質",
+        "加強質檢流程"
     ]
 }
 
-L("| 痛点 | 建议改进方向 | 优先级 |")
+L("| 痛點 | 建議改進方向 | 優先順序 |")
 L("|------|-------------|:-----:|")
 for pain, sugs in improvements.items():
     sug_text = "；".join(sugs)
-    priority = "🔴 高" if pain in ["音质问题", "充电/电池"] else "🟡 中"
+    priority = "🔴 高" if pain in ["音質問題", "充電/電池"] else "🟡 中"
     L(f"| **{pain}** | {sug_text} | {priority} |")
 L()
 
 L("---")
 L()
-L("## 五、市场竞争启示")
+L("## 五、市場競爭啟示")
 L()
-L("### Mini Mic Pro 的弱点即你的机会")
+L("### Mini Mic Pro 的弱點即你的機會")
 L()
-L("1. **音质是最大突破口** — 差评中反复提到音质一般、有杂音，这是 $25 价位产品的通病")
-L("2. **安全性痛点** — 充电过热/熔化是严重的产品缺陷，如果能解决将建立信任优势")
-L("3. **Android 兼容性** — 大量差评来自 Android 用户，这是一个被忽视的细分市场")
-L("4. **$30-$40 品质升级带** — 在 $25-$50 之间存在空白带，定价 $34.99 配合更好的音质和做工")
+L("1. **音質是最大突破口** — 差評中反覆提到音質一般、有雜音，這是 $25 價位產品的通病")
+L("2. **安全性痛點** — 充電過熱/熔化是嚴重的產品缺陷，如果能解決將建立信任優勢")
+L("3. **Android 相容性** — 大量差評來自 Android 使用者，這是一個被忽視的細分市場")
+L("4. **$30-$40 品質升級帶** — 在 $25-$50 之間存在空白帶，定價 $34.99 配合更好的音質和做工")
 L()
-L("### 产品开发 Checklist")
+L("### 產品開發 Checklist")
 L()
-L("- [ ] 高音质麦克风元件（信噪比 > 70dB）")
-L("- [ ] 安全快充（过温保护、阻燃材料）")
-L("- [ ] 双平台兼容（iOS + Android 原生支持）")
-L("- [ ] 降噪算法（环境音过滤）")
-L("- [ ] 续航 > 8 小时")
-L("- [ ] 多色/多接口变体")
+L("- [ ] 高音質麥克風元件（訊雜比 > 70dB）")
+L("- [ ] 安全快充（過溫保護、阻燃材料）")
+L("- [ ] 雙平臺相容（iOS + Android 原生支援）")
+L("- [ ] 降噪演算法（環境音過濾）")
+L("- [ ] 續航 > 8 小時")
+L("- [ ] 多色/多介面變體")
 L()
 L("---")
 L()
-L(f"*报告生成: 2026-07-05 | 数据工具: 卖家精灵 SellerSprite + NLP 分析 | 站点: Amazon US*")
+L(f"*報告生成: 2026-07-05 | 資料工具: 賣家精靈 SellerSprite + NLP 分析 | 站點: Amazon US*")
 
 report = "\n".join(lines)
 with open(f"{OUT_DIR}/review_analysis.md", "w", encoding="utf-8") as f:

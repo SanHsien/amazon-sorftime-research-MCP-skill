@@ -1,12 +1,12 @@
-# Sorftime API 快速参考 (Product-Research)
+# Sorftime API 快速參考 (Product-Research)
 
-## API 端点
+## API 端點
 
 ```
 https://mcp.sorftime.com?key={API_KEY}
 ```
 
-## 请求格式
+## 請求格式
 
 ```json
 {
@@ -14,7 +14,7 @@ https://mcp.sorftime.com?key={API_KEY}
   "id": 1,
   "method": "tools/call",
   "params": {
-    "name": "{工具名称}",
+    "name": "{工具名稱}",
     "arguments": {
       "amzSite": "US",
       ...
@@ -23,11 +23,11 @@ https://mcp.sorftime.com?key={API_KEY}
 }
 ```
 
-## 响应格式 (SSE)
+## 響應格式 (SSE)
 
 ```
 event: message
-data: {"result":{"content":[{\"type\":\"text\",\"text\":\"{数据}\"}],\"isError\":false},"id":1,\"jsonrpc\":\"2.0\"}
+data: {"result":{"content":[{\"type\":\"text\",\"text\":\"{資料}\"}],\"isError\":false},"id":1,\"jsonrpc\":\"2.0\"}
 
 ```
 
@@ -37,13 +37,13 @@ data: {"result":{"content":[{\"type\":\"text\",\"text\":\"{数据}\"}],\"isError
 
 ### 1. category_name_search
 
-**用途**: 按名称搜索类目，获取 NodeId
+**用途**: 按名稱搜尋類目，獲取 NodeId
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 (US, GB, DE, etc.) |
-| searchName | string | ✓ | 类目名称关键词 |
+| amzSite | string | ✓ | 站點程式碼 (US, GB, DE, etc.) |
+| searchName | string | ✓ | 類目名稱關鍵詞 |
 
 **示例**:
 ```bash
@@ -63,7 +63,7 @@ curl -s -X POST "https://mcp.sorftime.com?key={KEY}" \
   }'
 ```
 
-**响应**:
+**響應**:
 ```json
 [
   {
@@ -81,39 +81,39 @@ curl -s -X POST "https://mcp.sorftime.com?key={KEY}" \
 
 ### 2. category_report
 
-**用途**: 获取类目 Top100 产品和统计数据
+**用途**: 獲取類目 Top100 產品和統計資料
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 |
-| nodeId | string | ✓ | 类目 Node ID |
+| amzSite | string | ✓ | 站點程式碼 |
+| nodeId | string | ✓ | 類目 Node ID |
 
 **示例**:
 ```python
 client.get_category_report("US", "7073956011")
 ```
 
-**响应结构**:
+**響應結構**:
 ```json
 {
-  "Top100产品": [
+  "Top100產品": [
     {
       "ASIN": "B0XXXXXXXX",
-      "标题": "...",
-      "月销量": "10000",
-      "月销额": "500000.00",
+      "標題": "...",
+      "月銷量": "10000",
+      "月銷額": "500000.00",
       "品牌": "JBL",
-      "价格": 49.99,
-      "评论数": 5000,
-      "星级": 4.7
+      "價格": 49.99,
+      "評論數": 5000,
+      "星級": 4.7
     }
   ],
-  "类目统计报告": {
+  "類目統計報告": {
     "nodeid": "7073956011",
-    "类目名称": "Portable Bluetooth Speakers",
-    "top100产品月销量": "279733",
-    "top100产品月销额": "19842968.40",
+    "類目名稱": "Portable Bluetooth Speakers",
+    "top100產品月銷量": "279733",
+    "top100產品月銷額": "19842968.40",
     "top3_product_sales_volume_share": "19.66%"
   }
 }
@@ -123,27 +123,27 @@ client.get_category_report("US", "7073956011")
 
 ### 3. category_trend
 
-**用途**: 获取类目趋势数据
+**用途**: 獲取類目趨勢資料
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 |
-| nodeId | string | ✓ | 类目 Node ID |
-| trendIndex | string | ✗ | 趋势类型 (默认: NewProductSalesAmountShare) |
+| amzSite | string | ✓ | 站點程式碼 |
+| nodeId | string | ✓ | 類目 Node ID |
+| trendIndex | string | ✗ | 趨勢型別 (預設: NewProductSalesAmountShare) |
 
-**trendIndex 选项**:
-- `NewProductSalesAmountShare` - 新品销量占比
-- `NewProductProductShare` - 新品数量占比
+**trendIndex 選項**:
+- `NewProductSalesAmountShare` - 新品銷量佔比
+- `NewProductProductShare` - 新品數量佔比
 - `BrandConcentration` - 品牌集中度
-- `PriceDistribution` - 价格分布
+- `PriceDistribution` - 價格分佈
 
 **示例**:
 ```python
 trend = client.get_category_trend("US", "7073956011", "NewProductSalesAmountShare")
 ```
 
-**响应**:
+**響應**:
 ```json
 [
   "2024年03月=3.32",
@@ -156,26 +156,26 @@ trend = client.get_category_trend("US", "7073956011", "NewProductSalesAmountShar
 
 ### 4. keyword_detail
 
-**用途**: 获取关键词详情
+**用途**: 獲取關鍵詞詳情
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 |
-| keyword | string | ✓ | 关键词 |
+| amzSite | string | ✓ | 站點程式碼 |
+| keyword | string | ✓ | 關鍵詞 |
 
 **示例**:
 ```python
 detail = client.get_keyword_detail("US", "bluetooth speaker")
 ```
 
-**响应结构**:
+**響應結構**:
 ```json
 {
-  "搜索量": "50000",
+  "搜尋量": "50000",
   "CPC": "1.50",
-  "竞价": "8",
-  "自然位产品": [...]
+  "競價": "8",
+  "自然位產品": [...]
 }
 ```
 
@@ -183,30 +183,30 @@ detail = client.get_keyword_detail("US", "bluetooth speaker")
 
 ### 5. product_detail
 
-**用途**: 获取单个产品详情
+**用途**: 獲取單個產品詳情
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 |
-| asin | string | ✓ | 产品 ASIN |
+| amzSite | string | ✓ | 站點程式碼 |
+| asin | string | ✓ | 產品 ASIN |
 
 ---
 
 ### 6. product_reviews
 
-**用途**: 获取产品评论
+**用途**: 獲取產品評論
 
-**参数**:
-| 参数 | 类型 | 必填 | 说明 |
+**引數**:
+| 引數 | 型別 | 必填 | 說明 |
 |------|------|------|------|
-| amzSite | string | ✓ | 站点代码 |
-| asin | string | ✓ | 产品 ASIN |
-| reviewType | string | ✗ | 评论类型 (Both/Positive/Negative) |
+| amzSite | string | ✓ | 站點程式碼 |
+| asin | string | ✓ | 產品 ASIN |
+| reviewType | string | ✗ | 評論型別 (Both/Positive/Negative) |
 
 ---
 
-## Python 客户端使用
+## Python 客戶端使用
 
 ### 基本用法
 
@@ -215,25 +215,25 @@ from api_client import SorftimeClient
 
 client = SorftimeClient()
 
-# 搜索类目
+# 搜尋類目
 categories = client.search_category_by_product_name("US", "bluetooth speaker")
 node_id = categories[0]['nodeId']
 
-# 获取 Top100
+# 獲取 Top100
 top100 = client.get_category_report("US", node_id)
-products = top100.get('Top100产品', [])
+products = top100.get('Top100產品', [])
 
-# 获取趋势
+# 獲取趨勢
 trend = client.get_category_trend("US", node_id)
 
-# 获取关键词详情
+# 獲取關鍵詞詳情
 keyword_data = client.get_keyword_detail("US", "bluetooth speaker")
 ```
 
-### 批量调用
+### 批次呼叫
 
 ```python
-# 并发获取多个产品详情
+# 併發獲取多個產品詳情
 asins = ["B0XXX1", "B0XXX2", "B0XXX3"]
 details = []
 for asin in asins:
@@ -246,55 +246,55 @@ for asin in asins:
 
 ---
 
-## 支持的站点
+## 支援的站點
 
-| 代码 | 市场 |
+| 程式碼 | 市場 |
 |------|------|
-| US | 美国亚马逊 |
-| GB | 英国亚马逊 |
-| DE | 德国亚马逊 |
-| FR | 法国亚马逊 |
-| IT | 意大利亚马逊 |
-| ES | 西班牙亚马逊 |
-| CA | 加拿大亚马逊 |
-| JP | 日本亚马逊 |
-| MX | 墨西哥亚马逊 |
-| AE | 阿联酋亚马逊 |
-| AU | 澳大利亚亚马逊 |
-| BR | 巴西亚马逊 |
-| SA | 沙特阿拉伯亚马逊 |
+| US | 美國亞馬遜 |
+| GB | 英國亞馬遜 |
+| DE | 德國亞馬遜 |
+| FR | 法國亞馬遜 |
+| IT | 義大利亞馬遜 |
+| ES | 西班牙亞馬遜 |
+| CA | 加拿大亞馬遜 |
+| JP | 日本亞馬遜 |
+| MX | 墨西哥亞馬遜 |
+| AE | 阿聯酋亞馬遜 |
+| AU | 澳大利亞亞馬遜 |
+| BR | 巴西亞馬遜 |
+| SA | 沙烏地阿拉伯亞馬遜 |
 
 ---
 
-## 数据类型说明
+## 資料型別說明
 
-### 月销量/月销额
+### 月銷量/月銷額
 
-- 类型: `string` (需要转换为数字)
+- 型別: `string` (需要轉換為數字)
 - 示例: `"28908"`, `"1443954.60"`
-- 转换: `float(value)`
+- 轉換: `float(value)`
 
-### 价格
+### 價格
 
-- 类型: `float` 或 `string`
+- 型別: `float` 或 `string`
 - 示例: `49.95`, `"29.99"`
 
-### 评论数
+### 評論數
 
-- 类型: `int` 或 `string`
+- 型別: `int` 或 `string`
 - 示例: `14558`, `"5000"`
 
 ---
 
-## 错误代码
+## 錯誤程式碼
 
-| HTTP 状态 | 含义 | 解决方案 |
+| HTTP 狀態 | 含義 | 解決方案 |
 |-----------|------|----------|
 | 200 | 成功 | - |
-| 406 | 参数错误 | 检查参数名称和格式 |
-| 401 | 认证失败 | 检查 API Key |
-| 500 | 服务器错误 | 稍后重试 |
+| 406 | 引數錯誤 | 檢查引數名稱和格式 |
+| 401 | 認證失敗 | 檢查 API Key |
+| 500 | 伺服器錯誤 | 稍後重試 |
 
 ---
 
-*最后更新: 2026-03-19*
+*最後更新: 2026-03-19*

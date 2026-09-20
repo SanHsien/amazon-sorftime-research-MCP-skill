@@ -1,12 +1,12 @@
-# FBM 拦截
+# FBM 攔截
 
-找 FBM 发货但销量不错的商品（可转 FBA 抢流量）。
+找 FBM 發貨但銷量不錯的商品（可轉 FBA 搶流量）。
 
 ## 工具
 `mcp__sellersprite__product_research` — `{"request": {...}}`
 
-## 筛选
+## 篩選
 - `fulfillment`: "FBM", `minUnits`: 300
 
-## 输出
-候选 ASIN + 销量/价格 + FBA 可行性评估
+## 輸出
+候選 ASIN + 銷量/價格 + FBA 可行性評估

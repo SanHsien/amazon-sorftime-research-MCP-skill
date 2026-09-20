@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""差评 6 维分析框架 - Insta360 X5 评论分析"""
+"""差評 6 維分析框架 - Insta360 X5 評論分析"""
 
 import json
 from collections import defaultdict
 from datetime import datetime
 
-# 产品信息
+# 產品資訊
 PRODUCT_INFO = {
     "asin": "B0DZCBYCNY",
     "site": "US",
@@ -18,9 +18,9 @@ PRODUCT_INFO = {
     "negative_reviews_count": 45
 }
 
-# 6 大痛点的关键词分类系统
+# 6 大痛點的關鍵詞分類系統
 PAIN_POINT_CATEGORIES = {
-    "电子模块故障": {
+    "電子模組故障": {
         "keywords": [
             "battery", "charge", "charging", "power", "drain", "overheat", "hot",
             "usb", "connection", "connect", "bluetooth", "wifi", "app",
@@ -33,7 +33,7 @@ PAIN_POINT_CATEGORIES = {
             "low": ["slow", "delay", "lag"]
         }
     },
-    "结构/组装问题": {
+    "結構/組裝問題": {
         "keywords": [
             "lens", "scratch", "crack", "broken", "loose", "wobble", "rattle",
             "seal", "waterproof", "water", "leak", "moisture", "dust",
@@ -47,7 +47,7 @@ PAIN_POINT_CATEGORIES = {
             "low": ["scratch", "cosmetic", "minor"]
         }
     },
-    "设计/功能缺陷": {
+    "設計/功能缺陷": {
         "keywords": [
             "software", "app", "edit", "editing", "watermark", "cloud", "subscription",
             "complicated", "difficult", "confusing", "intuitive", "user friendly",
@@ -62,7 +62,7 @@ PAIN_POINT_CATEGORIES = {
             "low": ["could be better", "wish", "prefer"]
         }
     },
-    "外观/材质问题": {
+    "外觀/材質問題": {
         "keywords": [
             "smell", "odor", "chemical", "cheap", "plastic", "flimsy",
             "color", "different", "not as shown", "misleading",
@@ -89,7 +89,7 @@ PAIN_POINT_CATEGORIES = {
             "low": ["slight difference", "minor variation"]
         }
     },
-    "服务/物流问题": {
+    "服務/物流問題": {
         "keywords": [
             "used", "dirty", "gross", "ear wax", "dirt", "opened", "previous owner", "returned",
             "missing", "no cord", "no cable", "no charger", "no accessory",
@@ -106,41 +106,41 @@ PAIN_POINT_CATEGORIES = {
     }
 }
 
-# 服务维度细分关键词
+# 服務維度細分關鍵詞
 SERVICE_SUBCATEGORIES = {
     "收到二手/瑕疵品": ["used", "dirty", "gross", "ear wax", "dirt", "opened", "previous owner", "returned", "refurbished"],
     "配件缺失": ["missing", "no cord", "no cable", "no charger", "no ear tip", "no accessory", "incomplete"],
-    "退换货困难": ["return", "refund", "exchange", "difficult", "challenging", "hassle", "complicated"],
-    "客服问题": ["customer service", "seller", "vendor", "support", "response", "reply", "contact"],
-    "物流问题": ["shipping", "delivery", "package", "packaging", "box", "damaged box"],
-    "发错货": ["wrong item", "wrong color", "wrong size", "sent wrong", "incorrect"]
+    "退換貨困難": ["return", "refund", "exchange", "difficult", "challenging", "hassle", "complicated"],
+    "客服問題": ["customer service", "seller", "vendor", "support", "response", "reply", "contact"],
+    "物流問題": ["shipping", "delivery", "package", "packaging", "box", "damaged box"],
+    "發錯貨": ["wrong item", "wrong color", "wrong size", "sent wrong", "incorrect"]
 }
 
 def classify_review_severity(review_text, category_keywords):
-    """判断评论的严重程度"""
+    """判斷評論的嚴重程度"""
     text_lower = review_text.lower()
 
-    # 检查高严重程度关键词
+    # 檢查高嚴重程度關鍵詞
     for kw in category_keywords.get("high", []):
         if kw.lower() in text_lower:
             return "高"
 
-    # 检查中等严重程度
+    # 檢查中等嚴重程度
     for kw in category_keywords.get("medium", []):
         if kw.lower() in text_lower:
             return "中"
 
-    # 检查低严重程度
+    # 檢查低嚴重程度
     for kw in category_keywords.get("low", []):
         if kw.lower() in text_lower:
             return "低"
 
-    # 默认中等
+    # 預設中等
     return "中"
 
 def classify_review(review):
-    """对单条评论进行分类，返回主要类别和次要类别"""
-    text = f"{review.get('标题', '')} {review.get('评论', '')}".lower()
+    """對單條評論進行分類，返回主要類別和次要類別"""
+    text = f"{review.get('標題', '')} {review.get('評論', '')}".lower()
     categories = defaultdict(list)
 
     for category, config in PAIN_POINT_CATEGORIES.items():
@@ -148,7 +148,7 @@ def classify_review(review):
             if keyword.lower() in text:
                 categories[category].append(keyword)
 
-    # 确定主要类别（关键词最多的）
+    # 確定主要類別（關鍵詞最多的）
     if categories:
         primary = max(categories.items(), key=lambda x: len(x[1]))
         return {
@@ -160,7 +160,7 @@ def classify_review(review):
     return {"primary": "其他", "secondary": [], "matched_keywords": []}
 
 def analyze_service_issues(review_text):
-    """分析服务维度问题细分"""
+    """分析服務維度問題細分"""
     text_lower = review_text.lower()
     subcategories = []
 
@@ -174,13 +174,13 @@ def analyze_service_issues(review_text):
 
 # 主分析流程
 def main():
-    # 读取解析后的评论
+    # 讀取解析後的評論
     with open("D:/amazon-mcp/review-analysis-reports/B0DZCBYCNY_US_20260315/data/parsed_reviews.json", 'r', encoding='utf-8') as f:
         reviews = json.load(f)
 
-    print(f"开始分析 {len(reviews)} 条差评...\n")
+    print(f"開始分析 {len(reviews)} 條差評...\n")
 
-    # 初始化分析结果
+    # 初始化分析結果
     analysis = {
         "product_info": PRODUCT_INFO,
         "analysis_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -193,44 +193,44 @@ def main():
         })
     }
 
-    # 分析每条评论
+    # 分析每條評論
     for review in reviews:
         classification = classify_review(review)
         primary_category = classification["primary"]
 
-        # 获取评论文本
-        review_text = f"{review.get('标题', '')} {review.get('评论', '')}"
+        # 獲取評論文字
+        review_text = f"{review.get('標題', '')} {review.get('評論', '')}"
 
-        # 判断严重程度
+        # 判斷嚴重程度
         severity = classify_review_severity(
             review_text,
             PAIN_POINT_CATEGORIES.get(primary_category, {}).get("severity_keywords", {})
         )
 
-        # 记录分析结果
+        # 記錄分析結果
         analysis["pain_points"][primary_category]["count"] += 1
         analysis["pain_points"][primary_category]["severity"][severity] += 1
         analysis["pain_points"][primary_category]["reviews"].append({
-            "star": review.get('评星', 'N/A'),
-            "title": review.get('标题', ''),
-            "comment": review.get('评论', ''),
-            "date": review.get('评论日期', ''),
+            "star": review.get('評星', 'N/A'),
+            "title": review.get('標題', ''),
+            "comment": review.get('評論', ''),
+            "date": review.get('評論日期', ''),
             "severity": severity,
             "matched_keywords": classification["matched_keywords"]
         })
 
-        # 如果是服务问题，进一步细分
-        if primary_category == "服务/物流问题":
+        # 如果是服務問題，進一步細分
+        if primary_category == "服務/物流問題":
             subcats = analyze_service_issues(review_text)
             for subcat in subcats:
                 analysis["pain_points"][primary_category]["service_subcategories"][subcat] += 1
 
-    # 计算百分比
+    # 計算百分比
     total = len(reviews)
     for category, data in analysis["pain_points"].items():
         data["percentage"] = round((data["count"] / total) * 100, 1)
 
-    # 转换为普通字典以便 JSON 序列化
+    # 轉換為普通字典以便 JSON 序列化
     pain_points_dict = {}
     for category, data in analysis["pain_points"].items():
         pain_points_dict[category] = {
@@ -243,14 +243,14 @@ def main():
 
     analysis["pain_points"] = pain_points_dict
 
-    # 保存分析结果
+    # 儲存分析結果
     output_file = "D:/amazon-mcp/review-analysis-reports/B0DZCBYCNY_US_20260315/data/negative_reviews_analysis.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(analysis, f, ensure_ascii=False, indent=2)
 
-    # 打印摘要
+    # 列印摘要
     print("=" * 60)
-    print("痛点分析摘要")
+    print("痛點分析摘要")
     print("=" * 60)
     sorted_pain_points = sorted(
         analysis["pain_points"].items(),
@@ -258,12 +258,12 @@ def main():
         reverse=True
     )
     for i, (category, data) in enumerate(sorted_pain_points, 1):
-        print(f"{i}. {category}: {data['count']}条 ({data['percentage']}%)")
-        print(f"   严重程度: 高{data['severity']['高']} | 中{data['severity']['中']} | 低{data['severity']['低']}")
+        print(f"{i}. {category}: {data['count']}條 ({data['percentage']}%)")
+        print(f"   嚴重程度: 高{data['severity']['高']} | 中{data['severity']['中']} | 低{data['severity']['低']}")
         if data.get('service_subcategories'):
-            print(f"   服务细分: {dict(data['service_subcategories'])}")
+            print(f"   服務細分: {dict(data['service_subcategories'])}")
 
-    print(f"\n分析完成！结果已保存到: {output_file}")
+    print(f"\n分析完成！結果已儲存到: {output_file}")
     return analysis
 
 if __name__ == "__main__":

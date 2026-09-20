@@ -59,7 +59,7 @@
   ],
   "product_types": [
     {
-      "dimension": "产品形态",
+      "dimension": "產品形態",
       "values": [
         "Classic Loaf",
         "Filets in Gravy",
@@ -68,10 +68,10 @@
         "Paté",
         "Home Delights"
       ],
-      "description": "质地差异"
+      "description": "質地差異"
     },
     {
-      "dimension": "蛋白质",
+      "dimension": "蛋白質",
       "values": [
         "Chicken",
         "Beef",
@@ -80,26 +80,26 @@
         "Salmon",
         "Variety Pack"
       ],
-      "description": "口味选择"
+      "description": "口味選擇"
     },
     {
-      "dimension": "包装形式",
+      "dimension": "包裝形式",
       "values": [
         "Easy Peel Trays (3.5 oz)",
         "Cans (10-13.5 oz)",
         "Pouches",
         "Tubs"
       ],
-      "description": "便携性"
+      "description": "便攜性"
     },
     {
-      "dimension": "包装尺寸",
+      "dimension": "包裝尺寸",
       "values": [
         "Small (1.76-3.5 oz)",
         "Medium (10-13.5 oz)",
         "Large (Multipacks)"
       ],
-      "description": "单次用量"
+      "description": "單次用量"
     },
     {
       "dimension": "特殊功能",
@@ -109,7 +109,7 @@
         "Small Breed",
         "Senior"
       ],
-      "description": "细分需求"
+      "description": "細分需求"
     }
   ],
   "cross_analysis": {
@@ -132,20 +132,20 @@
     ],
     "market_gaps": [
       {
-        "dimension": "Grain Free + 中价位($25-40)",
-        "status": "薄供给",
+        "dimension": "Grain Free + 中價位($25-40)",
+        "status": "薄供給",
         "count": 3,
         "opportunity": "⭐⭐⭐"
       },
       {
-        "dimension": "Small Breed + 小包装(3.5oz)",
-        "status": "竞争激烈",
+        "dimension": "Small Breed + 小包裝(3.5oz)",
+        "status": "競爭激烈",
         "count": 15,
         "opportunity": "⭐"
       },
       {
         "dimension": "Novel Protein (Venison/Duck)",
-        "status": "市场空白",
+        "status": "市場空白",
         "count": 0,
         "opportunity": "⭐⭐⭐⭐"
       }
@@ -222,7 +222,7 @@
       "monthly_sales": 51762,
       "reviews": 34251,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2017-05-29"
     },
     {
@@ -233,7 +233,7 @@
       "monthly_sales": 39373,
       "reviews": 39578,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2016-07-13"
     },
     {
@@ -244,7 +244,7 @@
       "monthly_sales": 33472,
       "reviews": 4384,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2011-11-18"
     },
     {
@@ -255,7 +255,7 @@
       "monthly_sales": 28071,
       "reviews": 14649,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2021-01-12"
     },
     {
@@ -266,7 +266,7 @@
       "monthly_sales": 27029,
       "reviews": 11148,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2018-07-07"
     },
     {
@@ -277,7 +277,7 @@
       "monthly_sales": 25238,
       "reviews": 5602,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-02-19"
     },
     {
@@ -288,7 +288,7 @@
       "monthly_sales": 22973,
       "reviews": 2507,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2020-01-17"
     },
     {
@@ -299,7 +299,7 @@
       "monthly_sales": 20893,
       "reviews": 1393,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-01-12"
     },
     {
@@ -310,7 +310,7 @@
       "monthly_sales": 20373,
       "reviews": 10823,
       "rating": 4.4,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2015-11-05"
     },
     {
@@ -321,15 +321,15 @@
       "monthly_sales": 19859,
       "reviews": 5430,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-01-04"
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "产品质量",
-        "pain_point": "变质、异味、批次质量不稳定、过期产品",
+        "dimension": "產品質量",
+        "pain_point": "變質、異味、批次質量不穩定、過期產品",
         "frequency": 28,
         "percentage": "20%",
         "affected_brands": [
@@ -337,12 +337,12 @@
           "Pedigree",
           "Purina ONE"
         ],
-        "brand_opportunity": "加强品质控制、新鲜度保证、缩短供应链周期",
-        "product_solution": "新鲜日期标注、真空密封包装、小批量生产"
+        "brand_opportunity": "加強品質控制、新鮮度保證、縮短供應鏈週期",
+        "product_solution": "新鮮日期標註、真空密封包裝、小批次生產"
       },
       {
-        "dimension": "包装问题",
-        "pain_point": "罐头凹陷、漏液、破损、缺少易拉盖",
+        "dimension": "包裝問題",
+        "pain_point": "罐頭凹陷、漏液、破損、缺少易拉蓋",
         "frequency": 37,
         "percentage": "26%",
         "affected_brands": [
@@ -351,24 +351,24 @@
           "Purina ONE",
           "全品牌"
         ],
-        "brand_opportunity": "改进包装材料、加强运输保护、优化罐体设计",
-        "product_solution": "加强外包装、添加易拉盖设计、防伪密封"
+        "brand_opportunity": "改進包裝材料、加強運輸保護、最佳化罐體設計",
+        "product_solution": "加強外包裝、新增易拉蓋設計、防偽密封"
       },
       {
         "dimension": "消化健康",
-        "pain_point": "导致腹泻、呕吐、肠胃不适、软便",
+        "pain_point": "導致腹瀉、嘔吐、腸胃不適、軟便",
         "frequency": 22,
         "percentage": "16%",
         "affected_brands": [
           "Pedigree",
           "Purina ONE"
         ],
-        "brand_opportunity": "添加益生菌、单一蛋白配方、敏感肠胃专用配方",
-        "product_solution": "易消化配方、添加益生元、无谷物配方"
+        "brand_opportunity": "新增益生菌、單一蛋白配方、敏感腸胃專用配方",
+        "product_solution": "易消化配方、新增益生元、無穀物配方"
       },
       {
-        "dimension": "适口性",
-        "pain_point": "狗狗拒吃、挑食、不爱吃",
+        "dimension": "適口性",
+        "pain_point": "狗狗拒吃、挑食、不愛吃",
         "frequency": 18,
         "percentage": "13%",
         "affected_brands": [
@@ -376,121 +376,121 @@
           "Purina ONE",
           "Cesar"
         ],
-        "brand_opportunity": "改善口味、增加天然诱食剂、优化肉质",
-        "product_solution": "真实肉块、天然肉汤、适口性测试"
+        "brand_opportunity": "改善口味、增加天然誘食劑、最佳化肉質",
+        "product_solution": "真實肉塊、天然肉湯、適口性測試"
       },
       {
-        "dimension": "性价比",
-        "pain_point": "涨价、肉块少汤汁多、分量不足",
+        "dimension": "價效比",
+        "pain_point": "漲價、肉塊少湯汁多、分量不足",
         "frequency": 15,
         "percentage": "11%",
         "affected_brands": [
           "Pedigree",
           "Cesar"
         ],
-        "brand_opportunity": "提高固形物含量、透明化配料表、合理定价",
-        "product_solution": "增加肉块比例、减少填充物、物有所值"
+        "brand_opportunity": "提高固形物含量、透明化配料表、合理定價",
+        "product_solution": "增加肉塊比例、減少填充物、物有所值"
       },
       {
         "dimension": "成分透明度",
-        "pain_point": "副产品多、营养评分低、成分不透明",
+        "pain_point": "副產品多、營養評分低、成分不透明",
         "frequency": 10,
         "percentage": "7%",
         "affected_brands": [
           "Cesar",
           "Pedigree"
         ],
-        "brand_opportunity": "使用全肉、无谷配方、透明化配料表",
-        "product_solution": "第一成分是真实肉类、无副产品、AAFCO认证"
+        "brand_opportunity": "使用全肉、無谷配方、透明化配料表",
+        "product_solution": "第一成分是真實肉類、無副產品、AAFCO認證"
       }
     ],
-    "summary": "主要痛点集中在包装问题(26%)、产品质量(20%)、消化健康(16%)"
+    "summary": "主要痛點集中在包裝問題(26%)、產品質量(20%)、消化健康(16%)"
   },
   "barriers": [
     {
-      "type": "品牌壁垒",
+      "type": "品牌壁壘",
       "level": "高",
-      "data_anchor": "Top10 品牌占86%市场份额",
+      "data_anchor": "Top10 品牌佔86%市場份額",
       "estimated_cost": "$100K+",
-      "mitigation": "差异化定位、Vine计划、精准细分市场"
+      "mitigation": "差異化定位、Vine計劃、精準細分市場"
     },
     {
-      "type": "Review壁垒",
+      "type": "Review壁壘",
       "level": "高",
-      "data_anchor": "Top10 均值15,000+评论",
+      "data_anchor": "Top10 均值15,000+評論",
       "estimated_cost": "$20K+",
-      "mitigation": "Vine + PPC早期积累、邀请评价"
+      "mitigation": "Vine + PPC早期積累、邀請評價"
     },
     {
-      "type": "渠道壁垒",
+      "type": "渠道壁壘",
       "level": "高",
-      "data_anchor": "Amazon占80%份额",
+      "data_anchor": "Amazon佔80%份額",
       "estimated_cost": "-",
-      "mitigation": "FBA必需、多渠道布局、品牌官网"
+      "mitigation": "FBA必需、多渠道佈局、品牌官網"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "中",
-      "data_anchor": "首批备货 + 广告投入",
+      "data_anchor": "首批備貨 + 廣告投入",
       "estimated_cost": "¥50-100K",
-      "mitigation": "控制首批MOQ、按需补货"
+      "mitigation": "控制首批MOQ、按需補貨"
     },
     {
-      "type": "供应链壁垒",
+      "type": "供應鏈壁壘",
       "level": "中",
-      "data_anchor": "湿粮生产 + 保质期管理",
+      "data_anchor": "溼糧生產 + 保質期管理",
       "estimated_cost": "¥30-50K",
-      "mitigation": "代工厂合作、小批量测试、冷链物流"
+      "mitigation": "代工廠合作、小批次測試、冷鏈物流"
     }
   ],
   "decision": {
     "overall_score": 5.5,
-    "verdict": "谨慎进入/暂缓观望",
+    "verdict": "謹慎進入/暫緩觀望",
     "scores": {
       "market_size": {
         "score": 7,
         "weight": 0.2,
         "weighted": 1.4,
-        "rationale": "月销额$22.5M，需求稳定"
+        "rationale": "月銷額$22.5M，需求穩定"
       },
       "competition": {
         "score": 4,
         "weight": 0.25,
         "weighted": 1.0,
-        "rationale": "高度集中，红海市场"
+        "rationale": "高度集中，紅海市場"
       },
       "barriers": {
         "score": 3,
         "weight": 0.2,
         "weighted": 0.6,
-        "rationale": "品牌、Review、渠道壁垒高"
+        "rationale": "品牌、Review、渠道壁壘高"
       },
       "profit_margin": {
         "score": 8,
         "weight": 0.2,
         "weighted": 1.6,
-        "rationale": "成本可控，溢价空间大"
+        "rationale": "成本可控，溢價空間大"
       },
       "supply_chain": {
         "score": 6,
         "weight": 0.15,
         "weighted": 0.9,
-        "rationale": "代工厂成熟，但需认证"
+        "rationale": "代工廠成熟，但需認證"
       }
     },
     "entry_conditions": [
-      "有独特的配方或供应链优势",
-      "能够精准切入空白细分市场",
-      "有充足的资金和长期运营规划"
+      "有獨特的配方或供應鏈優勢",
+      "能夠精準切入空白細分市場",
+      "有充足的資金和長期運營規劃"
     ],
     "tier1_product": {
-      "positioning": "Grain Free中价位市场薄供给机会",
-      "target_market": "注重健康但预算敏感的消费者",
+      "positioning": "Grain Free中價位市場薄供給機會",
+      "target_market": "注重健康但預算敏感的消費者",
       "specs": {
         "protein": "Chicken + Sweet Potato",
         "package_format": "12x10oz Cans",
         "price": "$28-32",
-        "differentiation": "易拉盖设计 + 新鲜日期保证"
+        "differentiation": "易拉蓋設計 + 新鮮日期保證"
       },
       "competitor_asin": "B09PF7YGF9 (Nutrish)"
     }

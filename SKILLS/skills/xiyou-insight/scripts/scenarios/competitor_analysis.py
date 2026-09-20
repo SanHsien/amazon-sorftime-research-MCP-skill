@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class CompetitorAnalysisScenario(BaseScenario):
-    """竞品流量及广告策略深度分析"""
+    """競品流量及廣告策略深度分析"""
 
     NAME = "competitor_analysis"
-    DESCRIPTION = "精准拆解竞品流量以及广告策略"
+    DESCRIPTION = "精準拆解競品流量以及廣告策略"
     REQUIRED_PARAMS = ['asin', 'site']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -23,7 +23,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'竞品分析：获取{asin}基础信息'
+                    'intent_summary': f'競品分析：獲取{asin}基礎資訊'
                 }
             },
             {
@@ -31,7 +31,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                 'arguments': {
                     'asin': asin,
                     'country': site,
-                    'intent_summary': f'竞品分析：获取{asin}变体关系'
+                    'intent_summary': f'競品分析：獲取{asin}變體關係'
                 }
             },
             {
@@ -43,7 +43,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                     'page_size': 50,
                     'sort_field': 'traffic',
                     'sort_order': 'desc',
-                    'intent_summary': f'竞品分析：获取{asin}关键词列表'
+                    'intent_summary': f'競品分析：獲取{asin}關鍵詞列表'
                 }
             },
             {
@@ -51,7 +51,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'竞品分析：获取{asin}流量得分'
+                    'intent_summary': f'競品分析：獲取{asin}流量得分'
                 }
             },
             {
@@ -61,7 +61,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'竞品分析：获取{asin}流量趋势'
+                    'intent_summary': f'競品分析：獲取{asin}流量趨勢'
                 }
             },
             {
@@ -71,7 +71,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'竞品分析：获取{asin}广告活动变化'
+                    'intent_summary': f'競品分析：獲取{asin}廣告活動變化'
                 }
             }
         ]
@@ -83,7 +83,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                 'arguments': {
                     'keywords': keywords[:10],
                     'country': site,
-                    'intent_summary': f'竞品分析：获取关键词信息'
+                    'intent_summary': f'競品分析：獲取關鍵詞資訊'
                 }
             })
 
@@ -95,7 +95,7 @@ class CompetitorAnalysisScenario(BaseScenario):
                         'country': site,
                         'page': 1,
                         'page_size': 20,
-                        'intent_summary': f'竞品分析：分析关键词{keyword}竞争格局'
+                        'intent_summary': f'競品分析：分析關鍵詞{keyword}競爭格局'
                     }
                 })
 
@@ -106,10 +106,10 @@ class CompetitorAnalysisScenario(BaseScenario):
         site = params['site']
 
         data = {
-            'title': f'竞品分析 - {asin}',
+            'title': f'競品分析 - {asin}',
             'target': asin,
             'site': site,
-            'scenario': '流量广告策略'
+            'scenario': '流量廣告策略'
         }
 
         if raw_data.get('get_asin_info'):
@@ -146,23 +146,23 @@ class CompetitorAnalysisScenario(BaseScenario):
             asin_traffic = list(data['traffic'].values())[0] if data['traffic'] else {}
             natural_share = asin_traffic.get('natural_traffic_share', 0)
             if natural_share > 60:
-                insights.append(f"自然流量占比达{natural_share}%，说明产品在自然搜索方面表现优秀，品牌认知度较高")
+                insights.append(f"自然流量佔比達{natural_share}%，說明產品在自然搜尋方面表現優秀，品牌認知度較高")
             else:
-                insights.append(f"自然流量占比{natural_share}%，广告流量依赖度较高，建议优化Listing提升自然排名")
+                insights.append(f"自然流量佔比{natural_share}%，廣告流量依賴度較高，建議最佳化Listing提升自然排名")
 
         if data.get('keywords'):
             asin_keywords = list(data['keywords'].values())[0] if data['keywords'] else []
             if asin_keywords:
                 top_keyword = asin_keywords[0]
-                insights.append(f"核心关键词 '{top_keyword['keyword']}' 贡献了{top_keyword['traffic_share']}的流量，是主要流量来源")
+                insights.append(f"核心關鍵詞 '{top_keyword['keyword']}' 貢獻了{top_keyword['traffic_share']}的流量，是主要流量來源")
 
         if data.get('ad_trends'):
             ad_trends = list(data['ad_trends'].values())[0] if data['ad_trends'] else {}
             summary = ad_trends.get('summary', {})
             if summary.get('net_change', 0) > 0:
-                insights.append(f"近7天广告活动净增{summary['net_change']}个，竞品正在加大广告投放力度")
+                insights.append(f"近7天廣告活動淨增{summary['net_change']}個，競品正在加大廣告投放力度")
             elif summary.get('net_change', 0) < 0:
-                insights.append(f"近7天广告活动净减{abs(summary['net_change'])}个，竞品可能在调整广告策略")
+                insights.append(f"近7天廣告活動淨減{abs(summary['net_change'])}個，競品可能在調整廣告策略")
 
         if data.get('traffic_trends'):
             trends = list(data['traffic_trends'].values())[0] if data['traffic_trends'] else []
@@ -170,10 +170,10 @@ class CompetitorAnalysisScenario(BaseScenario):
                 recent_avg = sum(t['total_traffic'] for t in trends[-7:]) / 7
                 earlier_avg = sum(t['total_traffic'] for t in trends[:7]) / 7 if len(trends) >= 14 else recent_avg
                 if recent_avg > earlier_avg * 1.1:
-                    insights.append("近7天流量呈上升趋势，竞品可能在进行促销活动或广告加投")
+                    insights.append("近7天流量呈上升趨勢，競品可能在進行促銷活動或廣告加投")
 
-        insights.append("建议重点关注竞品的核心关键词布局，寻找流量缺口")
-        insights.append("持续监控竞品广告活动变化，及时调整自身广告策略")
+        insights.append("建議重點關注競品的核心關鍵詞佈局，尋找流量缺口")
+        insights.append("持續監控競品廣告活動變化，及時調整自身廣告策略")
 
         return insights
 
@@ -334,7 +334,7 @@ class CompetitorAnalysisScenario(BaseScenario):
         overview = {}
         for asin, data in traffic.items():
             overview[f"{asin} - 自然流量"] = data['natural_traffic']
-            overview[f"{asin} - 广告流量"] = data['ad_traffic']
-            overview[f"{asin} - 总流量"] = data['total_traffic']
-            overview[f"{asin} - 关键词数"] = data['keyword_count']
+            overview[f"{asin} - 廣告流量"] = data['ad_traffic']
+            overview[f"{asin} - 總流量"] = data['total_traffic']
+            overview[f"{asin} - 關鍵詞數"] = data['keyword_count']
         return overview

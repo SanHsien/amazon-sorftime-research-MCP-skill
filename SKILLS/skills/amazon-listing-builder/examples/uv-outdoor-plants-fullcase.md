@@ -1,35 +1,35 @@
-# 完整案例：抗 UV 户外仿真植物 Listing
+# 完整案例：抗 UV 戶外模擬植物 Listing
 
-> 端到端演示如何用八步工作流打造一个爆款 Listing。
-> 价格目标：$24.99-$29.99，主打 patio/porch/花盆/阳台，中高品质户外装饰场景。
-
----
-
-## 产品定位
-
-- **品类**：户外仿真植物
-- **差异化**：抗 UV、真实感、加固包装
-- **价格区间**：$24.99-$29.99（中高品质，不做最低价）
-- **目标场景**：庭院、门廊、花盆、阳台
-- **目标人群**：拥有户外空间、不想维护真花、追求持久装饰的 homeowner
+> 端到端演示如何用八步工作流打造一個爆款 Listing。
+> 價格目標：$24.99-$29.99，主打 patio/porch/花盆/陽臺，中高品質戶外裝飾場景。
 
 ---
 
-## 第一步：词库拆解
+## 產品定位
 
-### L1 核心品类词（必须前台）
+- **品類**：戶外模擬植物
+- **差異化**：抗 UV、真實感、加固包裝
+- **價格區間**：$24.99-$29.99（中高品質，不做最低價）
+- **目標場景**：庭院、門廊、花盆、陽臺
+- **目標人群**：擁有戶外空間、不想維護真花、追求持久裝飾的 homeowner
+
+---
+
+## 第一步：詞庫拆解
+
+### L1 核心品類詞（必須前臺）
 - artificial flowers
 - artificial plants
 - fake flowers
 - faux plants
 
-### L2 功能属性词
+### L2 功能屬性詞
 - UV resistant
 - fade resistant
 - weather resistant
 - maintenance free
 
-### L3 场景词
+### L3 場景詞
 - outdoor
 - patio
 - garden
@@ -37,84 +37,84 @@
 - planter
 - front door
 
-### L4 审美 / 问题词
+### L4 審美 / 問題詞
 - realistic / lifelike / natural looking
 - won't fade in sun
 - for outdoor planters
 - no watering
 - full sun decor
 
-### L5 规格词
+### L5 規格詞
 - 12 bundles
 - plastic stems
 - 16 inch
 
 ---
 
-## 第二步：用户问题库 Top 10
+## 第二步：使用者問題庫 Top 10
 
-| # | 问题 | 来源 | 对应卖点 |
+| # | 問題 | 來源 | 對應賣點 |
 |---|------|------|---------|
-| 1 | Will these flowers fade in direct sunlight? | 差评 + QA | 抗 UV |
-| 2 | Can I use them in outdoor planters? | QA | 灵活枝干 |
-| 3 | Are the stems flexible? | QA | 可塑枝干 |
-| 4 | How many bundles do I need for a medium planter? | QA | 数量建议 |
-| 5 | Do they look realistic up close? | 差评 | 花瓣层次 |
-| 6 | Will they fall apart or shed? | 差评 | 加固工艺 |
+| 1 | Will these flowers fade in direct sunlight? | 差評 + QA | 抗 UV |
+| 2 | Can I use them in outdoor planters? | QA | 靈活枝幹 |
+| 3 | Are the stems flexible? | QA | 可塑枝幹 |
+| 4 | How many bundles do I need for a medium planter? | QA | 數量建議 |
+| 5 | Do they look realistic up close? | 差評 | 花瓣層次 |
+| 6 | Will they fall apart or shed? | 差評 | 加固工藝 |
 | 7 | Can I leave them outside in rain? | QA | 防水 |
-| 8 | How tall are they? | QA | 规格 |
-| 9 | Will the color look fake? | 差评 | 自然色差 |
-| 10 | Is the packaging protective? | 差评 | 加固包装 |
+| 8 | How tall are they? | QA | 規格 |
+| 9 | Will the color look fake? | 差評 | 自然色差 |
+| 10 | Is the packaging protective? | 差評 | 加固包裝 |
 
 ---
 
-## 第三步：痛点-证据映射表
+## 第三步：痛點-證據對映表
 
-| 痛点 | 解决方案 | 证据 | 对应关键词 | 图片 | Listing 位置 |
+| 痛點 | 解決方案 | 證據 | 對應關鍵詞 | 圖片 | Listing 位置 |
 |------|---------|------|----------|------|------------|
-| 褪色 | 抗 UV 材料 | 抗 UV 处理 PE 花瓣 | UV resistant / fade resistant | 户外暴晒图 | 五点 1 + A+ 第 2 屏 |
-| 看起来假 | 自然色差 + 层次花瓣 | 多层花瓣 + 自然渐变色 | realistic / lifelike | 近景 + 远景图 | 五点 2 + A+ 第 3 屏 |
-| 不会用 | 直接插入花盆 | 灵活可塑枝干 | flexible stems | 花盆使用图 | 五点 3 + A+ 第 4 屏 |
-| 不知道数量 | 12 bundles 填满中型花盆 | 数量对照 | 12 bundles | 数量对照图 | 五点 4 + QA |
-| 收到变形 | 加固包装 | 内部支撑 + 外盒 | protective packaging | 包装示意图 | 五点 5 + A+ 第 6 屏 |
+| 褪色 | 抗 UV 材料 | 抗 UV 處理 PE 花瓣 | UV resistant / fade resistant | 戶外暴曬圖 | 五點 1 + A+ 第 2 屏 |
+| 看起來假 | 自然色差 + 層次花瓣 | 多層花瓣 + 自然漸變色 | realistic / lifelike | 近景 + 遠景圖 | 五點 2 + A+ 第 3 屏 |
+| 不會用 | 直接插入花盆 | 靈活可塑枝幹 | flexible stems | 花盆使用圖 | 五點 3 + A+ 第 4 屏 |
+| 不知道數量 | 12 bundles 填滿中型花盆 | 數量對照 | 12 bundles | 數量對照圖 | 五點 4 + QA |
+| 收到變形 | 加固包裝 | 內部支撐 + 外盒 | protective packaging | 包裝示意圖 | 五點 5 + A+ 第 6 屏 |
 
 ---
 
-## 第四步：标题（3 版对比）
+## 第四步：標題（3 版對比）
 
-### 版本 1：关键词覆盖版
+### 版本 1：關鍵詞覆蓋版
 ```
 Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Realistic Faux Plants for Patio Garden Porch Planters, Fade Resistant Outdoor Decor
 ```
-- 字符数：178
-- 前 80 字符：`Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Real`
+- 字元數：178
+- 前 80 字元：`Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Real`
 - 埋入：L1（artificial flowers, faux plants）、L2（UV resistant, fade resistant）、L3（outdoors, patio, garden, porch, planters）、L5（12 bundles）
-- 优点：核心词全覆盖，结构清晰
-- 缺点：字符偏长，移动端可能截断
+- 優點：核心詞全覆蓋，結構清晰
+- 缺點：字元偏長，移動端可能截斷
 
-### 版本 2：转化表达版
+### 版本 2：轉化表達版
 ```
 Brand 12-Bundle UV Resistant Artificial Flowers — Fade-Resistant Outdoor Faux Plants for Patio & Porch Planters
 ```
-- 字符数：125
-- 前 80 字符：`Brand 12-Bundle UV Resistant Artificial Flowers — Fade-Resistant Out`
-- 优点：移动端友好，价值前置
-- 缺点：牺牲了 garden 场景
+- 字元數：125
+- 前 80 字元：`Brand 12-Bundle UV Resistant Artificial Flowers — Fade-Resistant Out`
+- 優點：移動端友好，價值前置
+- 缺點：犧牲了 garden 場景
 
-### 版本 3：简洁合规版
+### 版本 3：簡潔合規版
 ```
 Brand UV Resistant Artificial Flowers, 12 Bundles Faux Plants for Outdoor Patio Garden Planters
 ```
-- 字符数：103
-- 优点：安全、合规、加载快
-- 缺点：差异化表达弱
+- 字元數：103
+- 優點：安全、合規、載入快
+- 缺點：差異化表達弱
 
-### 推荐基础版：**版本 1**
-理由：户外仿真植物品类流量竞争激烈，关键词覆盖优先。后期根据数据可向版本 2 转化。
+### 推薦基礎版：**版本 1**
+理由：戶外模擬植物品類流量競爭激烈，關鍵詞覆蓋優先。後期根據資料可向版本 2 轉化。
 
 ---
 
-## 第五步：五点描述
+## 第五步：五點描述
 
 ### Point 1: Designed for Outdoor Sunlight
 **Made with UV-resistant materials to help reduce fading in patio, porch and garden use.**
@@ -143,9 +143,9 @@ Brand UV Resistant Artificial Flowers, 12 Bundles Faux Plants for Outdoor Patio 
 
 ---
 
-## 第六步：描述 + A+ 内容
+## 第六步：描述 + A+ 內容
 
-### 产品描述（7 段式）
+### 產品描述（7 段式）
 
 > **Want a Colorful Porch Without the Maintenance?**
 >
@@ -173,17 +173,17 @@ Brand UV Resistant Artificial Flowers, 12 Bundles Faux Plants for Outdoor Patio 
 >
 > Like all outdoor decor, long-term extreme sun and weather exposure may gradually affect color. For longest life, shelter during severe storms.
 
-### A+ 模块结构（7 屏）
+### A+ 模組結構（7 屏）
 
-| 屏 | 标题 | 正文 | 图片需求 |
+| 屏 | 標題 | 正文 | 圖片需求 |
 |----|------|------|---------|
-| 1 | Brand UV-Resistant Outdoor Florals | Built for outdoor living | 户外门廊全场景图 |
-| 2 | UV-Resistant Material | Help reduce fading in full sun | 阳光照射示意 + 材料 callout |
-| 3 | Layered Petals, Natural Color | Lifelike from a distance | 近景细节图 + 远景对比 |
-| 4 | Where to Use | Patio · Porch · Garden · Balcony · Window Box · Cemetery | 4-6 场景拼图 |
-| 5 | 12-Bundle Set | Fills 2-3 medium planters | 数量对照图 |
-| 6 | Protective Packaging | Reinforced to reduce transit damage | 包装示意图 |
-| 7 | Standard vs Brand UV-Resistant | Color retention after 200 hours | 对比表 |
+| 1 | Brand UV-Resistant Outdoor Florals | Built for outdoor living | 戶外門廊全場景圖 |
+| 2 | UV-Resistant Material | Help reduce fading in full sun | 陽光照射示意 + 材料 callout |
+| 3 | Layered Petals, Natural Color | Lifelike from a distance | 近景細節圖 + 遠景對比 |
+| 4 | Where to Use | Patio · Porch · Garden · Balcony · Window Box · Cemetery | 4-6 場景拼圖 |
+| 5 | 12-Bundle Set | Fills 2-3 medium planters | 數量對照圖 |
+| 6 | Protective Packaging | Reinforced to reduce transit damage | 包裝示意圖 |
+| 7 | Standard vs Brand UV-Resistant | Color retention after 200 hours | 對比表 |
 
 ---
 
@@ -193,16 +193,16 @@ Brand UV Resistant Artificial Flowers, 12 Bundles Faux Plants for Outdoor Patio 
 faux greenery silk flowers fake plants front porch planter filler backyard terrace deck balcony cemetery window box summer wedding centerpiece low maintenance outdoor decor fake flower arrangement
 ```
 
-**总字节**：238 / 250
+**總位元組**：238 / 250
 
 **已排除**：
-- artificial flowers, faux plants, UV resistant, fade resistant, patio, garden, porch, planters, 12 bundles（前台已出现）
-- 其他品牌名（竞品）
-- best, cheap（夸大词）
+- artificial flowers, faux plants, UV resistant, fade resistant, patio, garden, porch, planters, 12 bundles（前臺已出現）
+- 其他品牌名（競品）
+- best, cheap（誇大詞）
 
 ---
 
-## 第八步：QA（10 题）
+## 第八步：QA（10 題）
 
 ### Q1: Will these artificial flowers fade in direct sunlight?
 A: They are made with UV-resistant materials to help reduce fading during outdoor use, but like all outdoor decor, long-term extreme sun exposure may gradually affect color. For best longevity, shelter during severe weather.
@@ -236,46 +236,46 @@ A: Each set is shipped with reinforced packaging to reduce transit damage. If an
 
 ---
 
-## 第九步：上线后数据迭代示例（假设场景）
+## 第九步：上線後資料迭代示例（假設場景）
 
-### 假设数据（上线 4 周后）
-- 整体 CTR：2.8%
-- 整体 CVR：6.5%
-- 主关键词 CTR：3.2%
+### 假設資料（上線 4 周後）
+- 整體 CTR：2.8%
+- 整體 CVR：6.5%
+- 主關鍵詞 CTR：3.2%
 
-### 词效分析
+### 詞效分析
 
-| 词 | 曝光 | CTR | CVR | 处理 |
+| 詞 | 曝光 | CTR | CVR | 處理 |
 |----|------|-----|-----|------|
-| uv resistant outdoor flowers | 8,500 | 4.1% | 9.2% | 加大广告 + 已在标题 |
-| front porch planter flowers | 3,200 | 5.2% | 11.5% | 加入 ST + 加大广告 |
-| outdoor decor | 12,000 | 1.8% | 0.8% | 否定词 |
+| uv resistant outdoor flowers | 8,500 | 4.1% | 9.2% | 加大廣告 + 已在標題 |
+| front porch planter flowers | 3,200 | 5.2% | 11.5% | 加入 ST + 加大廣告 |
+| outdoor decor | 12,000 | 1.8% | 0.8% | 否定詞 |
 | realistic fake plants | 2,800 | 4.5% | 8.8% | 加入 ST |
 
-### 行动方案
+### 行動方案
 
-**P0（本周）**
-- 加入否定词：outdoor decor（太泛）
+**P0（本週）**
+- 加入否定詞：outdoor decor（太泛）
 - 把"front porch planter flowers"加入 ST
 
-**P1（2 周内）**
-- QA 新增"Are they safe for pets?"（出现 5 次）
-- A+ 第 7 屏优化对比图（用户反映不够直观）
+**P1（2 周內）**
+- QA 新增"Are they safe for pets?"（出現 5 次）
+- A+ 第 7 屏最佳化對比圖（使用者反映不夠直觀）
 
-**P2（1 个月内）**
-- 主图换自然光版本（差评 8 次反映颜色偏差）
-- 五点 2 加自然光说明
+**P2（1 個月內）**
+- 主圖換自然光版本（差評 8 次反映顏色偏差）
+- 五點 2 加自然光說明
 
 ---
 
-## 总结
+## 總結
 
-这个案例展示了完整的八步工作流。**关键经验**：
+這個案例展示了完整的八步工作流。**關鍵經驗**：
 
-1. **词库分层**让标题不堆砌
-2. **痛点证据库**让五点有内容支撑
-3. **3 版标题对比**让选择有依据
-4. **A+ 7 屏结构**让语义覆盖完整
-5. **ST 只放补充词**让索引更精准
-6. **QA 答案型**承接对话式搜索
-7. **数据驱动迭代**让 Listing 持续进化
+1. **詞庫分層**讓標題不堆砌
+2. **痛點證據庫**讓五點有內容支撐
+3. **3 版標題對比**讓選擇有依據
+4. **A+ 7 屏結構**讓語義覆蓋完整
+5. **ST 只放補充詞**讓索引更精準
+6. **QA 答案型**承接對話式搜尋
+7. **資料驅動迭代**讓 Listing 持續進化

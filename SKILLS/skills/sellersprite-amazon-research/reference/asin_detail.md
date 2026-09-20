@@ -1,65 +1,65 @@
 # ASIN 分析工具集
 
-## `asin_detail` — ASIN 详情
+## `asin_detail` — ASIN 詳情
 
 ### 用途
-获取单个 ASIN 的详细信息：标题、品牌、价格、评分、变体、卖家等。
+獲取單個 ASIN 的詳細資訊：標題、品牌、價格、評分、變體、賣家等。
 
-### 请求参数
-- `marketplace`: 站点
-- `asin`: ASIN（单值）
+### 請求引數
+- `marketplace`: 站點
+- `asin`: ASIN（單值）
 - `month`: yyyyMM
 
-### 响应字段
-标题、品牌、卖家、价格、评分、评分数、BSR、变体信息、配送方式、上架日期、图片 URL、描述等。
+### 響應欄位
+標題、品牌、賣家、價格、評分、評分數、BSR、變體資訊、配送方式、上架日期、圖片 URL、描述等。
 
 ---
 
-## `keepa_info` — Keepa 趋势数据
+## `keepa_info` — Keepa 趨勢資料
 
 ### 用途
-获取 ASIN 的历史价格、排名、销量趋势曲线（Keepa 风格）。
+獲取 ASIN 的歷史價格、排名、銷量趨勢曲線（Keepa 風格）。
 
-### 请求参数
-- `marketplace`: 站点
-- `asin`: ASIN（单值）
+### 請求引數
+- `marketplace`: 站點
+- `asin`: ASIN（單值）
 - `month`: yyyyMM
 
-### 响应字段
-价格历史、BSR 历史、销量历史数据点。
+### 響應欄位
+價格歷史、BSR 歷史、銷量歷史資料點。
 
 ---
 
-## `asin_prediction` — 销量预测
+## `asin_prediction` — 銷量預測
 
 ### 用途
-基于历史数据预测 ASIN 的未来销量。
+基於歷史資料預測 ASIN 的未來銷量。
 
-### 请求参数
-- `marketplace`: 站点
+### 請求引數
+- `marketplace`: 站點
 - `asin`: ASIN
 
 ---
 
-## `asin_coupon_trend` — 优惠趋势
+## `asin_coupon_trend` — 優惠趨勢
 
 ### 用途
-ASIN 的 Coupon/促销历史趋势。
+ASIN 的 Coupon/促銷歷史趨勢。
 
 ---
 
-## `asin_detail_with_coupon_trend` — 详情+优惠
+## `asin_detail_with_coupon_trend` — 詳情+優惠
 
 ### 用途
-一次性获取 ASIN 详情和优惠趋势数据。
+一次性獲取 ASIN 詳情和優惠趨勢資料。
 
 ---
 
-## `bsr_prediction` — BSR 销量预估
+## `bsr_prediction` — BSR 銷量預估
 
 ### 用途
-根据 BSR 排名估算销量。
+根據 BSR 排名估算銷量。
 
-### 请求参数
-- `category`: 类目 ID
+### 請求引數
+- `category`: 類目 ID
 - `rank`: BSR 排名

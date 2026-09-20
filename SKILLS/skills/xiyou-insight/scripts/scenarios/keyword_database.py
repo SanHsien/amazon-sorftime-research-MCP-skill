@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class KeywordDatabaseScenario(BaseScenario):
-    """高效搭建关键词库"""
+    """高效搭建關鍵詞庫"""
 
     NAME = "keyword_database"
-    DESCRIPTION = "高效搭建关键词库"
+    DESCRIPTION = "高效搭建關鍵詞庫"
     REQUIRED_PARAMS = ['site']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -27,7 +27,7 @@ class KeywordDatabaseScenario(BaseScenario):
                 'arguments': {
                     'asins': competitor_asins,
                     'country': site,
-                    'intent_summary': '关键词库搭建：获取竞品ASIN基础信息'
+                    'intent_summary': '關鍵詞庫搭建：獲取競品ASIN基礎資訊'
                 }
             })
 
@@ -41,7 +41,7 @@ class KeywordDatabaseScenario(BaseScenario):
                         'page_size': 100,
                         'sort_field': 'traffic',
                         'sort_order': 'desc',
-                        'intent_summary': f'关键词库搭建：反查{asin}流量词'
+                        'intent_summary': f'關鍵詞庫搭建：反查{asin}流量詞'
                     }
                 })
 
@@ -51,7 +51,7 @@ class KeywordDatabaseScenario(BaseScenario):
                 'arguments': {
                     'keywords': core_keywords[:20],
                     'country': site,
-                    'intent_summary': '关键词库搭建：获取核心关键词基础指标'
+                    'intent_summary': '關鍵詞庫搭建：獲取核心關鍵詞基礎指標'
                 }
             })
 
@@ -65,7 +65,7 @@ class KeywordDatabaseScenario(BaseScenario):
                         'page_size': 30,
                         'sort_field': 'traffic',
                         'sort_order': 'desc',
-                        'intent_summary': f'关键词库搭建：分析关键词{keyword}竞争格局'
+                        'intent_summary': f'關鍵詞庫搭建：分析關鍵詞{keyword}競爭格局'
                     }
                 })
 
@@ -76,7 +76,7 @@ class KeywordDatabaseScenario(BaseScenario):
                         'country': site,
                         'start_week': (self.current_date - timedelta(days=90)).strftime('%Y-%m-%d'),
                         'end_week': self.default_end_date,
-                        'intent_summary': f'关键词库搭建：获取{keyword}搜索量趋势'
+                        'intent_summary': f'關鍵詞庫搭建：獲取{keyword}搜尋量趨勢'
                     }
                 })
 
@@ -89,10 +89,10 @@ class KeywordDatabaseScenario(BaseScenario):
             competitor_asins = [competitor_asins]
 
         data = {
-            'title': f'关键词库搭建 - {site}',
+            'title': f'關鍵詞庫搭建 - {site}',
             'target': site,
             'site': site,
-            'scenario': '关键词库'
+            'scenario': '關鍵詞庫'
         }
 
         all_keywords = []
@@ -161,23 +161,23 @@ class KeywordDatabaseScenario(BaseScenario):
         stats = data.get('keyword_stats', {})
         total = stats.get('total', 0)
         if total > 0:
-            insights.append(f"共收集并去重{total}个关键词")
+            insights.append(f"共收集並去重{total}個關鍵詞")
 
         strong = stats.get('strong', 0)
         high = stats.get('high', 0)
         if strong + high > total * 0.5:
-            insights.append("高质量关键词占比超过50%，关键词库质量良好")
+            insights.append("高質量關鍵詞佔比超過50%，關鍵詞庫質量良好")
         else:
-            insights.append("建议补充更多高相关度关键词")
+            insights.append("建議補充更多高相關度關鍵詞")
 
         negative_count = len(data.get('negative_keywords', []))
         if negative_count > 0:
-            insights.append(f"识别出{negative_count}个否定关键词，建议加入否定词库")
+            insights.append(f"識別出{negative_count}個否定關鍵詞，建議加入否定詞庫")
 
         categorized = data.get('categorized_keywords', {})
         for category, keywords in categorized.items():
             if len(keywords) > 0:
-                insights.append(f"{category}关键词：{len(keywords)}个")
+                insights.append(f"{category}關鍵詞：{len(keywords)}個")
 
         return insights
 
@@ -265,11 +265,11 @@ class KeywordDatabaseScenario(BaseScenario):
 
     def _categorize_keywords(self, keywords: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
         categorized = {
-            '强相关': [],
-            '高相关': [],
-            '中相关': [],
-            '低相关': [],
-            '极低相关': []
+            '強相關': [],
+            '高相關': [],
+            '中相關': [],
+            '低相關': [],
+            '極低相關': []
         }
 
         for kw in keywords:
@@ -277,15 +277,15 @@ class KeywordDatabaseScenario(BaseScenario):
             search_volume = kw.get('weekly_search_volume', kw.get('search_volume', 0))
 
             if difficulty < 50 and search_volume > 10000:
-                categorized['强相关'].append(kw)
+                categorized['強相關'].append(kw)
             elif difficulty < 60 and search_volume > 5000:
-                categorized['高相关'].append(kw)
+                categorized['高相關'].append(kw)
             elif difficulty < 75 and search_volume > 1000:
-                categorized['中相关'].append(kw)
+                categorized['中相關'].append(kw)
             elif difficulty < 85:
-                categorized['低相关'].append(kw)
+                categorized['低相關'].append(kw)
             else:
-                categorized['极低相关'].append(kw)
+                categorized['極低相關'].append(kw)
 
         return categorized
 
@@ -305,18 +305,18 @@ class KeywordDatabaseScenario(BaseScenario):
             if difficulty > 90 or search_volume < 100:
                 negative.append({
                     'keyword': kw['keyword'],
-                    'relevance': '极低相关',
-                    'reason': '竞争度过高' if difficulty > 90 else '搜索量过低'
+                    'relevance': '極低相關',
+                    'reason': '競爭度過高' if difficulty > 90 else '搜尋量過低'
                 })
         return negative
 
     def _build_overview(self, data: Dict[str, Any]) -> Dict[str, Any]:
         stats = data.get('keyword_stats', {})
         return {
-            '总关键词数': stats.get('total', 0),
-            '强相关': stats.get('strong', 0),
-            '高相关': stats.get('high', 0),
-            '中相关': stats.get('medium', 0)
+            '總關鍵詞數': stats.get('total', 0),
+            '強相關': stats.get('strong', 0),
+            '高相關': stats.get('high', 0),
+            '中相關': stats.get('medium', 0)
         }
 
 

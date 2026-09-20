@@ -37,23 +37,23 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L("# Wireless Lavalier Microphones — 关键词研究报告")
+L("# Wireless Lavalier Microphones — 關鍵詞研究報告")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite MCP")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite MCP")
 L()
 L("---")
 L()
 
 # ====== Keyword Miner ======
-L("## 一、关键词挖掘（Keyword Miner）")
+L("## 一、關鍵詞挖掘（Keyword Miner）")
 L()
-L("关键词挖掘从种子词「lavalier microphone wireless」扩展，返回相关关键词的搜索量、竞争度和供需关系。")
+L("關鍵詞挖掘從種子詞「lavalier microphone wireless」擴充套件，返回相關關鍵詞的搜尋量、競爭度和供需關係。")
 L()
 miner_items = sorted(safe_items(data.get('keyword_miner', {})),
                      key=lambda x: float(x.get('searches', 0) or 0), reverse=True)
 
 if miner_items:
-    L("| 关键词 | 月搜索量 | 商品数 | 供需比 | 点击集中度 | 标题密度 | 平均售价 | 平均评分 |")
+    L("| 關鍵詞 | 月搜尋量 | 商品數 | 供需比 | 點選集中度 | 標題密度 | 平均售價 | 平均評分 |")
     L("|--------|:-------:|:-----:|:------:|:---------:|:--------:|:-------:|:-------:|")
     for kw in miner_items[:40]:
         keyword = kw.get('keyword', 'N/A')
@@ -73,13 +73,13 @@ L("---")
 L()
 
 # ====== Keyword Research ======
-L("## 二、关键词研究（Keyword Research）")
+L("## 二、關鍵詞研究（Keyword Research）")
 L()
-L("> 注意：Keyword Research 返回类目级别相关关键词，使用父类目数据。")
+L("> 注意：Keyword Research 返回類目級別相關關鍵詞，使用父類目資料。")
 L()
 research_items = safe_items(data.get('keyword_research', {}))
 if research_items:
-    L("| 关键词 | 月搜索量 | 月销量 | 搜索增长率 | 供需比 | 点击集中度 | 平均售价 | 平均评分 |")
+    L("| 關鍵詞 | 月搜尋量 | 月銷量 | 搜尋增長率 | 供需比 | 點選集中度 | 平均售價 | 平均評分 |")
     L("|--------|:-------:|:-----:|:---------:|:------:|:---------:|:-------:|:-------:|")
     for kw in sorted(research_items, key=lambda x: float(x.get('searches', 0) or 0), reverse=True)[:40]:
         keyword = kw.get('keywords', kw.get('keyword', 'N/A'))
@@ -99,16 +99,16 @@ L("---")
 L()
 
 # ====== ABA Trends ======
-L("## 三、ABA 趋势分析")
+L("## 三、ABA 趨勢分析")
 L()
 aba_results = data.get('aba_trends', {})
 if aba_results:
     for keyword, aba_data in aba_results.items():
-        L(f"### 「{keyword}」ABA 趋势")
+        L(f"### 「{keyword}」ABA 趨勢")
         L()
         aba_items = safe_items(aba_data)
         if aba_items:
-            L("| 时间 | 搜索频率排名 | 点击份额 | 转化份额 |")
+            L("| 時間 | 搜尋頻率排名 | 點選份額 | 轉化份額 |")
             L("|------|:----------:|:--------:|:--------:|")
             for item in aba_items[-12:]:
                 time_label = item.get('label', item.get('month', 'N/A'))
@@ -117,17 +117,17 @@ if aba_results:
                 cvs = fmt_pct(item.get('conversionShareRate', item.get('conversionShare', 0)))
                 L(f"| {time_label} | {rank} | {cs} | {cvs} |")
         else:
-            L("*暂无 ABA 趋势数据*")
+            L("*暫無 ABA 趨勢資料*")
         L()
 else:
-    L("*ABA 趋势数据未获取到*")
+    L("*ABA 趨勢資料未獲取到*")
     L()
 
 L("---")
 L()
 
 # ====== Opportunities ======
-L("## 四、低竞争高潜力关键词推荐")
+L("## 四、低競爭高潛力關鍵詞推薦")
 L()
 opportunities = []
 for kw in miner_items:
@@ -137,7 +137,7 @@ for kw in miner_items:
         opportunities.append(kw)
 
 if opportunities:
-    L("| 关键词 | 月搜索量 | 供需比 | 点击集中度 | 平均售价 | 策略 |")
+    L("| 關鍵詞 | 月搜尋量 | 供需比 | 點選集中度 | 平均售價 | 策略 |")
     L("|--------|:-------:|:------:|:---------:|:-------:|------|")
     for kw in sorted(opportunities, key=lambda x: float(x.get('searches', 0) or 0), reverse=True)[:15]:
         keyword = kw.get('keyword', 'N/A')
@@ -146,24 +146,24 @@ if opportunities:
         sdr_str = f"{float(sdr):.1f}" if sdr else "N/A"
         cc = fmt_pct(kw.get('monopolyClickRate', 0))
         price = fmt_money(kw.get('avgPrice', 0)) if kw.get('avgPrice') else "N/A"
-        L(f"| {keyword} | {sv} | {sdr_str} | {cc} | {price} | 广告投放 + Listing 优化 |")
+        L(f"| {keyword} | {sv} | {sdr_str} | {cc} | {price} | 廣告投放 + Listing 最佳化 |")
     L()
 else:
-    L("*暂无符合条件的低竞争高潜力关键词（搜索量≥300 且 点击集中度<50%）*")
+    L("*暫無符合條件的低競爭高潛力關鍵詞（搜尋量≥300 且 點選集中度<50%）*")
     L()
 
 L("---")
 L()
-L("## 五、战术策略推荐")
+L("## 五、戰術策略推薦")
 L()
-L("1. **ABA 高增长趋势词** — 近 3 月持续增长的关键词重点投放")
-L("2. **流量分散关键词** — 点击集中度 < 50%，竞争分散易于切入")
-L("3. **标题密度漏洞** — 标题密度 ≤ 5 的长尾词，优化 Listing 标题")
-L("4. **高客单长尾词** — 均价 ≥ $80 且有合理搜索量的关键词")
+L("1. **ABA 高增長趨勢詞** — 近 3 月持續增長的關鍵詞重點投放")
+L("2. **流量分散關鍵詞** — 點選集中度 < 50%，競爭分散易於切入")
+L("3. **標題密度漏洞** — 標題密度 ≤ 5 的長尾詞，最佳化 Listing 標題")
+L("4. **高客單長尾詞** — 均價 ≥ $80 且有合理搜尋量的關鍵詞")
 L()
 L("---")
 L()
-L(f"*报告生成: 2026-07-05 | 数据源: 卖家精灵 SellerSprite MCP | 站点: Amazon US*")
+L(f"*報告生成: 2026-07-05 | 資料來源: 賣家精靈 SellerSprite MCP | 站點: Amazon US*")
 
 report = "\n".join(lines)
 with open(f"{OUT_DIR}/keyword_report.md", "w", encoding="utf-8") as f:

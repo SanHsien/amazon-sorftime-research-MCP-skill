@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class TrafficGapScenario(BaseScenario):
-    """快速找到高性价比流量缺口"""
+    """快速找到高價效比流量缺口"""
 
     NAME = "traffic_gap"
-    DESCRIPTION = "快速找到高性价比流量缺口"
+    DESCRIPTION = "快速找到高價效比流量缺口"
     REQUIRED_PARAMS = ['own_asin', 'competitor_asins', 'site']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -24,7 +24,7 @@ class TrafficGapScenario(BaseScenario):
                 'arguments': {
                     'asins': all_asins,
                     'country': site,
-                    'intent_summary': f'流量缺口分析：获取ASIN基础信息'
+                    'intent_summary': f'流量缺口分析：獲取ASIN基礎資訊'
                 }
             },
             {
@@ -32,7 +32,7 @@ class TrafficGapScenario(BaseScenario):
                 'arguments': {
                     'asins': all_asins,
                     'country': site,
-                    'intent_summary': f'流量缺口分析：获取ASIN流量得分'
+                    'intent_summary': f'流量缺口分析：獲取ASIN流量得分'
                 }
             }
         ]
@@ -47,7 +47,7 @@ class TrafficGapScenario(BaseScenario):
                     'page_size': 100,
                     'sort_field': 'traffic',
                     'sort_order': 'desc',
-                    'intent_summary': f'流量缺口分析：获取{asin}关键词列表'
+                    'intent_summary': f'流量缺口分析：獲取{asin}關鍵詞列表'
                 }
             })
 
@@ -120,14 +120,14 @@ class TrafficGapScenario(BaseScenario):
             high_priority = sum(1 for g in gaps if g.get('priority') == 'high')
             medium_priority = sum(1 for g in gaps if g.get('priority') == 'medium')
 
-            insights.append(f"共发现{len(gaps)}个流量缺口关键词")
+            insights.append(f"共發現{len(gaps)}個流量缺口關鍵詞")
             if high_priority > 0:
-                insights.append(f"其中{high_priority}个高优先级关键词建议优先投放")
+                insights.append(f"其中{high_priority}個高優先順序關鍵詞建議優先投放")
             if medium_priority > 0:
-                insights.append(f"{medium_priority}个中优先级关键词可作为补充流量")
+                insights.append(f"{medium_priority}箇中優先順序關鍵詞可作為補充流量")
 
             top_gap = gaps[0]
-            insights.append(f"最大流量缺口：'{top_gap['keyword']}'，竞品流量{top_gap['traffic']}")
+            insights.append(f"最大流量缺口：'{top_gap['keyword']}'，競品流量{top_gap['traffic']}")
 
         if data.get('traffic'):
             own_traffic = data['traffic'].get(data['target'], {})
@@ -142,11 +142,11 @@ class TrafficGapScenario(BaseScenario):
                 own_total = own_traffic.get('total_traffic', 0)
 
                 if own_total < avg_competitor_total * 0.7:
-                    insights.append("自身流量低于竞品平均水平，需要加大广告投放")
+                    insights.append("自身流量低於競品平均水平，需要加大廣告投放")
                 elif own_total < avg_competitor_total:
-                    insights.append("自身流量略低于竞品，有提升空间")
+                    insights.append("自身流量略低於競品，有提升空間")
                 else:
-                    insights.append("自身流量表现良好，继续保持")
+                    insights.append("自身流量表現良好，繼續保持")
 
         return insights
 
@@ -223,6 +223,6 @@ class TrafficGapScenario(BaseScenario):
     def _build_overview(self, traffic: Dict[str, Any]) -> Dict[str, Any]:
         overview = {}
         for asin, data in traffic.items():
-            overview[f"{asin} - 总流量"] = data['total_traffic']
-            overview[f"{asin} - 关键词数"] = data['keyword_count']
+            overview[f"{asin} - 總流量"] = data['total_traffic']
+            overview[f"{asin} - 關鍵詞數"] = data['keyword_count']
         return overview

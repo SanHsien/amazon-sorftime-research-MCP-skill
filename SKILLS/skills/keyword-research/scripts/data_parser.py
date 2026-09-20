@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Sorftime SSE 响应解析器 - 关键词专用版本
-复用 category-selection 的解析逻辑，适配关键词数据格式
+Sorftime SSE 響應解析器 - 關鍵詞專用版本
+複用 category-selection 的解析邏輯，適配關鍵詞資料格式
 """
 
 import json
@@ -12,7 +12,7 @@ import re
 
 def fix_mojibake(text):
     """
-    修复 Mojibake 编码问题 (UTF-8/Latin-1 双重编码)
+    修復 Mojibake 編碼問題 (UTF-8/Latin-1 雙重編碼)
     """
     if isinstance(text, str):
         try:
@@ -76,7 +76,7 @@ def escape_control_chars_in_json(json_str):
 
 
 def escape_control_chars_in_json_strings(json_str):
-    """转义 JSON 字符串值中的控制字符"""
+    """轉義 JSON 字串值中的控制字元"""
     result = []
     i = 0
     in_string = False
@@ -124,13 +124,13 @@ def escape_control_chars_in_json_strings(json_str):
 
 def parse_sse_response(response: str) -> dict:
     """
-    解析 Sorftime SSE 响应
+    解析 Sorftime SSE 響應
 
     Args:
-        response: curl 返回的 SSE 格式响应
+        response: curl 返回的 SSE 格式響應
 
     Returns:
-        dict: 解析后的数据
+        dict: 解析後的資料
     """
     result = {'text': '', 'data': None, 'has_error': False, 'error': None}
 
@@ -139,18 +139,18 @@ def parse_sse_response(response: str) -> dict:
         if line.startswith('data: '):
             json_text = line[6:]
             try:
-                # 先转义控制字符，再解析 JSON
+                # 先轉義控制字元，再解析 JSON
                 escaped_json = escape_control_chars_in_json(json_text)
                 data = json.loads(escaped_json)
                 result_text = data.get('result', {}).get('content', [{}])[0].get('text', '')
                 if result_text:
-                    # 解码 Unicode 转义
+                    # 解碼 Unicode 轉義
                     decoded = codecs.decode(result_text, 'unicode-escape')
-                    # 修复 Mojibake
+                    # 修復 Mojibake
                     decoded = fix_mojibake(decoded)
                     result['text'] = decoded
 
-                    # 尝试解析为 JSON 数据
+                    # 嘗試解析為 JSON 資料
                     try:
                         result['data'] = parse_json_data(decoded)
                     except:
@@ -161,7 +161,7 @@ def parse_sse_response(response: str) -> dict:
                 result['error'] = str(e)
                 result['has_error'] = True
 
-    # 检查错误响应
+    # 檢查錯誤響應
     if 'error' in response.lower() or 'Authentication required' in response:
         result['has_error'] = True
         result['error'] = response
@@ -171,26 +171,26 @@ def parse_sse_response(response: str) -> dict:
 
 def parse_json_data(text: str):
     """
-    从文本中提取并解析 JSON 数据
+    從文字中提取並解析 JSON 資料
 
     Args:
-        text: 可能包含 JSON 的文本
+        text: 可能包含 JSON 的文字
 
     Returns:
-        dict or list: 解析后的数据（数组或对象）
+        dict or list: 解析後的資料（陣列或物件）
     """
-    # 转义控制字符
+    # 轉義控制字元
     text = escape_control_chars_in_json_strings(text)
 
-    # 找到 JSON 开始位置（优先查找数组，因为 Sorftime 返回数组）
+    # 找到 JSON 開始位置（優先查詢陣列，因為 Sorftime 返回陣列）
     json_start = text.find('[')
     if json_start == -1:
-        # 尝试查找对象开始
+        # 嘗試查詢物件開始
         json_start = text.find('{')
         if json_start == -1:
             return {}
 
-    # 使用括号匹配提取完整内容
+    # 使用括號匹配提取完整內容
     bracket_start = text[json_start]
     depth = 0
     in_string = False
@@ -226,7 +226,7 @@ def parse_json_data(text: str):
 
     json_str = text[json_start:end]
 
-    # 尝试解析
+    # 嘗試解析
     try:
         data = json.loads(json_str)
         return fix_mojibake(data)
@@ -235,7 +235,7 @@ def parse_json_data(text: str):
 
 
 def safe_int(value, default=0):
-    """安全地转换为整数"""
+    """安全地轉換為整數"""
     if isinstance(value, (int, float)):
         return int(value)
     if isinstance(value, str):
@@ -248,7 +248,7 @@ def safe_int(value, default=0):
 
 
 def safe_float(value, default=0.0):
-    """安全地转换为浮点数"""
+    """安全地轉換為浮點數"""
     if isinstance(value, (int, float)):
         return float(value)
     if isinstance(value, str):
@@ -262,27 +262,27 @@ def safe_float(value, default=0.0):
 
 def extract_keywords_from_response(response_data: dict) -> list:
     """
-    从 API 响应中提取关键词列表
+    從 API 響應中提取關鍵詞列表
 
-    支持多种可能的响应格式:
-    1. {"关键词": [...]}  - 中文键名
-    2. {"keywords": [...]} - 英文键名
-    3. 直接是数组
+    支援多種可能的響應格式:
+    1. {"關鍵詞": [...]}  - 中文鍵名
+    2. {"keywords": [...]} - 英文鍵名
+    3. 直接是陣列
     """
     if not response_data:
         return []
 
-    # 如果是数组，直接返回
+    # 如果是陣列，直接返回
     if isinstance(response_data, list):
         return response_data
 
-    # 查找关键词列表
+    # 查詢關鍵詞列表
     keywords = []
 
-    # 可能的键名
+    # 可能的鍵名
     possible_keys = [
-        '关键词', 'keywords', 'Keywords', '流量词', 'traffic_terms',
-        'related_words', '延伸词', 'result', 'data', 'items'
+        '關鍵詞', 'keywords', 'Keywords', '流量詞', 'traffic_terms',
+        'related_words', '延伸詞', 'result', 'data', 'items'
     ]
 
     for key in possible_keys:
@@ -297,13 +297,13 @@ def extract_keywords_from_response(response_data: dict) -> list:
 
 def normalize_keyword_data(raw_keyword: dict or str) -> dict:
     """
-    标准化关键词数据格式
+    標準化關鍵詞資料格式
 
     Args:
-        raw_keyword: 原始关键词数据（可能是字符串或字典）
+        raw_keyword: 原始關鍵詞資料（可能是字串或字典）
 
     Returns:
-        dict: 标准化的关键词数据
+        dict: 標準化的關鍵詞資料
     """
     if isinstance(raw_keyword, str):
         return {
@@ -314,31 +314,31 @@ def normalize_keyword_data(raw_keyword: dict or str) -> dict:
         }
 
     if isinstance(raw_keyword, dict):
-        # 标准化键名
+        # 標準化鍵名
         keyword = (
-            raw_keyword.get('关键词') or
+            raw_keyword.get('關鍵詞') or
             raw_keyword.get('keyword') or
             raw_keyword.get('Keyword') or
             raw_keyword.get('text') or
             ''
         ).strip()
 
-        # 搜索量可能的键名
+        # 搜尋量可能的鍵名
         search_volume = 0
-        for key in ['月搜索量', 'monthlySearchVolume', 'search_volume', '搜索量', 'volume']:
+        for key in ['月搜尋量', 'monthlySearchVolume', 'search_volume', '搜尋量', 'volume']:
             if key in raw_keyword:
                 search_volume = safe_int(raw_keyword[key])
                 break
 
-        # CPC 可能的键名
+        # CPC 可能的鍵名
         cpc = 0
-        for key in ['推荐竞价', 'CPC竞价', 'cpc', 'CPC', 'cpc_bid', 'suggested_bid']:
+        for key in ['推薦競價', 'CPC競價', 'cpc', 'CPC', 'cpc_bid', 'suggested_bid']:
             if key in raw_keyword:
                 cpc = safe_float(raw_keyword[key])
                 break
 
-        # 竞争度
-        competition = raw_keyword.get('competition', raw_keyword.get('竞争度', 'unknown'))
+        # 競爭度
+        competition = raw_keyword.get('competition', raw_keyword.get('競爭度', 'unknown'))
 
         return {
             'keyword': keyword,

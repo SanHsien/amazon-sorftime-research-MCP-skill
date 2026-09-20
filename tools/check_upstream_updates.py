@@ -139,7 +139,7 @@ def render_fork_status(status: dict | None, error: str | None = None) -> list[st
         f"- 本 fork `HEAD`：`{status['fork_head']}`，baseline 之後 **ahead {status['ahead']}**",
         f"- upstream tip：`{status['upstream_tip']}`，baseline 之後 **behind {status['behind']}**",
         "",
-        "這兩個數字每次 commit 都會變，所以由本檢查當場算出，不寫進文件。",
+        "這兩個數字每次 commit 都會變，所以由本檢查當場算出，不寫進檔案。",
         "",
     ]
 

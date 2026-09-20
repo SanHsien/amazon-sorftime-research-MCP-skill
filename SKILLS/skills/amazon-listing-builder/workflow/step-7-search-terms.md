@@ -1,146 +1,146 @@
-# 第七步：Search Terms（后台搜索词）
+# 第七步：Search Terms（後臺搜尋詞）
 
-> **ST 不是垃圾桶**。它的作用是补充索引，不是把所有没放进标题的词都塞进来。
+> **ST 不是垃圾桶**。它的作用是補充索引，不是把所有沒放進標題的詞都塞進來。
 
-## 🚨 本步不调 MCP
+## 🚨 本步不調 MCP
 
-本步基于**第一步完整词库 + 第四步最终标题 + 第五步五点**做差集运算（找出未在前台出现的词），不再调用 MCP 工具。
+本步基於**第一步完整詞庫 + 第四步最終標題 + 第五步五點**做差集運算（找出未在前臺出現的詞），不再呼叫 MCP 工具。
 
-### 数据来源
-- 完整词库：第一步 MCP 输出
-- 前台已出现词：第四步标题 + 第五步五点
-- ST 候选词：词库 - 前台词 = 后台补充词
+### 資料來源
+- 完整詞庫：第一步 MCP 輸出
+- 前臺已出現詞：第四步標題 + 第五步五點
+- ST 候選詞：詞庫 - 前臺詞 = 後臺補充詞
 
 ---
 
-## 一、ST 的真实价值
+## 一、ST 的真實價值
 
-| 该做的 | 不该做的 |
+| 該做的 | 不該做的 |
 |-------|---------|
-| 放同义词、变体词、错拼词 | 重复标题已有的词 |
-| 放次要场景词 | 放竞品品牌词 |
-| 放补充索引词 | 堆砌不相关词 |
-| 遵守 250 字节限制 | 超字段限制 |
-| 用空格分词 | 用逗号分隔 |
+| 放同義詞、變體詞、錯拼詞 | 重複標題已有的詞 |
+| 放次要場景詞 | 放競品品牌詞 |
+| 放補充索引詞 | 堆砌不相關詞 |
+| 遵守 250 位元組限制 | 超欄位限制 |
+| 用空格分詞 | 用逗號分隔 |
 
 ---
 
-## 二、ST 词源分类
+## 二、ST 詞源分類
 
-把第一步的关键词分层词库重新分类：
+把第一步的關鍵詞分層詞庫重新分類：
 
-| 词类 | 是否进 ST | 示例 |
+| 詞類 | 是否進 ST | 示例 |
 |------|----------|------|
-| 核心品类词（L1） | ❌ 已在前台 | artificial flowers, faux plants |
-| 功能属性词（L2） | ❌ 已在前台 | UV resistant, fade resistant |
-| 主场景词（L3） | ❌ 已在前台 | patio, garden, porch |
-| 次场景词（L3 变体） | ✅ 进 ST | balcony, terrace, deck |
-| 问题词（L4） | 部分进 ST | for outdoor planters, no watering |
-| 规格词（L5） | ❌ 已在前台 | 12 bundles |
-| **同义词** | ✅ 进 ST | faux greenery, fake plants |
-| **变体词** | ✅ 进 ST | fake florals, silk flowers |
-| **错拼词** | ✅ 进 ST | articifial flowers, fake flower |
-| **次要场景** | ✅ 进 ST | cemetery, front door, backyard |
+| 核心品類詞（L1） | ❌ 已在前臺 | artificial flowers, faux plants |
+| 功能屬性詞（L2） | ❌ 已在前臺 | UV resistant, fade resistant |
+| 主場景詞（L3） | ❌ 已在前臺 | patio, garden, porch |
+| 次場景詞（L3 變體） | ✅ 進 ST | balcony, terrace, deck |
+| 問題詞（L4） | 部分進 ST | for outdoor planters, no watering |
+| 規格詞（L5） | ❌ 已在前臺 | 12 bundles |
+| **同義詞** | ✅ 進 ST | faux greenery, fake plants |
+| **變體詞** | ✅ 進 ST | fake florals, silk flowers |
+| **錯拼詞** | ✅ 進 ST | articifial flowers, fake flower |
+| **次要場景** | ✅ 進 ST | cemetery, front door, backyard |
 
 ---
 
-## 三、抗 UV 户外仿真植物 ST 示例
+## 三、抗 UV 戶外模擬植物 ST 示例
 
-假设标题和五点已覆盖：artificial flowers, outdoor, UV resistant, patio, garden, porch, planters, 12 bundles, fade resistant, realistic。
+假設標題和五點已覆蓋：artificial flowers, outdoor, UV resistant, patio, garden, porch, planters, 12 bundles, fade resistant, realistic。
 
-**ST 候选词**：
+**ST 候選詞**：
 ```
 faux greenery fake plants outdoor silk flowers front porch decor planter filler backyard terrace deck balcony cemetery window box summer decor wedding centerpiece no watering maintenance free decor realistic fake flower arrangement
 ```
 
-**优化后（去重 + 控制字节）**：
+**最佳化後（去重 + 控制位元組）**：
 ```
 faux greenery silk flowers fake plants front porch planter filler backyard terrace deck balcony cemetery window box summer wedding centerpiece low maintenance outdoor decor fake flower arrangement
 ```
 
 ---
 
-## 四、字节限制与格式规范
+## 四、位元組限制與格式規範
 
-| 站点 | 字节限制 | 分隔方式 |
+| 站點 | 位元組限制 | 分隔方式 |
 |------|---------|---------|
-| 美国站 | 250 字节 | 空格 |
-| 欧洲站 | 250 字节 | 空格 |
-| 日本站 | 100 字节（jp） | 空格 |
+| 美國站 | 250 位元組 | 空格 |
+| 歐洲站 | 250 位元組 | 空格 |
+| 日本站 | 100 位元組（jp） | 空格 |
 
-### 格式规则
-1. 用 **空格** 分隔，**不要用逗号**
-2. 全小写（节省字节）
-3. 不要重复任何词
-4. 单数/复数只放一次（系统会自动匹配）
-5. 不要用引号、连字符、特殊符号
+### 格式規則
+1. 用 **空格** 分隔，**不要用逗號**
+2. 全小寫（節省位元組）
+3. 不要重複任何詞
+4. 單數/複數只放一次（系統會自動匹配）
+5. 不要用引號、連字元、特殊符號
 
 ---
 
-## 五、给 Codex 的提示词（本步专用）
+## 五、給 Codex 的提示詞（本步專用）
 
-> 输入：完整词库、当前标题、当前五点描述。
+> 輸入：完整詞庫、當前標題、當前五點描述。
 >
-> 任务：
-> 1. 找出标题和五点**已经出现**的关键词（这些不进 ST）
-> 2. 从词库中筛选未在前台出现的词，作为 ST 候选
-> 3. 按优先级排序：同义词 > 次场景 > 问题词变体 > 错拼词
-> 4. 控制总字节在 250 以内（美国站）
-> 5. 用空格分隔，全小写
-> 6. 排除竞品品牌词、夸大词、不相关词
-> 7. 输出 ST 文本 + 字节计数 + 已排除词清单（含原因）
+> 任務：
+> 1. 找出標題和五點**已經出現**的關鍵詞（這些不進 ST）
+> 2. 從詞庫中篩選未在前臺出現的詞，作為 ST 候選
+> 3. 按優先順序排序：同義詞 > 次場景 > 問題詞變體 > 錯拼詞
+> 4. 控制總位元組在 250 以內（美國站）
+> 5. 用空格分隔，全小寫
+> 6. 排除競品品牌詞、誇大詞、不相關詞
+> 7. 輸出 ST 文字 + 位元組計數 + 已排除詞清單（含原因）
 
 ---
 
-## 六、合规红线
+## 六、合規紅線
 
 | 禁用 | 原因 |
 |------|------|
-| 竞品品牌名（其他卖家品牌） | 违反亚马逊品牌政策 |
-| 促销词（free shipping, best seller, sale） | 平台禁止 |
-| 主观夸大词（best, #1, top rated） | 合规风险 |
-| 医疗/环保绝对词（cure, 100% eco） | 合规风险 |
-| 重复前台已出现的词 | 浪费字节 |
-| 任何不相关的热词 | 影响相关性 |
+| 競品品牌名（其他賣家品牌） | 違反亞馬遜品牌政策 |
+| 促銷詞（free shipping, best seller, sale） | 平臺禁止 |
+| 主觀誇大詞（best, #1, top rated） | 合規風險 |
+| 醫療/環保絕對詞（cure, 100% eco） | 合規風險 |
+| 重複前臺已出現的詞 | 浪費位元組 |
+| 任何不相關的熱詞 | 影響相關性 |
 
 ---
 
-## 七、输出模板
+## 七、輸出模板
 
 ```markdown
-# Search Terms 草稿 — {产品名}
+# Search Terms 草稿 — {產品名}
 
-## ST 文本（已优化）
+## ST 文字（已最佳化）
 ```
 faux greenery silk flowers fake plants front porch planter filler backyard terrace deck balcony cemetery window box summer wedding centerpiece low maintenance outdoor decor fake flower arrangement
 ```
 
-**总字节**：238 / 250
+**總位元組**：238 / 250
 
-## 已排除词清单
-| 词 | 原因 |
+## 已排除詞清單
+| 詞 | 原因 |
 |----|------|
-| artificial flowers | 标题已出现 |
-| UV resistant | 五点已出现 |
-| [其他品牌] | 竞品品牌词 |
-| best | 夸大词 |
+| artificial flowers | 標題已出現 |
+| UV resistant | 五點已出現 |
+| [其他品牌] | 競品品牌詞 |
+| best | 誇大詞 |
 
-## 候选词优先级排序
-1. 同义词：faux greenery, silk flowers
-2. 次场景：terrace, deck, balcony, backyard, cemetery, window box
-3. 问题词变体：low maintenance
-4. 错拼词：（如适用）
+## 候選詞優先順序排序
+1. 同義詞：faux greenery, silk flowers
+2. 次場景：terrace, deck, balcony, backyard, cemetery, window box
+3. 問題詞變體：low maintenance
+4. 錯拼詞：（如適用）
 ```
 
 ---
 
-## 八、检查清单
+## 八、檢查清單
 
-- [ ] 字节 ≤ 250（美国）/ ≤ 100（日本）
-- [ ] 用空格分隔，无逗号
-- [ ] 全小写
-- [ ] 无重复
-- [ ] 无竞品品牌词
-- [ ] 无夸大词
-- [ ] 无前台已出现的词
-- [ ] 已排除词清单完整
+- [ ] 位元組 ≤ 250（美國）/ ≤ 100（日本）
+- [ ] 用空格分隔，無逗號
+- [ ] 全小寫
+- [ ] 無重複
+- [ ] 無競品品牌詞
+- [ ] 無誇大詞
+- [ ] 無前臺已出現的詞
+- [ ] 已排除詞清單完整

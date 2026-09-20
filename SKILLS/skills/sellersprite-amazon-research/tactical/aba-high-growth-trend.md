@@ -1,18 +1,18 @@
-# ABA 高增长趋势词
+# ABA 高增長趨勢詞
 
-通过 ABA 数据发现近 3 月持续增长的关键词。
+透過 ABA 資料發現近 3 月持續增長的關鍵詞。
 
 ## 工具
 `mcp__sellersprite__keyword_research` — `{"request": {...}}`
-`mcp__sellersprite__keyword_research_trends` — 扁平参数 `{"marketplace":"US", "keyword":"..."}`
+`mcp__sellersprite__keyword_research_trends` — 扁平引數 `{"marketplace":"US", "keyword":"..."}`
 
-## 筛选逻辑
-- 近 3 月搜索排名持续上升
-- `monopolyClickRate` < 50%（0~1 比较 < 0.5）
+## 篩選邏輯
+- 近 3 月搜尋排名持續上升
+- `monopolyClickRate` < 50%（0~1 比較 < 0.5）
 - `supplyDemandRatio` 20-80
 
-## 输出
-高增长关键词表 + 搜索量趋势 + 竞争度 + PPC 竞价
+## 輸出
+高增長關鍵詞表 + 搜尋量趨勢 + 競爭度 + PPC 競價
 
 ## 注意
-`keyword_research_trends` 字段：`time`/`search`/`chainGrowth`(环比)
+`keyword_research_trends` 欄位：`time`/`search`/`chainGrowth`(環比)

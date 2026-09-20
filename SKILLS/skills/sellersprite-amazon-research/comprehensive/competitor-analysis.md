@@ -1,54 +1,54 @@
-# 竞品深度拆解
+# 競品深度拆解
 
-对竞品 ASIN 进行全面拆解，覆盖产品信息、关键词流量、趋势和变体。
+對競品 ASIN 進行全面拆解，覆蓋產品資訊、關鍵詞流量、趨勢和變體。
 
 ## 使用方式
 
 ```
-/competitor-analysis [ASIN或关键词] [站点]
+/competitor-analysis [ASIN或關鍵詞] [站點]
 ```
 
-## 工具调用
+## 工具呼叫
 
-所有工具通过 MCP client 调用：`mcp__sellersprite__<tool_name>`
+所有工具透過 MCP client 呼叫：`mcp__sellersprite__<tool_name>`
 
-**参数模式**：大部分工具使用 `request` 嵌套对象；少量工具（`asin_detail`, `traffic_keyword_stat`, `keepa_info` 等）使用扁平参数。
+**引數模式**：大部分工具使用 `request` 巢狀物件；少量工具（`asin_detail`, `traffic_keyword_stat`, `keepa_info` 等）使用扁平引數。
 
-**响应解析**：`result.content[0].text` 是 JSON 字符串，需二次解析：
+**響應解析**：`result.content[0].text` 是 JSON 字串，需二次解析：
 ```python
 raw = json.loads(result['content'][0]['text'])
 data = raw.get('data', [])
 ```
 
-## 执行步骤
+## 執行步驟
 
-### 第1步: 获取竞品列表（如输入为关键词）
+### 第1步: 獲取競品列表（如輸入為關鍵詞）
 
-调用 `mcp__sellersprite__competitor_lookup`：
-- 参数：`{"request": {"marketplace":"US", "keyword":"..."}}`
+呼叫 `mcp__sellersprite__competitor_lookup`：
+- 引數：`{"request": {"marketplace":"US", "keyword":"..."}}`
 
-若用户直接提供 ASIN，跳过此步。
+若使用者直接提供 ASIN，跳過此步。
 
-### 第2步: 并行获取 ASIN 深度数据
+### 第2步: 並行獲取 ASIN 深度資料
 
-1. **`mcp__sellersprite__asin_detail`** — 扁平参数 `{"marketplace":"US", "asin":"B0XXX"}`
+1. **`mcp__sellersprite__asin_detail`** — 扁平引數 `{"marketplace":"US", "asin":"B0XXX"}`
 2. **`mcp__sellersprite__traffic_keyword`** — `{"request": {"marketplace":"US", "asin":"B0XXX"}}`
-3. **`mcp__sellersprite__keepa_info`** — 扁平参数 `{"marketplace":"US", "asin":"B0XXX"}`
-   - 返回 `buyBox` 是 `[{timePoint, value}]` 数组，取最后一项为当前价
+3. **`mcp__sellersprite__keepa_info`** — 扁平引數 `{"marketplace":"US", "asin":"B0XXX"}`
+   - 返回 `buyBox` 是 `[{timePoint, value}]` 陣列，取最後一項為當前價
    - `bsr` 同理取 `[{timePoint, value}]` 格式
 4. **`mcp__sellersprite__traffic_source`** — `{"request": {"marketplace":"US", "asin":"B0XXX"}}`
 
-### 第3步: 辅助数据
+### 第3步: 輔助資料
 
-- `mcp__sellersprite__asin_prediction` — 扁平参数
-- `mcp__sellersprite__asin_coupon_trend` — 扁平参数
+- `mcp__sellersprite__asin_prediction` — 扁平引數
+- `mcp__sellersprite__asin_coupon_trend` — 扁平引數
 
-### 第4步: 保存结果
+### 第4步: 儲存結果
 
-同时保存两份文件：
-1. **原始数据** → `{类别目录}/research_data.json`
-2. **分析报告** → `{类别目录}/competitor_report.md`
+同時儲存兩份檔案：
+1. **原始資料** → `{類別目錄}/research_data.json`
+2. **分析報告** → `{類別目錄}/competitor_report.md`
 
-### 第5步: 生成报告
+### 第5步: 生成報告
 
-**报告结构：** 竞品概览 → 销量与趋势 → 流量结构（自然/广告占比 0~1，展示×100）→ 关键词覆盖（rankPosition 取 .position）→ 定价促销 → 变体分析 → SWOT → 应对策略
+**報告結構：** 競品概覽 → 銷量與趨勢 → 流量結構（自然/廣告佔比 0~1，展示×100）→ 關鍵詞覆蓋（rankPosition 取 .position）→ 定價促銷 → 變體分析 → SWOT → 應對策略

@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class NewProductScenario(BaseScenario):
-    """提升新品推广效率"""
+    """提升新品推廣效率"""
 
     NAME = "new_product"
-    DESCRIPTION = "提升新品推广效率"
+    DESCRIPTION = "提升新品推廣效率"
     REQUIRED_PARAMS = ['asin', 'site']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -21,7 +21,7 @@ class NewProductScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'新品推广：获取{asin}基础信息'
+                    'intent_summary': f'新品推廣：獲取{asin}基礎資訊'
                 }
             },
             {
@@ -29,7 +29,7 @@ class NewProductScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'新品推广：获取{asin}流量得分'
+                    'intent_summary': f'新品推廣：獲取{asin}流量得分'
                 }
             },
             {
@@ -39,7 +39,7 @@ class NewProductScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'新品推广：获取{asin}流量趋势'
+                    'intent_summary': f'新品推廣：獲取{asin}流量趨勢'
                 }
             },
             {
@@ -51,7 +51,7 @@ class NewProductScenario(BaseScenario):
                     'page_size': 100,
                     'sort_field': 'traffic',
                     'sort_order': 'desc',
-                    'intent_summary': f'新品推广：获取{asin}关键词列表'
+                    'intent_summary': f'新品推廣：獲取{asin}關鍵詞列表'
                 }
             },
             {
@@ -61,7 +61,7 @@ class NewProductScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'新品推广：获取{asin}BSR排名趋势'
+                    'intent_summary': f'新品推廣：獲取{asin}BSR排名趨勢'
                 }
             }
         ]
@@ -73,10 +73,10 @@ class NewProductScenario(BaseScenario):
         site = params['site']
 
         data = {
-            'title': f'新品推广分析 - {asin}',
+            'title': f'新品推廣分析 - {asin}',
             'target': asin,
             'site': site,
-            'scenario': '新品推广'
+            'scenario': '新品推廣'
         }
 
         if raw_data.get('get_asin_info'):
@@ -93,7 +93,7 @@ class NewProductScenario(BaseScenario):
             stage, reason = self._determine_stage(traffic_data, data['traffic'].get(asin, {}))
             data['traffic_stage'] = {
                 'stage': stage,
-                'stage_name': {'sparse': '稀疏期', 'oscillating': '震荡期', 'stable': '稳定期'}.get(stage, '未知'),
+                'stage_name': {'sparse': '稀疏期', 'oscillating': '震盪期', 'stable': '穩定期'}.get(stage, '未知'),
                 'reason': reason,
                 'traffic_score': data['traffic'].get(asin, {}).get('total_traffic', 0),
                 'keyword_count': data['traffic'].get(asin, {}).get('keyword_count', 0)
@@ -114,17 +114,17 @@ class NewProductScenario(BaseScenario):
         stage_name = stage.get('stage_name', '')
 
         if stage_name == '稀疏期':
-            insights.append("产品处于稀疏期，亚马逊正在进行小流量测试")
-            insights.append("重点关注有效点击和转化，通过考核进入放量测试阶段")
-            insights.append("建议优化Listing和主图，提高点击率")
-        elif stage_name == '震荡期':
-            insights.append("产品处于震荡期，亚马逊正在测试不同位置的表现")
-            insights.append("保持稳定的广告投放，争取获得靠前的稳定排名")
-            insights.append("注意排名波动，及时调整策略")
-        elif stage_name == '稳定期':
-            insights.append("产品处于稳定期，已获得稳定的自然流量")
-            insights.append("重点维护排名，扩大市场份额")
-            insights.append("可以考虑拓展相关关键词")
+            insights.append("產品處於稀疏期，亞馬遜正在進行小流量測試")
+            insights.append("重點關注有效點選和轉化，透過考核進入放量測試階段")
+            insights.append("建議最佳化Listing和主圖，提高點選率")
+        elif stage_name == '震盪期':
+            insights.append("產品處於震盪期，亞馬遜正在測試不同位置的表現")
+            insights.append("保持穩定的廣告投放，爭取獲得靠前的穩定排名")
+            insights.append("注意排名波動，及時調整策略")
+        elif stage_name == '穩定期':
+            insights.append("產品處於穩定期，已獲得穩定的自然流量")
+            insights.append("重點維護排名，擴大市場份額")
+            insights.append("可以考慮拓展相關關鍵詞")
 
         if data.get('traffic_trends'):
             asin_trends = data['traffic_trends'].get(data['target'], [])
@@ -133,30 +133,30 @@ class NewProductScenario(BaseScenario):
                 earlier_avg = sum(t['total_traffic'] for t in asin_trends[:7]) / 7 if len(asin_trends) >= 14 else recent_avg
 
                 if recent_avg > earlier_avg * 1.2:
-                    insights.append("流量增长明显，推广效果良好")
+                    insights.append("流量增長明顯，推廣效果良好")
                 elif recent_avg < earlier_avg * 0.8:
-                    insights.append("流量出现下滑，需要分析原因")
+                    insights.append("流量出現下滑，需要分析原因")
 
         if data.get('keywords'):
             asin_keywords = data['keywords'].get(data['target'], [])
             new_keywords = [kw for kw in asin_keywords if kw.get('traffic_growth', '').startswith('+')]
             if new_keywords:
-                insights.append(f"发现{len(new_keywords)}个流量增长的关键词，建议加大投放")
+                insights.append(f"發現{len(new_keywords)}個流量增長的關鍵詞，建議加大投放")
 
         return insights
 
     def _determine_stage(self, traffic_trends: List[Dict[str, Any]], traffic_data: Dict[str, Any]) -> tuple[str, str]:
         if not traffic_trends:
-            return 'unknown', '数据不足'
+            return 'unknown', '資料不足'
 
         total_traffic = traffic_data.get('total_traffic', 0)
         keyword_count = traffic_data.get('keyword_count', 0)
 
         if total_traffic < 30 or keyword_count < 10:
-            return 'sparse', f'流量得分{total_traffic}较低，关键词数量{keyword_count}较少'
+            return 'sparse', f'流量得分{total_traffic}較低，關鍵詞數量{keyword_count}較少'
 
         if total_traffic >= 80 and keyword_count >= 50:
-            return 'stable', f'流量得分{total_traffic}较高且稳定，关键词数量{keyword_count}充足'
+            return 'stable', f'流量得分{total_traffic}較高且穩定，關鍵詞數量{keyword_count}充足'
 
         volatility = 0
         if len(traffic_trends) >= 7:
@@ -165,9 +165,9 @@ class NewProductScenario(BaseScenario):
                 volatility = sum(abs(t['total_traffic'] - avg_traffic) for t in traffic_trends) / (len(traffic_trends) * avg_traffic)
 
         if volatility > 0.15:
-            return 'oscillating', f'流量波动较大({round(volatility*100, 1)}%)，处于放量测试阶段'
+            return 'oscillating', f'流量波動較大({round(volatility*100, 1)}%)，處於放量測試階段'
 
-        return 'oscillating', '流量处于中等水平，正在向稳定期过渡'
+        return 'oscillating', '流量處於中等水平，正在向穩定期過渡'
 
     def _process_asin_info(self, result: Dict[str, Any]) -> Dict[str, Any]:
         items = result.get('data', result.get('result', result))
@@ -256,8 +256,8 @@ class NewProductScenario(BaseScenario):
     def _build_overview(self, traffic: Dict[str, Any]) -> Dict[str, Any]:
         overview = {}
         for asin, data in traffic.items():
-            overview[f"{asin} - 总流量"] = data['total_traffic']
+            overview[f"{asin} - 總流量"] = data['total_traffic']
             overview[f"{asin} - 自然流量"] = data['natural_traffic']
-            overview[f"{asin} - 广告流量"] = data['ad_traffic']
-            overview[f"{asin} - 关键词数"] = data['keyword_count']
+            overview[f"{asin} - 廣告流量"] = data['ad_traffic']
+            overview[f"{asin} - 關鍵詞數"] = data['keyword_count']
         return overview

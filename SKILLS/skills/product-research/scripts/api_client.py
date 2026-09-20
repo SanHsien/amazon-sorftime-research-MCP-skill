@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Sorftime API 客户端 - 统一的数据采集接口
+Sorftime API 客戶端 - 統一的資料採集介面
 
-v2.2 - 修复大文件 JSON 解析问题
+v2.2 - 修復大檔案 JSON 解析問題
 
-为 product-research Skill 提供简洁的 API 调用方法:
-- 自动从 .mcp.json 读取 API Key
-- SSE 响应解析
-- Mojibake 编码修复
-- 控制字符转义（在 Unicode 解码后执行）
-- 返回干净的 Python dict
+為 product-research Skill 提供簡潔的 API 呼叫方法:
+- 自動從 .mcp.json 讀取 API Key
+- SSE 響應解析
+- Mojibake 編碼修復
+- 控制字元轉義（在 Unicode 解碼後執行）
+- 返回乾淨的 Python dict
 
 使用示例:
     from scripts.api_client import SorftimeClient
 
     client = SorftimeClient()
 
-    # 获取类目 Top100
+    # 獲取類目 Top100
     top100 = client.get_category_report(site="US", node_id=12345)
 
-    # 获取关键词详情
+    # 獲取關鍵詞詳情
     keyword = client.get_keyword_detail(site="US", keyword="your keyword")
 
-    # 获取产品详情
+    # 獲取產品詳情
     product = client.get_product_detail(site="US", asin="B0XXXXXXXX")
 
-    # 获取产品评论
+    # 獲取產品評論
     reviews = client.get_product_reviews(site="US", asin="B0XXXXXXXX", review_type="Negative")
 """
 
@@ -46,7 +46,7 @@ from pathlib import Path
 # ============================================================================
 
 def get_project_root():
-    """获取项目根目录（.claude 的父目录）"""
+    """獲取專案根目錄（.claude 的父目錄）"""
     path = os.path.abspath(__file__)
     while path != os.path.dirname(path):
         if os.path.basename(path) == '.claude':
@@ -57,7 +57,7 @@ def get_project_root():
 
 def get_api_key():
     """
-    从 .mcp.json 读取 Sorftime API Key
+    從 .mcp.json 讀取 Sorftime API Key
 
     Returns:
         str: API Key
@@ -71,33 +71,33 @@ def get_api_key():
                 content = f.read()
             config = json.loads(content)
 
-            # 从 URL 中提取 API key: https://mcp.sorftime.com?key=XXX
+            # 從 URL 中提取 API key: https://mcp.sorftime.com?key=XXX
             sorftime_url = config.get('mcpServers', {}).get('sorftime', {}).get('url', '')
             if 'key=' in sorftime_url:
                 api_key = sorftime_url.split('key=')[-1]
                 if api_key:
                     return api_key
         except Exception as e:
-            print(f"⚠ 读取 .mcp.json 失败: {e}")
+            print(f"⚠ 讀取 .mcp.json 失敗: {e}")
 
-    # 尝试环境变量
+    # 嘗試環境變數
     api_key = os.environ.get('SORFTIME_API_KEY', '')
     if api_key:
         return api_key
 
     raise ValueError(
-        "API Key 未找到。请确保:\n"
-        "1. .mcp.json 文件存在并包含 sorftime 配置，或\n"
-        "2. 设置环境变量 SORFTIME_API_KEY"
+        "API Key 未找到。請確保:\n"
+        "1. .mcp.json 檔案存在幷包含 sorftime 配置，或\n"
+        "2. 設定環境變數 SORFTIME_API_KEY"
     )
 
 
 # ============================================================================
-# 数据处理工具函数
+# 資料處理工具函式
 # ============================================================================
 
 def safe_int(value, default=0):
-    """安全转换为整数"""
+    """安全轉換為整數"""
     if isinstance(value, (int, float)):
         return int(value)
     if isinstance(value, str):
@@ -110,7 +110,7 @@ def safe_int(value, default=0):
 
 
 def safe_float(value, default=0.0):
-    """安全转换为浮点数"""
+    """安全轉換為浮點數"""
     if isinstance(value, (int, float)):
         return float(value)
     if isinstance(value, str):
@@ -124,10 +124,10 @@ def safe_float(value, default=0.0):
 
 def fix_mojibake(text):
     """
-    修复 Mojibake 编码问题 (UTF-8/Latin-1 双重编码)
+    修復 Mojibake 編碼問題 (UTF-8/Latin-1 雙重編碼)
 
-    问题: UTF-8 字节被错误解释为 Latin-1
-    解决: 将错误编码的字符串重新编码为 Latin-1，然后用 UTF-8 解码
+    問題: UTF-8 位元組被錯誤解釋為 Latin-1
+    解決: 將錯誤編碼的字串重新編碼為 Latin-1，然後用 UTF-8 解碼
     """
     if isinstance(text, str):
         try:
@@ -143,10 +143,10 @@ def fix_mojibake(text):
 
 def escape_control_chars_in_json_strings(json_str):
     """
-    转义 JSON 字符串值中的控制字符
+    轉義 JSON 字串值中的控制字元
 
-    问题: API 返回的 JSON 字符串值中包含原始的换行符、制表符等控制字符
-    解决: 在保持 JSON 结构不变的情况下，只转义字符串值内的控制字符
+    問題: API 返回的 JSON 字串值中包含原始的換行符、製表符等控制字元
+    解決: 在保持 JSON 結構不變的情況下，只跳脫字元串值內的控制字元
     """
     result = []
     i = 0
@@ -194,9 +194,9 @@ def escape_control_chars_in_json_strings(json_str):
 
 def extract_json_object(text):
     """
-    从文本中提取完整的 JSON 对象
+    從文字中提取完整的 JSON 物件
 
-    使用括号匹配算法，支持嵌套结构
+    使用括號匹配演算法，支援巢狀結構
     """
     stack = []
     start_idx = None
@@ -224,41 +224,41 @@ def extract_json_object(text):
 
 def decode_sse_response(content):
     """
-    解码 Sorftime SSE 响应
+    解碼 Sorftime SSE 響應
 
-    处理流程:
-    1. 清理控制字符
+    處理流程:
+    1. 清理控制字元
     2. 解析 SSE 格式 (event: message, data: {...})
-    3. Unicode 解码
-    4. Mojibake 修复
-    5. 提取 JSON 对象
+    3. Unicode 解碼
+    4. Mojibake 修復
+    5. 提取 JSON 物件
 
     Args:
-        content: SSE 响应内容（字符串）
+        content: SSE 響應內容（字串）
 
     Returns:
-        dict: 解码后的数据
+        dict: 解碼後的資料
     """
-    # 清理控制字符
+    # 清理控制字元
     content = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f-\x9f]', '', content)
 
     for line in content.split('\n'):
         if line.startswith('data: '):
-            json_text = line[6:]  # 去掉 'data: ' 前缀
+            json_text = line[6:]  # 去掉 'data: ' 字首
             try:
                 data = json.loads(json_text)
                 result_text = data.get('result', {}).get('content', [{}])[0].get('text', '')
                 if result_text:
-                    # Unicode 解码
+                    # Unicode 解碼
                     decoded = codecs.decode(result_text, 'unicode-escape')
 
-                    # Mojibake 修复
+                    # Mojibake 修復
                     decoded = fix_mojibake(decoded)
 
-                    # 转义 JSON 字符串值内的控制字符（关键步骤！）
+                    # 轉義 JSON 字串值內的控制字元（關鍵步驟！）
                     decoded = escape_control_chars_in_json_strings(decoded)
 
-                    # 清理剩余的控制字符
+                    # 清理剩餘的控制字元
                     decoded = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f-\x9f]', '', decoded)
 
                     # 提取 JSON
@@ -268,7 +268,7 @@ def decode_sse_response(content):
             except Exception:
                 continue
 
-    # 如果 SSE 解析失败，尝试直接解析
+    # 如果 SSE 解析失敗，嘗試直接解析
     try:
         return json.loads(content)
     except:
@@ -278,52 +278,52 @@ def decode_sse_response(content):
 
 
 # ============================================================================
-# Sorftime API 客户端
+# Sorftime API 客戶端
 # ============================================================================
 
 class SorftimeClient:
     """
-    Sorftime API 客户端
+    Sorftime API 客戶端
 
-    提供简洁的方法调用 Sorftime MCP API
+    提供簡潔的方法呼叫 Sorftime MCP API
     """
 
-    # API 工具名称映射
+    # API 工具名稱對映
     TOOLS = {
-        # 类目相关
-        'search_categories_broadly': 'search_categories_broadly',  # 多维度广泛搜索类目
-        'category_name_search': 'category_name_search',  # 按类目名称搜索（使用 searchName 参数）
+        # 類目相關
+        'search_categories_broadly': 'search_categories_broadly',  # 多維度廣泛搜尋類目
+        'category_name_search': 'category_name_search',  # 按類目名稱搜尋（使用 searchName 引數）
         'category_report': 'category_report',
         'category_trend': 'category_trend',
         'category_keywords': 'category_keywords',
 
-        # 关键词相关
+        # 關鍵詞相關
         'keyword_detail': 'keyword_detail',
         'keyword_search_results': 'keyword_search_results',
         'keyword_extends': 'keyword_extends',
         'keyword_trend': 'keyword_trend',
 
-        # 产品相关
+        # 產品相關
         'product_detail': 'product_detail',
         'product_reviews': 'product_reviews',
         'product_traffic_terms': 'product_traffic_terms',
         'product_trend': 'product_trend',
         'product_search': 'product_search',
 
-        # 选品相关
+        # 選品相關
         'potential_product': 'potential_product',
         'competitor_product_keywords': 'competitor_product_keywords',
 
-        # 供应链
+        # 供應鏈
         'ali1688': 'ali1688_similar_product',
     }
 
     def __init__(self, api_key: Optional[str] = None):
         """
-        初始化客户端
+        初始化客戶端
 
         Args:
-            api_key: Sorftime API Key，如果不提供则从 .mcp.json 读取
+            api_key: Sorftime API Key，如果不提供則從 .mcp.json 讀取
         """
         self.api_key = api_key or get_api_key()
         self.api_url = f'https://mcp.sorftime.com?key={self.api_key}'
@@ -331,14 +331,14 @@ class SorftimeClient:
 
     def _call(self, tool_name: str, arguments: Dict[str, Any]) -> tuple:
         """
-        调用 Sorftime API
+        呼叫 Sorftime API
 
         Args:
-            tool_name: API 工具名称
-            arguments: API 参数
+            tool_name: API 工具名稱
+            arguments: API 引數
 
         Returns:
-            tuple: (解析后的数据 dict, 原始响应 str)
+            tuple: (解析後的資料 dict, 原始響應 str)
         """
         self.request_id += 1
 
@@ -364,23 +364,23 @@ class SorftimeClient:
                 check=True
             )
 
-            # 返回原始响应和解析后的数据
+            # 返回原始響應和解析後的資料
             raw_response = result.stdout
             data = decode_sse_response(raw_response)
 
             if data is None:
-                # 即使解析失败，也返回原始响应供调试
+                # 即使解析失敗，也返回原始響應供除錯
                 return None, raw_response
 
             return data, raw_response
 
         except subprocess.CalledProcessError as e:
-            raise RuntimeError(f"API 调用失败: {e}")
+            raise RuntimeError(f"API 呼叫失敗: {e}")
         except subprocess.TimeoutExpired:
-            raise RuntimeError(f"API 调用超时")
+            raise RuntimeError(f"API 呼叫超時")
 
     # ========================================================================
-    # 类目相关 API
+    # 類目相關 API
     # ========================================================================
 
     def search_category_by_product_name(
@@ -389,18 +389,18 @@ class SorftimeClient:
         product_name: str
     ) -> Dict[str, Any]:
         """
-        按产品名称搜索类目
+        按產品名稱搜尋類目
 
         Args:
-            site: 站点 (US, GB, DE, FR, IT, ES, CA, JP, etc.)
-            product_name: 产品名称
+            site: 站點 (US, GB, DE, FR, IT, ES, CA, JP, etc.)
+            product_name: 產品名稱
 
         Returns:
-            dict: 搜索结果，包含类目列表
+            dict: 搜尋結果，包含類目列表
         """
         return self._call(
             self.TOOLS['category_name_search'],
-            {"amzSite": site, "searchName": product_name}  # 注意: 参数是 searchName
+            {"amzSite": site, "searchName": product_name}  # 注意: 引數是 searchName
         )
 
     def search_category_by_name(
@@ -409,14 +409,14 @@ class SorftimeClient:
         category_name: str
     ) -> Dict[str, Any]:
         """
-        按类目名称搜索（别名方法，与 search_category_by_product_name 相同）
+        按類目名稱搜尋（別名方法，與 search_category_by_product_name 相同）
 
         Args:
-            site: 站点
-            category_name: 类目名称
+            site: 站點
+            category_name: 類目名稱
 
         Returns:
-            dict: 搜索结果
+            dict: 搜尋結果
         """
         return self.search_category_by_product_name(site, category_name)
 
@@ -426,24 +426,24 @@ class SorftimeClient:
         filters: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """
-        多维度广泛搜索类目（新增 - 用于蓝海发现）
+        多維度廣泛搜尋類目（新增 - 用於藍海發現）
 
         Args:
-            site: 站点 (US, GB, DE, FR, IT, ES, CA, JP, etc.)
-            filters: 筛选条件（可选）
-                - top3Product_sales_share: Top3 产品销量占比上限（如 0.4 表示<40%）
-                - top3Brands_sales_share: Top3 品牌销量占比上限
-                - newProductSalesAmountShare: 新品销量占比下限（如 0.15 表示>15%）
-                - brandCount: 品牌数量下限（如 80 表示>80 个品牌）
-                - priceRange_min: 价格范围下限
-                - priceRange_max: 价格范围上限
-                - monthlySales_min: 月销量下限
-                - monthlySales_max: 月销量上限
+            site: 站點 (US, GB, DE, FR, IT, ES, CA, JP, etc.)
+            filters: 篩選條件（可選）
+                - top3Product_sales_share: Top3 產品銷量佔比上限（如 0.4 表示<40%）
+                - top3Brands_sales_share: Top3 品牌銷量佔比上限
+                - newProductSalesAmountShare: 新品銷量佔比下限（如 0.15 表示>15%）
+                - brandCount: 品牌數量下限（如 80 表示>80 個品牌）
+                - priceRange_min: 價格範圍下限
+                - priceRange_max: 價格範圍上限
+                - monthlySales_min: 月銷量下限
+                - monthlySales_max: 月銷量上限
 
         Returns:
-            dict: 类目列表，包含：
-                - categories: 类目列表
-                - total: 总数
+            dict: 類目列表，包含：
+                - categories: 類目列表
+                - total: 總數
         """
         params = {"amzSite": site}
         if filters:
@@ -459,14 +459,14 @@ class SorftimeClient:
         node_id: int
     ) -> Dict[str, Any]:
         """
-        获取类目 Top100 报告
+        獲取類目 Top100 報告
 
         Args:
-            site: 站点
-            node_id: 类目 Node ID
+            site: 站點
+            node_id: 類目 Node ID
 
         Returns:
-            dict: Top100 产品数据
+            dict: Top100 產品資料
         """
         return self._call(
             self.TOOLS['category_report'],
@@ -480,24 +480,24 @@ class SorftimeClient:
         trend_index: str = "NewProductSalesAmountShare"
     ) -> Dict[str, Any]:
         """
-        获取类目趋势数据
+        獲取類目趨勢資料
 
         Args:
-            site: 站点
-            node_id: 类目 Node ID
-            trend_index: 趋势类型
-                - NewProductSalesAmountShare: 新品销量占比
-                - NewProductProductShare: 新品数量占比
+            site: 站點
+            node_id: 類目 Node ID
+            trend_index: 趨勢型別
+                - NewProductSalesAmountShare: 新品銷量佔比
+                - NewProductProductShare: 新品數量佔比
                 - etc.
 
         Returns:
-            dict: 结构化趋势数据
+            dict: 結構化趨勢資料
                 {
                     "trend_data": [
                         {"date": "2024-03", "value": 33.35},
                         ...
                     ],
-                    "metric": "新品占比",
+                    "metric": "新品佔比",
                     "node_id": "99530371011"
                 }
         """
@@ -506,16 +506,16 @@ class SorftimeClient:
             {"amzSite": site, "nodeId": str(node_id), "trendIndex": trend_index}
         )
 
-        # 转换原始格式为结构化格式
+        # 轉換原始格式為結構化格式
         # 原始格式: ["2024年03月=33.35", "2024年04月=27.94", ...]
-        # 目标格式: {"trend_data": [{"date": "2024-03", "value": 33.35}, ...]}
+        # 目標格式: {"trend_data": [{"date": "2024-03", "value": 33.35}, ...]}
         if isinstance(raw_data, list):
             trend_data = []
             for item in raw_data:
                 if isinstance(item, str) and '=' in item:
                     # 解析 "2024年03月=33.35" 格式
                     date_str, value_str = item.split('=', 1)
-                    # 转换日期格式: "2024年03月" -> "2024-03"
+                    # 轉換日期格式: "2024年03月" -> "2024-03"
                     date_match = re.search(r'(\d{4})年(\d{2})月', date_str)
                     if date_match:
                         year, month = date_match.groups()
@@ -529,10 +529,10 @@ class SorftimeClient:
                         except ValueError:
                             continue
 
-            # 指标名称映射
+            # 指標名稱對映
             metric_names = {
-                "NewProductSalesAmountShare": "新品销量占比",
-                "NewProductProductShare": "新品数量占比",
+                "NewProductSalesAmountShare": "新品銷量佔比",
+                "NewProductProductShare": "新品數量佔比",
             }
 
             return {
@@ -551,15 +551,15 @@ class SorftimeClient:
         page: int = 1
     ) -> Dict[str, Any]:
         """
-        获取类目关键词
+        獲取類目關鍵詞
 
         Args:
-            site: 站点
-            node_id: 类目 Node ID
-            page: 页码
+            site: 站點
+            node_id: 類目 Node ID
+            page: 頁碼
 
         Returns:
-            dict: 关键词数据
+            dict: 關鍵詞資料
         """
         return self._call(
             self.TOOLS['category_keywords'],
@@ -567,7 +567,7 @@ class SorftimeClient:
         )
 
     # ========================================================================
-    # 关键词相关 API
+    # 關鍵詞相關 API
     # ========================================================================
 
     def get_keyword_detail(
@@ -576,14 +576,14 @@ class SorftimeClient:
         keyword: str
     ) -> Dict[str, Any]:
         """
-        获取关键词详情
+        獲取關鍵詞詳情
 
         Args:
-            site: 站点
-            keyword: 关键词
+            site: 站點
+            keyword: 關鍵詞
 
         Returns:
-            dict: 关键词详情（搜索量、CPC、自然位产品等）
+            dict: 關鍵詞詳情（搜尋量、CPC、自然位產品等）
         """
         return self._call(
             self.TOOLS['keyword_detail'],
@@ -596,14 +596,14 @@ class SorftimeClient:
         keyword: str
     ) -> Dict[str, Any]:
         """
-        获取关键词搜索结果（自然位产品）
+        獲取關鍵詞搜尋結果（自然位產品）
 
         Args:
-            site: 站点
-            keyword: 关键词
+            site: 站點
+            keyword: 關鍵詞
 
         Returns:
-            dict: 自然位产品列表
+            dict: 自然位產品列表
         """
         return self._call(
             self.TOOLS['keyword_search_results'],
@@ -616,14 +616,14 @@ class SorftimeClient:
         keyword: str
     ) -> Dict[str, Any]:
         """
-        获取关键词延伸词
+        獲取關鍵詞延伸詞
 
         Args:
-            site: 站点
-            keyword: 关键词
+            site: 站點
+            keyword: 關鍵詞
 
         Returns:
-            dict: 延伸词列表
+            dict: 延伸詞列表
         """
         return self._call(
             self.TOOLS['keyword_extends'],
@@ -631,7 +631,7 @@ class SorftimeClient:
         )
 
     # ========================================================================
-    # 产品相关 API
+    # 產品相關 API
     # ========================================================================
 
     def get_product_detail(
@@ -640,14 +640,14 @@ class SorftimeClient:
         asin: str
     ) -> Dict[str, Any]:
         """
-        获取产品详情
+        獲取產品詳情
 
         Args:
-            site: 站点
-            asin: 产品 ASIN
+            site: 站點
+            asin: 產品 ASIN
 
         Returns:
-            dict: 产品详情
+            dict: 產品詳情
         """
         return self._call(
             self.TOOLS['product_detail'],
@@ -661,15 +661,15 @@ class SorftimeClient:
         review_type: str = "Both"
     ) -> Dict[str, Any]:
         """
-        获取产品评论
+        獲取產品評論
 
         Args:
-            site: 站点
-            asin: 产品 ASIN
-            review_type: 评论类型 (Both, Positive, Negative)
+            site: 站點
+            asin: 產品 ASIN
+            review_type: 評論型別 (Both, Positive, Negative)
 
         Returns:
-            dict: 评论列表
+            dict: 評論列表
         """
         return self._call(
             self.TOOLS['product_reviews'],
@@ -682,14 +682,14 @@ class SorftimeClient:
         asin: str
     ) -> Dict[str, Any]:
         """
-        获取产品流量关键词（反查）
+        獲取產品流量關鍵詞（反查）
 
         Args:
-            site: 站点
-            asin: 产品 ASIN
+            site: 站點
+            asin: 產品 ASIN
 
         Returns:
-            dict: 流量关键词列表
+            dict: 流量關鍵詞列表
         """
         return self._call(
             self.TOOLS['product_traffic_terms'],
@@ -702,14 +702,14 @@ class SorftimeClient:
         asin: str
     ) -> Dict[str, Any]:
         """
-        获取产品趋势
+        獲取產品趨勢
 
         Args:
-            site: 站点
-            asin: 产品 ASIN
+            site: 站點
+            asin: 產品 ASIN
 
         Returns:
-            dict: 趋势数据
+            dict: 趨勢資料
         """
         return self._call(
             self.TOOLS['product_trend'],
@@ -723,22 +723,22 @@ class SorftimeClient:
         **filters
     ) -> Dict[str, Any]:
         """
-        搜索产品
+        搜尋產品
 
         Args:
-            site: 站点
-            search_name: 搜索关键词
-            **filters: 筛选条件
+            site: 站點
+            search_name: 搜尋關鍵詞
+            **filters: 篩選條件
 
         Returns:
-            dict: 搜索结果
+            dict: 搜尋結果
         """
         params = {"amzSite": site, "searchName": search_name}
         params.update(filters)
         return self._call(self.TOOLS['product_search'], params)
 
     # ========================================================================
-    # 选品相关 API
+    # 選品相關 API
     # ========================================================================
 
     def get_potential_products(
@@ -748,15 +748,15 @@ class SorftimeClient:
         **filters
     ) -> Dict[str, Any]:
         """
-        获取潜力产品
+        獲取潛力產品
 
         Args:
-            site: 站点
-            search_name: 搜索关键词
-            **filters: 筛选条件
+            site: 站點
+            search_name: 搜尋關鍵詞
+            **filters: 篩選條件
 
         Returns:
-            dict: 潜力产品列表
+            dict: 潛力產品列表
         """
         params = {"amzSite": site, "searchName": search_name}
         params.update(filters)
@@ -768,14 +768,14 @@ class SorftimeClient:
         asin: str
     ) -> Dict[str, Any]:
         """
-        获取竞品关键词布局
+        獲取競品關鍵詞佈局
 
         Args:
-            site: 站点
-            asin: 产品 ASIN
+            site: 站點
+            asin: 產品 ASIN
 
         Returns:
-            dict: 竞品关键词布局
+            dict: 競品關鍵詞佈局
         """
         return self._call(
             self.TOOLS['competitor_product_keywords'],
@@ -783,7 +783,7 @@ class SorftimeClient:
         )
 
     # ========================================================================
-    # 供应链 API
+    # 供應鏈 API
     # ========================================================================
 
     def get_1688_products(
@@ -791,13 +791,13 @@ class SorftimeClient:
         search_name: str
     ) -> Dict[str, Any]:
         """
-        获取 1688 相似产品
+        獲取 1688 相似產品
 
         Args:
-            search_name: 搜索关键词
+            search_name: 搜尋關鍵詞
 
         Returns:
-            dict: 1688 产品列表
+            dict: 1688 產品列表
         """
         return self._call(
             self.TOOLS['ali1688'],
@@ -806,31 +806,31 @@ class SorftimeClient:
 
 
 # ============================================================================
-# 便捷函数
+# 便捷函式
 # ============================================================================
 
 def create_client() -> SorftimeClient:
-    """创建 Sorftime 客户端（便捷函数）"""
+    """建立 Sorftime 客戶端（便捷函式）"""
     return SorftimeClient()
 
 
 # ============================================================================
-# 命令行接口
+# 命令列介面
 # ============================================================================
 
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Sorftime API 客户端")
+    parser = argparse.ArgumentParser(description="Sorftime API 客戶端")
     parser.add_argument("tool", choices=[
         "category_report", "keyword_detail", "product_detail",
         "product_reviews", "category_trend"
-    ], help="API 工具名称")
-    parser.add_argument("--site", default="US", help="站点")
-    parser.add_argument("--node-id", type=int, help="类目 Node ID")
-    parser.add_argument("--keyword", help="关键词")
-    parser.add_argument("--asin", help="产品 ASIN")
-    parser.add_argument("--output", "-o", help="输出文件路径")
+    ], help="API 工具名稱")
+    parser.add_argument("--site", default="US", help="站點")
+    parser.add_argument("--node-id", type=int, help="類目 Node ID")
+    parser.add_argument("--keyword", help="關鍵詞")
+    parser.add_argument("--asin", help="產品 ASIN")
+    parser.add_argument("--output", "-o", help="輸出檔案路徑")
 
     args = parser.parse_args()
 
@@ -861,10 +861,10 @@ if __name__ == "__main__":
             parser.error("--node-id 是必需的")
         result = client.get_category_trend(args.site, args.node_id)
 
-    # 输出结果
+    # 輸出結果
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
             json.dump(result, f, ensure_ascii=False, indent=2)
-        print(f"✓ 结果已保存到: {args.output}")
+        print(f"✓ 結果已儲存到: {args.output}")
     else:
         print(json.dumps(result, ensure_ascii=False, indent=2))

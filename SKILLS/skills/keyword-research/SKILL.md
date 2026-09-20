@@ -1,121 +1,121 @@
 ---
 name: "keyword-research"
-description: "亚马逊关键词深度调研与智能分类分析。基于 Sorftime MCP 数据采集 2000+ 关键词，通过 LLM Agent 按 8 维度智能分类（否定词、品牌词、材质词、场景词、属性词、功能词、核心词、其他），生成 Markdown 报告、CSV 词库和 HTML 仪表板。触发方式：/keyword-research {ASIN} {SITE}"
+description: "亞馬遜關鍵詞深度調研與智慧分類分析。基於 Sorftime MCP 資料採集 2000+ 關鍵詞，透過 LLM Agent 按 8 維度智慧分類（否定詞、品牌詞、材質詞、場景詞、屬性詞、功能詞、核心詞、其他），生成 Markdown 報告、CSV 詞庫和 HTML 儀表板。觸發方式：/keyword-research {ASIN} {SITE}"
 ---
 
-# 关键词调研分析 Skill
+# 關鍵詞調研分析 Skill
 
-## 快速参考
+## 快速參考
 
-| 步骤 | Sorftime API | 用途 | 数据量 |
+| 步驟 | Sorftime API | 用途 | 資料量 |
 |------|--------------|------|--------|
-| 1 | `product_traffic_terms` | 产品流量关键词 | 50-200 |
-| 2 | `competitor_product_keywords` | 竞品布局关键词 | 100-500 |
-| 3 | `category_keywords` | 类目核心关键词 | 100-500 |
-| 4 | `keyword_related_words` | 长尾词扩展 | 1000-2000 |
-| 5 | **LLM Agent** | 8 维智能分类 | 全量 |
+| 1 | `product_traffic_terms` | 產品流量關鍵詞 | 50-200 |
+| 2 | `competitor_product_keywords` | 競品佈局關鍵詞 | 100-500 |
+| 3 | `category_keywords` | 類目核心關鍵詞 | 100-500 |
+| 4 | `keyword_related_words` | 長尾詞擴充套件 | 1000-2000 |
+| 5 | **LLM Agent** | 8 維智慧分類 | 全量 |
 
-**一键执行**:
+**一鍵執行**:
 ```bash
-# 在 Claude Code 环境中运行（自动触发 LLM 分类）
+# 在 Claude Code 環境中執行（自動觸發 LLM 分類）
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --claude-code-env
 ```
 
-**其他选项**:
+**其他選項**:
 ```bash
-# 跳过分类，仅采集数据（后续可手动LLM分类）
+# 跳過分類，僅採集資料（後續可手動LLM分類）
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --skip-classification
 
-# 禁用LLM分类，使用规则分类
+# 禁用LLM分類，使用規則分類
 python .claude/skills/keyword-research/scripts/workflow.py B07PWTJ4H1 US --disable-llm-classification
 ```
 
-## 触发条件
+## 觸發條件
 
-当用户使用以下方式请求时启动此分析流程：
-- **命令**: `/keyword-research {ASIN} {站点}`
+當使用者使用以下方式請求時啟動此分析流程：
+- **命令**: `/keyword-research {ASIN} {站點}`
 - **示例**: `/keyword-research B07PWTJ4H1 US`
-- **自然语言**: "分析这个产品的关键词词库"、"调研 B07PWTJ4H1 的关键词"
+- **自然語言**: "分析這個產品的關鍵詞詞庫"、"調研 B07PWTJ4H1 的關鍵詞"
 
 ---
 
-## 角色设定
+## 角色設定
 
-你是一位拥有 10 年经验的"亚马逊 PPC 广告专家"和"关键词策略分析师"。你精通亚马逊 A9 算法和关键词布局策略，能够从海量关键词中识别出高价值词和需要排除的词。
+你是一位擁有 10 年經驗的"亞馬遜 PPC 廣告專家"和"關鍵詞策略分析師"。你精通亞馬遜 A9 演算法和關鍵詞佈局策略，能夠從海量關鍵詞中識別出高價值詞和需要排除的詞。
 
 ---
 
-## 数据采集策略：方案 A（基于 ASIN 的深度分析）
+## 資料採集策略：方案 A（基於 ASIN 的深度分析）
 
 ```
-输入: ASIN + 站点 + (可选) 产品信息
+輸入: ASIN + 站點 + (可選) 產品資訊
   ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ Step 1: 基础数据采集                                         │
+│ Step 1: 基礎資料採集                                         │
 ├─────────────────────────────────────────────────────────────┤
-│ 1. product_traffic_terms      → 产品流量词 (50-200个)       │
-│ 2. competitor_product_keywords → 竞品布局词 (100-500个)     │
-│ 3. category_keywords           → 类目核心词 (100-500个)      │
+│ 1. product_traffic_terms      → 產品流量詞 (50-200個)       │
+│ 2. competitor_product_keywords → 競品佈局詞 (100-500個)     │
+│ 3. category_keywords           → 類目核心詞 (100-500個)      │
 └─────────────────────────────────────────────────────────────┘
   ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ Step 2: 长尾词扩展                                          │
+│ Step 2: 長尾詞擴充套件                                          │
 ├─────────────────────────────────────────────────────────────┤
-│ 从基础词中选择 Top 30 核心词                                 │
-│ → 对每个调用 keyword_related_words (50-100个延伸词)         │
-│ → 预计获取 1000-2000 个长尾词                               │
+│ 從基礎詞中選擇 Top 30 核心詞                                 │
+│ → 對每個呼叫 keyword_related_words (50-100個延伸詞)         │
+│ → 預計獲取 1000-2000 個長尾詞                               │
 └─────────────────────────────────────────────────────────────┘
   ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ Step 3: 数据清洗                                            │
+│ Step 3: 資料清洗                                            │
 ├─────────────────────────────────────────────────────────────┤
-│ 1. 去重（归一化：小写、去除特殊字符）                        │
-│ 2. 过滤无效词（过短、非英文、乱码）                          │
-│ 3. 合并搜索量/CPC 等指标                                    │
+│ 1. 去重（歸一化：小寫、去除特殊字元）                        │
+│ 2. 過濾無效詞（過短、非英文、亂碼）                          │
+│ 3. 合併搜尋量/CPC 等指標                                    │
 └─────────────────────────────────────────────────────────────┘
   ↓
-最终词库: 2000+ 关键词
+最終詞庫: 2000+ 關鍵詞
 ```
 
 ---
 
-## 关键词分类：8 维智能分类模型
+## 關鍵詞分類：8 維智慧分類模型
 
-### 分类维度
+### 分類維度
 
-| 维度 | 标识 | 识别规则 | 应用策略 |
+| 維度 | 標識 | 識別規則 | 應用策略 |
 |------|------|----------|----------|
-| **否定/敏感词** | NEGATIVE | 与产品不相关、描述不符的词 | 直接添加为否定关键词 |
-| **品牌词** | BRAND | 竞品品牌名称 | 竞品打法或否定 |
-| **材质词** | MATERIAL | 产品材质相关词 | 精准词组匹配 |
-| **场景词** | SCENARIO | 使用场景/位置词 | 按场景拆分广告组 |
-| **属性修饰词** | ATTRIBUTE | 产品属性/特性词 | 长尾精准匹配 |
-| **功能词** | FUNCTION | 产品功能相关词 | 广泛匹配扩流 |
-| **核心产品词** | CORE | 产品核心名称 | 大词投放占领坑位 |
-| **其他** | OTHER | 未分类、拼写错误、其他语言 | 补充埋词 |
+| **否定/敏感詞** | NEGATIVE | 與產品不相關、描述不符的詞 | 直接新增為否定關鍵詞 |
+| **品牌詞** | BRAND | 競品品牌名稱 | 競品打法或否定 |
+| **材質詞** | MATERIAL | 產品材質相關詞 | 精準片語匹配 |
+| **場景詞** | SCENARIO | 使用場景/位置詞 | 按場景拆分廣告組 |
+| **屬性修飾詞** | ATTRIBUTE | 產品屬性/特性詞 | 長尾精準匹配 |
+| **功能詞** | FUNCTION | 產品功能相關詞 | 廣泛匹配擴流 |
+| **核心產品詞** | CORE | 產品核心名稱 | 大詞投放佔領坑位 |
+| **其他** | OTHER | 未分類、拼寫錯誤、其他語言 | 補充埋詞 |
 
-### 分类识别示例（以 Coat Rack 为例）
+### 分類識別示例（以 Coat Rack 為例）
 
 ```
-产品信息: Coat Rack Wall Mount, Wood, 5 Hooks, Entryway
+產品資訊: Coat Rack Wall Mount, Wood, 5 Hooks, Entryway
 
-否定词: freestanding, over door, floor, tree, shoe
-品牌词: umbra, simplehuman, mDesign, household essentials
-材质词: wood, wooden, metal, aluminum, bamboo
-场景词: entryway, bathroom, mudroom, garage, bedroom
-属性词: wall mount, heavy duty, rustic, vintage, expandable, 5 hook
-功能词: hanging, storage, organizer, display
-核心词: coat rack, hook, hanger, hat rack, towel rack
-其他: coatrac (拼写错误), perchero (西语)
+否定詞: freestanding, over door, floor, tree, shoe
+品牌詞: umbra, simplehuman, mDesign, household essentials
+材質詞: wood, wooden, metal, aluminum, bamboo
+場景詞: entryway, bathroom, mudroom, garage, bedroom
+屬性詞: wall mount, heavy duty, rustic, vintage, expandable, 5 hook
+功能詞: hanging, storage, organizer, display
+核心詞: coat rack, hook, hanger, hat rack, towel rack
+其他: coatrac (拼寫錯誤), perchero (西語)
 ```
 
 ---
 
-## 执行流程
+## 執行流程
 
-### 阶段一：数据采集
+### 階段一：資料採集
 
-#### Step 1.1: 获取产品流量词
+#### Step 1.1: 獲取產品流量詞
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
@@ -123,9 +123,9 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"product_traffic_terms","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 ```
 
-**返回数据**: 关键词列表，包含搜索量、CPC 等指标
+**返回資料**: 關鍵詞列表，包含搜尋量、CPC 等指標
 
-#### Step 1.2: 获取竞品布局词
+#### Step 1.2: 獲取競品佈局詞
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
@@ -133,25 +133,25 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"competitor_product_keywords","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 ```
 
-**返回数据**: 竞品在各关键词下的排名位置
+**返回資料**: 競品在各關鍵詞下的排名位置
 
-#### Step 1.3: 获取类目核心词
+#### Step 1.3: 獲取類目核心詞
 
 ```bash
-# 首先获取产品详情以获取 NodeID
+# 首先獲取產品詳情以獲取 NodeID
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"product_detail","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 
-# 然后获取类目关键词
+# 然後獲取類目關鍵詞
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"category_keywords","arguments":{"amzSite":"US","nodeId":"NODE_ID"}}}'
 ```
 
-#### Step 1.4: 长尾词扩展
+#### Step 1.4: 長尾詞擴充套件
 
-从基础词中选择 Top 30 核心，对每个调用：
+從基礎詞中選擇 Top 30 核心，對每個呼叫：
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
@@ -161,35 +161,35 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
 
 ---
 
-### 阶段二：LLM 智能分类
+### 階段二：LLM 智慧分類
 
-#### 分类提示词模板
+#### 分類提示詞模板
 
 ```
-你是一位亚马逊关键词分类专家。请根据以下产品信息，将关键词列表按 8 个维度分类。
+你是一位亞馬遜關鍵詞分類專家。請根據以下產品資訊，將關鍵詞列表按 8 個維度分類。
 
-【产品信息】
-产品名称: {product_name}
-材质: {material}
-核心属性: {features}
-使用场景: {use_cases}
-否定特征: {negative_features}
+【產品資訊】
+產品名稱: {product_name}
+材質: {material}
+核心屬性: {features}
+使用場景: {use_cases}
+否定特徵: {negative_features}
 
-【分类维度】
-1. NEGATIVE: 不相关的词，需直接否定
-2. BRAND: 竞品品牌名称
-3. MATERIAL: 材质相关词 (wood, metal, aluminum...)
-4. SCENARIO: 使用场景词 (entryway, bathroom...)
-5. ATTRIBUTE: 属性修饰词 (wall mount, heavy duty...)
-6. FUNCTION: 功能词 (hanging, storage...)
-7. CORE: 核心产品词 (coat rack, hook...)
-8. OTHER: 其他（拼写错误、其他语言等）
+【分類維度】
+1. NEGATIVE: 不相關的詞，需直接否定
+2. BRAND: 競品品牌名稱
+3. MATERIAL: 材質相關詞 (wood, metal, aluminum...)
+4. SCENARIO: 使用場景詞 (entryway, bathroom...)
+5. ATTRIBUTE: 屬性修飾詞 (wall mount, heavy duty...)
+6. FUNCTION: 功能詞 (hanging, storage...)
+7. CORE: 核心產品詞 (coat rack, hook...)
+8. OTHER: 其他（拼寫錯誤、其他語言等）
 
-【待分类关键词】
+【待分類關鍵詞】
 {keywords_json}
 
-【输出格式】
-请以 JSON 格式输出：
+【輸出格式】
+請以 JSON 格式輸出：
 {
   "NEGATIVE": ["word1", "word2", ...],
   "BRAND": [...],
@@ -197,59 +197,59 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
 }
 ```
 
-#### 批量处理策略
+#### 批次處理策略
 
-- **批次大小**: 每批 150 个关键词
-- **并行处理**: 可并发多个批次
-- **结果合并**: 统计各分类数量，汇总关键词
+- **批次大小**: 每批 150 個關鍵詞
+- **並行處理**: 可併發多個批次
+- **結果合併**: 統計各分類數量，彙總關鍵詞
 
 ---
 
-### 阶段三：报告生成
+### 階段三：報告生成
 
-#### 输出文件结构
+#### 輸出檔案結構
 
 ```
 keyword-reports/
 └── {ASIN}_{Site}_{YYYYMMDD}/
-    ├── report.md                    # Markdown 分析报告
-    ├── keywords.csv                 # 完整关键词词库（分类后）
-    ├── negative_words.txt           # 否定词清单
-    ├── brand_words.txt              # 品牌词清单
-    ├── categorized_summary.json     # 分类统计
-    └── dashboard.html               # HTML 可视化仪表板
+    ├── report.md                    # Markdown 分析報告
+    ├── keywords.csv                 # 完整關鍵詞詞庫（分類後）
+    ├── negative_words.txt           # 否定詞清單
+    ├── brand_words.txt              # 品牌詞清單
+    ├── categorized_summary.json     # 分類統計
+    └── dashboard.html               # HTML 視覺化儀表板
 ```
 
 #### keywords.csv 格式
 
 ```csv
 keyword,category,search_volume,cpc,competition,application,relevance_score
-coat rack,CORE,54000,1.85,high,广泛匹配,1.00
-wooden coat rack,MATERIAL,12000,1.25,medium,精准匹配,0.95
+coat rack,CORE,54000,1.85,high,廣泛匹配,1.00
+wooden coat rack,MATERIAL,12000,1.25,medium,精準匹配,0.95
 freestanding coat rack,NEGATIVE,4500,0.85,low,直接否定,0.00
 ...
 ```
 
 ---
 
-## 产品信息支持（可选）
+## 產品資訊支援（可選）
 
-为提高分类准确性，支持用户提供产品信息：
+為提高分類準確性，支援使用者提供產品資訊：
 
-### 输入方式
+### 輸入方式
 
-**方式 1**: 命令行参数
+**方式 1**: 命令列引數
 ```bash
 python workflow.py B07PWTJ4H1 US --product-info product.json
 ```
 
-**方式 2**: 交互式收集
+**方式 2**: 互動式收集
 ```bash
-请输入产品核心属性（用逗号分隔）:
+請輸入產品核心屬性（用逗號分隔）:
 > Wall Mount, 5 Hooks, 16.5 inches, Heavy Duty
 ```
 
-### 产品信息 JSON 格式
+### 產品資訊 JSON 格式
 
 ```json
 {
@@ -263,20 +263,20 @@ python workflow.py B07PWTJ4H1 US --product-info product.json
 
 ---
 
-## Sorftime API 参考
+## Sorftime API 參考
 
-### 关键词相关接口
+### 關鍵詞相關介面
 
-| 接口 | 调用消耗 | 参数 | 返回 |
+| 介面 | 呼叫消耗 | 引數 | 返回 |
 |------|----------|------|------|
-| `product_traffic_terms` | 1 | asin, site | 产品流量词 |
-| `competitor_product_keywords` | 1 | asin, site | 竞品布局词 |
-| `category_keywords` | 1 | nodeId, site | 类目核心词 |
-| `keyword_related_words` | 1 | searchKeyword, site | 延伸长尾词 |
-| `keyword_detail` | 1 | keyword, site | 关键词详情 |
-| `product_detail` | 1 | asin, site | 产品详情 |
+| `product_traffic_terms` | 1 | asin, site | 產品流量詞 |
+| `competitor_product_keywords` | 1 | asin, site | 競品佈局詞 |
+| `category_keywords` | 1 | nodeId, site | 類目核心詞 |
+| `keyword_related_words` | 1 | searchKeyword, site | 延伸長尾詞 |
+| `keyword_detail` | 1 | keyword, site | 關鍵詞詳情 |
+| `product_detail` | 1 | asin, site | 產品詳情 |
 
-### 调用格式
+### 呼叫格式
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
@@ -286,148 +286,148 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
 
 ---
 
-## 支持的站点
+## 支援的站點
 
 **Amazon**: US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 
 ---
 
-## 注意事项
+## 注意事項
 
-1. **API Key 配置**: 自动从 `.mcp.json` 读取
-2. **数据去重**: 归一化处理（小写、去除特殊字符）
-3. **LLM 分类**: 批量处理，每批 150 个关键词
-4. **输出编码**: UTF-8，支持中文和特殊字符
-5. **报告命名**: `{ASIN}_{Site}_{YYYYMMDD}` 格式
+1. **API Key 配置**: 自動從 `.mcp.json` 讀取
+2. **資料去重**: 歸一化處理（小寫、去除特殊字元）
+3. **LLM 分類**: 批次處理，每批 150 個關鍵詞
+4. **輸出編碼**: UTF-8，支援中文和特殊字元
+5. **報告命名**: `{ASIN}_{Site}_{YYYYMMDD}` 格式
 
 ---
 
 ## 故障排查
 
-### 问题 1: API 返回 "未查询到对应产品"
-**原因**: ASIN 不存在于 Sorftime 数据库
-**解决**:
-1. 使用 `product_search` 验证 ASIN
-2. 检查站点是否正确
+### 問題 1: API 返回 "未查詢到對應產品"
+**原因**: ASIN 不存在於 Sorftime 資料庫
+**解決**:
+1. 使用 `product_search` 驗證 ASIN
+2. 檢查站點是否正確
 
-### 问题 2: 分类结果不准确
-**原因**: 缺少产品信息上下文或使用了规则分类
-**解决**:
-1. 提供产品信息 JSON 文件
-2. 在 Claude Code 环境中运行以使用 LLM 分类
-3. 手动执行 LLM 分类后保存到 `categorized_result.json`
+### 問題 2: 分類結果不準確
+**原因**: 缺少產品資訊上下文或使用了規則分類
+**解決**:
+1. 提供產品資訊 JSON 檔案
+2. 在 Claude Code 環境中執行以使用 LLM 分類
+3. 手動執行 LLM 分類後儲存到 `categorized_result.json`
 
-### 问题 3: 长尾词扩展数量不足
-**原因**: 核心词选择不准确或 API 限流
-**解决**:
-1. 调整核心词选择策略，增加搜索量权重
-2. 降低 `--long-tail-limit` 数量避免 API 限流
-3. 使用 `--skip-long-tail` 跳过长尾扩展
+### 問題 3: 長尾詞擴充套件數量不足
+**原因**: 核心詞選擇不準確或 API 限流
+**解決**:
+1. 調整核心詞選擇策略，增加搜尋量權重
+2. 降低 `--long-tail-limit` 數量避免 API 限流
+3. 使用 `--skip-long-tail` 跳過長尾擴充套件
 
-### 问题 4: 分类显示 "分类失败或未提供结果" 或 使用了规则分类
-**原因**: 在命令行环境中运行，没有触发 LLM 分类
-**解决**:
-1. 使用 `--claude-code-env` 参数强制启用 LLM 分类模式：
+### 問題 4: 分類顯示 "分類失敗或未提供結果" 或 使用了規則分類
+**原因**: 在命令列環境中執行，沒有觸發 LLM 分類
+**解決**:
+1. 使用 `--claude-code-env` 引數強制啟用 LLM 分類模式：
    ```bash
    python workflow.py B07PWTJ4H1 US --claude-code-env
    ```
-2. 系统会输出分类提示词，复制提示词发送给 Claude 执行分类
-3. 将分类结果保存为 `categorized_result.json`
-4. 重新运行 workflow.py 会自动加载分类结果并重新生成报告
+2. 系統會輸出分類提示詞，複製提示詞傳送給 Claude 執行分類
+3. 將分類結果儲存為 `categorized_result.json`
+4. 重新執行 workflow.py 會自動載入分類結果並重新生成報告
 
-### 问题 5: 如何手动进行 LLM 分类
-**场景**: 采集了数据但分类不准确
-**解决**:
-1. 查看输出目录中的 `classification_prompt.txt`
-2. 将提示词发送给 Claude 执行分类
-3. 将分类结果保存为 `categorized_result.json`
-4. 运行报告重新生成脚本
-
----
-
-## 参考文档
-
-- [Sorftime API 文档](references/sorftime-keyword-api.md)
-- [分类规则说明](references/classification-rules.md)
+### 問題 5: 如何手動進行 LLM 分類
+**場景**: 採集了資料但分類不準確
+**解決**:
+1. 檢視輸出目錄中的 `classification_prompt.txt`
+2. 將提示詞傳送給 Claude 執行分類
+3. 將分類結果儲存為 `categorized_result.json`
+4. 執行報告重新生成指令碼
 
 ---
 
-## 手动 LLM 分类流程
+## 參考文件
 
-如果规则分类结果不准确，可以手动执行 LLM 分类：
+- [Sorftime API 文件](references/sorftime-keyword-api.md)
+- [分類規則說明](references/classification-rules.md)
 
-### 步骤 1: 查看分类提示词
+---
+
+## 手動 LLM 分類流程
+
+如果規則分類結果不準確，可以手動執行 LLM 分類：
+
+### 步驟 1: 檢視分類提示詞
 ```bash
 cat keyword-reports/{ASIN}_{Site}_{YYYYMMDD}/classification_prompt.txt
 ```
 
-### 步骤 2: 将提示词发送给 Claude
-复制整个提示词内容，发送给 Claude 执行分类
+### 步驟 2: 將提示詞傳送給 Claude
+複製整個提示詞內容，傳送給 Claude 執行分類
 
-### 步骤 3: 保存分类结果
-将 Claude 返回的 JSON 保存到：
+### 步驟 3: 儲存分類結果
+將 Claude 返回的 JSON 儲存到：
 ```bash
 keyword-reports/{ASIN}_{Site}_{YYYYMMDD}/categorized_result.json
 ```
 
-### 步骤 4: 重新生成报告
+### 步驟 4: 重新生成報告
 
-`regenerate_reports.py` 支持多种使用方式：
+`regenerate_reports.py` 支援多種使用方式：
 
-#### 方式 1: 从报告目录内运行（自动检测）
+#### 方式 1: 從報告目錄內執行（自動檢測）
 ```bash
 cd keyword-reports/{ASIN}_{Site}_{YYYYMMDD}/
 python ../../.claude/skills/keyword-research/scripts/regenerate_reports.py
 ```
 
-#### 方式 2: 指定 ASIN 和站点
+#### 方式 2: 指定 ASIN 和站點
 ```bash
 python .claude/skills/keyword-research/scripts/regenerate_reports.py --asin B0FG6QG8C8 --site US
 ```
 
-#### 方式 3: 指定完整输出目录
+#### 方式 3: 指定完整輸出目錄
 ```bash
 python .claude/skills/keyword-research/scripts/regenerate_reports.py --dir "keyword-reports\B0FG6QG8C8_US_20260314"
 ```
 
-#### 方式 4: 列出所有可用的报告目录
+#### 方式 4: 列出所有可用的報告目錄
 ```bash
 python .claude/skills/keyword-research/scripts/regenerate_reports.py --list
 ```
 
 ---
 
-## 版本更新记录
+## 版本更新記錄
 
 ### v1.3 (2026-03-14)
-- ✅ **优化 regenerate_reports.py**: 移除硬编码 ASIN
-- ✅ **支持多种使用方式**:
-  - 从报告目录内运行（自动检测）
-  - 使用 `--asis` 和 `--site` 参数指定
-  - 使用 `--dir` 参数指定完整目录
-  - 使用 `--list` 列出所有可用报告
-- ✅ **改进错误提示**: 更友好的错误信息和帮助文档
+- ✅ **最佳化 regenerate_reports.py**: 移除硬編碼 ASIN
+- ✅ **支援多種使用方式**:
+  - 從報告目錄內執行（自動檢測）
+  - 使用 `--asis` 和 `--site` 引數指定
+  - 使用 `--dir` 引數指定完整目錄
+  - 使用 `--list` 列出所有可用報告
+- ✅ **改進錯誤提示**: 更友好的錯誤資訊和幫助文件
 
 ### v1.2 (2026-03-14)
-- ✅ 修复 LLM 分类触发问题
-- ✅ 添加 `--claude-code-env` 参数强制启用 LLM 分类
-- ✅ 改进环境检测逻辑
-- ✅ 在 Claude Code 环境中自动触发 LLM 分类
-- ✅ 分类完成后自动使用 LLM 结果重新生成报告
+- ✅ 修復 LLM 分類觸發問題
+- ✅ 新增 `--claude-code-env` 引數強制啟用 LLM 分類
+- ✅ 改進環境檢測邏輯
+- ✅ 在 Claude Code 環境中自動觸發 LLM 分類
+- ✅ 分類完成後自動使用 LLM 結果重新生成報告
 
 ### v1.1 (2026-03-14)
-- ✅ 添加 Claude Code 环境检测
-- ✅ 添加 `--skip-classification` 选项
-- ✅ 改进规则分类：扩展 IP 品牌词识别
-- ✅ 改进规则分类：添加主题属性词
-- ✅ 更新故障排查文档
+- ✅ 新增 Claude Code 環境檢測
+- ✅ 新增 `--skip-classification` 選項
+- ✅ 改進規則分類：擴充套件 IP 品牌詞識別
+- ✅ 改進規則分類：新增主題屬性詞
+- ✅ 更新故障排查文件
 
 ### v1.0 (2026-03-13)
 - 初始版本
-- 支持 Sorftime API 数据采集
-- 支持 8 维智能分类
-- 生成 Markdown/CSV/HTML 报告
+- 支援 Sorftime API 資料採集
+- 支援 8 維智慧分類
+- 生成 Markdown/CSV/HTML 報告
 
 ---
 
-*本技能版本: v1.3 | 最后更新: 2026-03-14*
+*本技能版本: v1.3 | 最後更新: 2026-03-14*

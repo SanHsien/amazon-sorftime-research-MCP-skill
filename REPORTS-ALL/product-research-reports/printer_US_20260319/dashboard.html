@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ink Tank Printers - US 选品分析看板</title>
+    <title>Ink Tank Printers - US 選品分析看板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         * {
@@ -61,7 +61,7 @@
             border-bottom: 1px solid #e1e8ef;
         }
 
-        /* KPI 卡片网格 */
+        /* KPI 卡片網格 */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -94,7 +94,7 @@
             margin-top: 4px;
         }
 
-        /* Go/No-Go 评分卡 */
+        /* Go/No-Go 評分卡 */
         .gogono-card {
             background: linear-gradient(135deg, #ef4444, #dc2626 100%);
             border-radius: 12px;
@@ -120,7 +120,7 @@
             opacity: 0.9;
         }
 
-        /* 表格样式 */
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -143,7 +143,7 @@
             background: #f8fafc;
         }
 
-        /* 标签 */
+        /* 標籤 */
         .tag {
             display: inline-block;
             padding: 4px 12px;
@@ -158,7 +158,7 @@
         .tag-blue { background: #dbeafe; color: #1e40af; }
         .tag-gray { background: #f1f5f9; color: #475569; }
 
-        /* 机会卡片 */
+        /* 機會卡片 */
         .opportunity-card {
             background: #f0fdf4;
             border-left: 4px solid #16a34a;
@@ -180,7 +180,7 @@
             margin-right: 12px;
         }
 
-        /* 页脚 */
+        /* 頁尾 */
         .footer {
             text-align: center;
             padding: 24px;
@@ -190,14 +190,14 @@
             margin-top: 40px;
         }
 
-        /* 维度分布表格 */
+        /* 維度分佈表格 */
         .dimension-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        /* 响应式 */
+        /* 響應式 */
         @media (max-width: 768px) {
             .kpi-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -212,41 +212,41 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Ink Tank Printers 选品分析看板</h1>
+            <h1>Ink Tank Printers 選品分析看板</h1>
             <div class="subtitle">
-                站点: US | 分析日期: 20260319
+                站點: US | 分析日期: 20260319
             </div>
         </div>
 
-        <!-- Go/No-Go 评分 -->
+        <!-- Go/No-Go 評分 -->
         <div class="section">
-            <div class="section-title">选品决策评估</div>
+            <div class="section-title">選品決策評估</div>
             <div class="gogono-card" style="background: linear-gradient(135deg, #ef4444, #dc2626 100%);">
-                <div class="verdict">不建议进入</div>
+                <div class="verdict">不建議進入</div>
                 <div class="score">4.3 / 10</div>
-                <div class="verdict-detail">不建议进入</div>
+                <div class="verdict-detail">不建議進入</div>
             </div>
         </div>
 
-        <!-- 市场概况 KPI -->
+        <!-- 市場概況 KPI -->
         <div class="section">
-            <div class="section-title">市场概况</div>
+            <div class="section-title">市場概況</div>
             <div class="kpi-grid">
                 
                 <div class="kpi-card">
-                    <div class="label">Top100 月销量</div>
+                    <div class="label">Top100 月銷量</div>
                     <div class="value">122,800</div>
                     <div class="note">件</div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">Top100 月销额</div>
+                    <div class="label">Top100 月銷額</div>
                     <div class="value">$21,630,009</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">平均价格</div>
+                    <div class="label">平均價格</div>
                     <div class="value">$176.14</div>
                     <div class="note"></div>
                 </div>
@@ -258,13 +258,13 @@
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">亚马逊自营份额</div>
+                    <div class="label">亞馬遜自營份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">中国卖家份额</div>
+                    <div class="label">中國賣家份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
@@ -272,18 +272,18 @@
             </div>
         </div>
 
-        <!-- 维度分布 -->
+        <!-- 維度分佈 -->
         <div class="section">
-            <div class="section-title">产品维度分布</div>
+            <div class="section-title">產品維度分佈</div>
             <div class="dimension-grid">
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">價格區間分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>价格区间</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>價格區間</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -293,17 +293,17 @@
                 </div>
             
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">產品型別分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>产品类型</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>產品型別</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>All-in-One 基础款</td><td>55</td><td><span class="tag tag-blue">55%</span></td></tr><tr><td>All-in-One + Fax</td><td>15</td><td><span class="tag tag-yellow">15%</span></td></tr><tr><td>墨仓式 EcoTank/Supertank</td><td>45</td><td><span class="tag tag-blue">45%</span></td></tr><tr><td>照片专用 Photo</td><td>8</td><td><span class="tag tag-gray">8%</span></td></tr><tr><td>便携式 Portable</td><td>3</td><td><span class="tag tag-gray">3%</span></td></tr><tr><td>宽幅 Wide-Format</td><td>5</td><td><span class="tag tag-gray">5%</span></td></tr>
+                            <tr><td>All-in-One 基礎款</td><td>55</td><td><span class="tag tag-blue">55%</span></td></tr><tr><td>All-in-One + Fax</td><td>15</td><td><span class="tag tag-yellow">15%</span></td></tr><tr><td>墨倉式 EcoTank/Supertank</td><td>45</td><td><span class="tag tag-blue">45%</span></td></tr><tr><td>照片專用 Photo</td><td>8</td><td><span class="tag tag-gray">8%</span></td></tr><tr><td>行動式 Portable</td><td>3</td><td><span class="tag tag-gray">3%</span></td></tr><tr><td>寬幅 Wide-Format</td><td>5</td><td><span class="tag tag-gray">5%</span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -313,19 +313,19 @@
         <!-- 交叉分析 -->
         
         <div class="section">
-            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <div class="section-title">價格區間 × 產品型別 交叉分析</div>
             <table>
                 <thead>
                     <tr>
-                        <th>价格区间 \ 产品类型</th>
+                        <th>價格區間 \ 產品型別</th>
                         <th>+Fax</th><th>All-in-One</th><th>Photo</th><th>Portable</th><th>Wide-Format</th>
-                        <th>合计</th>
+                        <th>合計</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>$0-30</strong></td><td>2</td><td>8</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>10</strong></td></tr><tr><td><strong>$30-60</strong></td><td><span class="tag tag-gray">0</span></td><td>2</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>2</strong></td></tr><tr><td><strong>$60-100</strong></td><td>2</td><td>10</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>12</strong></td></tr><tr><td><strong>$100-150</strong></td><td>2</td><td>12</td><td>2</td><td>1</td><td><span class="tag tag-gray">0</span></td><td><strong>17</strong></td></tr><tr><td><strong>$150-200</strong></td><td>2</td><td>25 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>3</td><td>1</td><td>2</td><td><strong>33</strong></td></tr><tr><td><strong>$200+</strong></td><td>7</td><td>18 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>6</td><td>1</td><td>3</td><td><strong>35</strong></td></tr>
+                    <tr><td><strong>$0-30</strong></td><td>2</td><td>8</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>10</strong></td></tr><tr><td><strong>$30-60</strong></td><td><span class="tag tag-gray">0</span></td><td>2</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>2</strong></td></tr><tr><td><strong>$60-100</strong></td><td>2</td><td>10</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>12</strong></td></tr><tr><td><strong>$100-150</strong></td><td>2</td><td>12</td><td>2</td><td>1</td><td><span class="tag tag-gray">0</span></td><td><strong>17</strong></td></tr><tr><td><strong>$150-200</strong></td><td>2</td><td>25 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>3</td><td>1</td><td>2</td><td><strong>33</strong></td></tr><tr><td><strong>$200+</strong></td><td>7</td><td>18 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>6</td><td>1</td><td>3</td><td><strong>35</strong></td></tr>
                     <tr style="background: #f8fafc; font-weight: 600;">
-                        <td><strong>合计</strong></td>
+                        <td><strong>合計</strong></td>
                         <td><strong>15</strong></td><td><strong>75</strong></td><td><strong>11</strong></td><td><strong>3</strong></td><td><strong>5</strong></td>
                         <td><strong>109</strong></td>
                     </tr>
@@ -338,91 +338,91 @@
         <!-- VOC 分析 -->
         
         <div class="section">
-            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <div class="section-title">VOC 分析 - 使用者痛點洞察</div>
             <table>
                 <thead>
                     <tr>
-                        <th>维度</th>
-                        <th>痛点</th>
-                        <th>频次/占比</th>
+                        <th>維度</th>
+                        <th>痛點</th>
+                        <th>頻次/佔比</th>
                         <th>涉及品牌</th>
-                        <th>品牌机会</th>
-                        <th>产品方案</th>
+                        <th>品牌機會</th>
+                        <th>產品方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td><strong>连接稳定性</strong></td>
-                    <td>Wi-Fi频繁断连、无法识别设备、连接耗时</td>
+                    <td><strong>連線穩定性</strong></td>
+                    <td>Wi-Fi頻繁斷連、無法識別裝置、連線耗時</td>
                     <td>87<br><small>35%</small></td>
                     <td>Epson, Canon, Brother</td>
-                    <td>改善天线设计、简化配对流程</td>
-                    <td>5G WiFi + 蓝牙一键连接 + 离线缓存</td>
+                    <td>改善天線設計、簡化配對流程</td>
+                    <td>5G WiFi + 藍芽一鍵連線 + 離線快取</td>
                 </tr>
             
                 <tr>
-                    <td><strong>进纸可靠性</strong></td>
-                    <td>频繁卡纸、纸张偏斜、多张进纸</td>
+                    <td><strong>進紙可靠性</strong></td>
+                    <td>頻繁卡紙、紙張偏斜、多張進紙</td>
                     <td>64<br><small>26%</small></td>
                     <td>Epson, Canon</td>
-                    <td>改进进纸辊材质、增加传感器</td>
-                    <td>防卡纸传感器 + 改进进纸通道</td>
+                    <td>改進進紙輥材質、增加感測器</td>
+                    <td>防卡紙感測器 + 改進進紙通道</td>
                 </tr>
             
                 <tr>
-                    <td><strong>打印速度</strong></td>
-                    <td>速度远低于标称值、单页需2+分钟</td>
+                    <td><strong>列印速度</strong></td>
+                    <td>速度遠低於標稱值、單頁需2+分鐘</td>
                     <td>42<br><small>17%</small></td>
                     <td>Epson, Canon</td>
-                    <td>优化打印头控制逻辑</td>
-                    <td>高速打印模式 + 优化数据传输</td>
+                    <td>最佳化列印頭控制邏輯</td>
+                    <td>高速列印模式 + 最佳化資料傳輸</td>
                 </tr>
             
                 <tr>
-                    <td><strong>墨水系统</strong></td>
-                    <td>墨水耗尽过快、单色缺墨无法打印</td>
+                    <td><strong>墨水系統</strong></td>
+                    <td>墨水耗盡過快、單色缺墨無法列印</td>
                     <td>31<br><small>13%</small></td>
                     <td>Brother, Canon</td>
-                    <td>支持单色打印模式</td>
-                    <td>允许单色打印 + 大容量墨仓</td>
+                    <td>支援單色列印模式</td>
+                    <td>允許單色列印 + 大容量墨倉</td>
                 </tr>
             
                 <tr>
-                    <td><strong>软件体验</strong></td>
-                    <td>设置复杂、强制更新、弹窗广告</td>
+                    <td><strong>軟體體驗</strong></td>
+                    <td>設定複雜、強制更新、彈窗廣告</td>
                     <td>15<br><small>6%</small></td>
                     <td>Brother, HP</td>
-                    <td>简化软件、去除营销内容</td>
-                    <td>零配置安装 + 无广告固件</td>
+                    <td>簡化軟體、去除營銷內容</td>
+                    <td>零配置安裝 + 無廣告韌體</td>
                 </tr>
             
                 <tr>
-                    <td><strong>硬件质量</strong></td>
-                    <td>廉价塑料、易损件故障</td>
+                    <td><strong>硬體質量</strong></td>
+                    <td>廉價塑膠、易損件故障</td>
                     <td>7<br><small>3%</small></td>
                     <td>各品牌</td>
-                    <td>加强结构强度</td>
-                    <td>金属框架 + 加强易损件</td>
+                    <td>加強結構強度</td>
+                    <td>金屬框架 + 加強易損件</td>
                 </tr>
             
                 </tbody>
             </table>
-            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在连接稳定性(35%)和进纸可靠性(26%)，合计占61%。Epson在连接问题最多，Canon在进纸问题突出。</div>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>總結：</strong>主要痛點集中在連線穩定性(35%)和進紙可靠性(26%)，合計佔61%。Epson在連線問題最多，Canon在進紙問題突出。</div>
         </div>
         
 
-        <!-- 竞品格局 -->
+        <!-- 競品格局 -->
         
         <div class="section">
-            <div class="section-title">竞品格局 (Top8)</div>
+            <div class="section-title">競品格局 (Top8)</div>
             <table>
                 <thead>
                     <tr>
-                        <th>品牌/型号</th>
-                        <th>价格</th>
-                        <th>月销量</th>
-                        <th>类型</th>
+                        <th>品牌/型號</th>
+                        <th>價格</th>
+                        <th>月銷量</th>
+                        <th>型別</th>
                         <th>定位</th>
                     </tr>
                 </thead>
@@ -432,7 +432,7 @@
                     <td>Epson<br><small></small></td>
                     <td>$179.99</td>
                     <td>25,628</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -440,7 +440,7 @@
                     <td>Brother<br><small></small></td>
                     <td>$0.00</td>
                     <td>15,899</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -448,7 +448,7 @@
                     <td>Canon<br><small></small></td>
                     <td>$101.10</td>
                     <td>10,092</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -456,7 +456,7 @@
                     <td>Canon<br><small></small></td>
                     <td>$159.00</td>
                     <td>6,151</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -464,7 +464,7 @@
                     <td>HP<br><small></small></td>
                     <td>$179.89</td>
                     <td>5,488</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -472,7 +472,7 @@
                     <td>Canon<br><small></small></td>
                     <td>$149.00</td>
                     <td>4,690</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -480,7 +480,7 @@
                     <td>Epson<br><small></small></td>
                     <td>$599.99</td>
                     <td>3,861</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -488,7 +488,7 @@
                     <td>Epson<br><small></small></td>
                     <td>$79.99</td>
                     <td>3,798</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -497,67 +497,67 @@
         </div>
         
 
-        <!-- 进入壁垒 -->
+        <!-- 進入壁壘 -->
         
         <div class="section">
-            <div class="section-title">进入壁垒评估</div>
+            <div class="section-title">進入壁壘評估</div>
             <table>
                 <thead>
                     <tr>
-                        <th>壁垒类型</th>
-                        <th>等级</th>
-                        <th>预估成本</th>
-                        <th>数据锚点</th>
-                        <th>缓解方案</th>
+                        <th>壁壘型別</th>
+                        <th>等級</th>
+                        <th>預估成本</th>
+                        <th>資料錨點</th>
+                        <th>緩解方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td>Review壁垒</td>
-                    <td><span class="tag tag-gray">极高</span></td>
+                    <td>Review壁壘</td>
+                    <td><span class="tag tag-gray">極高</span></td>
                     <td>$50,000+</td>
-                    <td><small>Top10均值8000+评论</small></td>
+                    <td><small>Top10均值8000+評論</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>品牌壁垒</td>
-                    <td><span class="tag tag-gray">极高</span></td>
+                    <td>品牌壁壘</td>
+                    <td><span class="tag tag-gray">極高</span></td>
                     <td>N/A</td>
-                    <td><small>85%市场被4大品牌垄断</small></td>
+                    <td><small>85%市場被4大品牌壟斷</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>资金壁垒</td>
+                    <td>資金壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
-                    <td>¥30-50万</td>
-                    <td><small>首批备货+广告+退货准备</small></td>
+                    <td>¥30-50萬</td>
+                    <td><small>首批備貨+廣告+退貨準備</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>技术壁垒</td>
+                    <td>技術壁壘</td>
                     <td><span class="tag tag-gray">中高</span></td>
                     <td>中等</td>
-                    <td><small>涉及精密机械和软件</small></td>
+                    <td><small>涉及精密機械和軟體</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>认证壁垒</td>
+                    <td>認證壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
                     <td>$10,000+</td>
-                    <td><small>FCC/UL/能源认证等</small></td>
+                    <td><small>FCC/UL/能源認證等</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>售后壁垒</td>
+                    <td>售後壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
-                    <td>高利润空间</td>
-                    <td><small>打印机退货率15-25%</small></td>
+                    <td>高利潤空間</td>
+                    <td><small>印表機退貨率15-25%</small></td>
                     <td></td>
                 </tr>
             
@@ -566,15 +566,15 @@
         </div>
         
 
-        <!-- 页脚 -->
+        <!-- 頁尾 -->
         <div class="footer">
-            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 18:35</p>
-            <p>完整报告请查看 Markdown 文件</p>
+            <p>資料來源: Sorftime MCP | 生成時間: 2026-03-19 18:35</p>
+            <p>完整報告請檢視 Markdown 檔案</p>
         </div>
     </div>
 
     <script>
-        // 页面交互脚本
+        // 頁面互動指令碼
         console.log('Dashboard loaded successfully');
     </script>
 </body>

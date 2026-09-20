@@ -53,31 +53,31 @@
   ],
   "product_types": [
     {
-      "type": "湿粮罐头",
+      "type": "溼糧罐頭",
       "count": 18,
       "share": 0.36,
       "avg_price": 23.5
     },
     {
-      "type": "干粮",
+      "type": "乾糧",
       "count": 14,
       "share": 0.28,
       "avg_price": 22.8
     },
     {
-      "type": "零食/猫条",
+      "type": "零食/貓條",
       "count": 10,
       "share": 0.2,
       "avg_price": 14.9
     },
     {
-      "type": "猫砂",
+      "type": "貓砂",
       "count": 4,
       "share": 0.08,
       "avg_price": 28.5
     },
     {
-      "type": "营养补充剂",
+      "type": "營養補充劑",
       "count": 2,
       "share": 0.04,
       "avg_price": 28.47
@@ -90,18 +90,18 @@
     }
   ],
   "dimensions_analysis": {
-    "产品形态": {
-      "湿粮": {
+    "產品形態": {
+      "溼糧": {
         "count": 18,
         "share": 0.36,
         "avg_price": 23.5
       },
-      "干粮": {
+      "乾糧": {
         "count": 14,
         "share": 0.28,
         "avg_price": 22.8
       },
-      "零食/猫条": {
+      "零食/貓條": {
         "count": 10,
         "share": 0.2,
         "avg_price": 14.9
@@ -112,7 +112,7 @@
         "count": 30,
         "share": 0.6
       },
-      "室内猫": {
+      "室內貓": {
         "count": 8,
         "share": 0.16
       },
@@ -120,11 +120,11 @@
         "count": 6,
         "share": 0.12
       },
-      "幼猫专用": {
+      "幼貓專用": {
         "count": 4,
         "share": 0.08
       },
-      "天然/无谷": {
+      "天然/無谷": {
         "count": 2,
         "share": 0.04
       }
@@ -134,27 +134,27 @@
     "price_type_matrix": [
       {
         "price_range": "$0-30",
-        "湿粮": 18,
-        "干粮": 9,
+        "溼糧": 18,
+        "乾糧": 9,
         "零食": 10
       },
       {
         "price_range": "$30-60",
-        "湿粮": 0,
-        "干粮": 5,
+        "溼糧": 0,
+        "乾糧": 5,
         "零食": 0
       }
     ],
     "opportunities": [
       {
-        "combination": "天然/无谷 + 中价位",
+        "combination": "天然/無谷 + 中價位",
         "status": "空白",
-        "insight": "中价位天然无谷猫粮市场机会明显"
+        "insight": "中價位天然無谷貓糧市場機會明顯"
       },
       {
-        "combination": "干粮 + $0-30",
-        "status": "薄供给",
-        "insight": "低价位干粮市场供给不足"
+        "combination": "乾糧 + $0-30",
+        "status": "薄供給",
+        "insight": "低價位乾糧市場供給不足"
       }
     ]
   },
@@ -229,7 +229,7 @@
       "monthly_sales": 120231,
       "reviews": 11357,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -240,7 +240,7 @@
       "monthly_sales": 90061,
       "reviews": 20398,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -251,7 +251,7 @@
       "monthly_sales": 80841,
       "reviews": 50576,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -262,7 +262,7 @@
       "monthly_sales": 75474,
       "reviews": 70579,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -273,7 +273,7 @@
       "monthly_sales": 70504,
       "reviews": 54027,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -284,7 +284,7 @@
       "monthly_sales": 70263,
       "reviews": 46307,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -295,7 +295,7 @@
       "monthly_sales": 65398,
       "reviews": 10507,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -306,7 +306,7 @@
       "monthly_sales": 60269,
       "reviews": 24500,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -317,7 +317,7 @@
       "monthly_sales": 58827,
       "reviews": 22238,
       "rating": 4.7,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     },
     {
@@ -328,158 +328,158 @@
       "monthly_sales": 58594,
       "reviews": 21796,
       "rating": 4.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": ""
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "适口性",
-        "pain_point": "猫咪不喜欢吃，拒食",
+        "dimension": "適口性",
+        "pain_point": "貓咪不喜歡吃，拒食",
         "frequency": 18,
         "percentage": "28%",
         "affected_brands": [
           "Meow Mix"
         ],
-        "brand_opportunity": "使用真肉成分、天然肉味增强剂",
-        "product_solution": "添加天然肝脏粉、鱼油增强适口性"
+        "brand_opportunity": "使用真肉成分、天然肉味增強劑",
+        "product_solution": "新增天然肝臟粉、魚油增強適口性"
       },
       {
-        "dimension": "包装问题",
-        "pain_point": "包装破损、未密封、洒漏",
+        "dimension": "包裝問題",
+        "pain_point": "包裝破損、未密封、灑漏",
         "frequency": 14,
         "percentage": "22%",
         "affected_brands": [
           "Meow Mix"
         ],
-        "brand_opportunity": "加强包装质量控制",
-        "product_solution": "双层包装、真空密封"
+        "brand_opportunity": "加強包裝質量控制",
+        "product_solution": "雙層包裝、真空密封"
       },
       {
-        "dimension": "品质/安全性",
-        "pain_point": "导致猫咪呕吐、过敏、健康问题",
+        "dimension": "品質/安全性",
+        "pain_point": "導致貓咪嘔吐、過敏、健康問題",
         "frequency": 12,
         "percentage": "19%",
         "affected_brands": [
           "Meow Mix"
         ],
-        "brand_opportunity": "严格品控，第三方检测",
-        "product_solution": "无添加配方、可追溯原料"
+        "brand_opportunity": "嚴格品控，第三方檢測",
+        "product_solution": "無新增配方、可追溯原料"
       },
       {
-        "dimension": "配方变化",
-        "pain_point": "配方改变导致猫咪不吃",
+        "dimension": "配方變化",
+        "pain_point": "配方改變導致貓咪不吃",
         "frequency": 6,
         "percentage": "9%",
         "affected_brands": [
           "Meow Mix"
         ],
-        "brand_opportunity": "保持配方稳定",
-        "product_solution": "配方升级前公告"
+        "brand_opportunity": "保持配方穩定",
+        "product_solution": "配方升級前公告"
       },
       {
-        "dimension": "保质期/新鲜度",
-        "pain_point": "产品陈旧、变质",
+        "dimension": "保質期/新鮮度",
+        "pain_point": "產品陳舊、變質",
         "frequency": 8,
         "percentage": "13%",
         "affected_brands": [
           "Meow Mix"
         ],
-        "brand_opportunity": "缩短保质期管理",
-        "product_solution": "生产日期标注"
+        "brand_opportunity": "縮短保質期管理",
+        "product_solution": "生產日期標註"
       }
     ],
-    "summary": "主要痛点集中在适口性(28%)、包装问题(22%)、品质安全性(19%)和新鲜度(13%)。"
+    "summary": "主要痛點集中在適口性(28%)、包裝問題(22%)、品質安全性(19%)和新鮮度(13%)。"
   },
   "barriers": [
     {
-      "type": "Review壁垒",
+      "type": "Review壁壘",
       "level": "高",
-      "data_anchor": "Top10均值20,000+评论",
+      "data_anchor": "Top10均值20,000+評論",
       "estimated_cost": "$50,000-$100,000",
       "solution": "Vine Program + PPC"
     },
     {
-      "type": "品牌壁垒",
+      "type": "品牌壁壘",
       "level": "高",
       "data_anchor": "Top10品牌集中度84.6%",
       "estimated_cost": "$200,000+",
-      "solution": "差异化定位"
+      "solution": "差異化定位"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "中",
       "estimated_cost": "$50,000-$100,000",
-      "solution": "分阶段投入"
+      "solution": "分階段投入"
     },
     {
-      "type": "合规壁垒",
+      "type": "合規壁壘",
       "level": "中",
-      "solution": "符合AAFCO标准"
+      "solution": "符合AAFCO標準"
     },
     {
-      "type": "供应链壁垒",
+      "type": "供應鏈壁壘",
       "level": "中",
-      "solution": "多供应商策略"
+      "solution": "多供應商策略"
     }
   ],
   "decision": {
     "overall_score": 6.8,
-    "verdict": "谨慎进入",
+    "verdict": "謹慎進入",
     "scores": [
       {
-        "dimension": "市场规模",
+        "dimension": "市場規模",
         "weight": 0.2,
         "score": 9.0,
         "weighted_score": 1.8,
-        "basis": "月销额$42.5M"
+        "basis": "月銷額$42.5M"
       },
       {
-        "dimension": "竞争格局",
+        "dimension": "競爭格局",
         "weight": 0.25,
         "score": 4.0,
         "weighted_score": 1.0,
         "basis": "品牌集中度84.6%"
       },
       {
-        "dimension": "增长潜力",
+        "dimension": "增長潛力",
         "weight": 0.15,
         "score": 6.0,
         "weighted_score": 0.9,
-        "basis": "关键词月搜56万"
+        "basis": "關鍵詞月搜56萬"
       },
       {
-        "dimension": "进入壁垒",
+        "dimension": "進入壁壘",
         "weight": 0.2,
         "score": 5.0,
         "weighted_score": 1.0,
-        "basis": "Review/品牌壁垒高"
+        "basis": "Review/品牌壁壘高"
       },
       {
-        "dimension": "利润空间",
+        "dimension": "利潤空間",
         "weight": 0.2,
         "score": 8.0,
         "weighted_score": 1.6,
-        "basis": "平均价格$20.58"
+        "basis": "平均價格$20.58"
       }
     ],
-    "准入条件": [
-      "明确差异化定位",
-      "Review预算$50,000+",
-      "避开主流品牌价格带",
-      "供应链质量保证"
+    "准入條件": [
+      "明確差異化定位",
+      "Review預算$50,000+",
+      "避開主流品牌價格帶",
+      "供應鏈質量保證"
     ],
-    "禁止进入": [
-      "无差异化的通用湿粮",
-      "与主流品牌价格竞争",
-      "原料品质无法保证"
+    "禁止進入": [
+      "無差異化的通用溼糧",
+      "與主流品牌價格競爭",
+      "原料品質無法保證"
     ],
-    "风险提示": [
+    "風險提示": [
       "品牌集中度高",
-      "Review壁垒高",
-      "配方变化风险",
-      "包装问题频发"
+      "Review壁壘高",
+      "配方變化風險",
+      "包裝問題頻發"
     ]
   },
   "trend_data": [

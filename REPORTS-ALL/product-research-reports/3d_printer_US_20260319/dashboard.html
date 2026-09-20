@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Printing Filament - US 选品分析看板</title>
+    <title>3D Printing Filament - US 選品分析看板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         * {
@@ -61,7 +61,7 @@
             border-bottom: 1px solid #e1e8ef;
         }
 
-        /* KPI 卡片网格 */
+        /* KPI 卡片網格 */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -94,7 +94,7 @@
             margin-top: 4px;
         }
 
-        /* Go/No-Go 评分卡 */
+        /* Go/No-Go 評分卡 */
         .gogono-card {
             background: linear-gradient(135deg, #f59e0b, #d97706 100%);
             border-radius: 12px;
@@ -120,7 +120,7 @@
             opacity: 0.9;
         }
 
-        /* 表格样式 */
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -143,7 +143,7 @@
             background: #f8fafc;
         }
 
-        /* 标签 */
+        /* 標籤 */
         .tag {
             display: inline-block;
             padding: 4px 12px;
@@ -158,7 +158,7 @@
         .tag-blue { background: #dbeafe; color: #1e40af; }
         .tag-gray { background: #f1f5f9; color: #475569; }
 
-        /* 机会卡片 */
+        /* 機會卡片 */
         .opportunity-card {
             background: #f0fdf4;
             border-left: 4px solid #16a34a;
@@ -180,7 +180,7 @@
             margin-right: 12px;
         }
 
-        /* 页脚 */
+        /* 頁尾 */
         .footer {
             text-align: center;
             padding: 24px;
@@ -190,14 +190,14 @@
             margin-top: 40px;
         }
 
-        /* 维度分布表格 */
+        /* 維度分佈表格 */
         .dimension-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        /* 响应式 */
+        /* 響應式 */
         @media (max-width: 768px) {
             .kpi-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -212,41 +212,41 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>3D Printing Filament 选品分析看板</h1>
+            <h1>3D Printing Filament 選品分析看板</h1>
             <div class="subtitle">
-                站点: US | 分析日期: 20260319
+                站點: US | 分析日期: 20260319
             </div>
         </div>
 
-        <!-- Go/No-Go 评分 -->
+        <!-- Go/No-Go 評分 -->
         <div class="section">
-            <div class="section-title">选品决策评估</div>
+            <div class="section-title">選品決策評估</div>
             <div class="gogono-card" style="background: linear-gradient(135deg, #f59e0b, #d97706 100%);">
-                <div class="verdict">谨慎进入</div>
+                <div class="verdict">謹慎進入</div>
                 <div class="score">6.0 / 10</div>
-                <div class="verdict-detail">谨慎进入</div>
+                <div class="verdict-detail">謹慎進入</div>
             </div>
         </div>
 
-        <!-- 市场概况 KPI -->
+        <!-- 市場概況 KPI -->
         <div class="section">
-            <div class="section-title">市场概况</div>
+            <div class="section-title">市場概況</div>
             <div class="kpi-grid">
                 
                 <div class="kpi-card">
-                    <div class="label">Top100 月销量</div>
+                    <div class="label">Top100 月銷量</div>
                     <div class="value">903,740</div>
                     <div class="note">件</div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">Top100 月销额</div>
+                    <div class="label">Top100 月銷額</div>
                     <div class="value">$20,143,391</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">平均价格</div>
+                    <div class="label">平均價格</div>
                     <div class="value">$22.29</div>
                     <div class="note"></div>
                 </div>
@@ -258,13 +258,13 @@
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">亚马逊自营份额</div>
+                    <div class="label">亞馬遜自營份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">中国卖家份额</div>
+                    <div class="label">中國賣家份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
@@ -272,18 +272,18 @@
             </div>
         </div>
 
-        <!-- 维度分布 -->
+        <!-- 維度分佈 -->
         <div class="section">
-            <div class="section-title">产品维度分布</div>
+            <div class="section-title">產品維度分佈</div>
             <div class="dimension-grid">
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">價格區間分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>价格区间</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>價格區間</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -293,13 +293,13 @@
                 </div>
             
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">產品型別分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>产品类型</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>產品型別</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -313,107 +313,107 @@
         <!-- 交叉分析 -->
         
         <div class="section">
-            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <div class="section-title">價格區間 × 產品型別 交叉分析</div>
             <table>
                 <thead>
                     <tr>
-                        <th>价格区间 \ 产品类型</th>
+                        <th>價格區間 \ 產品型別</th>
                         <th>ASA/ABS</th><th>PETG</th><th>PLA Standard</th><th>PLA+ Pro</th><th>Special Effects</th><th>TPU</th>
-                        <th>合计</th>
+                        <th>合計</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>$0-30</strong></td><td>2</td><td>10</td><td>50 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>20 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>8</td><td>3</td><td><strong>93</strong></td></tr><tr><td><strong>$30-60</strong></td><td><span class="tag tag-gray">0</span></td><td>5</td><td>8</td><td>12</td><td>2</td><td>1</td><td><strong>28</strong></td></tr><tr><td><strong>$60-100</strong></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>0</strong></td></tr>
+                    <tr><td><strong>$0-30</strong></td><td>2</td><td>10</td><td>50 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>20 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>8</td><td>3</td><td><strong>93</strong></td></tr><tr><td><strong>$30-60</strong></td><td><span class="tag tag-gray">0</span></td><td>5</td><td>8</td><td>12</td><td>2</td><td>1</td><td><strong>28</strong></td></tr><tr><td><strong>$60-100</strong></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>0</strong></td></tr>
                     <tr style="background: #f8fafc; font-weight: 600;">
-                        <td><strong>合计</strong></td>
+                        <td><strong>合計</strong></td>
                         <td><strong>2</strong></td><td><strong>15</strong></td><td><strong>58</strong></td><td><strong>32</strong></td><td><strong>10</strong></td><td><strong>4</strong></td>
                         <td><strong>121</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>红海:</strong> $0-30 PLA Standard (50款) | <strong>红海:</strong> $0-30 PLA+ Pro (20款) | <strong>机会:</strong> $60+ PLA Standard (空白) | <strong>机会:</strong> $60+ PLA+ Pro (空白) | <strong>机会:</strong> $60+ PETG (空白) | <strong>机会:</strong> $0-30 Special Effects (机会)</div>
+            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>紅海:</strong> $0-30 PLA Standard (50款) | <strong>紅海:</strong> $0-30 PLA+ Pro (20款) | <strong>機會:</strong> $60+ PLA Standard (空白) | <strong>機會:</strong> $60+ PLA+ Pro (空白) | <strong>機會:</strong> $60+ PETG (空白) | <strong>機會:</strong> $0-30 Special Effects (機會)</div>
         </div>
         
 
         <!-- VOC 分析 -->
         
         <div class="section">
-            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <div class="section-title">VOC 分析 - 使用者痛點洞察</div>
             <table>
                 <thead>
                     <tr>
-                        <th>维度</th>
-                        <th>痛点</th>
-                        <th>频次/占比</th>
+                        <th>維度</th>
+                        <th>痛點</th>
+                        <th>頻次/佔比</th>
                         <th>涉及品牌</th>
-                        <th>品牌机会</th>
-                        <th>产品方案</th>
+                        <th>品牌機會</th>
+                        <th>產品方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td><strong>线轴缠绕</strong></td>
-                    <td>Spool打结、卡料、混乱，导致打印失败</td>
+                    <td><strong>線軸纏繞</strong></td>
+                    <td>Spool打結、卡料、混亂，導致列印失敗</td>
                     <td>82<br><small>41%</small></td>
                     <td>SUNLU, OVERTURE</td>
-                    <td>改进绕线工艺 + 自动检测设备</td>
-                    <td>预绕线测试 + 卡点设计 + 防缠绕线轴</td>
+                    <td>改進繞線工藝 + 自動檢測裝置</td>
+                    <td>預繞線測試 + 卡點設計 + 防纏繞線軸</td>
                 </tr>
             
                 <tr>
                     <td><strong>材料一致性</strong></td>
-                    <td>批次间质量波动、色差、断料、混色</td>
+                    <td>批次間質量波動、色差、斷料、混色</td>
                     <td>48<br><small>24%</small></td>
                     <td>SUNLU, OVERTURE</td>
-                    <td>建立QC标准 + 批次追溯系统</td>
-                    <td>ISO标准 + 色差<2ΔE + 批次编号</td>
+                    <td>建立QC標準 + 批次追溯系統</td>
+                    <td>ISO標準 + 色差<2ΔE + 批次編號</td>
                 </tr>
             
                 <tr>
-                    <td><strong>底板附着力</strong></td>
-                    <td>打印翘边、不粘底板、支撑脱落</td>
+                    <td><strong>底板附著力</strong></td>
+                    <td>列印翹邊、不粘底板、支撐脫落</td>
                     <td>32<br><small>16%</small></td>
                     <td>SUNLU, OVERTURE</td>
-                    <td>优化材料配方 + 表面处理</td>
-                    <td>PEI专用配方 + 附着力增强剂</td>
+                    <td>最佳化材料配方 + 表面處理</td>
+                    <td>PEI專用配方 + 附著力增強劑</td>
                 </tr>
             
                 <tr>
-                    <td><strong>材料易断</strong></td>
-                    <td>材料脆性高、易折断、在挤出器内断裂</td>
+                    <td><strong>材料易斷</strong></td>
+                    <td>材料脆性高、易折斷、在擠出器內斷裂</td>
                     <td>24<br><small>12%</small></td>
                     <td>SUNLU, OVERTURE</td>
-                    <td>改进材料韧性</td>
-                    <td>韧性增强剂 + 优化拉丝工艺</td>
+                    <td>改進材料韌性</td>
+                    <td>韌性增強劑 + 最佳化拉絲工藝</td>
                 </tr>
             
                 <tr>
-                    <td><strong>包装问题</strong></td>
-                    <td>密封不良、重量不足、包装破损</td>
+                    <td><strong>包裝問題</strong></td>
+                    <td>密封不良、重量不足、包裝破損</td>
                     <td>14<br><small>7%</small></td>
                     <td>SUNLU</td>
-                    <td>改进包装工艺</td>
-                    <td>双层真空密封 + 称重QC</td>
+                    <td>改進包裝工藝</td>
+                    <td>雙層真空密封 + 稱重QC</td>
                 </tr>
             
                 </tbody>
             </table>
-            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在线轴缠绕(41%)和材料一致性(24%)，合计占65%的负面反馈。解决这两个问题可显著提升产品竞争力。</div>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>總結：</strong>主要痛點集中線上軸纏繞(41%)和材料一致性(24%)，合計佔65%的負面反饋。解決這兩個問題可顯著提升產品競爭力。</div>
         </div>
         
 
-        <!-- 竞品格局 -->
+        <!-- 競品格局 -->
         
         <div class="section">
-            <div class="section-title">竞品格局 (Top8)</div>
+            <div class="section-title">競品格局 (Top8)</div>
             <table>
                 <thead>
                     <tr>
-                        <th>品牌/型号</th>
-                        <th>价格</th>
-                        <th>月销量</th>
-                        <th>类型</th>
+                        <th>品牌/型號</th>
+                        <th>價格</th>
+                        <th>月銷量</th>
+                        <th>型別</th>
                         <th>定位</th>
                     </tr>
                 </thead>
@@ -423,7 +423,7 @@
                     <td>SUNLU<br><small></small></td>
                     <td>$13.99</td>
                     <td>60,931</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -431,7 +431,7 @@
                     <td>SUNLU<br><small></small></td>
                     <td>$45.89</td>
                     <td>36,090</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -439,7 +439,7 @@
                     <td>OVERTURE<br><small></small></td>
                     <td>$13.98</td>
                     <td>34,883</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -447,7 +447,7 @@
                     <td>AMOLEN<br><small></small></td>
                     <td>$33.99</td>
                     <td>31,731</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -455,7 +455,7 @@
                     <td>eSUN<br><small></small></td>
                     <td>$11.99</td>
                     <td>29,691</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -463,7 +463,7 @@
                     <td>ELEGOO<br><small></small></td>
                     <td>$14.99</td>
                     <td>27,453</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -471,7 +471,7 @@
                     <td>SUNLU<br><small></small></td>
                     <td>$13.99</td>
                     <td>22,303</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -479,7 +479,7 @@
                     <td>eSUN<br><small></small></td>
                     <td>$18.99</td>
                     <td>21,468</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -488,59 +488,59 @@
         </div>
         
 
-        <!-- 进入壁垒 -->
+        <!-- 進入壁壘 -->
         
         <div class="section">
-            <div class="section-title">进入壁垒评估</div>
+            <div class="section-title">進入壁壘評估</div>
             <table>
                 <thead>
                     <tr>
-                        <th>壁垒类型</th>
-                        <th>等级</th>
-                        <th>预估成本</th>
-                        <th>数据锚点</th>
-                        <th>缓解方案</th>
+                        <th>壁壘型別</th>
+                        <th>等級</th>
+                        <th>預估成本</th>
+                        <th>資料錨點</th>
+                        <th>緩解方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td>Review壁垒</td>
+                    <td>Review壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
                     <td>$8,000-15,000</td>
-                    <td><small>Top10均值4,000+评论</small></td>
-                    <td>Vine + PPC + 早期评论人</td>
+                    <td><small>Top10均值4,000+評論</small></td>
+                    <td>Vine + PPC + 早期評論人</td>
                 </tr>
             
                 <tr>
-                    <td>资金壁垒</td>
+                    <td>資金壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
                     <td>¥50,000-80,000</td>
-                    <td><small>首批备货$5K-10K + 广告$3K-5K</small></td>
-                    <td>控制MOQ，分批备货</td>
+                    <td><small>首批備貨$5K-10K + 廣告$3K-5K</small></td>
+                    <td>控制MOQ，分批備貨</td>
                 </tr>
             
                 <tr>
-                    <td>供应链壁垒</td>
+                    <td>供應鏈壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
                     <td>¥20,000</td>
-                    <td><small>需要稳定材料供应商</small></td>
-                    <td>华东/华南塑料厂OEM</td>
+                    <td><small>需要穩定材料供應商</small></td>
+                    <td>華東/華南塑膠廠OEM</td>
                 </tr>
             
                 <tr>
-                    <td>认证壁垒</td>
+                    <td>認證壁壘</td>
                     <td><span class="tag tag-green">低</span></td>
                     <td>$0</td>
-                    <td><small>无特殊认证要求</small></td>
+                    <td><small>無特殊認證要求</small></td>
                     <td>-</td>
                 </tr>
             
                 <tr>
-                    <td>技术壁垒</td>
+                    <td>技術壁壘</td>
                     <td><span class="tag tag-gray">中低</span></td>
                     <td>¥10,000</td>
-                    <td><small>PLA技术成熟</small></td>
+                    <td><small>PLA技術成熟</small></td>
                     <td>OEM合作</td>
                 </tr>
             
@@ -549,15 +549,15 @@
         </div>
         
 
-        <!-- 页脚 -->
+        <!-- 頁尾 -->
         <div class="footer">
-            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 18:19</p>
-            <p>完整报告请查看 Markdown 文件</p>
+            <p>資料來源: Sorftime MCP | 生成時間: 2026-03-19 18:19</p>
+            <p>完整報告請檢視 Markdown 檔案</p>
         </div>
     </div>
 
     <script>
-        // 页面交互脚本
+        // 頁面互動指令碼
         console.log('Dashboard loaded successfully');
     </script>
 </body>

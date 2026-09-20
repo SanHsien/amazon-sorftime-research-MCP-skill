@@ -43,16 +43,16 @@ Skills located in `.claude/skills/skill-name/`:
 ### category-selection Skill Updates (v6.0 - 2026-03-04)
 
 **Recent Improvements**:
-- ✅ **自动编码修复**: 集成 Mojibake (UTF-8/Latin-1 双重编码) 自动检测和修复
-- ✅ **错误容错机制**: 趋势 API 失败时不影响整体流程
-- ✅ **Markdown 报告**: 新增自动生成 Markdown 分析报告
-- ✅ **执行状态跟踪**: 显示每步执行状态和最终总结
-- ✅ **关键词解析增强**: 3 种解析策略支持更多数据格式
-- ✅ **独立编码修复工具**: `fix_encoding.py` 可修复现有 JSON 文件
+- ✅ **自動編碼修復**: 整合 Mojibake (UTF-8/Latin-1 雙重編碼) 自動檢測和修復
+- ✅ **錯誤容錯機制**: 趨勢 API 失敗時不影響整體流程
+- ✅ **Markdown 報告**: 新增自動生成 Markdown 分析報告
+- ✅ **執行狀態跟蹤**: 顯示每步執行狀態和最終總結
+- ✅ **關鍵詞解析增強**: 3 種解析策略支援更多資料格式
+- ✅ **獨立編碼修復工具**: `fix_encoding.py` 可修復現有 JSON 檔案
 
 **故障排查**:
-- 如遇乱码: 运行 `python .claude/skills/category-selection/scripts/fix_encoding.py <json_file>`
-- 如遇解析失败: 查看 `.claude/skills/category-selection/SKILL.md` 中的故障排查章节
+- 如遇亂碼: 執行 `python .claude/skills/category-selection/scripts/fix_encoding.py <json_file>`
+- 如遇解析失敗: 檢視 `.claude/skills/category-selection/SKILL.md` 中的故障排查章節
 
 ### amazon-analyse (`/amazon-analyse {ASIN} {SITE}`)
 **Trigger**: User provides ASIN for competitor listing analysis
@@ -77,7 +77,7 @@ Skills located in `.claude/skills/skill-name/`:
 | Entry Barrier | 20 | Avg review count, Amazon share, new product % |
 | Profit Margin | 15 | 1688 cost comparison |
 
-**Rating thresholds**: 80-100 (优秀), 60-79 (良好), 40-59 (一般), 0-39 (较差)
+**Rating thresholds**: 80-100 (優秀), 60-79 (良好), 40-59 (一般), 0-39 (較差)
 
 **Analysis stages**:
 1. Search category → get nodeId via `category_name_search`
@@ -154,14 +154,14 @@ fixed_text = bad_text.encode('latin-1').decode('utf-8')
 When tool returns "Output too large... saved to: {path}":
 ```python
 # Use Grep to extract specific patterns
-grep('"月销量":"(\\d+)"' /path/to/tempfile)
+grep('"月銷量":"(\\d+)"' /path/to/tempfile)
 
 # Or use Read with offset/limit for file sections
 Read(file_path, offset=1, limit=500)
 ```
 
 ### ASIN not found in Sorftime
-Always validate ASIN first with `product_detail`. If "未查询到对应产品":
+Always validate ASIN first with `product_detail`. If "未查詢到對應產品":
 - Retry with `product_search` using ASIN or keywords
 - Check if correct Amazon site
 - Ask user to verify ASIN

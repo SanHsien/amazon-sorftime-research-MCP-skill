@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 
 class BaseScenario(ABC):
-    """场景基类"""
+    """場景基類"""
 
     NAME = ""
     DESCRIPTION = ""
@@ -20,37 +20,37 @@ class BaseScenario(ABC):
     @abstractmethod
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        获取需要调用的MCP工具列表
+        獲取需要呼叫的MCP工具列表
 
         Args:
-            params: 用户输入参数
+            params: 使用者輸入引數
 
         Returns:
-            list: MCP工具调用列表，每个元素包含 tool_name 和 arguments
+            list: MCP工具呼叫列表，每個元素包含 tool_name 和 arguments
         """
         pass
 
     @abstractmethod
     def aggregate_data(self, raw_data: Dict[str, Any], params: Dict[str, Any]) -> Dict[str, Any]:
         """
-        聚合MCP返回的数据
+        聚合MCP返回的資料
 
         Args:
-            raw_data: MCP工具返回的原始数据
-            params: 用户输入参数
+            raw_data: MCP工具返回的原始資料
+            params: 使用者輸入引數
 
         Returns:
-            dict: 聚合后的结构化数据
+            dict: 聚合後的結構化資料
         """
         pass
 
     @abstractmethod
     def generate_insights(self, data: Dict[str, Any]) -> List[str]:
         """
-        生成关键洞察
+        生成關鍵洞察
 
         Args:
-            data: 聚合后的数据
+            data: 聚合後的資料
 
         Returns:
             list: 洞察列表
@@ -59,10 +59,10 @@ class BaseScenario(ABC):
 
     def validate_params(self, params: Dict[str, Any]) -> tuple[bool, List[str]]:
         """
-        验证参数
+        驗證引數
 
         Args:
-            params: 用户输入参数
+            params: 使用者輸入引數
 
         Returns:
             tuple: (is_valid, missing_params)
@@ -74,7 +74,7 @@ class BaseScenario(ABC):
         return len(missing) == 0, missing
 
     def get_scenario_info(self) -> Dict[str, str]:
-        """获取场景信息"""
+        """獲取場景資訊"""
         return {
             'name': self.NAME,
             'description': self.DESCRIPTION,

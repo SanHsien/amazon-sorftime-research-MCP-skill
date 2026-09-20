@@ -185,35 +185,35 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L("# Wireless Lavalier Microphones — US 市场深度分析报告")
+L("# Wireless Lavalier Microphones — US 市場深度分析報告")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite MCP")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite MCP")
 L()
 L("---")
 L()
-L("## 一、市场概览")
+L("## 一、市場概覽")
 L()
-L("| 维度 | 数值 |")
+L("| 維度 | 數值 |")
 L("|------|:----:|")
-L(f"| **父类目** | Musical Instruments → Microphones & Accessories → Microphones → Wireless Microphones & Systems |")
-L(f"| **子市场** | Wireless Lavalier Microphones (节点ID: {NODE_ID}) |")
-L(f"| **在售商品总数** | {fmt_num(total_products)} |")
-L(f"| **样本商品数** | {fmt_num(top_products)} |")
-L(f"| **品牌数** | {fmt_num(top_brands)} |")
-L(f"| **卖家数** | {fmt_num(top_sellers)} |")
-L(f"| **月销量（样本）** | {fmt_num(total_units)} 件 |")
-L(f"| **月销售额（样本）** | {fmt_money(total_revenue)} |")
-L(f"| **加权均价** | {fmt_money(avg_price)} |")
-L(f"| **平均评分** | {avg_rating} / 5.0 |")
-L(f"| **平均评分数** | {fmt_num(avg_ratings)} |")
+L(f"| **父類目** | Musical Instruments → Microphones & Accessories → Microphones → Wireless Microphones & Systems |")
+L(f"| **子市場** | Wireless Lavalier Microphones (節點ID: {NODE_ID}) |")
+L(f"| **在售商品總數** | {fmt_num(total_products)} |")
+L(f"| **樣本商品數** | {fmt_num(top_products)} |")
+L(f"| **品牌數** | {fmt_num(top_brands)} |")
+L(f"| **賣家數** | {fmt_num(top_sellers)} |")
+L(f"| **月銷量（樣本）** | {fmt_num(total_units)} 件 |")
+L(f"| **月銷售額（樣本）** | {fmt_money(total_revenue)} |")
+L(f"| **加權均價** | {fmt_money(avg_price)} |")
+L(f"| **平均評分** | {avg_rating} / 5.0 |")
+L(f"| **平均評分數** | {fmt_num(avg_ratings)} |")
 L(f"| **平均 BSR** | {fmt_num(avg_bsr)} |")
-L(f"| **均值利润** | {fmt_money(avg_profit)} |")
-L(f"| **退货率** | {return_ratio}% |")
+L(f"| **均值利潤** | {fmt_money(avg_profit)} |")
+L(f"| **退貨率** | {return_ratio}% |")
 L(f"| **FBA 比例** | {fba_pct}% |")
 L()
 L("---")
 L()
-L("## 二、竞争格局")
+L("## 二、競爭格局")
 L()
 
 # Brand concentration
@@ -222,7 +222,7 @@ brands = safe_items(brand_data)
 if brands:
     L("### Top 品牌排名")
     L()
-    L("| 排名 | 品牌 | 商品数 | 月销量 | 月销售额 | 均价 | 评分 | 评分数 | 销量占比 |")
+    L("| 排名 | 品牌 | 商品數 | 月銷量 | 月銷售額 | 均價 | 評分 | 評分數 | 銷量佔比 |")
     L("|:---:|------|:-----:|:-----:|:--------:|:----:|:---:|:------:|:-------:|")
     for i, b in enumerate(brands[:15]):
         rank = i + 1
@@ -243,21 +243,21 @@ top10_brand_str = fmt_pct(top10_brand_crn, is_ratio=True)
 top3_seller_str = fmt_pct(top3_seller_crn, is_ratio=True)
 top10_seller_str = fmt_pct(top10_seller_crn, is_ratio=True)
 
-L("| 集中度指标 | 数值 |")
+L("| 集中度指標 | 數值 |")
 L("|-----------|:----:|")
 L(f"| Top3 品牌集中度 | {top3_brand_str} |")
 L(f"| Top10 品牌集中度 | {top10_brand_str} |")
-L(f"| Top3 卖家集中度 | {top3_seller_str} |")
-L(f"| Top10 卖家集中度 | {top10_seller_str} |")
+L(f"| Top3 賣家集中度 | {top3_seller_str} |")
+L(f"| Top10 賣家集中度 | {top10_seller_str} |")
 L()
 
 # Seller country
 sc_data = get_code(results.get('market_seller_country_distribution', {}))
 sc_items = safe_items(sc_data)
 if sc_items:
-    L("### 卖家所属地分布")
+    L("### 賣家所屬地分佈")
     L()
-    L("| 所属地 | ASIN数 | 销量 | 销售额 | 销量占比 |")
+    L("| 所屬地 | ASIN數 | 銷量 | 銷售額 | 銷量佔比 |")
     L("|-------|:-----:|:----:|:-----:|:-------:|")
     for s in sc_items:
         country = s.get('country', s.get('label', '未知'))
@@ -272,9 +272,9 @@ if sc_items:
 st_data = get_code(results.get('market_seller_type_concentration', {}))
 st_items = safe_items(st_data)
 if st_items:
-    L("### 配送类型分布")
+    L("### 配送型別分佈")
     L()
-    L("| 类型 | ASIN数 | ASIN占比 | 销量 | 销量占比 |")
+    L("| 型別 | ASIN數 | ASIN佔比 | 銷量 | 銷量佔比 |")
     L("|------|:-----:|:-------:|:----:|:-------:|")
     for s in st_items:
         label = s.get('label', 'N/A')
@@ -291,7 +291,7 @@ pc_items = safe_items(pc_data)
 if pc_items:
     L("### 商品集中度")
     L()
-    L("| 商品 | ASIN数 | 销量占比 |")
+    L("| 商品 | ASIN數 | 銷量佔比 |")
     L("|------|:-----:|:-------:|")
     for p in pc_items[:10]:
         label = p.get('label', 'N/A')
@@ -302,16 +302,16 @@ if pc_items:
 
 L("---")
 L()
-L("## 三、价格与利润分析")
+L("## 三、價格與利潤分析")
 L()
 
 # Price distribution
 pd_data = get_code(results.get('market_price_distribution', {}))
 pd_items = safe_items(pd_data)
 if pd_items:
-    L("### 价格区间销量分布")
+    L("### 價格區間銷量分佈")
     L()
-    L("| 价格带 | ASIN数 | 销量 | 销售额 | 销量占比 |")
+    L("| 價格帶 | ASIN數 | 銷量 | 銷售額 | 銷量佔比 |")
     L("|-------|:-----:|:----:|:-----:|:-------:|")
     for p in pd_items:
         label = p.get('label', 'N/A')
@@ -323,25 +323,25 @@ if pd_items:
     L()
 
 # Statistics
-L("| 指标 | 数值 |")
+L("| 指標 | 數值 |")
 L("|------|:----:|")
-L(f"| **加权均价** | {fmt_money(avg_price)} |")
-L(f"| **均值利润** | {fmt_money(avg_profit)} |")
-L(f"| **退货率** | {return_ratio}% |")
+L(f"| **加權均價** | {fmt_money(avg_price)} |")
+L(f"| **均值利潤** | {fmt_money(avg_profit)} |")
+L(f"| **退貨率** | {return_ratio}% |")
 L()
 
 L("---")
 L()
-L("## 四、评论与评分分析")
+L("## 四、評論與評分分析")
 L()
 
 # Rating distribution
 rd_data = get_code(results.get('market_rating_distribution', {}))
 rd_items = safe_items(rd_data)
 if rd_items:
-    L("### 评分分布")
+    L("### 評分分佈")
     L()
-    L("| 评分区间 | ASIN数 | 销量 | 销量占比 |")
+    L("| 評分割槽間 | ASIN數 | 銷量 | 銷量佔比 |")
     L("|---------|:-----:|:----:|:-------:|")
     for r in rd_items:
         label = r.get('label', 'N/A')
@@ -355,9 +355,9 @@ if rd_items:
 rcd_data = get_code(results.get('market_ratings_count_distribution', {}))
 rcd_items = safe_items(rcd_data)
 if rcd_items:
-    L("### 评分数分布")
+    L("### 評分數分佈")
     L()
-    L("| 评分数区间 | ASIN数 | 销量 | 销量占比 |")
+    L("| 評分數區間 | ASIN數 | 銷量 | 銷量佔比 |")
     L("|-----------|:-----:|:----:|:-------:|")
     for r in rcd_items:
         label = r.get('label', 'N/A')
@@ -369,27 +369,27 @@ if rcd_items:
 
 L("---")
 L()
-L("## 五、新品进入评估")
+L("## 五、新品進入評估")
 L()
 
 # New product ratio
 l6_new_str = fmt_pct(l6_new_ratio, is_ratio=True)
 l12_new_str = fmt_pct(l12_new_ratio, is_ratio=True)
-L("| 维度 | 数值 |")
+L("| 維度 | 數值 |")
 L("|------|:----:|")
-L(f"| **6月新品占比** | {l6_new_str} |")
-L(f"| **6月新品数量** | {fmt_num(l6_new_count)} |")
-L(f"| **12月新品占比** | {l12_new_str} |")
-L(f"| **12月新品数量** | {fmt_num(l12_new_count)} |")
+L(f"| **6月新品佔比** | {l6_new_str} |")
+L(f"| **6月新品數量** | {fmt_num(l6_new_count)} |")
+L(f"| **12月新品佔比** | {l12_new_str} |")
+L(f"| **12月新品數量** | {fmt_num(l12_new_count)} |")
 L()
 
 # Listing date distribution
 ld_data = get_code(results.get('market_listing_date_distribution', {}))
 ld_items = safe_items(ld_data)
 if ld_items:
-    L("### 上架时间分布")
+    L("### 上架時間分佈")
     L()
-    L("| 上架时间 | ASIN数 | 销量 | 销量占比 |")
+    L("| 上架時間 | ASIN數 | 銷量 | 銷量佔比 |")
     L("|---------|:-----:|:----:|:-------:|")
     for l in ld_items:
         label = l.get('label', 'N/A')
@@ -404,9 +404,9 @@ L()
 ebc_data = get_code(results.get('market_ebc_distribution', {}))
 ebc_items = safe_items(ebc_data)
 if ebc_items:
-    L("### A+页面与视频分布")
+    L("### A+頁面與影片分佈")
     L()
-    L("| 类型 | ASIN数 | ASIN占比 | 销量 | 销量占比 |")
+    L("| 型別 | ASIN數 | ASIN佔比 | 銷量 | 銷量佔比 |")
     L("|------|:-----:|:-------:|:----:|:-------:|")
     for e in ebc_items:
         label = e.get('label', 'N/A')
@@ -421,9 +421,9 @@ if ebc_items:
 dt_data = get_code(results.get('market_product_demand_trend', {}))
 dt_items = safe_items(dt_data)
 if dt_items:
-    L("### 需求趋势（近月）")
+    L("### 需求趨勢（近月）")
     L()
-    L("| 月份 | 商品数 | 销量 | 销售额 |")
+    L("| 月份 | 商品數 | 銷量 | 銷售額 |")
     L("|------|:-----:|:----:|:------:|")
     for d in dt_items[-12:]:
         label = d.get('label', 'N/A')
@@ -435,7 +435,7 @@ if dt_items:
 
 L("---")
 L()
-L("## 六、市场综合评分")
+L("## 六、市場綜合評分")
 L()
 
 # Compute scores
@@ -451,62 +451,62 @@ new_score = min(10, l6_new_ratio * 100 / 5 * 10) if l6_new_ratio else 2
 profit_score = min(10, avg_profit / 20) if avg_profit else 5
 overall = (size_score + comp_score + new_score + profit_score) / 4
 
-L("| 维度 | 评分 | 说明 |")
+L("| 維度 | 評分 | 說明 |")
 L("|------|:---:|------|")
-L(f"| **市场规模** | {size_score:.1f}/10 | 月销 {fmt_num(total_units)} 件，月销售额 {fmt_money(total_revenue)} |")
-L(f"| **竞争强度** | {comp_score:.1f}/10 | Top3 卖家集中度 {top3_seller_str} |")
-L(f"| **新品友好度** | {new_score:.1f}/10 | 6月新品占比 {l6_new_str} |")
-L(f"| **利润空间** | {profit_score:.1f}/10 | 均值利润 {fmt_money(avg_profit)} |")
-L(f"| **综合评分** | **{overall:.1f}/10** | |")
+L(f"| **市場規模** | {size_score:.1f}/10 | 月銷 {fmt_num(total_units)} 件，月銷售額 {fmt_money(total_revenue)} |")
+L(f"| **競爭強度** | {comp_score:.1f}/10 | Top3 賣家集中度 {top3_seller_str} |")
+L(f"| **新品友好度** | {new_score:.1f}/10 | 6月新品佔比 {l6_new_str} |")
+L(f"| **利潤空間** | {profit_score:.1f}/10 | 均值利潤 {fmt_money(avg_profit)} |")
+L(f"| **綜合評分** | **{overall:.1f}/10** | |")
 L()
 L("---")
 L()
-L("## 七、结论与建议")
+L("## 七、結論與建議")
 L()
-L("### 核心发现")
+L("### 核心發現")
 L()
 
 # Generate insights
 insights = []
 if top3_brand_crn and top3_brand_crn < 0.3:
-    insights.append(f"✅ 品牌集中度低 (Top3 {top3_brand_str})，新品牌有进入机会")
+    insights.append(f"✅ 品牌集中度低 (Top3 {top3_brand_str})，新品牌有進入機會")
 else:
     insights.append(f"ℹ️ 品牌集中度 {top3_brand_str}")
 
 if l6_new_ratio and l6_new_ratio > 0.05:
-    insights.append(f"✅ 新品活跃 (6月新品占比 {l6_new_str})，新品友好度较高")
+    insights.append(f"✅ 新品活躍 (6月新品佔比 {l6_new_str})，新品友好度較高")
 else:
-    insights.append(f"⚠️ 新品占比 {l6_new_str}，新品推广需更多投入")
+    insights.append(f"⚠️ 新品佔比 {l6_new_str}，新品推廣需更多投入")
 
 if return_ratio and return_ratio < 5:
-    insights.append(f"✅ 退货率低 ({return_ratio}%)")
+    insights.append(f"✅ 退貨率低 ({return_ratio}%)")
 elif return_ratio:
-    insights.append(f"⚠️ 退货率偏高 ({return_ratio}%)")
+    insights.append(f"⚠️ 退貨率偏高 ({return_ratio}%)")
 
 if avg_price and avg_price > 100:
-    insights.append(f"✅ 高客单价 (${avg_price:.0f})，利润空间充足")
+    insights.append(f"✅ 高客單價 (${avg_price:.0f})，利潤空間充足")
 elif avg_price:
-    insights.append(f"ℹ️ 中等客单价 (${avg_price:.0f})")
+    insights.append(f"ℹ️ 中等客單價 (${avg_price:.0f})")
 
 if avg_ratings and avg_ratings < 100:
-    insights.append(f"✅ 评论门槛低 (平均 {fmt_num(avg_ratings)} 条)，新品容易追赶")
+    insights.append(f"✅ 評論門檻低 (平均 {fmt_num(avg_ratings)} 條)，新品容易追趕")
 
 for ins in insights:
     L(f"- {ins}")
 L()
-L("### 关键策略方向")
+L("### 關鍵策略方向")
 L()
 if lavalier_row:
-    L(f"- **市场定位**: Wireless Lavalier Microphones（月销 {fmt_num(total_units)} 件，占类目 44.8%）")
-    L(f"- **建议定价**: 参考均价 {fmt_money(avg_price)} 附近")
-    L(f"- **核心价格带**: 依据价格分布数据选择最优区间")
-    L("- **物流方式**: FBA 优先（FBA 占比高）" if fba_pct and fba_pct > 70 else "- **物流方式**: FBA/FBM 均可")
-    L("- **差异化方向**: 关注头部品牌差评痛点，针对薄弱环节切入")
-    L("- **内容门槛**: 重视 A+ 页面和视频内容" if ebc_items else "")
+    L(f"- **市場定位**: Wireless Lavalier Microphones（月銷 {fmt_num(total_units)} 件，佔類目 44.8%）")
+    L(f"- **建議定價**: 參考均價 {fmt_money(avg_price)} 附近")
+    L(f"- **核心價格帶**: 依據價格分佈資料選擇最優區間")
+    L("- **物流方式**: FBA 優先（FBA 佔比高）" if fba_pct and fba_pct > 70 else "- **物流方式**: FBA/FBM 均可")
+    L("- **差異化方向**: 關注頭部品牌差評痛點，針對薄弱環節切入")
+    L("- **內容門檻**: 重視 A+ 頁面和影片內容" if ebc_items else "")
 L()
 L("---")
 L()
-L("*报告生成: 2026-07-05 | 数据工具: 卖家精灵 SellerSprite MCP | 站点: Amazon US*")
+L("*報告生成: 2026-07-05 | 資料工具: 賣家精靈 SellerSprite MCP | 站點: Amazon US*")
 L()
 
 report = "\n".join(lines)

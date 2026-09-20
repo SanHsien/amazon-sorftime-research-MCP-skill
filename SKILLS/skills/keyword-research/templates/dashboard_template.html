@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关键词调研分析 - {{ASIN}} ({{SITE}})</title>
+    <title>關鍵詞調研分析 - {{ASIN}} ({{SITE}})</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -57,7 +57,7 @@
         }
         .table-card h3 { margin-bottom: 15px; color: #2c3e50; }
 
-        /* 筛选控件样式 */
+        /* 篩選控制元件樣式 */
         .filter-controls {
             display: flex;
             flex-wrap: wrap;
@@ -156,7 +156,7 @@
         .badge-character { background: #fec; color: #f60; }
         .badge-other { background: #eee; color: #666; }
         
-        /* 简单的条形图样式 */
+        /* 簡單的條形圖樣式 */
         .simple-bar-chart {
             display: flex;
             flex-direction: column;
@@ -192,7 +192,7 @@
             color: #2c3e50;
         }
         
-        /* 简单的饼图样式 */
+        /* 簡單的餅圖樣式 */
         .simple-pie-chart {
             display: flex;
             flex-wrap: wrap;
@@ -222,22 +222,22 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>关键词调研分析仪表板</h1>
+            <h1>關鍵詞調研分析儀表板</h1>
             <div class="meta">
                 ASIN: <a href="https://www.amazon.com/dp/{{ASIN}}" target="_blank" style="color: white;">{{ASIN}}</a> |
-                产品: {{PRODUCT_NAME}} |
-                站点: {{SITE}} |
-                生成时间: {{DATE}}
+                產品: {{PRODUCT_NAME}} |
+                站點: {{SITE}} |
+                生成時間: {{DATE}}
             </div>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="label">总关键词数</div>
+                <div class="label">總關鍵詞數</div>
                 <div class="value">{{TOTAL_KEYWORDS}}</div>
             </div>
             <div class="stat-card">
-                <div class="label">总搜索量</div>
+                <div class="label">總搜尋量</div>
                 <div class="value">{{TOTAL_SEARCH_VOLUME}}</div>
             </div>
             <div class="stat-card">
@@ -248,41 +248,41 @@
 
         <div class="charts-grid">
             <div class="chart-card">
-                <h3>分类分布</h3>
+                <h3>分類分佈</h3>
                 <div id="categoryChartContainer"></div>
             </div>
             <div class="chart-card">
-                <h3>搜索量分布</h3>
+                <h3>搜尋量分佈</h3>
                 <div id="searchVolumeChartContainer" class="simple-bar-chart"></div>
             </div>
         </div>
 
         <div class="table-card">
-            <h3>所有关键词列表</h3>
+            <h3>所有關鍵詞列表</h3>
             <div class="filter-controls">
                 <div class="filter-group">
-                    <span class="filter-label">分类筛选:</span>
+                    <span class="filter-label">分類篩選:</span>
                     <div class="filter-buttons">
                         {{FILTER_BUTTONS}}
                     </div>
                 </div>
                 <div class="filter-group">
-                    <span class="filter-label">搜索:</span>
-                    <input type="text" class="search-box" id="searchInput" placeholder="输入关键词筛选...">
+                    <span class="filter-label">搜尋:</span>
+                    <input type="text" class="search-box" id="searchInput" placeholder="輸入關鍵詞篩選...">
                 </div>
                 <div class="result-count">
-                    显示 <span id="visibleCount">0</span> / 共 <span id="totalCount">0</span> 个关键词
+                    顯示 <span id="visibleCount">0</span> / 共 <span id="totalCount">0</span> 個關鍵詞
                 </div>
             </div>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>关键词</th>
-                            <th>分类</th>
-                            <th>搜索量</th>
+                            <th>關鍵詞</th>
+                            <th>分類</th>
+                            <th>搜尋量</th>
                             <th>CPC</th>
-                            <th>应用建议</th>
+                            <th>應用建議</th>
                         </tr>
                     </thead>
                     <tbody id="keywordTableBody">
@@ -294,9 +294,9 @@
     </div>
 
     <script>
-        // 等待 DOM 加载完成
+        // 等待 DOM 載入完成
         document.addEventListener('DOMContentLoaded', function() {
-            // 渲染搜索量分布图 - 纯 HTML 版本
+            // 渲染搜尋量分佈圖 - 純 HTML 版本
             const searchVolumeData = {{SEARCH_VOLUME_DATA}};
             const searchVolumeContainer = document.getElementById('searchVolumeChartContainer');
             if (searchVolumeContainer && searchVolumeData) {
@@ -316,7 +316,7 @@
                 searchVolumeContainer.innerHTML = html;
             }
 
-            // 渲染分类分布图 - 简单的图例版本
+            // 渲染分類分佈圖 - 簡單的圖例版本
             const categoryData = {{CATEGORY_DATA}};
             const categoryContainer = document.getElementById('categoryChartContainer');
             if (categoryContainer && categoryData) {
@@ -334,19 +334,19 @@
                 categoryContainer.innerHTML = legendHtml;
             }
 
-            // 筛选功能 - 简化版本
+            // 篩選功能 - 簡化版本
             const tableBody = document.getElementById('keywordTableBody');
             const filterButtons = document.querySelectorAll('.filter-btn');
             const searchInput = document.getElementById('searchInput');
             const visibleCountSpan = document.getElementById('visibleCount');
             const totalCountSpan = document.getElementById('totalCount');
 
-            // 初始化总数
+            // 初始化總數
             const allRows = tableBody.querySelectorAll('tr');
             totalCountSpan.textContent = allRows.length;
             visibleCountSpan.textContent = allRows.length;
 
-            // 分类筛选
+            // 分類篩選
             filterButtons.forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     filterButtons.forEach(function(b) { b.classList.remove('active'); });
@@ -355,7 +355,7 @@
                 });
             });
 
-            // 搜索筛选
+            // 搜尋篩選
             if (searchInput) {
                 searchInput.addEventListener('input', function() {
                     filterRows(document.querySelector('.filter-btn.active').dataset.category);

@@ -3,7 +3,7 @@
 """
 西柚洞察Dashboard生成器
 
-将数据渲染为可视化HTML看板
+將資料渲染為視覺化HTML看板
 
 使用方式:
     from scripts.dashboard_generator import DashboardGenerator
@@ -62,7 +62,7 @@ class DashboardGenerator:
     <div class="container">
         <div class="header">
             <h1>{{TITLE}}</h1>
-            <p>分析对象: {{TARGET}} | 站点: {{SITE}} | 生成时间: {{TIMESTAMP}}</p>
+            <p>分析物件: {{TARGET}} | 站點: {{SITE}} | 生成時間: {{TIMESTAMP}}</p>
         </div>
         {{CONTENT}}
     </div>
@@ -74,11 +74,11 @@ class DashboardGenerator:
         渲染Dashboard
 
         Args:
-            data: 结构化数据
-            output_file: 输出文件路径
+            data: 結構化資料
+            output_file: 輸出檔案路徑
 
         Returns:
-            str: 输出文件路径
+            str: 輸出檔案路徑
         """
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         title = data.get('title', '西柚洞察分析看板')
@@ -100,7 +100,7 @@ class DashboardGenerator:
         return output_file
 
     def _build_content(self, data: Dict[str, Any]) -> str:
-        """构建内容"""
+        """構建內容"""
         content = ""
 
         if data.get('overview'):
@@ -124,7 +124,7 @@ class DashboardGenerator:
         return content
 
     def _build_overview(self, overview: Dict[str, Any]) -> str:
-        """构建概览卡片"""
+        """構建概覽卡片"""
         items = []
         for key, value in overview.items():
             items.append(f"""
@@ -137,34 +137,34 @@ class DashboardGenerator:
         return f"""
         <div class="grid">
             <div class="card">
-                <div class="card-title">📊 概览数据</div>
+                <div class="card-title">📊 概覽資料</div>
                 {''.join(items)}
             </div>
         </div>
         """
 
     def _build_traffic_section(self, traffic: Dict[str, Any]) -> str:
-        """构建流量分析部分"""
+        """構建流量分析部分"""
         content = ""
 
         if traffic.get('scores'):
             scores = traffic['scores']
             chart_data = [
                 {"name": "自然流量", "value": scores.get('natural_traffic', 0), "itemStyle": {"color": "#3b82f6"}},
-                {"name": "广告流量", "value": scores.get('ad_traffic', 0), "itemStyle": {"color": "#f59e0b"}}
+                {"name": "廣告流量", "value": scores.get('ad_traffic', 0), "itemStyle": {"color": "#f59e0b"}}
             ]
             content += f"""
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">📈 流量构成</div>
+                    <div class="card-title">📈 流量構成</div>
                     <div class="chart-container" id="trafficPie"></div>
                 </div>
                 <div class="card">
                     <div class="card-title">📊 流量得分</div>
                     <div class="stat-item"><span class="stat-label">自然流量</span><span class="stat-value highlight">{scores.get('natural_traffic', '-')}</span></div>
-                    <div class="stat-item"><span class="stat-label">广告流量</span><span class="stat-value highlight">{scores.get('ad_traffic', '-')}</span></div>
-                    <div class="stat-item"><span class="stat-label">总流量</span><span class="stat-value">{scores.get('total_traffic', '-')}</span></div>
-                    <div class="stat-item"><span class="stat-label">关键词数量</span><span class="stat-value">{scores.get('keyword_count', '-')}</span></div>
+                    <div class="stat-item"><span class="stat-label">廣告流量</span><span class="stat-value highlight">{scores.get('ad_traffic', '-')}</span></div>
+                    <div class="stat-item"><span class="stat-label">總流量</span><span class="stat-value">{scores.get('total_traffic', '-')}</span></div>
+                    <div class="stat-item"><span class="stat-label">關鍵詞數量</span><span class="stat-value">{scores.get('keyword_count', '-')}</span></div>
                 </div>
             </div>
             <script>
@@ -182,7 +182,7 @@ class DashboardGenerator:
             ad = [d['ad_traffic'] for d in traffic['trends']]
             content += f"""
             <div class="card">
-                <div class="card-title">📉 流量趋势</div>
+                <div class="card-title">📉 流量趨勢</div>
                 <div class="chart-container" id="trafficTrend"></div>
             </div>
             <script>
@@ -193,7 +193,7 @@ class DashboardGenerator:
                     yAxis: {{type: 'value'}},
                     series: [
                         {{name: '自然流量', type: 'line', data: {json.dumps(natural)}, smooth: true}},
-                        {{name: '广告流量', type: 'line', data: {json.dumps(ad)}, smooth: true}}
+                        {{name: '廣告流量', type: 'line', data: {json.dumps(ad)}, smooth: true}}
                     ]
                 }});
             </script>
@@ -202,7 +202,7 @@ class DashboardGenerator:
         return content
 
     def _build_keywords_section(self, keywords: Any) -> str:
-        """构建关键词部分"""
+        """構建關鍵詞部分"""
         if not keywords:
             return ""
 
@@ -233,16 +233,16 @@ class DashboardGenerator:
         return f"""
         <div class="grid">
             <div class="card">
-                <div class="card-title">🔑 Top关键词</div>
+                <div class="card-title">🔑 Top關鍵詞</div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>关键词</th><th>自然排名</th><th>广告排名</th><th>流量</th><th>流量占比</th></tr></thead>
+                        <thead><tr><th>關鍵詞</th><th>自然排名</th><th>廣告排名</th><th>流量</th><th>流量佔比</th></tr></thead>
                         <tbody>{''.join(table_rows)}</tbody>
                     </table>
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">📊 关键词分布</div>
+                <div class="card-title">📊 關鍵詞分佈</div>
                 <div class="chart-container" id="keywordDist"></div>
             </div>
         </div>
@@ -252,13 +252,13 @@ class DashboardGenerator:
                 tooltip: {{trigger: 'axis', axisPointer: {{type: 'shadow'}}}},
                 xAxis: {{type: 'value'}},
                 yAxis: {{type: 'category', data: {json.dumps([kw['keyword'] for kw in top_keywords])}}},
-                series: [{{name: '搜索量', type: 'bar', data: {json.dumps([kw.get('search_volume', 0) for kw in top_keywords])}}}]
+                series: [{{name: '搜尋量', type: 'bar', data: {json.dumps([kw.get('search_volume', 0) for kw in top_keywords])}}}]
             }});
         </script>
         """
 
     def _build_ad_section(self, ad_data: Dict[str, Any]) -> str:
-        """构建广告分析部分"""
+        """構建廣告分析部分"""
         content = ""
 
         if ad_data.get('type_share'):
@@ -266,7 +266,7 @@ class DashboardGenerator:
             content += f"""
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">🎯 广告类型分布</div>
+                    <div class="card-title">🎯 廣告型別分佈</div>
                     <div class="chart-container" id="adTypePie"></div>
                 </div>
             </div>
@@ -292,10 +292,10 @@ class DashboardGenerator:
                 """)
             content += f"""
             <div class="card">
-                <div class="card-title">💡 核心广告关键词</div>
+                <div class="card-title">💡 核心廣告關鍵詞</div>
                 <div class="table-wrapper">
                     <table>
-                        <thead><tr><th>关键词</th><th>流量占比</th><th>建议竞价</th></tr></thead>
+                        <thead><tr><th>關鍵詞</th><th>流量佔比</th><th>建議競價</th></tr></thead>
                         <tbody>{''.join(table_rows)}</tbody>
                     </table>
                 </div>
@@ -305,7 +305,7 @@ class DashboardGenerator:
         return content
 
     def _build_comparison_section(self, comparison: Dict[str, Any]) -> str:
-        """构建对比部分"""
+        """構建對比部分"""
         if not comparison.get('items'):
             return ""
 
@@ -323,10 +323,10 @@ class DashboardGenerator:
 
         return f"""
         <div class="card">
-            <div class="card-title">⚖️ ASIN对比</div>
+            <div class="card-title">⚖️ ASIN對比</div>
             <div class="table-wrapper">
                 <table>
-                    <thead><tr><th>ASIN</th><th>自然流量</th><th>广告流量</th><th>关键词数量</th></tr></thead>
+                    <thead><tr><th>ASIN</th><th>自然流量</th><th>廣告流量</th><th>關鍵詞數量</th></tr></thead>
                     <tbody>{''.join(table_rows)}</tbody>
                 </table>
             </div>
@@ -334,7 +334,7 @@ class DashboardGenerator:
         """
 
     def _build_insights_section(self, insights: List[str]) -> str:
-        """构建洞察部分"""
+        """構建洞察部分"""
         if not insights:
             return ""
 
@@ -344,7 +344,7 @@ class DashboardGenerator:
 
         return f"""
         <div class="card">
-            <div class="card-title">💡 关键洞察</div>
+            <div class="card-title">💡 關鍵洞察</div>
             <ul style="padding-left: 20px; color: #374151;">
                 {''.join(insight_items)}
             </ul>

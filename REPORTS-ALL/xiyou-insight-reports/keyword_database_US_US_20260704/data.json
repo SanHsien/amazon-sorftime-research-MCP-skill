@@ -1,8 +1,8 @@
 {
-  "title": "关键词库搭建 - US",
+  "title": "關鍵詞庫搭建 - US",
   "target": "US",
   "site": "US",
-  "scenario": "关键词库",
+  "scenario": "關鍵詞庫",
   "asin_info": {
     "B07PQFT83F": {
       "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
@@ -146,9 +146,9 @@
     }
   ],
   "categorized_keywords": {
-    "强相关": [],
-    "高相关": [],
-    "中相关": [
+    "強相關": [],
+    "高相關": [],
+    "中相關": [
       {
         "keyword": "wireless headphones",
         "natural_rank": 5,
@@ -185,7 +185,7 @@
         "cpc": 1.9
       }
     ],
-    "低相关": [
+    "低相關": [
       {
         "keyword": "bluetooth headphones",
         "natural_rank": 3,
@@ -212,21 +212,21 @@
         "cpc": 2.8
       }
     ],
-    "极低相关": []
+    "極低相關": []
   },
   "keyword_stats": {
     "total": 5,
-    "强相关": 0,
-    "高相关": 0,
-    "中相关": 3,
-    "低相关": 2,
-    "极低相关": 0
+    "強相關": 0,
+    "高相關": 0,
+    "中相關": 3,
+    "低相關": 2,
+    "極低相關": 0
   },
   "negative_keywords": [],
   "insights": [
-    "共收集并去重5个关键词",
-    "建议补充更多高相关度关键词",
-    "中相关关键词：3个",
-    "低相关关键词：2个"
+    "共收集並去重5個關鍵詞",
+    "建議補充更多高相關度關鍵詞",
+    "中相關關鍵詞：3個",
+    "低相關關鍵詞：2個"
   ]
 }

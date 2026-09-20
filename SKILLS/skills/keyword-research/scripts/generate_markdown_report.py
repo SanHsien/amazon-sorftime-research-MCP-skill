@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Markdown 报告生成器
+Markdown 報告生成器
 """
 
 import os
@@ -12,29 +12,29 @@ def generate_markdown_report(asin: str, site: str, keywords: list,
                             categorized: dict, output_dir: str,
                             product_info: dict = None) -> str:
     """
-    生成 Markdown 分析报告
+    生成 Markdown 分析報告
 
     Args:
-        asin: 产品 ASIN
-        site: 站点
-        keywords: 完整关键词列表
-        categorized: 分类后的关键词
-        output_dir: 输出目录
-        product_info: 产品信息（可选）
+        asin: 產品 ASIN
+        site: 站點
+        keywords: 完整關鍵詞列表
+        categorized: 分類後的關鍵詞
+        output_dir: 輸出目錄
+        product_info: 產品資訊（可選）
 
     Returns:
-        str: 报告文件路径
+        str: 報告檔案路徑
     """
     report_file = os.path.join(output_dir, 'report.md')
 
-    # 计算统计数据
+    # 計算統計資料
     stats = calculate_statistics(keywords, categorized)
 
-    # 生成报告内容
+    # 生成報告內容
     content = build_report_content(asin, site, keywords, categorized,
                                    stats, product_info)
 
-    # 写入文件
+    # 寫入檔案
     with open(report_file, 'w', encoding='utf-8') as f:
         f.write(content)
 
@@ -42,15 +42,15 @@ def generate_markdown_report(asin: str, site: str, keywords: list,
 
 
 def calculate_statistics(keywords: list, categorized: dict) -> dict:
-    """计算统计数据"""
+    """計算統計資料"""
     total_keywords = len(keywords)
     total_search_volume = sum(kw.get('search_volume', 0) for kw in keywords)
     total_cpc = sum(kw.get('cpc', 0) for kw in keywords)
 
-    # 计算分类后的总关键词数（用于占比计算）
+    # 計算分類後的總關鍵詞數（用於佔比計算）
     total_categorized = sum(len(kw_list) for kw_list in categorized.values())
 
-    # 分类统计
+    # 分類統計
     category_stats = {}
     for category, kw_list in categorized.items():
         search_volumes = []
@@ -58,13 +58,13 @@ def calculate_statistics(keywords: list, categorized: dict) -> dict:
             if isinstance(kw, dict):
                 search_volumes.append(kw.get('search_volume', 0))
             elif isinstance(kw, str):
-                # 在 keywords 中查找
+                # 在 keywords 中查詢
                 for original_kw in keywords:
                     if original_kw['keyword'].lower() == kw.lower():
                         search_volumes.append(original_kw.get('search_volume', 0))
                         break
 
-        # 使用分类后的总数计算占比
+        # 使用分類後的總數計算佔比
         category_stats[category] = {
             'count': len(kw_list),
             'percentage': round(len(kw_list) / total_categorized * 100, 1) if total_categorized > 0 else 0,
@@ -84,38 +84,38 @@ def calculate_statistics(keywords: list, categorized: dict) -> dict:
 def build_report_content(asin: str, site: str, keywords: list,
                         categorized: dict, stats: dict,
                         product_info: dict = None) -> str:
-    """构建报告内容"""
+    """構建報告內容"""
 
-    # 获取产品名称
+    # 獲取產品名稱
     product_name = product_info.get('product_name', '') if product_info else ''
     if not product_name:
-        # 从关键词中推断产品名称
+        # 從關鍵詞中推斷產品名稱
         core_keywords = categorized.get('CORE', [])[:10]
         product_name = infer_product_name(core_keywords)
 
-    content = f"""# 关键词调研分析报告
+    content = f"""# 關鍵詞調研分析報告
 
-## 分析概览
+## 分析概覽
 
-| 项目 | 详情 |
+| 專案 | 詳情 |
 |------|------|
 | **ASIN** | [{asin}](https://www.amazon.com/dp/{asin}) |
-| **产品名称** | {product_name} |
-| **亚马逊站点** | {site} |
-| **分析时间** | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} |
-| **词库规模** | {stats.get('total_categorized', stats['total_keywords']):,} 个关键词（原始：{stats['total_keywords']:,}个） |
-| **总搜索量** | {stats['total_search_volume']:,} |
+| **產品名稱** | {product_name} |
+| **亞馬遜站點** | {site} |
+| **分析時間** | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} |
+| **詞庫規模** | {stats.get('total_categorized', stats['total_keywords']):,} 個關鍵詞（原始：{stats['total_keywords']:,}個） |
+| **總搜尋量** | {stats['total_search_volume']:,} |
 | **平均 CPC** | ${stats['avg_cpc']:.2f} |
 
 ---
 
-## 分类统计
+## 分類統計
 
-| 分类 | 数量 | 占比 | 总搜索量 | 平均搜索量 | 应用策略 |
+| 分類 | 數量 | 佔比 | 總搜尋量 | 平均搜尋量 | 應用策略 |
 |------|------|------|----------|-----------|----------|
 """
 
-    # 分类统计表格
+    # 分類統計表格
     category_order = ['NEGATIVE', 'BRAND', 'MATERIAL', 'SCENARIO',
                      'ATTRIBUTE', 'FUNCTION', 'CORE', 'CHARACTER', 'OTHER']
 
@@ -132,119 +132,119 @@ def build_report_content(asin: str, site: str, keywords: list,
 
 ---
 
-## 各分类 Top 关键词
+## 各分類 Top 關鍵詞
 
-### 核心产品词 (CORE)
+### 核心產品詞 (CORE)
 
 {generate_top_keywords_table(categorized.get('CORE', []), keywords, limit=20)}
 
-**应用建议**: 这些是产品的核心大词，流量大但竞争激烈。建议用于广泛匹配占领坑位，配合高预算和强Listing实力。
+**應用建議**: 這些是產品的核心大詞，流量大但競爭激烈。建議用於廣泛匹配佔領坑位，配合高預算和強Listing實力。
 
 ---
 
-### 否定/敏感词 (NEGATIVE)
+### 否定/敏感詞 (NEGATIVE)
 
 {generate_top_keywords_table(categorized.get('NEGATIVE', []), keywords, limit=30)}
 
-**应用建议**: 以上 {len(categorized.get('NEGATIVE', []))} 个词与产品不相关，请直接添加为否定关键词（词组否定），避免浪费广告费。
+**應用建議**: 以上 {len(categorized.get('NEGATIVE', []))} 個詞與產品不相關，請直接新增為否定關鍵詞（片語否定），避免浪費廣告費。
 
 ---
 
-### 品牌词 (BRAND)
+### 品牌詞 (BRAND)
 
 {generate_top_keywords_table(categorized.get('BRAND', []), keywords, limit=20)}
 
-**应用建议**: 竞品品牌词。如果做竞品狙击，可以单独创建广告组；否则直接添加为否定词。
+**應用建議**: 競品品牌詞。如果做競品狙擊，可以單獨建立廣告組；否則直接新增為否定詞。
 
 ---
 
-### 材质词 (MATERIAL)
+### 材質詞 (MATERIAL)
 
 {generate_top_keywords_table(categorized.get('MATERIAL', []), keywords, limit=20)}
 
-**应用建议**: 材质词转化率通常较高，建议用于精准匹配或词组匹配。
+**應用建議**: 材質詞轉化率通常較高，建議用於精準匹配或片語匹配。
 
 ---
 
-### 使用场景词 (SCENARIO)
+### 使用場景詞 (SCENARIO)
 
 {generate_top_keywords_table(categorized.get('SCENARIO', []), keywords, limit=25)}
 
-**应用建议**: 按场景拆分广告组（如：entryway 组、bathroom 组），提高广告相关性。
+**應用建議**: 按場景拆分廣告組（如：entryway 組、bathroom 組），提高廣告相關性。
 
 ---
 
-### 属性修饰词 (ATTRIBUTE)
+### 屬性修飾詞 (ATTRIBUTE)
 
 {generate_top_keywords_table(categorized.get('ATTRIBUTE', []), keywords, limit=25)}
 
-**应用建议**: 长尾精准词，竞争小转化率高。建议用于精确匹配或词组匹配。
+**應用建議**: 長尾精準詞，競爭小轉化率高。建議用於精確匹配或片語匹配。
 
 ---
 
-### 功能词 (FUNCTION)
+### 功能詞 (FUNCTION)
 
 {generate_top_keywords_table(categorized.get('FUNCTION', []), keywords, limit=20)}
 
-**应用建议**: 功能相关词，用于广泛匹配扩流，但需注意过滤不相关的词。
+**應用建議**: 功能相關詞，用於廣泛匹配擴流，但需注意過濾不相關的詞。
 
 ---
 
-## 广告投放策略建议
+## 廣告投放策略建議
 
-### 1. 否定关键词策略
+### 1. 否定關鍵詞策略
 
-直接复制 `negative_words.txt` 文件中的所有词，添加到广告活动的否定关键词列表中。
+直接複製 `negative_words.txt` 檔案中的所有詞，新增到廣告活動的否定關鍵詞列表中。
 
-**否定数量**: {len(categorized.get('NEGATIVE', []))} 个
-**操作方式**: 词组否定 (Phrase Match)
+**否定數量**: {len(categorized.get('NEGATIVE', []))} 個
+**操作方式**: 片語否定 (Phrase Match)
 
-### 2. 精准匹配组（高转化）
+### 2. 精準匹配組（高轉化）
 
-**组合策略**: 材质词 + 属性修饰词
+**組合策略**: 材質詞 + 屬性修飾詞
 
-推荐组合（以产品为核心）:
+推薦組合（以產品為核心）:
 """
 
-    # 生成精准组合建议
+    # 生成精準組合建議
     material_kws = [get_kw_string(k) for k in categorized.get('MATERIAL', [])[:10]]
     attribute_kws = [get_kw_string(k) for k in categorized.get('ATTRIBUTE', [])[:15]]
 
     if material_kws and attribute_kws:
         content += f"""
-| 材质 | 属性 | 组合示例 |
+| 材質 | 屬性 | 組合示例 |
 |------|------|----------|
-| {' / '.join(material_kws[:3])} | {' / '.join(attribute_kws[:3])} | 组合使用 |
+| {' / '.join(material_kws[:3])} | {' / '.join(attribute_kws[:3])} | 組合使用 |
 
-**投放方式**: 精确匹配 (Exact Match)
-**预期**: 高转化率，低 CPC
+**投放方式**: 精確匹配 (Exact Match)
+**預期**: 高轉化率，低 CPC
 """
 
     content += f"""
 
-### 3. 场景广告组
+### 3. 場景廣告組
 
-按使用场景拆分广告组，提高广告相关性:
+按使用場景拆分廣告組，提高廣告相關性:
 
 """
 
-    # 场景词分组建议
+    # 場景詞分組建議
     scenarios = categorized.get('SCENARIO', [])[:10]
     if scenarios:
         for i, scenario in enumerate(scenarios[:5], 1):
             scenario_kw = get_kw_string(scenario)
-            content += f"- **场景组 {i}**: 围绕 `{scenario_kw}` 展开投放\n"
+            content += f"- **場景組 {i}**: 圍繞 `{scenario_kw}` 展開投放\n"
 
     content += f"""
 
-**投放方式**: 词组匹配 (Phrase Match)
-**预期**: 中等转化，中等流量
+**投放方式**: 片語匹配 (Phrase Match)
+**預期**: 中等轉化，中等流量
 
-### 4. 广泛匹配组（扩流）
+### 4. 廣泛匹配組（擴流）
 
-**关键词**: 核心产品词 + 功能词
+**關鍵詞**: 核心產品詞 + 功能詞
 
-推荐:
+推薦:
 """
     core_kws = [get_kw_string(k) for k in categorized.get('CORE', [])[:10]]
     function_kws = [get_kw_string(k) for k in categorized.get('FUNCTION', [])[:10]]
@@ -254,53 +254,53 @@ def build_report_content(asin: str, site: str, keywords: list,
 
     content += f"""
 
-**投放方式**: 广泛匹配 (Broad Match)
-**预期**: 大流量，需密切监控否定词
+**投放方式**: 廣泛匹配 (Broad Match)
+**預期**: 大流量，需密切監控否定詞
 
 ---
 
-## 词库文件说明
+## 詞庫檔案說明
 
-| 文件 | 说明 | 用途 |
+| 檔案 | 說明 | 用途 |
 |------|------|------|
-| `keywords.csv` | 完整词库（含分类、搜索量、CPC） | Excel 打开分析 |
-| `keywords_negative.csv` | 否定词专用 | 直接复制到广告后台 |
-| `keywords_brand.csv` | 品牌词列表 | 竞品分析或否定 |
-| `keywords_material.csv` | 材质词 | 精准组投放 |
-| `keywords_scenario.csv` | 场景词 | 场景组投放 |
-| `keywords_attribute.csv` | 属性修饰词 | 长尾精准投放 |
-| `keywords_function.csv` | 功能词 | 广泛匹配投放 |
-| `keywords_core.csv` | 核心产品词 | 大词投放 |
-| `negative_words.txt` | 否定词清单（每行一个） | 直接复制使用 |
-| `brand_words.txt` | 品牌词清单 | 品牌分析 |
+| `keywords.csv` | 完整詞庫（含分類、搜尋量、CPC） | Excel 開啟分析 |
+| `keywords_negative.csv` | 否定詞專用 | 直接複製到廣告後臺 |
+| `keywords_brand.csv` | 品牌詞列表 | 競品分析或否定 |
+| `keywords_material.csv` | 材質詞 | 精準組投放 |
+| `keywords_scenario.csv` | 場景詞 | 場景組投放 |
+| `keywords_attribute.csv` | 屬性修飾詞 | 長尾精準投放 |
+| `keywords_function.csv` | 功能詞 | 廣泛匹配投放 |
+| `keywords_core.csv` | 核心產品詞 | 大詞投放 |
+| `negative_words.txt` | 否定詞清單（每行一個） | 直接複製使用 |
+| `brand_words.txt` | 品牌詞清單 | 品牌分析 |
 
 ---
 
-## 数据来源
+## 資料來源
 
-本报告基于 **Sorftime Amazon 数据服务** 生成，数据采集自:
-- 产品流量关键词分析
-- 竞品关键词布局分析
-- 类目核心关键词分析
-- 长尾词智能扩展
+本報告基於 **Sorftime Amazon 資料服務** 生成，資料採集自:
+- 產品流量關鍵詞分析
+- 競品關鍵詞佈局分析
+- 類目核心關鍵詞分析
+- 長尾詞智慧擴充套件
 
-数据更新频率: 实时更新
-数据时效: 约 1-7 天延迟
+資料更新頻率: 實時更新
+資料時效: 約 1-7 天延遲
 
 ---
 
-*本报告由 Claude Code 自动生成 | 分析时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
+*本報告由 Claude Code 自動生成 | 分析時間: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
 """
 
     return content
 
 
 def generate_top_keywords_table(keywords: list, all_keywords: list, limit: int = 20) -> str:
-    """生成 Top 关键词表格"""
+    """生成 Top 關鍵詞表格"""
     if not keywords:
-        return "*暂无数据*"
+        return "*暫無資料*"
 
-    # 构建搜索量和 CPC 映射
+    # 構建搜尋量和 CPC 對映
     search_map = {kw['keyword'].lower(): kw.get('search_volume', 0)
                  for kw in all_keywords}
     cpc_map = {kw['keyword'].lower(): kw.get('cpc', 0)
@@ -311,7 +311,7 @@ def generate_top_keywords_table(keywords: list, all_keywords: list, limit: int =
                        key=lambda k: search_map.get(k.lower() if isinstance(k, str) else k.get('keyword', '').lower(), 0),
                        reverse=True)[:limit]
 
-    table = "| 排名 | 关键词 | 搜索量 | CPC |\n|------|--------|--------|-----|\n"
+    table = "| 排名 | 關鍵詞 | 搜尋量 | CPC |\n|------|--------|--------|-----|\n"
 
     for i, kw in enumerate(sorted_kws, 1):
         if isinstance(kw, str):
@@ -329,61 +329,61 @@ def generate_top_keywords_table(keywords: list, all_keywords: list, limit: int =
 
 
 def get_kw_string(kw) -> str:
-    """获取关键词字符串"""
+    """獲取關鍵詞字串"""
     if isinstance(kw, str):
         return kw
     return kw.get('keyword', '')
 
 
 def get_category_display_name(category: str) -> str:
-    """获取分类显示名称"""
+    """獲取分類顯示名稱"""
     names = {
-        'NEGATIVE': '否定/敏感词',
-        'BRAND': '品牌词',
-        'MATERIAL': '材质词',
-        'SCENARIO': '使用场景词',
-        'ATTRIBUTE': '属性修饰词',
-        'FUNCTION': '功能词',
-        'CORE': '核心产品词',
-        'CHARACTER': '角色词',
+        'NEGATIVE': '否定/敏感詞',
+        'BRAND': '品牌詞',
+        'MATERIAL': '材質詞',
+        'SCENARIO': '使用場景詞',
+        'ATTRIBUTE': '屬性修飾詞',
+        'FUNCTION': '功能詞',
+        'CORE': '核心產品詞',
+        'CHARACTER': '角色詞',
         'OTHER': '其他'
     }
     return names.get(category, category)
 
 
 def get_application_strategy(category: str) -> str:
-    """获取应用策略"""
+    """獲取應用策略"""
     strategies = {
         'NEGATIVE': '直接否定',
-        'BRAND': '竞品打法/否定',
-        'MATERIAL': '精准匹配',
-        'SCENARIO': '场景分组',
-        'ATTRIBUTE': '长尾精准',
-        'FUNCTION': '广泛匹配',
-        'CORE': '大词投放',
-        'OTHER': '补充埋词'
+        'BRAND': '競品打法/否定',
+        'MATERIAL': '精準匹配',
+        'SCENARIO': '場景分組',
+        'ATTRIBUTE': '長尾精準',
+        'FUNCTION': '廣泛匹配',
+        'CORE': '大詞投放',
+        'OTHER': '補充埋詞'
     }
     return strategies.get(category, '')
 
 
 def infer_product_name(core_keywords: list) -> str:
-    """从核心关键词推断产品名称"""
+    """從核心關鍵詞推斷產品名稱"""
     if not core_keywords:
         return "Unknown Product"
 
-    # 取第一个核心词
+    # 取第一個核心詞
     first_kw = get_kw_string(core_keywords[0])
 
-    # 简单的名称推断
+    # 簡單的名稱推斷
     if first_kw:
-        # 首字母大写
+        # 首字母大寫
         return first_kw.title()
 
     return "Unknown Product"
 
 
 def main():
-    """测试入口"""
+    """測試入口"""
     import sys
     import json
 
@@ -404,7 +404,7 @@ def main():
         categorized = json.load(f)
 
     report_file = generate_markdown_report(asin, site, keywords, categorized, output_dir)
-    print(f"✓ 报告已生成: {report_file}")
+    print(f"✓ 報告已生成: {report_file}")
 
 
 if __name__ == "__main__":

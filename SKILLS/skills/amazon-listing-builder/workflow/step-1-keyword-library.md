@@ -1,168 +1,168 @@
-# 第一步：关键词分层词库
+# 第一步：關鍵詞分層詞庫
 
-> 不要把所有词丢在一起，**按意图分层**才能决定每个词放哪里。
+> 不要把所有詞丟在一起，**按意圖分層**才能決定每個詞放哪裡。
 
-## 🚨 必须先调 MCP（禁止浏览器抓 Amazon）
+## 🚨 必須先調 MCP（禁止瀏覽器抓 Amazon）
 
-本步核心数据**必须**全部来自卖家精灵 MCP，**禁止**用 web reader 抓 Amazon 搜索建议或关键词页。
+本步核心資料**必須**全部來自賣家精靈 MCP，**禁止**用 web reader 抓 Amazon 搜尋建議或關鍵詞頁。
 
-### 必须调用的 MCP 工具（按顺序）
+### 必須呼叫的 MCP 工具（按順序）
 
 ```python
-# 1. 主力扩词（按种子词扩展）
+# 1. 主力擴詞（按種子詞擴充套件）
 mcp__sellersprite__keyword_miner({
-  "request": {"marketplace":"US", "keyword":"<种子词>"}
+  "request": {"marketplace":"US", "keyword":"<種子詞>"}
 })
 
-# 2. 趋势验证（注意：扁平参数；字段是 time/search/chainGrowth/yearlyGrowth）
+# 2. 趨勢驗證（注意：扁平引數；欄位是 time/search/chainGrowth/yearlyGrowth）
 mcp__sellersprite__keyword_research_trends({
-  "marketplace":"US", "keyword":"<种子词>"
+  "marketplace":"US", "keyword":"<種子詞>"
 })
 
-# 3. 竞品关键词反查（必须传竞品 ASIN）
-for asin in competitor_asins:  # 3-5 个竞品
+# 3. 競品關鍵詞反查（必須傳競品 ASIN）
+for asin in competitor_asins:  # 3-5 個競品
   mcp__sellersprite__traffic_keyword({
     "request": {"marketplace":"US", "asin":asin}
   })
 
-# 4. 竞品真实出单词（用于排序词库优先级）
+# 4. 競品真實出單詞（用於排序詞庫優先順序）
 for asin in competitor_asins:
   mcp__sellersprite__keyword_order({
     "request": {"marketplace":"US", "asin":asin}
   })
 ```
 
-### ❌ 禁止行为
+### ❌ 禁止行為
 
 ```javascript
-// 错误：用浏览器抓 Amazon 搜词建议
+// 錯誤：用瀏覽器抓 Amazon 搜詞建議
 mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=artificial+flowers"})
-// 错误：用浏览器抓关键词页
+// 錯誤：用瀏覽器抓關鍵詞頁
 mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=..."})
 ```
 
-### ✅ 浏览器补充（仅限）
+### ✅ 瀏覽器補充（僅限）
 
-- 自己的广告搜索词报告：从卖家后台手动下载（MCP 无）
-- 自己的客服记录：从卖家后台导出（MCP 无）
+- 自己的廣告搜尋詞報告：從賣家後臺手動下載（MCP 無）
+- 自己的客服記錄：從賣家後臺匯出（MCP 無）
 
-详见 `reference/mcp-mandatory-protocol.md`。
-
----
-
-## 一、为什么要分层
-
-旧方法：把 uv resistant artificial outdoor plants、outdoor artificial flowers、fake flowers outdoor 全塞标题，结果标题像词库垃圾桶。
-
-新方法：按用户搜索意图把词分成 5 层，每层放在不同位置（标题 / 五点 / 描述 / ST / QA），让系统理解关系，让买家读得下去。
+詳見 `reference/mcp-mandatory-protocol.md`。
 
 ---
 
-## 二、五层词库结构
+## 一、為什麼要分層
 
-| 层级 | 名称 | 示例（抗 UV 户外仿真植物） | 建议位置 |
+舊方法：把 uv resistant artificial outdoor plants、outdoor artificial flowers、fake flowers outdoor 全塞標題，結果標題像詞庫垃圾桶。
+
+新方法：按使用者搜尋意圖把詞分成 5 層，每層放在不同位置（標題 / 五點 / 描述 / ST / QA），讓系統理解關係，讓買家讀得下去。
+
+---
+
+## 二、五層詞庫結構
+
+| 層級 | 名稱 | 示例（抗 UV 戶外模擬植物） | 建議位置 |
 |------|------|--------------------------|---------|
-| 1 | 核心品类词 | artificial flowers / artificial plants / fake flowers / faux plants | 标题开头 + 五点 + 描述 |
-| 2 | 功能属性词 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | 标题 + 五点 1 |
-| 3 | 场景词 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 标题 + 五点 3 + A+ |
-| 4 | 问题词 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 五点 + QA + A+ |
-| 5 | 规格词 | 12 bundles / plastic stems / 16 inch / flowers for pots | 标题 + 五点 4 |
+| 1 | 核心品類詞 | artificial flowers / artificial plants / fake flowers / faux plants | 標題開頭 + 五點 + 描述 |
+| 2 | 功能屬性詞 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | 標題 + 五點 1 |
+| 3 | 場景詞 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 標題 + 五點 3 + A+ |
+| 4 | 問題詞 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 五點 + QA + A+ |
+| 5 | 規格詞 | 12 bundles / plastic stems / 16 inch / flowers for pots | 標題 + 五點 4 |
 
 ---
 
-## 三、字段定义（每个关键词都要标注）
+## 三、欄位定義（每個關鍵詞都要標註）
 
-| 字段 | 说明 |
+| 欄位 | 說明 |
 |------|------|
-| `keyword` | 关键词原文 |
+| `keyword` | 關鍵詞原文 |
 | `layer` | 1-5（按上表） |
-| `intent` | 搜索意图（如"功能+场景"） |
-| `search_volume` | 月搜索量（来自卖家精灵 keyword_miner） |
-| `trend` | 趋势（chainGrowth / yearlyGrowth，来自 keyword_research_trends） |
-| `ppc` | 广告建议价 |
-| `click_concentration` | 点击集中度（0~1） |
-| `conversion_concentration` | 转化集中度（0~1） |
-| `suggested_position` | 标题 / 五点 / 描述 / ST / QA |
-| `must_frontend` | 是否必须前台（true/false） |
-| `priority` | P0（必放）/ P1（推荐）/ P2（补充） |
+| `intent` | 搜尋意圖（如"功能+場景"） |
+| `search_volume` | 月搜尋量（來自賣家精靈 keyword_miner） |
+| `trend` | 趨勢（chainGrowth / yearlyGrowth，來自 keyword_research_trends） |
+| `ppc` | 廣告建議價 |
+| `click_concentration` | 點選集中度（0~1） |
+| `conversion_concentration` | 轉化集中度（0~1） |
+| `suggested_position` | 標題 / 五點 / 描述 / ST / QA |
+| `must_frontend` | 是否必須前臺（true/false） |
+| `priority` | P0（必放）/ P1（推薦）/ P2（補充） |
 
 ---
 
-## 四、数据来源
+## 四、資料來源
 
-| 来源 | 卖家精灵工具 | 备注 |
+| 來源 | 賣家精靈工具 | 備註 |
 |------|------------|------|
-| 种子词扩展 | `keyword_miner` | 主力扩词工具 |
-| 全球热词参照 | `keyword_research` | 注意会忽略 keyword 参数，仅作趋势参照 |
-| 趋势验证 | `keyword_research_trends` | 字段：`time` / `search` / `chainGrowth` / `yearlyGrowth` |
-| 竞品反查 | `traffic_keyword` + `keyword_order` | 找出竞品真实出单词 |
-| 广告搜索词报告 | 后台下载 | 真实转化数据 |
-| 评论高频词 | `review` + 自定义 NLP | 注意 review 工具仅返回 20 条 |
-| 站外内容词 | TikTok / Reddit / Pinterest | 手动补充 |
+| 種子詞擴充套件 | `keyword_miner` | 主力擴詞工具 |
+| 全球熱詞參照 | `keyword_research` | 注意會忽略 keyword 引數，僅作趨勢參照 |
+| 趨勢驗證 | `keyword_research_trends` | 欄位：`time` / `search` / `chainGrowth` / `yearlyGrowth` |
+| 競品反查 | `traffic_keyword` + `keyword_order` | 找出競品真實出單詞 |
+| 廣告搜尋詞報告 | 後臺下載 | 真實轉化資料 |
+| 評論高頻詞 | `review` + 自定義 NLP | 注意 review 工具僅返回 20 條 |
+| 站外內容詞 | TikTok / Reddit / Pinterest | 手動補充 |
 
 ---
 
-## 五、合并去重与意图分类规则
+## 五、合併去重與意圖分類規則
 
-1. 全部词合并到一张表，按 `keyword` 文本去重
-2. 用关键词本身判断层级：
-   - 含 brand/product 类名词 → 第 1 层
-   - 含 `resistant`/`proof`/`free`/`material` → 第 2 层
-   - 含场景名词（patio/garden/porch/...） → 第 3 层
-   - 含问题句式（won't / how to / can I / for ...） → 第 4 层
-   - 含数量/尺寸/规格 → 第 5 层
-3. 一个词可能跨多层（如 `uv resistant outdoor flowers` 同时属 2+3），按主意图归类
+1. 全部詞合併到一張表，按 `keyword` 文字去重
+2. 用關鍵詞本身判斷層級：
+   - 含 brand/product 類名詞 → 第 1 層
+   - 含 `resistant`/`proof`/`free`/`material` → 第 2 層
+   - 含場景名詞（patio/garden/porch/...） → 第 3 層
+   - 含問題句式（won't / how to / can I / for ...） → 第 4 層
+   - 含數量/尺寸/規格 → 第 5 層
+3. 一個詞可能跨多層（如 `uv resistant outdoor flowers` 同時屬 2+3），按主意圖歸類
 
 ---
 
-## 六、输出模板
+## 六、輸出模板
 
 ```markdown
-# 关键词分层词库 — {产品名}
+# 關鍵詞分層詞庫 — {產品名}
 
-## L1 核心品类词（必须前台）
-| 关键词 | 月搜索量 | 趋势 | PPC | 建议位置 |
+## L1 核心品類詞（必須前臺）
+| 關鍵詞 | 月搜尋量 | 趨勢 | PPC | 建議位置 |
 |--------|---------|------|-----|---------|
-| artificial flowers | 95,000 | ↑12% | $0.85 | 标题 |
+| artificial flowers | 95,000 | ↑12% | $0.85 | 標題 |
 | ...  | ... | ... | ... | ... |
 
-## L2 功能属性词
+## L2 功能屬性詞
 ...
 
-## L3 场景词
+## L3 場景詞
 ...
 
-## L4 问题词
+## L4 問題詞
 ...
 
-## L5 规格词
+## L5 規格詞
 ...
 
-## 后台补充候选（同义词/变体/错拼）
+## 後臺補充候選（同義詞/變體/錯拼）
 ...
 ```
 
 ---
 
-## 七、给 Codex 的提示词（本步专用）
+## 七、給 Codex 的提示詞（本步專用）
 
-详见 `prompts/layered-keyword-prompt.md`。精简版：
+詳見 `prompts/layered-keyword-prompt.md`。精簡版：
 
-> 输入：种子词、产品核心卖点、卖家精灵关键词数据、竞品 ASIN、广告搜索词报告、评论高频词。
+> 輸入：種子詞、產品核心賣點、賣家精靈關鍵詞資料、競品 ASIN、廣告搜尋詞報告、評論高頻詞。
 >
-> 任务：
-> 1. 合并所有关键词并去重
-> 2. 按上述 5 层结构分类，标注每个字段
-> 3. 标记 must_frontend（核心词、功能词、主场景词默认必前台）
-> 4. 输出 Markdown 表格 + JSON 结构化数据
-> 5. 标注缺失数据字段（如某词 PPC 缺失），不要编造
+> 任務：
+> 1. 合併所有關鍵詞並去重
+> 2. 按上述 5 層結構分類，標註每個欄位
+> 3. 標記 must_frontend（核心詞、功能詞、主場景詞預設必前臺）
+> 4. 輸出 Markdown 表格 + JSON 結構化資料
+> 5. 標註缺失資料欄位（如某詞 PPC 缺失），不要編造
 
 ---
 
-## 八、检查清单
+## 八、檢查清單
 
-- [ ] 五层词库都至少有 5 个词
-- [ ] 每个核心词都标注了 must_frontend=true
-- [ ] 没有把同一个词重复放在不同层级
-- [ ] 没有把竞品品牌词（如其他卖家品牌）混进来
-- [ ] 数据缺失字段已标注，未编造
+- [ ] 五層詞庫都至少有 5 個詞
+- [ ] 每個核心詞都標註了 must_frontend=true
+- [ ] 沒有把同一個詞重複放在不同層級
+- [ ] 沒有把競品品牌詞（如其他賣家品牌）混進來
+- [ ] 資料缺失欄位已標註，未編造

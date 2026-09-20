@@ -1,14 +1,14 @@
-# 品类选品专用接口参考
+# 品類選品專用介面參考
 
-本文档列出品类选品分析相关的核心接口及调用示例。
+本文件列出品類選品分析相關的核心介面及呼叫示例。
 
 ---
 
-## 一、类目搜索与确认
+## 一、類目搜尋與確認
 
-### 1. 类目名称搜索 - category_name_search
+### 1. 類目名稱搜尋 - category_name_search
 
-**用途**: 根据品类名称查找对应的类目nodeid
+**用途**: 根據品類名稱查詢對應的類目nodeid
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
@@ -16,9 +16,9 @@ curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"category_name_search","arguments":{"site":"US","searchName":"sofas"}}}'
 ```
 
-**返回数据示例**:
+**返回資料示例**:
 ```
-类目名称 | nodeId
+類目名稱 | nodeId
 ---------|---------
 Sofas | 3733551
 Sofa Slipcovers | 1234567
@@ -27,46 +27,46 @@ Bean Bag Chairs | 2345678
 
 ---
 
-## 二、市场趋势数据 (11个指标)
+## 二、市場趨勢資料 (11個指標)
 
-### 趋势指标列表
+### 趨勢指標列表
 
-| ID | 趋势类型 | trendIndex参数 | 用途 |
+| ID | 趨勢型別 | trendIndex引數 | 用途 |
 |----|----------|---------------|------|
-| 1 | 类目月销量趋势 | 类目月销量趋势 | 市场规模评分 |
-| 2 | 品牌数量趋势 | 品牌数量趋势 | 竞争烈度评分 |
-| 3 | 卖家数量趋势 | 卖家数量趋势 | 竞争烈度评分 |
-| 4 | 平均售价趋势 | 平均售价趋势 | 利润空间评分 |
-| 5 | 平均评论数量趋势 | 平均评论数量趋势 | 进入壁垒评分 |
-| 6 | 平均星级趋势 | 平均星级趋势 | 市场成熟度 |
-| 7 | 新品销量占比趋势 | 上架3个月内新品销量占比趋势 | 进入壁垒评分 |
-| 8 | 亚马逊自营销量占比 | 亚马逊自营销量占比 | 竞争烈度评分 |
-| 9 | Top3产品销量占比 | 销量前3的产品销量占比趋势 | 市场集中度 |
-| 10 | Top3品牌销量占比 | 销量前3的品牌销量占比趋势 | 市场集中度 |
-| 11 | Top3卖家销量占比 | 销量前3的卖家销量占比趋势 | 市场集中度 |
+| 1 | 類目月銷量趨勢 | 類目月銷量趨勢 | 市場規模評分 |
+| 2 | 品牌數量趨勢 | 品牌數量趨勢 | 競爭烈度評分 |
+| 3 | 賣家數量趨勢 | 賣家數量趨勢 | 競爭烈度評分 |
+| 4 | 平均售價趨勢 | 平均售價趨勢 | 利潤空間評分 |
+| 5 | 平均評論數量趨勢 | 平均評論數量趨勢 | 進入壁壘評分 |
+| 6 | 平均星級趨勢 | 平均星級趨勢 | 市場成熟度 |
+| 7 | 新品銷量佔比趨勢 | 上架3個月內新品銷量佔比趨勢 | 進入壁壘評分 |
+| 8 | 亞馬遜自營銷量佔比 | 亞馬遜自營銷量佔比 | 競爭烈度評分 |
+| 9 | Top3產品銷量佔比 | 銷量前3的產品銷量佔比趨勢 | 市場集中度 |
+| 10 | Top3品牌銷量佔比 | 銷量前3的品牌銷量佔比趨勢 | 市場集中度 |
+| 11 | Top3賣家銷量佔比 | 銷量前3的賣家銷量佔比趨勢 | 市場集中度 |
 
-### 调用示例
+### 呼叫示例
 
 ```bash
-# 并发调用11个趋势接口
+# 併發呼叫11個趨勢介面
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"category_trend","arguments":{"site":"US","nodeId":"3733551","trendIndex":"类目月销量趋势"}}}' &
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"category_trend","arguments":{"site":"US","nodeId":"3733551","trendIndex":"類目月銷量趨勢"}}}' &
 
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"category_trend","arguments":{"site":"US","nodeId":"3733551","trendIndex":"品牌数量趋势"}}}' &
+  -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"category_trend","arguments":{"site":"US","nodeId":"3733551","trendIndex":"品牌數量趨勢"}}}' &
 
-# ... 继续其他9个接口
+# ... 繼續其他9個介面
 ```
 
 ---
 
-## 三、Top100产品数据
+## 三、Top100產品資料
 
-### 类目报告 - category_report
+### 類目報告 - category_report
 
-**用途**: 获取品类Top100产品列表
+**用途**: 獲取品類Top100產品列表
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
@@ -74,44 +74,44 @@ curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -d '{"jsonrpc":"2.0","id":12,"method":"tools/call","params":{"name":"category_report","arguments":{"site":"US","nodeId":"3733551"}}}'
 ```
 
-**返回数据字段**:
-| 字段 | 说明 |
+**返回資料欄位**:
+| 欄位 | 說明 |
 |------|------|
-| ASIN | 产品ASIN |
-| Title | 产品标题 |
+| ASIN | 產品ASIN |
+| Title | 產品標題 |
 | Brand | 品牌 |
-| Price | 价格 |
-| Rating | 评分 |
-| ReviewCount | 评论数 |
-| MonthlySales | 月销量 |
+| Price | 價格 |
+| Rating | 評分 |
+| ReviewCount | 評論數 |
+| MonthlySales | 月銷量 |
 
 ---
 
-## 四、产品详情批量获取
+## 四、產品詳情批次獲取
 
-### 产品详情 - product_detail
+### 產品詳情 - product_detail
 
-**用途**: 获取单个产品详细信息
+**用途**: 獲取單個產品詳細資訊
 
 ```bash
-# 需要对100个ASIN逐个调用
+# 需要對100個ASIN逐個呼叫
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":100,"method":"tools/call","params":{"name":"product_detail","arguments":{"site":"US","asin":"B07PWTJ4H1"}}}'
 ```
 
-**批量获取策略**:
-- 并发调用，每次最多10个
+**批次獲取策略**:
+- 併發呼叫，每次最多10個
 - 使用不同的id (100-199)
-- 失败的ASIN跳过，记录日志
+- 失敗的ASIN跳過，記錄日誌
 
 ---
 
-## 五、类目关键词
+## 五、類目關鍵詞
 
-### 类目核心关键词 - category_keywords
+### 類目核心關鍵詞 - category_keywords
 
-**用途**: 获取类目热搜关键词
+**用途**: 獲取類目熱搜關鍵詞
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
@@ -119,34 +119,34 @@ curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -d '{"jsonrpc":"2.0","id":200,"method":"tools/call","params":{"name":"category_keywords","arguments":{"site":"US","nodeId":"3733551","page":1}}}'
 ```
 
-**返回数据字段**:
-| 字段 | 说明 |
+**返回資料欄位**:
+| 欄位 | 說明 |
 |------|------|
-| keyword | 关键词 |
-| searchVolume | 月搜索量 |
-| recommendBid | 推荐竞价 |
+| keyword | 關鍵詞 |
+| searchVolume | 月搜尋量 |
+| recommendBid | 推薦競價 |
 
 ---
 
-## 六、供应链分析
+## 六、供應鏈分析
 
-### 1688产品搜索 - products_1688
+### 1688產品搜尋 - products_1688
 
-**用途**: 获取1688采购价格
+**用途**: 獲取1688採購價格
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":300,"method":"tools/call","params":{"name":"products_1688","arguments":{"searchName":"沙发","page":1}}}'
+  -d '{"jsonrpc":"2.0","id":300,"method":"tools/call","params":{"name":"products_1688","arguments":{"searchName":"沙發","page":1}}}'
 ```
 
 ---
 
-## 七、TikTok跨平台分析
+## 七、TikTok跨平臺分析
 
-### TikTok产品搜索 - tiktok_product_search
+### TikTok產品搜尋 - tiktok_product_search
 
-**用途**: 搜索TikTok相似产品
+**用途**: 搜尋TikTok相似產品
 
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
@@ -156,24 +156,24 @@ curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
 
 ---
 
-## 数据收集检查清单
+## 資料收集檢查清單
 
-- [ ] Step 1.1: 类目搜索，获取nodeid
-- [ ] Step 1.2: 11个市场趋势指标 (并发)
-- [ ] Step 1.3: Top100产品列表
-- [ ] Step 1.4: 100个产品详情 (并发×10)
-- [ ] Step 1.5: 类目关键词 (可选)
-- [ ] Step 1.6: 1688采购价格 (可选)
-- [ ] Step 1.7: TikTok产品搜索 (可选)
+- [ ] Step 1.1: 類目搜尋，獲取nodeid
+- [ ] Step 1.2: 11個市場趨勢指標 (併發)
+- [ ] Step 1.3: Top100產品列表
+- [ ] Step 1.4: 100個產品詳情 (併發×10)
+- [ ] Step 1.5: 類目關鍵詞 (可選)
+- [ ] Step 1.6: 1688採購價格 (可選)
+- [ ] Step 1.7: TikTok產品搜尋 (可選)
 
 ---
 
-## 五维评分计算参考
+## 五維評分計算參考
 
-### 1. HHI指数计算
+### 1. HHI指數計算
 
 ```
-HHI = Σ(各品牌市场份额百分比)²
+HHI = Σ(各品牌市場份額百分比)²
 
 示例:
 品牌A: 12.56% → 12.56² = 157.75
@@ -183,10 +183,10 @@ HHI = Σ(各品牌市场份额百分比)²
 HHI = 157.75 + 82.99 + 12.60 + ... = 167.71
 ```
 
-### 2. CR3集中度计算
+### 2. CR3集中度計算
 
 ```
-CR3 = Top3品牌市场份额之和
+CR3 = Top3品牌市場份額之和
 
 示例:
 品牌A: 12.56%
@@ -195,17 +195,17 @@ CR3 = Top3品牌市场份额之和
 CR3 = 12.56 + 9.11 + 3.55 = 25.22%
 ```
 
-### 3. 同比增长率计算
+### 3. 同比增長率計算
 
 ```
-同比增长率 = (本期销量 - 去年同期销量) / 去年同期销量 × 100%
+同比增長率 = (本期銷量 - 去年同期銷量) / 去年同期銷量 × 100%
 
 示例:
 2026年2月: 1233
 2025年2月: 1047
-增长率 = (1233 - 1047) / 1047 × 100% = 17.76%
+增長率 = (1233 - 1047) / 1047 × 100% = 17.76%
 ```
 
 ---
 
-*最后更新: 2026-03-03*
+*最後更新: 2026-03-03*

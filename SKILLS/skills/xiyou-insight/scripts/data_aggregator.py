@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-西柚洞察数据聚合器
+西柚洞察資料聚合器
 
-合并多个ASIN/关键词数据，进行数据清洗和格式化
+合併多個ASIN/關鍵詞資料，進行資料清洗和格式化
 
 使用方式:
     from scripts.data_aggregator import DataAggregator
@@ -18,18 +18,18 @@ from typing import Dict, List, Any, Optional
 
 
 class DataAggregator:
-    """数据聚合器"""
+    """資料聚合器"""
 
     def aggregate(self, raw_data: Dict[str, Any], scenario: str = None) -> Dict[str, Any]:
         """
-        聚合数据
+        聚合資料
 
         Args:
-            raw_data: 原始MCP响应数据
-            scenario: 场景名称
+            raw_data: 原始MCP響應資料
+            scenario: 場景名稱
 
         Returns:
-            dict: 聚合后的结构化数据
+            dict: 聚合後的結構化資料
         """
         result = {
             'metadata': {
@@ -68,7 +68,7 @@ class DataAggregator:
         return result
 
     def _process_asin_info(self, asin_info: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """处理ASIN基础信息"""
+        """處理ASIN基礎資訊"""
         result = {}
         for item in asin_info:
             asin = item.get('asin', 'unknown')
@@ -84,7 +84,7 @@ class DataAggregator:
         return result
 
     def _process_keywords(self, keywords_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
-        """处理关键词数据"""
+        """處理關鍵詞資料"""
         result = {}
         for asin, keywords in keywords_data.items():
             processed = []
@@ -104,7 +104,7 @@ class DataAggregator:
         return result
 
     def _process_traffic(self, traffic_data: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """处理流量数据"""
+        """處理流量資料"""
         result = {}
         for item in traffic_data:
             asin = item.get('asin', 'unknown')
@@ -120,7 +120,7 @@ class DataAggregator:
         return result
 
     def _process_traffic_trends(self, trends_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
-        """处理流量趋势数据"""
+        """處理流量趨勢資料"""
         result = {}
         for asin, trends in trends_data.items():
             processed = []
@@ -135,7 +135,7 @@ class DataAggregator:
         return result
 
     def _process_ad_trends(self, ad_data: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
-        """处理广告趋势数据"""
+        """處理廣告趨勢資料"""
         result = {}
         for asin, data in ad_data.items():
             result[asin] = {
@@ -145,7 +145,7 @@ class DataAggregator:
         return result
 
     def _process_variations(self, var_data: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
-        """处理变体数据"""
+        """處理變體資料"""
         result = {}
         for asin, data in var_data.items():
             result[asin] = {
@@ -156,7 +156,7 @@ class DataAggregator:
         return result
 
     def _process_keyword_info(self, keyword_info: Any) -> Dict[str, Any]:
-        """处理关键词信息"""
+        """處理關鍵詞資訊"""
         result = {}
         if isinstance(keyword_info, dict):
             for keyword, item in keyword_info.items():
@@ -184,7 +184,7 @@ class DataAggregator:
         return result
 
     def _process_keyword_competition(self, competition_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
-        """处理关键词竞争数据"""
+        """處理關鍵詞競爭資料"""
         result = {}
         for keyword, asins in competition_data.items():
             processed = []
@@ -208,9 +208,9 @@ class DataAggregator:
         找出流量缺口
 
         Args:
-            own_keywords: 自身关键词列表
-            competitor_keywords: 竞品关键词数据
-            keyword_info: 关键词信息
+            own_keywords: 自身關鍵詞列表
+            competitor_keywords: 競品關鍵詞資料
+            keyword_info: 關鍵詞資訊
 
         Returns:
             list: 流量缺口列表
@@ -238,7 +238,7 @@ class DataAggregator:
         return gaps
 
     def _calculate_priority(self, keyword_info: Dict[str, Any]) -> str:
-        """计算优先级"""
+        """計算優先順序"""
         search_volume = keyword_info.get('weekly_search_volume', 0)
         difficulty = keyword_info.get('competitive_difficulty', 0)
 
@@ -251,48 +251,48 @@ class DataAggregator:
 
     def categorize_keywords(self, keywords: List[Dict[str, Any]], relevance_threshold: float = 0.7) -> Dict[str, List[Dict[str, Any]]]:
         """
-        按相关性分类关键词
+        按相關性分類關鍵詞
 
         Args:
-            keywords: 关键词列表
-            relevance_threshold: 相关性阈值
+            keywords: 關鍵詞列表
+            relevance_threshold: 相關性閾值
 
         Returns:
-            dict: 分类后的关键词
+            dict: 分類後的關鍵詞
         """
         categorized = {
-            '强相关': [],
-            '高相关': [],
-            '中相关': [],
-            '低相关': [],
-            '极低相关': []
+            '強相關': [],
+            '高相關': [],
+            '中相關': [],
+            '低相關': [],
+            '極低相關': []
         }
 
         for kw in keywords:
             relevance = kw.get('relevance', 0.5)
             if relevance >= 0.9:
-                categorized['强相关'].append(kw)
+                categorized['強相關'].append(kw)
             elif relevance >= 0.7:
-                categorized['高相关'].append(kw)
+                categorized['高相關'].append(kw)
             elif relevance >= 0.5:
-                categorized['中相关'].append(kw)
+                categorized['中相關'].append(kw)
             elif relevance >= 0.3:
-                categorized['低相关'].append(kw)
+                categorized['低相關'].append(kw)
             else:
-                categorized['极低相关'].append(kw)
+                categorized['極低相關'].append(kw)
 
         return categorized
 
     def save_raw_data(self, raw_data: Dict[str, Any], output_dir: str) -> str:
         """
-        保存原始数据
+        儲存原始資料
 
         Args:
-            raw_data: 原始数据
-            output_dir: 输出目录
+            raw_data: 原始資料
+            output_dir: 輸出目錄
 
         Returns:
-            str: 输出目录路径
+            str: 輸出目錄路徑
         """
         raw_dir = os.path.join(output_dir, 'raw')
         os.makedirs(raw_dir, exist_ok=True)
@@ -329,4 +329,4 @@ if __name__ == "__main__":
 
     aggregator.save_raw_data(raw_data, output_dir)
 
-    print(f"✅ 数据聚合完成: {output_file}")
+    print(f"✅ 資料聚合完成: {output_file}")

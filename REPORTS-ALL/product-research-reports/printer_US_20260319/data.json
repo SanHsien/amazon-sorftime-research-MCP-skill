@@ -77,12 +77,12 @@
   ],
   "product_types": [
     {
-      "type": "All-in-One 基础款",
+      "type": "All-in-One 基礎款",
       "count": 55,
       "share": 0.55,
       "avg_price": 150,
       "sales": 70000,
-      "description": "打印/扫描/复印三合一"
+      "description": "列印/掃描/影印三合一"
     },
     {
       "type": "All-in-One + Fax",
@@ -90,77 +90,77 @@
       "share": 0.15,
       "avg_price": 220,
       "sales": 18000,
-      "description": "四合一办公功能"
+      "description": "四合一辦公功能"
     },
     {
-      "type": "墨仓式 EcoTank/Supertank",
+      "type": "墨倉式 EcoTank/Supertank",
       "count": 45,
       "share": 0.45,
       "avg_price": 200,
       "sales": 65000,
-      "description": "大容量墨仓系统"
+      "description": "大容量墨倉系統"
     },
     {
-      "type": "照片专用 Photo",
+      "type": "照片專用 Photo",
       "count": 8,
       "share": 0.08,
       "avg_price": 350,
       "sales": 4500,
-      "description": "照片打印优化"
+      "description": "照片列印最佳化"
     },
     {
-      "type": "便携式 Portable",
+      "type": "行動式 Portable",
       "count": 3,
       "share": 0.03,
       "avg_price": 180,
       "sales": 3200,
-      "description": "便携设计"
+      "description": "便攜設計"
     },
     {
-      "type": "宽幅 Wide-Format",
+      "type": "寬幅 Wide-Format",
       "count": 5,
       "share": 0.05,
       "avg_price": 500,
       "sales": 2500,
-      "description": "13x19英寸打印"
+      "description": "13x19英寸列印"
     }
   ],
   "dimensions_analysis": [
     {
-      "dimension": "墨水系统",
+      "dimension": "墨水系統",
       "options": [
         "EcoTank/Supertank",
         "MegaTank/Smart Tank",
         "INKvestment",
-        "传统墨盒"
+        "傳統墨盒"
       ],
-      "insight": "墨仓式占主流(75%)，传统墨盒式衰退"
+      "insight": "墨倉式佔主流(75%)，傳統墨盒式衰退"
     },
     {
-      "dimension": "功能组合",
+      "dimension": "功能組合",
       "options": [
         "All-in-One",
         "+Fax",
         "Single Function"
       ],
-      "insight": "三合一占78%，四合一办公需求15%"
+      "insight": "三合一佔78%，四合一辦公需求15%"
     },
     {
-      "dimension": "双面打印",
+      "dimension": "雙面列印",
       "options": [
         "Auto Duplex",
-        "Manual/不支持"
+        "Manual/不支援"
       ],
-      "insight": "自动双面占42%，但$100以下极少"
+      "insight": "自動雙面佔42%，但$100以下極少"
     },
     {
-      "dimension": "目标场景",
+      "dimension": "目標場景",
       "options": [
         "Home",
         "Home Office",
         "Professional/Photo"
       ],
-      "insight": "家用55%，家用办公30%，专业/照片15%"
+      "insight": "家用55%，家用辦公30%，專業/照片15%"
     }
   ],
   "cross_analysis": {
@@ -217,21 +217,21 @@
     "gaps": [
       {
         "combination": "$60-100 + Auto Duplex",
-        "status": "薄供给",
+        "status": "薄供給",
         "count": 3,
-        "opportunity": "品牌刻意避开低价位高功能组合"
+        "opportunity": "品牌刻意避開低價位高功能組合"
       },
       {
         "combination": "Portable + Ink Tank",
         "status": "空白",
         "count": 0,
-        "opportunity": "技术冲突，墨仓式体积大"
+        "opportunity": "技術衝突，墨倉式體積大"
       },
       {
         "combination": "Sub-$80 + Photo",
         "status": "空白",
         "count": 0,
-        "opportunity": "成本限制，照片打印被高端垄断"
+        "opportunity": "成本限制，照片列印被高階壟斷"
       }
     ]
   },
@@ -282,7 +282,7 @@
       "monthly_sales": 25628,
       "reviews": 19509,
       "rating": 4.1,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2021-08-11"
     },
     {
@@ -293,7 +293,7 @@
       "monthly_sales": 15899,
       "reviews": 8903,
       "rating": 4.1,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-03-30"
     },
     {
@@ -304,7 +304,7 @@
       "monthly_sales": 10092,
       "reviews": 15356,
       "rating": 3.9,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-04-16"
     },
     {
@@ -315,7 +315,7 @@
       "monthly_sales": 6151,
       "reviews": 4467,
       "rating": 4.1,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-02-01"
     },
     {
@@ -326,7 +326,7 @@
       "monthly_sales": 5488,
       "reviews": 4543,
       "rating": 3.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-01-13"
     },
     {
@@ -337,7 +337,7 @@
       "monthly_sales": 4690,
       "reviews": 5968,
       "rating": 4.0,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-03-30"
     },
     {
@@ -348,7 +348,7 @@
       "monthly_sales": 3861,
       "reviews": 2241,
       "rating": 4.1,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2021-01-04"
     },
     {
@@ -359,7 +359,7 @@
       "monthly_sales": 3798,
       "reviews": 4466,
       "rating": 3.8,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-09-08"
     },
     {
@@ -370,7 +370,7 @@
       "monthly_sales": 3671,
       "reviews": 5380,
       "rating": 4.0,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2021-12-31"
     },
     {
@@ -381,15 +381,15 @@
       "monthly_sales": 3659,
       "reviews": 2158,
       "rating": 4.0,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-12-23"
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "连接稳定性",
-        "pain_point": "Wi-Fi频繁断连、无法识别设备、连接耗时",
+        "dimension": "連線穩定性",
+        "pain_point": "Wi-Fi頻繁斷連、無法識別裝置、連線耗時",
         "frequency": 87,
         "percentage": "35%",
         "affected_brands": [
@@ -397,167 +397,167 @@
           "Canon",
           "Brother"
         ],
-        "brand_opportunity": "改善天线设计、简化配对流程",
-        "product_solution": "5G WiFi + 蓝牙一键连接 + 离线缓存"
+        "brand_opportunity": "改善天線設計、簡化配對流程",
+        "product_solution": "5G WiFi + 藍芽一鍵連線 + 離線快取"
       },
       {
-        "dimension": "进纸可靠性",
-        "pain_point": "频繁卡纸、纸张偏斜、多张进纸",
+        "dimension": "進紙可靠性",
+        "pain_point": "頻繁卡紙、紙張偏斜、多張進紙",
         "frequency": 64,
         "percentage": "26%",
         "affected_brands": [
           "Epson",
           "Canon"
         ],
-        "brand_opportunity": "改进进纸辊材质、增加传感器",
-        "product_solution": "防卡纸传感器 + 改进进纸通道"
+        "brand_opportunity": "改進進紙輥材質、增加感測器",
+        "product_solution": "防卡紙感測器 + 改進進紙通道"
       },
       {
-        "dimension": "打印速度",
-        "pain_point": "速度远低于标称值、单页需2+分钟",
+        "dimension": "列印速度",
+        "pain_point": "速度遠低於標稱值、單頁需2+分鐘",
         "frequency": 42,
         "percentage": "17%",
         "affected_brands": [
           "Epson",
           "Canon"
         ],
-        "brand_opportunity": "优化打印头控制逻辑",
-        "product_solution": "高速打印模式 + 优化数据传输"
+        "brand_opportunity": "最佳化列印頭控制邏輯",
+        "product_solution": "高速列印模式 + 最佳化資料傳輸"
       },
       {
-        "dimension": "墨水系统",
-        "pain_point": "墨水耗尽过快、单色缺墨无法打印",
+        "dimension": "墨水系統",
+        "pain_point": "墨水耗盡過快、單色缺墨無法列印",
         "frequency": 31,
         "percentage": "13%",
         "affected_brands": [
           "Brother",
           "Canon"
         ],
-        "brand_opportunity": "支持单色打印模式",
-        "product_solution": "允许单色打印 + 大容量墨仓"
+        "brand_opportunity": "支援單色列印模式",
+        "product_solution": "允許單色列印 + 大容量墨倉"
       },
       {
-        "dimension": "软件体验",
-        "pain_point": "设置复杂、强制更新、弹窗广告",
+        "dimension": "軟體體驗",
+        "pain_point": "設定複雜、強制更新、彈窗廣告",
         "frequency": 15,
         "percentage": "6%",
         "affected_brands": [
           "Brother",
           "HP"
         ],
-        "brand_opportunity": "简化软件、去除营销内容",
-        "product_solution": "零配置安装 + 无广告固件"
+        "brand_opportunity": "簡化軟體、去除營銷內容",
+        "product_solution": "零配置安裝 + 無廣告韌體"
       },
       {
-        "dimension": "硬件质量",
-        "pain_point": "廉价塑料、易损件故障",
+        "dimension": "硬體質量",
+        "pain_point": "廉價塑膠、易損件故障",
         "frequency": 7,
         "percentage": "3%",
         "affected_brands": [
           "各品牌"
         ],
-        "brand_opportunity": "加强结构强度",
-        "product_solution": "金属框架 + 加强易损件"
+        "brand_opportunity": "加強結構強度",
+        "product_solution": "金屬框架 + 加強易損件"
       }
     ],
-    "summary": "主要痛点集中在连接稳定性(35%)和进纸可靠性(26%)，合计占61%。Epson在连接问题最多，Canon在进纸问题突出。"
+    "summary": "主要痛點集中在連線穩定性(35%)和進紙可靠性(26%)，合計佔61%。Epson在連線問題最多，Canon在進紙問題突出。"
   },
   "barriers": [
     {
-      "type": "Review壁垒",
-      "level": "极高",
-      "data_anchor": "Top10均值8000+评论",
+      "type": "Review壁壘",
+      "level": "極高",
+      "data_anchor": "Top10均值8000+評論",
       "estimated_cost": "$50,000+",
       "mitigation": "Vine + PPC，需6-12月"
     },
     {
-      "type": "品牌壁垒",
-      "level": "极高",
-      "data_anchor": "85%市场被4大品牌垄断",
+      "type": "品牌壁壘",
+      "level": "極高",
+      "data_anchor": "85%市場被4大品牌壟斷",
       "estimated_cost": "N/A",
-      "mitigation": "几乎无法突破"
+      "mitigation": "幾乎無法突破"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "高",
-      "data_anchor": "首批备货+广告+退货准备",
-      "estimated_cost": "¥30-50万",
+      "data_anchor": "首批備貨+廣告+退貨準備",
+      "estimated_cost": "¥30-50萬",
       "mitigation": "控制首批MOQ"
     },
     {
-      "type": "技术壁垒",
+      "type": "技術壁壘",
       "level": "中高",
-      "data_anchor": "涉及精密机械和软件",
+      "data_anchor": "涉及精密機械和軟體",
       "estimated_cost": "中等",
-      "mitigation": "ODM/OEM贴牌"
+      "mitigation": "ODM/OEM貼牌"
     },
     {
-      "type": "认证壁垒",
+      "type": "認證壁壘",
       "level": "中",
-      "data_anchor": "FCC/UL/能源认证等",
+      "data_anchor": "FCC/UL/能源認證等",
       "estimated_cost": "$10,000+",
-      "mitigation": "OEM工厂协助"
+      "mitigation": "OEM工廠協助"
     },
     {
-      "type": "售后壁垒",
+      "type": "售後壁壘",
       "level": "高",
-      "data_anchor": "打印机退货率15-25%",
-      "estimated_cost": "高利润空间",
-      "mitigation": "延保服务"
+      "data_anchor": "印表機退貨率15-25%",
+      "estimated_cost": "高利潤空間",
+      "mitigation": "延保服務"
     }
   ],
   "decision": {
     "overall_score": 4.35,
-    "verdict": "不建议进入",
+    "verdict": "不建議進入",
     "scores": [
       {
-        "dimension": "市场规模",
+        "dimension": "市場規模",
         "weight": 0.2,
         "score": 7.5,
         "weighted_score": 1.5,
-        "reasoning": "年销2600万美金，稳定刚需"
+        "reasoning": "年銷2600萬美金，穩定剛需"
       },
       {
-        "dimension": "竞争格局",
+        "dimension": "競爭格局",
         "weight": 0.25,
         "score": 2.0,
         "weighted_score": 0.5,
-        "reasoning": "85% Top3集中度，极高寡头垄断"
+        "reasoning": "85% Top3集中度，極高寡頭壟斷"
       },
       {
-        "dimension": "增长潜力",
+        "dimension": "增長潛力",
         "weight": 0.15,
         "score": 5.0,
         "weighted_score": 0.75,
-        "reasoning": "趋势平缓，无明显增长"
+        "reasoning": "趨勢平緩，無明顯增長"
       },
       {
-        "dimension": "进入壁垒",
+        "dimension": "進入壁壘",
         "weight": 0.2,
         "score": 2.0,
         "weighted_score": 0.4,
-        "reasoning": "品牌、Review、资金壁垒极高"
+        "reasoning": "品牌、Review、資金壁壘極高"
       },
       {
-        "dimension": "利润空间",
+        "dimension": "利潤空間",
         "weight": 0.2,
         "score": 6.0,
         "weighted_score": 1.2,
-        "reasoning": "硬件毛利低，依赖耗材"
+        "reasoning": "硬體毛利低，依賴耗材"
       }
     ],
-    "reasoning": "极高的品牌集中度(85%)，新品牌几乎无破局可能。Review壁垒极高(Top10均值8000+)，需长期投入。传统IT品类，用户对大品牌有强认知惯性。硬件毛利低，盈利依赖耗材(不适合新卖家)。",
+    "reasoning": "極高的品牌集中度(85%)，新品牌幾乎無破局可能。Review壁壘極高(Top10均值8000+)，需長期投入。傳統IT品類，使用者對大品牌有強認知慣性。硬體毛利低，盈利依賴耗材(不適合新賣家)。",
     "entry_conditions": [],
     "risk_factors": [
-      "品牌垄断",
-      "Review壁垒",
-      "退货率高",
-      "硬件毛利低"
+      "品牌壟斷",
+      "Review壁壘",
+      "退貨率高",
+      "硬體毛利低"
     ],
     "opportunity_segments": [
-      "标签打印机(避开主流)",
-      "照片专用打印机(高端)",
-      "便携式A4(差旅场景)"
+      "標籤印表機(避開主流)",
+      "照片專用印表機(高階)",
+      "行動式A4(差旅場景)"
     ]
   },
   "trend_data": [

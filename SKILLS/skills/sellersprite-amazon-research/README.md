@@ -4,7 +4,7 @@
 
 ## Overview
 
-This skill integrates **SellerSprite (卖家精灵)** — a leading Amazon analytics platform — with AI assistants (Claude Code) via the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). It enables natural-language-driven, end-to-end Amazon product research workflows: from category scanning and keyword mining to competitive analysis, pricing strategy, and listing optimization.
+This skill integrates **SellerSprite (賣家精靈)** — a leading Amazon analytics platform — with AI assistants (Claude Code) via the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). It enables natural-language-driven, end-to-end Amazon product research workflows: from category scanning and keyword mining to competitive analysis, pricing strategy, and listing optimization.
 
 ## Features
 

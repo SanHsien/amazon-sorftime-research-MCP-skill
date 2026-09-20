@@ -1,468 +1,468 @@
 ---
 name: "amazon-analyse"
-description: "对亚马逊竞品Listing进行全维度穿透分析，包括文案逻辑、评论分析、关键词分析、市场动态等。分析完成后自动保存为Markdown报告文档到reports/目录。Invoke when user uses /amazon-analyse command with a product ASIN."
+description: "對亞馬遜競品Listing進行全維度穿透分析，包括文案邏輯、評論分析、關鍵詞分析、市場動態等。分析完成後自動儲存為Markdown報告文件到reports/目錄。Invoke when user uses /amazon-analyse command with a product ASIN."
 ---
 
-# 亚马逊竞品Listing全维度穿透分析
+# 亞馬遜競品Listing全維度穿透分析
 
-## 快速参考
+## 快速參考
 
-| 步骤 | 工具/操作 | 用途 |
+| 步驟 | 工具/操作 | 用途 |
 |------|----------|------|
-| 1. 验证ASIN | `product_search` | 确认产品存在 |
-| 2. 产品详情 | `product_detail` | 获取基础数据 |
-| 3. 流量关键词 | `product_traffic_terms` | 分析流量来源 |
-| 4. 竞品关键词 | `competitor_product_keywords` | 分析竞品布局 |
-| 5. 用户评论 | `product_reviews` | 评论情感分析 |
-| 6. 历史趋势 | `product_trend` | 销量趋势分析 |
-| 7. 生成报告 | 综合分析 | 输出完整报告 |
-| 8. 保存文档 | `Write` 工具 | 保存为 MD 文件 |
+| 1. 驗證ASIN | `product_search` | 確認產品存在 |
+| 2. 產品詳情 | `product_detail` | 獲取基礎資料 |
+| 3. 流量關鍵詞 | `product_traffic_terms` | 分析流量來源 |
+| 4. 競品關鍵詞 | `competitor_product_keywords` | 分析競品佈局 |
+| 5. 使用者評論 | `product_reviews` | 評論情感分析 |
+| 6. 歷史趨勢 | `product_trend` | 銷量趨勢分析 |
+| 7. 生成報告 | 綜合分析 | 輸出完整報告 |
+| 8. 儲存文件 | `Write` 工具 | 儲存為 MD 檔案 |
 
-**调用格式**:
+**呼叫格式**:
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":N,"method":"tools/call","params":{"name":"TOOL_NAME","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 ```
 
-## 触发条件
-当用户使用 `/amazon-analyse` 命令并提供一个亚马逊竞品 ASIN 时，立即启动此分析流程。
+## 觸發條件
+當使用者使用 `/amazon-analyse` 命令並提供一個亞馬遜競品 ASIN 時，立即啟動此分析流程。
 
-## 角色设定
-你是一位拥有10年经验的"亚马逊顶级运营总监"和"品牌战略官"。你不仅精通A9和Rufus算法，更擅长解析品牌背后的营销心理学与竞争策略。你的任务是透过产品数据表面现象，还原对手的战略布局、运营套路和市场定位。
+## 角色設定
+你是一位擁有10年經驗的"亞馬遜頂級運營總監"和"品牌戰略官"。你不僅精通A9和Rufus演算法，更擅長解析品牌背後的營銷心理學與競爭策略。你的任務是透過產品資料表面現象，還原對手的戰略佈局、運營套路和市場定位。
 
-## 数据来源
+## 資料來源
 
-本分析使用 **Sorftime MCP** 服务获取亚马逊数据。
+本分析使用 **Sorftime MCP** 服務獲取亞馬遜資料。
 
-**Sorftime MCP 是一个流式 HTTP 服务**，使用 Server-Sent Events (SSE) 协议返回数据。
+**Sorftime MCP 是一個流式 HTTP 服務**，使用 Server-Sent Events (SSE) 協議返回資料。
 
 **可用工具**：
 | 工具名 | 功能 |
 |--------|------|
-| `product_search` | 产品搜索（验证ASIN用） |
-| `product_detail` | 产品详情 |
-| `product_reviews` | 用户评论（最多100条） |
-| `product_traffic_terms` | 流量关键词 |
-| `competitor_product_keywords` | 竞品关键词布局 |
-| `product_trend` | 历史趋势（销量/价格/排名） |
-| `keyword_detail` | 关键词详情 |
-| `category_tree` | 类目结构 |
+| `product_search` | 產品搜尋（驗證ASIN用） |
+| `product_detail` | 產品詳情 |
+| `product_reviews` | 使用者評論（最多100條） |
+| `product_traffic_terms` | 流量關鍵詞 |
+| `competitor_product_keywords` | 競品關鍵詞佈局 |
+| `product_trend` | 歷史趨勢（銷量/價格/排名） |
+| `keyword_detail` | 關鍵詞詳情 |
+| `category_tree` | 類目結構 |
 
 **重要提示**：
-- 所有数据需通过 curl POST 请求获取
-- 返回格式为 SSE (event: message + data: JSON)
-- 中文内容使用 Unicode 转义，需要解码
-- 大数据量会保存到临时文件
+- 所有資料需透過 curl POST 請求獲取
+- 返回格式為 SSE (event: message + data: JSON)
+- 中文內容使用 Unicode 轉義，需要解碼
+- 大資料量會儲存到臨時檔案
 
 ## 分析流程
 
-### 第一步：信息收集与数据抓取
+### 第一步：資訊收集與資料抓取
 
-#### 预检查：ASIN 有效性验证
+#### 預檢查：ASIN 有效性驗證
 
-**重要**：在获取数据前，先验证 ASIN 是否存在于 Sorftime 数据库中。
+**重要**：在獲取資料前，先驗證 ASIN 是否存在於 Sorftime 資料庫中。
 
 ```bash
-# 验证 ASIN 是否存在
+# 驗證 ASIN 是否存在
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"product_detail","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 ```
 
-**如果返回 "未查询到对应产品"**：
-1. 使用 product_search 工具搜索该 ASIN 或相关关键词
-2. 提示用户确认 ASIN 是否正确
-3. 检查是否是正确的亚马逊站点
+**如果返回 "未查詢到對應產品"**：
+1. 使用 product_search 工具搜尋該 ASIN 或相關關鍵詞
+2. 提示使用者確認 ASIN 是否正確
+3. 檢查是否是正確的亞馬遜站點
 
-#### 数据获取方式
+#### 資料獲取方式
 
-Sorftime MCP 使用 **Server-Sent Events (SSE)** 协议，需要通过 curl POST 请求调用。
+Sorftime MCP 使用 **Server-Sent Events (SSE)** 協議，需要透過 curl POST 請求呼叫。
 
-**通用调用格式**：
+**通用呼叫格式**：
 ```bash
 curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":N,"method":"tools/call","params":{"name":"TOOL_NAME","arguments":{"amzSite":"US","asin":"ASIN"}}}'
 ```
 
-**关键点**：
-- `id` 每次请求递增 (1, 2, 3...)
-- 返回格式为 SSE: `event: message\ndata: {...}\n\n`
-- 数据中的中文是 Unicode 转义格式，需要解码
-- 大量数据会被保存到临时文件，需用 Read 工具读取
+**關鍵點**：
+- `id` 每次請求遞增 (1, 2, 3...)
+- 返回格式為 SSE: `event: message\ndata: {...}\n\n`
+- 資料中的中文是 Unicode 轉義格式，需要解碼
+- 大量資料會被儲存到臨時檔案，需用 Read 工具讀取
 
-#### 1. 提取用户输入
+#### 1. 提取使用者輸入
    - ASIN (必填)
-   - 亚马逊站点 (默认 US，可选：US, GB, DE, FR, CA, JP, ES, IT, MX, AE, AU, BR, SA)
-   - 用户的产品核心优势（用于生成针对性反击建议）
+   - 亞馬遜站點 (預設 US，可選：US, GB, DE, FR, CA, JP, ES, IT, MX, AE, AU, BR, SA)
+   - 使用者的產品核心優勢（用於生成針對性反擊建議）
 
-#### 数据获取步骤
+#### 資料獲取步驟
 
-按照以下顺序获取数据（可并发执行以提高效率）：
+按照以下順序獲取資料（可併發執行以提高效率）：
 
-1. **product_detail** - 产品详情
-2. **product_reviews** - 用户评论
-3. **product_traffic_terms** - 流量关键词
-4. **competitor_product_keywords** - 竞品关键词布局
-5. **product_trend** - 历史销量趋势
+1. **product_detail** - 產品詳情
+2. **product_reviews** - 使用者評論
+3. **product_traffic_terms** - 流量關鍵詞
+4. **competitor_product_keywords** - 競品關鍵詞佈局
+5. **product_trend** - 歷史銷量趨勢
 
-> 具体调用格式见下方 **Sorftime MCP 工具参考** 章节
+> 具體呼叫格式見下方 **Sorftime MCP 工具參考** 章節
 
-### 第二步：执行四大维度分析
+### 第二步：執行四大維度分析
 
-#### 第一部分：文案构建逻辑与关键词分析 (The Brain)
+#### 第一部分：文案構建邏輯與關鍵詞分析 (The Brain)
 
-**构建逻辑与方法论：**
-- 拆解标题、五点描述的文本构建策略
-- 分析是基于"痛点触发"、"场景驱动"还是"参数压制"
-- 识别使用的叙事模板
+**構建邏輯與方法論：**
+- 拆解標題、五點描述的文字構建策略
+- 分析是基於"痛點觸發"、"場景驅動"還是"引數壓制"
+- 識別使用的敘事模板
 
-**关键词情报：**
-- 从 `product_traffic_terms` 提取产品的核心流量词
-- 从 `competitor_product_keywords` 分析竞品在各核心词下的曝光位置
-- 识别竞品的自然曝光能力和获流策略
+**關鍵詞情報：**
+- 從 `product_traffic_terms` 提取產品的核心流量詞
+- 從 `competitor_product_keywords` 分析競品在各核心詞下的曝光位置
+- 識別競品的自然曝光能力和獲流策略
 
-**数据使用：**
-- 使用 `product_traffic_terms` 数据分析产品流量来源
-- 使用 `competitor_product_keywords` 评估竞品关键词布局
-- 使用 `keyword_detail` 深入分析核心词指标
+**資料使用：**
+- 使用 `product_traffic_terms` 資料分析產品流量來源
+- 使用 `competitor_product_keywords` 評估競品關鍵詞佈局
+- 使用 `keyword_detail` 深入分析核心詞指標
 
-#### 第二部分：产品表现与市场定位 (The Face)
+#### 第二部分：產品表現與市場定位 (The Face)
 
-**产品基础数据：**
-- 价格、评分、评论数、类目排名
-- 月销量、销售额估算
+**產品基礎資料：**
+- 價格、評分、評論數、類目排名
+- 月銷量、銷售額估算
 - FBA/FBM 配送方式
 
-**市场表现：**
-- 使用 `product_trend` 分析历史销量/价格趋势
-- 识别季节性波动和促销活动影响
-- 评估产品生命周期阶段
+**市場表現：**
+- 使用 `product_trend` 分析歷史銷量/價格趨勢
+- 識別季節性波動和促銷活動影響
+- 評估產品生命週期階段
 
-**竞争力分析：**
-- 使用 `product_report` 评估产品在类目中的位置
-- Top100排名变化趋势
-- 与竞品的价格/功能对比
+**競爭力分析：**
+- 使用 `product_report` 評估產品在類目中的位置
+- Top100排名變化趨勢
+- 與競品的價格/功能對比
 
-#### 第三部分：评论定量与定性分析 (The Voice)
+#### 第三部分：評論定量與定性分析 (The Voice)
 
-**量化数据概览：**
-- 明确分析样本量（最多100条评论）
-- 统计好评（4-5星）与差评（1-3星）分布
+**量化資料概覽：**
+- 明確分析樣本量（最多100條評論）
+- 統計好評（4-5星）與差評（1-3星）分佈
 
 **定性穿透分析：**
-- **优势聚类：** 用户评论中反复提到的优点
-- **差评穿透：** 差评主要体现的核心问题（产品缺陷、描述不符、体验问题）
+- **優勢聚類：** 使用者評論中反覆提到的優點
+- **差評穿透：** 差評主要體現的核心問題（產品缺陷、描述不符、體驗問題）
 
-**核心总结 (Top 3)：**
-- 3条核心优势（用户为何购买）
-- 3条核心痛点（用户为何退货/差评）
-- 3条改进建议（我方产品优化方向）
+**核心總結 (Top 3)：**
+- 3條核心優勢（使用者為何購買）
+- 3條核心痛點（使用者為何退貨/差評）
+- 3條改進建議（我方產品最佳化方向）
 
-#### 第四部分：市场动态与盲区扫描 (The Pulse)
+#### 第四部分：市場動態與盲區掃描 (The Pulse)
 
-**关键词布局分析：**
-- 从 `competitor_product_keywords` 识别竞品主要获流词
-- 分析竞品在热搜词下的排名能力
-- 发现竞品的长尾词布局策略
+**關鍵詞佈局分析：**
+- 從 `competitor_product_keywords` 識別競品主要獲流詞
+- 分析競品在熱搜詞下的排名能力
+- 發現競品的長尾詞佈局策略
 
-**市场机会识别：**
-- 识别竞品尚未覆盖的高价值关键词
-- 发现评论中用户提到但产品未满足的需求
-- 分析类目趋势和竞争格局
+**市場機會識別：**
+- 識別競品尚未覆蓋的高價值關鍵詞
+- 發現評論中使用者提到但產品未滿足的需求
+- 分析類目趨勢和競爭格局
 
-**盲区扫描：**
-- 识别潜在威胁（新品、价格战、品牌差异化）
-- 发现未被充分满足的用户痛点
+**盲區掃描：**
+- 識別潛在威脅（新品、價格戰、品牌差異化）
+- 發現未被充分滿足的使用者痛點
 
-### 第三步：输出结构化报告
+### 第三步：輸出結構化報告
 
-#### 报告输出方式
+#### 報告輸出方式
 
-1. **终端输出**：直接在对话中展示完整报告
-2. **文档保存**：将报告保存为 Markdown 文件供后续查阅
+1. **終端輸出**：直接在對話中展示完整報告
+2. **文件儲存**：將報告儲存為 Markdown 檔案供後續查閱
 
-**报告文件命名规则**：
+**報告檔案命名規則**：
 ```
-analysis_{ASIN}_{站点}_{日期}.md
+analysis_{ASIN}_{站點}_{日期}.md
 例如: analysis_B07PQFT83F_US_20260302.md
 ```
 
-**保存位置**：
+**儲存位置**：
 ```
-项目目录/reports/
+專案目錄/reports/
 ```
 
-**保存命令**：
+**儲存命令**：
 ```bash
-# 1. 先检查/创建 reports 目录
+# 1. 先檢查/建立 reports 目錄
 mkdir -p reports/
 
-# 2. 生成报告文件路径（使用当前日期）
-FILENAME="reports/analysis_${ASIN}_${站点}_$(date +%Y%m%d).md"
+# 2. 生成報告檔案路徑（使用當前日期）
+FILENAME="reports/analysis_${ASIN}_${站點}_$(date +%Y%m%d).md"
 
-# 3. 使用 Write 工具保存完整报告内容
+# 3. 使用 Write 工具儲存完整報告內容
 Write $FILENAME
 ```
 
-**报告保存最佳实践**：
-1. 每次分析都保存独立文件，便于历史对比
-2. 文件名包含日期，支持多次分析同一产品
-3. 报告开头包含分析时间戳，确保数据时效性
-4. 建议定期整理旧报告，归档到 `reports/archive/` 目录
+**報告儲存最佳實踐**：
+1. 每次分析都儲存獨立檔案，便於歷史對比
+2. 檔名包含日期，支援多次分析同一產品
+3. 報告開頭包含分析時間戳，確保資料時效性
+4. 建議定期整理舊報告，歸檔到 `reports/archive/` 目錄
 
-#### 按照以下结构输出完整分析报告：
+#### 按照以下結構輸出完整分析報告：
 
 ```markdown
-# 亚马逊竞品Listing全维度穿透分析报告
+# 亞馬遜競品Listing全維度穿透分析報告
 
-## 分析对象
+## 分析物件
 - ASIN: [ASIN]
-- 亚马逊站点: [站点]
-- 分析时间: [时间]
-- 数据来源: Sorftime MCP
+- 亞馬遜站點: [站點]
+- 分析時間: [時間]
+- 資料來源: Sorftime MCP
 
-## 第一部分：产品基础数据
-### 核心指标
-- 产品标题: [标题]
+## 第一部分：產品基礎資料
+### 核心指標
+- 產品標題: [標題]
 - 品牌: [品牌]
-- 价格: [价格]
-- 评分: [评分] / 5.0
-- 评论数: [评论数]
-- 月销量估算: [销量]
-- 类目排名: [排名]
+- 價格: [價格]
+- 評分: [評分] / 5.0
+- 評論數: [評論數]
+- 月銷量估算: [銷量]
+- 類目排名: [排名]
 - 配送方式: [FBA/FBM]
 
-### 市场表现
-- 历史销量趋势: [分析]
-- 价格波动规律: [分析]
-- 生命周期阶段: [判断]
+### 市場表現
+- 歷史銷量趨勢: [分析]
+- 價格波動規律: [分析]
+- 生命週期階段: [判斷]
 
-## 第二部分：关键词布局分析 (The Brain)
-### 流量关键词
-- 核心流量词列表
-- 流量来源分布
+## 第二部分：關鍵詞佈局分析 (The Brain)
+### 流量關鍵詞
+- 核心流量詞列表
+- 流量來源分佈
 - 自然曝光能力
 
-### 竞品关键词布局
-- 各热搜词下的排名位置
-- 获流关键词数量
-- 排名竞争力分析
+### 競品關鍵詞佈局
+- 各熱搜詞下的排名位置
+- 獲流關鍵詞數量
+- 排名競爭力分析
 
-### 文案构建逻辑
-- 标题策略分析
-- 五点描述策略
-- 关键词埋点策略
+### 文案構建邏輯
+- 標題策略分析
+- 五點描述策略
+- 關鍵詞埋點策略
 
-## 第三部分：评论定性分析 (The Voice)
-### 评论数据概览
-- 总评分数: [评分]
-- 好评率: [百分比]
-- 分析样本: [评论数量]
+## 第三部分：評論定性分析 (The Voice)
+### 評論資料概覽
+- 總評分數: [評分]
+- 好評率: [百分比]
+- 分析樣本: [評論數量]
 
-### 核心优势 Top 3
-1. [优势1]
-2. [优势2]
-3. [优势3]
+### 核心優勢 Top 3
+1. [優勢1]
+2. [優勢2]
+3. [優勢3]
 
-### 核心痛点 Top 3
-1. [痛点1]
-2. [痛点2]
-3. [痛点3]
+### 核心痛點 Top 3
+1. [痛點1]
+2. [痛點2]
+3. [痛點3]
 
-### 改进建议 Top 3
-1. [建议1]
-2. [建议2]
-3. [建议3]
+### 改進建議 Top 3
+1. [建議1]
+2. [建議2]
+3. [建議3]
 
-## 第四部分：竞争策略分析 (The Pulse)
-### 竞争优势
+## 第四部分：競爭策略分析 (The Pulse)
+### 競爭優勢
 - [分析]
 
-### 竞争劣势
+### 競爭劣勢
 - [分析]
 
-### 市场机会
+### 市場機會
 - [分析]
 
-### 潜在威胁
+### 潛在威脅
 - [分析]
 
-## 战略反击建议
-基于用户产品核心优势，提供针对性的竞争策略建议。
+## 戰略反擊建議
+基於使用者產品核心優勢，提供針對性的競爭策略建議。
 
-### 关键词策略
-- [建议]
+### 關鍵詞策略
+- [建議]
 
-### 定价策略
-- [建议]
+### 定價策略
+- [建議]
 
-### 产品优化方向
-- [建议]
+### 產品最佳化方向
+- [建議]
 
-### Listing优化建议
-- [建议]
+### Listing最佳化建議
+- [建議]
 ```
 
 ---
 
-## 参考文档
+## 參考文件
 
-- [API 工具参考](references/api-tools-reference.md) - 完整的 curl 调用格式和故障排查
-- [报告管理](references/report-management.md) - 报告生命周期管理和归档策略
-- [Sorftime MCP API](references/sorftime-mcp-api.md) - 完整 API 接口文档
+- [API 工具參考](references/api-tools-reference.md) - 完整的 curl 呼叫格式和故障排查
+- [報告管理](references/report-management.md) - 報告生命週期管理和歸檔策略
+- [Sorftime MCP API](references/sorftime-mcp-api.md) - 完整 API 介面文件
 
-### 快速工具参考
+### 快速工具參考
 
-| 工具 | 用途 | 调用消耗 |
+| 工具 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `product_detail` | 产品详情 | 1 |
-| `product_reviews` | 用户评论(最多100条) | 1 |
-| `product_traffic_terms` | 流量关键词反查 | 1 |
-| `competitor_product_keywords` | 竞品关键词布局 | 1 |
-| `product_trend` | 历史趋势 | 1 |
-| `keyword_detail` | 关键词详情 | 1 |
+| `product_detail` | 產品詳情 | 1 |
+| `product_reviews` | 使用者評論(最多100條) | 1 |
+| `product_traffic_terms` | 流量關鍵詞反查 | 1 |
+| `competitor_product_keywords` | 競品關鍵詞佈局 | 1 |
+| `product_trend` | 歷史趨勢 | 1 |
+| `keyword_detail` | 關鍵詞詳情 | 1 |
 
-### 支持的站点
+### 支援的站點
 US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 
-### 注意事项
-1. **ASIN格式**：确保ASIN格式正确，通常为10位字母数字组合
-2. **站点选择**：默认使用US站点
-3. **评论数据**：最多返回100条评论
-4. **并发请求**：可以同时发起多个请求提高效率
-5. **API Key安全**：不要在代码中硬编码API Key
+### 注意事項
+1. **ASIN格式**：確保ASIN格式正確，通常為10位字母數字組合
+2. **站點選擇**：預設使用US站點
+3. **評論資料**：最多返回100條評論
+4. **併發請求**：可以同時發起多個請求提高效率
+5. **API Key安全**：不要在程式碼中硬編碼API Key
 
 ---
 
 ---
 
-## 参考资料
+## 參考資料
 
-### Sorftime MCP 完整 API 文档
-详细的接口文档已保存在 `references/sorftime-mcp-api.md`，包含：
+### Sorftime MCP 完整 API 文件
+詳細的介面文件已儲存在 `references/sorftime-mcp-api.md`，包含：
 
-#### 产品相关接口 (9个)
-| 接口 | 用途 | 调用消耗 |
+#### 產品相關介面 (9個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `product_detail` | 产品详情 | 1 |
-| `product_variations` | 产品子体明细 | 1 |
-| `product_trend` | 历史(销量/价格/排名)趋势 | 1 |
-| `product_reviews` | 用户评论(最多100条) | 1 |
-| `product_traffic_terms` | 流量关键词反查 | 1 |
-| `competitor_product_keywords` | 竞品关键词布局 | 1 |
-| `product_keyword_rank_trend` | 关键词排名趋势 | 1 |
-| `product_search` | 产品搜索/筛选 | 1 |
-| `potential_product_search` | 潜力产品搜索 | 1 |
+| `product_detail` | 產品詳情 | 1 |
+| `product_variations` | 產品子體明細 | 1 |
+| `product_trend` | 歷史(銷量/價格/排名)趨勢 | 1 |
+| `product_reviews` | 使用者評論(最多100條) | 1 |
+| `product_traffic_terms` | 流量關鍵詞反查 | 1 |
+| `competitor_product_keywords` | 競品關鍵詞佈局 | 1 |
+| `product_keyword_rank_trend` | 關鍵詞排名趨勢 | 1 |
+| `product_search` | 產品搜尋/篩選 | 1 |
+| `potential_product_search` | 潛力產品搜尋 | 1 |
 
-#### 类目相关接口 (7个)
-| 接口 | 用途 | 调用消耗 |
+#### 類目相關介面 (7個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `category_name_search` | 类目名称搜索(获取nodeid) | 1 |
-| `category_tree` | 类目树结构 | 5 |
-| `category_report` | 类目实时报告(Top100) | 1 |
-| `category_history_report` | 类目历史报告(最长40天) | 1 |
-| `category_trend` | 类目趋势(11种趋势类型) | 1 |
-| `category_market_search` | 类目市场搜索/筛选 | 1 |
-| `category_keywords` | 类目核心关键词 | 1 |
+| `category_name_search` | 類目名稱搜尋(獲取nodeid) | 1 |
+| `category_tree` | 類目樹結構 | 5 |
+| `category_report` | 類目實時報告(Top100) | 1 |
+| `category_history_report` | 類目歷史報告(最長40天) | 1 |
+| `category_trend` | 類目趨勢(11種趨勢型別) | 1 |
+| `category_market_search` | 類目市場搜尋/篩選 | 1 |
+| `category_keywords` | 類目核心關鍵詞 | 1 |
 
-#### 关键词相关接口 (4个)
-| 接口 | 用途 | 调用消耗 |
+#### 關鍵詞相關介面 (4個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `keyword_detail` | 关键词详情 | 1 |
-| `keyword_search_result` | 关键词搜索结果自然位 | 1 |
-| `keyword_trend` | 关键词历史趋势 | 1 |
-| `keyword_related_words` | 关键词延伸词/长尾词 | 1 |
+| `keyword_detail` | 關鍵詞詳情 | 1 |
+| `keyword_search_result` | 關鍵詞搜尋結果自然位 | 1 |
+| `keyword_trend` | 關鍵詞歷史趨勢 | 1 |
+| `keyword_related_words` | 關鍵詞延伸詞/長尾詞 | 1 |
 
-#### 关键词词库管理 (5个)
-| 接口 | 用途 | 调用消耗 |
+#### 關鍵詞詞庫管理 (5個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `add_keyword` | 添加关键词收藏 | 1 |
-| `move_keyword` | 移动到收藏夹 | 1 |
-| `remove_keyword` | 删除关键词 | 1 |
-| `query_keyword_dict_list` | 查询收藏夹列表 | 1 |
-| `query_keyword_dict` | 查询收藏的词 | 1 |
+| `add_keyword` | 新增關鍵詞收藏 | 1 |
+| `move_keyword` | 移動到收藏夾 | 1 |
+| `remove_keyword` | 刪除關鍵詞 | 1 |
+| `query_keyword_dict_list` | 查詢收藏夾列表 | 1 |
+| `query_keyword_dict` | 查詢收藏的詞 | 1 |
 
-#### 1688 供货平台 (1个)
-| 接口 | 用途 | 调用消耗 |
+#### 1688 供貨平臺 (1個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `products_1688` | 1688产品搜索/采购成本分析 | 1 |
+| `products_1688` | 1688產品搜尋/採購成本分析 | 1 |
 
-#### TikTok 电商平台 (8个)
-| 接口 | 用途 | 调用消耗 |
+#### TikTok 電商平臺 (8個)
+| 介面 | 用途 | 呼叫消耗 |
 |------|------|----------|
-| `tiktok_product_search` | TikTok产品搜索 | 1 |
-| `tiktok_product_detail` | TikTok产品详情 | 1 |
-| `tiktok_product_videos` | TikTok带货视频 | 1 |
-| `tiktok_product_influencers` | TikTok带货达人分析 | 1 |
-| `tiktok_product_trend` | TikTok产品趋势 | 1 |
-| `tiktok_influencer_search` | TikTok达人搜索 | 1 |
-| `tiktok_category_name_search` | TikTok类目搜索 | 1 |
-| `tiktok_category_report` | TikTok类目报告 | 1 |
+| `tiktok_product_search` | TikTok產品搜尋 | 1 |
+| `tiktok_product_detail` | TikTok產品詳情 | 1 |
+| `tiktok_product_videos` | TikTok帶貨影片 | 1 |
+| `tiktok_product_influencers` | TikTok帶貨達人分析 | 1 |
+| `tiktok_product_trend` | TikTok產品趨勢 | 1 |
+| `tiktok_influencer_search` | TikTok達人搜尋 | 1 |
+| `tiktok_category_name_search` | TikTok類目搜尋 | 1 |
+| `tiktok_category_report` | TikTok類目報告 | 1 |
 
-### 调研维度与接口对照表
+### 調研維度與介面對照表
 
-当用户需要调研特定维度时，使用以下接口：
+當使用者需要調研特定維度時，使用以下介面：
 
-#### 亚马逊产品调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### 亞馬遜產品調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **产品基础信息** | `product_detail` | asin |
-| **销量/价格趋势** | `product_trend` | asin, productTrendType |
-| **用户评价** | `product_reviews` | asin, reviewType |
-| **流量来源** | `product_traffic_terms` | asin |
-| **竞品关键词布局** | `competitor_product_keywords` | asin |
-| **关键词排名监控** | `product_keyword_rank_trend` | asin, keyword |
-| **子体明细** | `product_variations` | asin |
+| **產品基礎資訊** | `product_detail` | asin |
+| **銷量/價格趨勢** | `product_trend` | asin, productTrendType |
+| **使用者評價** | `product_reviews` | asin, reviewType |
+| **流量來源** | `product_traffic_terms` | asin |
+| **競品關鍵詞佈局** | `competitor_product_keywords` | asin |
+| **關鍵詞排名監控** | `product_keyword_rank_trend` | asin, keyword |
+| **子體明細** | `product_variations` | asin |
 
-#### 亚马逊关键词调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### 亞馬遜關鍵詞調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **关键词数据分析** | `keyword_detail` | keyword |
-| **关键词搜索结果** | `keyword_search_result` | searchKeyword |
-| **关键词历史趋势** | `keyword_trend` | searchKeyword |
-| **长尾词挖掘** | `keyword_related_words` | searchKeyword |
+| **關鍵詞資料分析** | `keyword_detail` | keyword |
+| **關鍵詞搜尋結果** | `keyword_search_result` | searchKeyword |
+| **關鍵詞歷史趨勢** | `keyword_trend` | searchKeyword |
+| **長尾詞挖掘** | `keyword_related_words` | searchKeyword |
 
-#### 亚马逊类目调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### 亞馬遜類目調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **类目搜索(获nodeid)** | `category_name_search` | searchName |
-| **类目分析** | `category_report` | nodeId |
-| **类目趋势** | `category_trend` | nodeId, trendIndex |
-| **类目关键词** | `category_keywords` | nodeId |
-| **类目市场筛选** | `category_market_search` | 多种筛选参数 |
+| **類目搜尋(獲nodeid)** | `category_name_search` | searchName |
+| **類目分析** | `category_report` | nodeId |
+| **類目趨勢** | `category_trend` | nodeId, trendIndex |
+| **類目關鍵詞** | `category_keywords` | nodeId |
+| **類目市場篩選** | `category_market_search` | 多種篩選引數 |
 
-#### 亚马逊选品调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### 亞馬遜選品調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **产品搜索/筛选** | `product_search` | searchName + 筛选参数 |
-| **潜力产品挖掘** | `potential_product_search` | searchName, price_range等 |
+| **產品搜尋/篩選** | `product_search` | searchName + 篩選引數 |
+| **潛力產品挖掘** | `potential_product_search` | searchName, price_range等 |
 
-#### TikTok 跨平台调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### TikTok 跨平臺調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **相似产品分析** | `tiktok_product_search` | site, searchName |
-| **TikTok产品详情** | `tiktok_product_detail` | site, productId |
-| **带货视频分析** | `tiktok_product_videos` | site, productId |
-| **带货达人分析** | `tiktok_product_influencers` | site, productId |
-| **产品趋势追踪** | `tiktok_product_trend` | site, productId |
-| **达人搜索** | `tiktok_influencer_search` | site, searchName |
-| **TikTok类目分析** | `tiktok_category_report` | site, nodeId |
+| **相似產品分析** | `tiktok_product_search` | site, searchName |
+| **TikTok產品詳情** | `tiktok_product_detail` | site, productId |
+| **帶貨影片分析** | `tiktok_product_videos` | site, productId |
+| **帶貨達人分析** | `tiktok_product_influencers` | site, productId |
+| **產品趨勢追蹤** | `tiktok_product_trend` | site, productId |
+| **達人搜尋** | `tiktok_influencer_search` | site, searchName |
+| **TikTok類目分析** | `tiktok_category_report` | site, nodeId |
 
-#### 供应链成本调研
-| 调研维度 | 使用接口 | 关键参数 |
+#### 供應鏈成本調研
+| 調研維度 | 使用介面 | 關鍵引數 |
 |----------|----------|----------|
-| **1688采购成本** | `products_1688` | searchName |
+| **1688採購成本** | `products_1688` | searchName |
 
-### 支持的平台站点
+### 支援的平臺站點
 
-| 平台 | 站点数量 | 支持站点 |
+| 平臺 | 站點數量 | 支援站點 |
 |------|----------|----------|
-| **亚马逊** | 14个 | US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA |
-| **TikTok** | 6个 | US, GB, MY, PH, VN, ID |
-| **1688** | - | 国内批发采购平台 |
+| **亞馬遜** | 14個 | US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA |
+| **TikTok** | 6個 | US, GB, MY, PH, VN, ID |
+| **1688** | - | 國內批發採購平臺 |
 
 ---
 
-*本技能文档版本: v2.2 | 最后更新: 2026-03-03*
+*本技能文件版本: v2.2 | 最後更新: 2026-03-03*

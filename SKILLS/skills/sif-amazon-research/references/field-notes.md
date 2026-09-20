@@ -20,7 +20,7 @@ Sif fields may vary by tool or response mode:
 - Variant attributes may be a list of dicts (`[{value: "Buzz"}]`) or strings (`["Buzz"]`).
 - Traffic trend channel arrays may be arrays of objects with `score`, `scoreRatio`, and `scoreChangeRatio`, not plain numeric arrays.
 - Keyword distribution numeric values may be strings; convert before arithmetic.
-- Some tools return Chinese keys such as `官网验证`; preserve verification links when useful.
+- Some tools return Chinese keys such as `官網驗證`; preserve verification links when useful.
 
 When parsing, inspect keys first and write defensive extraction logic. If a field is absent, report the gap instead of fabricating a value.
 
@@ -59,4 +59,4 @@ Do not call every drill-down tool by default. Drill down only if a decision depe
 - Never mention raw scripts, temporary file paths, or parsing errors unless the user asked about process details.
 - Do mention data limitations that affect business confidence.
 - Keep source links from Sif verification fields at the end when available.
-- Use direct business language: `做 / 不做 / 小样测试`, `加码 / 优化 / 止损`, `防守词 / 进攻词 / 长尾词`.
+- Use direct business language: `做 / 不做 / 小樣測試`, `加碼 / 最佳化 / 止損`, `防守詞 / 進攻詞 / 長尾詞`.

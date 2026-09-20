@@ -1,94 +1,94 @@
-# 市场全景分析
+# 市場全景分析
 
-对指定的 Amazon 类目进行全面分析，评估市场吸引力、竞争强度和进入可行性。
+對指定的 Amazon 類目進行全面分析，評估市場吸引力、競爭強度和進入可行性。
 
 ## 使用方式
 
 ```
-/market-analysis [类目关键词或节点ID] [站点]
+/market-analysis [類目關鍵詞或節點ID] [站點]
 ```
 
-参数: 第1个为类目关键词/nodeIdPath（必填），第2个为站点（可选，默认US）
+引數: 第1個為類目關鍵詞/nodeIdPath（必填），第2個為站點（可選，預設US）
 
-## 执行步骤
+## 執行步驟
 
-### 第1步: 获取类目节点
+### 第1步: 獲取類目節點
 
-调用 `product_node` 查找类目节点：
-- `marketplace`: 指定站点
-- `keyword`: 用户输入的关键词（建议用英文，中文翻译 nodeLabelLocale 不可靠）
+呼叫 `product_node` 查詢類目節點：
+- `marketplace`: 指定站點
+- `keyword`: 使用者輸入的關鍵詞（建議用英文，中文翻譯 nodeLabelLocale 不可靠）
 
-⚠️ **必须找到叶子节点**（有具体商品数量的节点），根节点统计全 0。
+⚠️ **必須找到葉子節點**（有具體商品數量的節點），根節點統計全 0。
 
-输出示例：
+輸出示例：
 ```json
 {"nodeIdPath": "11091801:11974521:8882489011:11974711",
  "nodeLabelPath": "Musical Instruments:Microphones & Accessories:Microphones:Wireless Microphones & Systems",
  "products": 8885}
 ```
 
-### 第2步: 并行获取市场核心数据
+### 第2步: 並行獲取市場核心資料
 
-**同时调用：**
+**同時呼叫：**
 
-1. `market_research` — 市场整体数据
-   - 参数模式：`request` 嵌套对象
-   - `nodeIdPath`: 第1步获取的节点路径
+1. `market_research` — 市場整體資料
+   - 引數模式：`request` 巢狀物件
+   - `nodeIdPath`: 第1步獲取的節點路徑
    - `topNum`: 10
    - `size`: 50
 
-2. `market_research_statistics` — 深入统计
-   - 参数模式：`request` 嵌套对象
+2. `market_research_statistics` — 深入統計
+   - 引數模式：`request` 巢狀物件
    - `topN`: 10
-   - `newProduct`: 默认6
+   - `newProduct`: 預設6
 
-### 第3步: 并行多维分布分析
+### 第3步: 並行多維分佈分析
 
-并行调用以下 12 个工具（无数据依赖）：
-1. `market_price_distribution` — 价格区间分布
+並行呼叫以下 12 個工具（無資料依賴）：
+1. `market_price_distribution` — 價格區間分佈
 2. `market_brand_concentration` — 品牌集中度
 3. `market_product_concentration` — 商品集中度
-4. `market_seller_concentration` — 卖家集中度
-5. `market_rating_distribution` — 评分值分布
-6. `market_ratings_count_distribution` — 评分数分布
-7. `market_listing_date_distribution` — 上架时间分布
-8. `market_seller_country_distribution` — 卖家所属地分布
-9. `market_seller_type_concentration` — 发货类型分布
-10. `market_ebc_distribution` — A+与视频分布
-11. `market_product_demand_trend` — 需求趋势
-12. `market_listing_trend_distribution` — 上架趋势分布（🆕新增工具）
+4. `market_seller_concentration` — 賣家集中度
+5. `market_rating_distribution` — 評分值分佈
+6. `market_ratings_count_distribution` — 評分數分佈
+7. `market_listing_date_distribution` — 上架時間分佈
+8. `market_seller_country_distribution` — 賣家所屬地分佈
+9. `market_seller_type_concentration` — 發貨型別分佈
+10. `market_ebc_distribution` — A+與影片分佈
+11. `market_product_demand_trend` — 需求趨勢
+12. `market_listing_trend_distribution` — 上架趨勢分佈（🆕新增工具）
 
-### 第4步: 生成并保存市场分析报告
+### 第4步: 生成並儲存市場分析報告
 
-**保存两份文件（必须，禁止仅打印到控制台）：**
+**儲存兩份檔案（必須，禁止僅列印到控制檯）：**
 
-1. **原始数据** → `{类别目录}/research_data.json`
-   - 所有工具调用的原始返回 JSON，方便后续复查
-2. **分析报告** → `{类别目录}/market_report.md`
-   - 结构化 Markdown 报告
+1. **原始資料** → `{類別目錄}/research_data.json`
+   - 所有工具呼叫的原始返回 JSON，方便後續複查
+2. **分析報告** → `{類別目錄}/market_report.md`
+   - 結構化 Markdown 報告
 
-**报告结构：**
-1. **市场概览** — 商品总数、品牌数、卖家数、月总销量/销售额、均价、平均评分
-2. **市场吸引力评分**（1-10分各维度）：市场规模、增长性、利润空间、竞争强度、新品友好度、进入门槛 → 综合评分
-3. **竞争格局** — 头部集中度、品牌/卖家结构
-4. **价格与利润分析** — 各价格带分布、最佳定价建议
-5. **新品进入评估** — 新品占比、评论门槛、内容投入建议
-6. **风险与机会** — 主要风险和差异化方向
-7. **结论与建议** — 是否推荐进入、策略建议
+**報告結構：**
+1. **市場概覽** — 商品總數、品牌數、賣家數、月總銷量/銷售額、均價、平均評分
+2. **市場吸引力評分**（1-10分各維度）：市場規模、增長性、利潤空間、競爭強度、新品友好度、進入門檻 → 綜合評分
+3. **競爭格局** — 頭部集中度、品牌/賣家結構
+4. **價格與利潤分析** — 各價格帶分佈、最佳定價建議
+5. **新品進入評估** — 新品佔比、評論門檻、內容投入建議
+6. **風險與機會** — 主要風險和差異化方向
+7. **結論與建議** — 是否推薦進入、策略建議
 
 ### 刻度陷阱
-- 集中度 `top*Crn` / 新品占比 `l*NewRatio` 为 0~1，展示 ×100
-- `returnRatio`/`fbaProportion` 已是百分数，不再换算
-- 根节点统计全 0，必须选叶子节点
-- `sellerLocation` 多选需拆单值再并集
-- `nodeLabelLocale`（中文翻译）不可靠，以英文 `nodeLabelPath` 为准
+- 集中度 `top*Crn` / 新品佔比 `l*NewRatio` 為 0~1，展示 ×100
+- `returnRatio`/`fbaProportion` 已是百分數，不再換算
+- 根節點統計全 0，必須選葉子節點
+- `sellerLocation` 多選需拆單值再並集
+- `nodeLabelLocale`（中文翻譯）不可靠，以英文 `nodeLabelPath` 為準
 
-### 数据解析要点
+### 資料解析要點
 
-`market_research` 返回的 `data.items` 既包含子市场，也可能包含父节点自身汇总行。
-可通过 `ranking` 字段排序，过滤 `totalProducts` 数据异常的条目。
+`market_research` 返回的 `data.items` 既包含子市場，也可能包含父節點自身彙總行。
+可透過 `ranking` 欄位排序，過濾 `totalProducts` 資料異常的條目。
 
-分布类工具（market_brand_concentration 等）的 `data` 结构不统一：
-- 部分直接返回数组：`data: [{...}]`
-- 部分返回对象：`data: { items: [{...}] }`
+分佈類工具（market_brand_concentration 等）的 `data` 結構不統一：
+- 部分直接返回陣列：`data: [{...}]`
+- 部分返回物件：`data: { items: [{...}] }`
 - 安全取值：先判 `isinstance(data, dict)` 再 `.get('items', [])`

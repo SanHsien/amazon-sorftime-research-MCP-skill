@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-直接生成 HTML 仪表板测试
+直接生成 HTML 儀表板測試
 """
 import os
 import sys
@@ -12,7 +12,7 @@ sys.path.insert(0, SCRIPT_DIR)
 
 from generate_html_dashboard import generate_html_dashboard
 
-# 读取数据
+# 讀取資料
 output_dir = r'D:\amazon-mcp\keyword-reports\B09QSGWCLG_US_20260314'
 
 with open(os.path.join(output_dir, 'keywords_raw.json'), 'r', encoding='utf-8') as f:
@@ -31,4 +31,4 @@ html_file = generate_html_dashboard(
     {}
 )
 
-print(f"✓ HTML 仪表板已生成：{html_file}")
+print(f"✓ HTML 儀表板已生成：{html_file}")

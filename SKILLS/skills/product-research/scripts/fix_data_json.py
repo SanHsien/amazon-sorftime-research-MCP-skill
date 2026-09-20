@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-数据验证和修复脚本 - 确保 data.json 结构正确
+資料驗證和修復指令碼 - 確保 data.json 結構正確
 
 用法:
     python fix_data_json.py path/to/data.json
@@ -17,62 +17,62 @@ from pathlib import Path
 
 
 def validate_data(data: dict) -> tuple[bool, list[str]]:
-    """验证数据结构"""
+    """驗證資料結構"""
     errors = []
     warnings = []
 
-    # 必需字段检查
+    # 必需欄位檢查
     required_fields = ['metadata', 'market_overview']
     for field in required_fields:
         if field not in data:
-            errors.append(f"缺少必需字段: {field}")
+            errors.append(f"缺少必需欄位: {field}")
 
-    # metadata 检查
+    # metadata 檢查
     if 'metadata' in data:
         metadata = data['metadata']
         required_metadata = ['category', 'site', 'date']
         for field in required_metadata:
             if field not in metadata:
-                warnings.append(f"metadata 缺少字段: {field}")
+                warnings.append(f"metadata 缺少欄位: {field}")
 
-    # market_overview 检查
+    # market_overview 檢查
     if 'market_overview' in data:
         mo = data['market_overview']
         required_mo = ['top100_monthly_sales', 'top100_monthly_revenue', 'avg_price']
         for field in required_mo:
             if field not in mo:
-                warnings.append(f"market_overview 缺少字段: {field}")
+                warnings.append(f"market_overview 缺少欄位: {field}")
 
-    # go_nogo 检查
+    # go_nogo 檢查
     if 'go_nogo' not in data:
-        errors.append("缺少 go_nogo 字段")
+        errors.append("缺少 go_nogo 欄位")
     else:
         gogono = data['go_nogo']
         if 'overall_score' not in gogono and 'total_score' not in gogono:
-            warnings.append("go_nogo 缺少评分字段")
+            warnings.append("go_nogo 缺少評分欄位")
         if 'decision' not in gogono and 'verdict' not in gogono:
-            warnings.append("go_nogo 缺少决策字段")
+            warnings.append("go_nogo 缺少決策欄位")
 
-    # dimensions 检查
+    # dimensions 檢查
     if 'dimensions' in data and data['dimensions']:
-        # 检查每个维度是否有正确的结构
+        # 檢查每個維度是否有正確的結構
         for i, dim in enumerate(data['dimensions']):
             if 'dimension' not in dim and 'name' not in dim:
-                warnings.append(f"dimensions[{i}] 缺少 'dimension' 或 'name' 字段")
+                warnings.append(f"dimensions[{i}] 缺少 'dimension' 或 'name' 欄位")
 
-    # voc_analysis 检查
+    # voc_analysis 檢查
     if 'voc_analysis' in data and data['voc_analysis']:
         voc = data['voc_analysis']
         if 'dimensions' not in voc:
-            warnings.append("voc_analysis 缺少 'dimensions' 字段")
+            warnings.append("voc_analysis 缺少 'dimensions' 欄位")
 
     is_valid = len(errors) == 0
     return is_valid, errors + warnings
 
 
 def fix_data(data: dict) -> dict:
-    """修复常见的数据结构问题"""
-    # 修复 go_nogo 字段名称
+    """修復常見的資料結構問題"""
+    # 修復 go_nogo 欄位名稱
     if 'go_nogo' in data:
         gogono = data['go_nogo']
         if 'verdict' in gogono and 'decision' not in gogono:
@@ -80,7 +80,7 @@ def fix_data(data: dict) -> dict:
         if 'total_score' in gogono and 'overall_score' not in gogono:
             gogono['overall_score'] = gogono['total_score']
 
-    # 确保必需字段存在
+    # 確保必需欄位存在
     if 'market_overview' not in data:
         data['market_overview'] = {}
 
@@ -92,57 +92,57 @@ def fix_data(data: dict) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="数据验证和修复脚本")
-    parser.add_argument("data_file", help="data.json 文件路径")
-    parser.add_argument("--fix", action="store_true", help="自动修复问题")
-    parser.add_argument("--output", "-o", help="输出文件路径（默认覆盖原文件）")
+    parser = argparse.ArgumentParser(description="資料驗證和修復指令碼")
+    parser.add_argument("data_file", help="data.json 檔案路徑")
+    parser.add_argument("--fix", action="store_true", help="自動修復問題")
+    parser.add_argument("--output", "-o", help="輸出檔案路徑（預設覆蓋原檔案）")
 
     args = parser.parse_args()
 
     data_path = Path(args.data_file)
     if not data_path.exists():
-        print(f"✗ 文件不存在: {data_path}")
+        print(f"✗ 檔案不存在: {data_path}")
         return 1
 
-    # 读取数据
-    print(f"读取数据: {data_path}")
+    # 讀取資料
+    print(f"讀取資料: {data_path}")
     with open(data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    # 验证数据
+    # 驗證資料
     is_valid, messages = validate_data(data)
 
-    print("\n验证结果:")
+    print("\n驗證結果:")
     for msg in messages:
-        prefix = "✗" if "错误" in msg or "缺少" in msg else "⚠"
+        prefix = "✗" if "錯誤" in msg or "缺少" in msg else "⚠"
         print(f"  {prefix} {msg}")
 
     if is_valid:
-        print("\n✓ 数据结构验证通过")
+        print("\n✓ 資料結構驗證透過")
     else:
-        print("\n✗ 数据结构存在问题")
+        print("\n✗ 資料結構存在問題")
         if not args.fix:
-            print("  提示: 使用 --fix 参数尝试自动修复")
+            print("  提示: 使用 --fix 引數嘗試自動修復")
             return 1
 
-    # 修复数据
+    # 修復資料
     if args.fix:
-        print("\n修复数据...")
+        print("\n修復資料...")
         data = fix_data(data)
 
-        # 重新验证
+        # 重新驗證
         is_valid_after, messages_after = validate_data(data)
         if is_valid_after:
-            print("✓ 数据修复成功")
+            print("✓ 資料修復成功")
         else:
-            print("⚠ 部分问题无法自动修复")
+            print("⚠ 部分問題無法自動修復")
 
-        # 保存
+        # 儲存
         output_path = Path(args.output) if args.output else data_path
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-        print(f"✓ 已保存: {output_path}")
+        print(f"✓ 已儲存: {output_path}")
 
     return 0 if is_valid else 1
 

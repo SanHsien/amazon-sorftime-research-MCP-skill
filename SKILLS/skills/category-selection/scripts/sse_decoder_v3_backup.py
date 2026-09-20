@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Sorftime SSE 响应快速解码器 v3.0
-专门处理 category_report 的 SSE 响应格式
+Sorftime SSE 響應快速解碼器 v3.0
+專門處理 category_report 的 SSE 響應格式
 """
 
 import re
@@ -15,13 +15,13 @@ from datetime import datetime
 
 def decode_sse_response(file_path: str) -> dict:
     """
-    解码 Sorftime SSE 响应文件
+    解碼 Sorftime SSE 響應檔案
 
     Args:
-        file_path: SSE 响应文件路径
+        file_path: SSE 響應檔案路徑
 
     Returns:
-        dict: 解码后的完整 JSON 数据
+        dict: 解碼後的完整 JSON 資料
     """
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -29,17 +29,17 @@ def decode_sse_response(file_path: str) -> dict:
     # 方法1: 提取 SSE data 行中的 JSON
     for line in content.split('\n'):
         if line.startswith('data: '):
-            json_text = line[6:]  # 去掉 'data: ' 前缀
+            json_text = line[6:]  # 去掉 'data: ' 字首
             try:
                 data = json.loads(json_text)
                 result_text = data.get('result', {}).get('content', [{}])[0].get('text', '')
                 if result_text:
-                    # 解码 Unicode 转义
+                    # 解碼 Unicode 轉義
                     decoded = codecs.decode(result_text, 'unicode-escape')
-                    # 提取 JSON 对象
+                    # 提取 JSON 物件
                     start = decoded.find('{')
                     if start != -1:
-                        # 找到匹配的结束括号
+                        # 找到匹配的結束括號
                         depth = 0
                         end = -1
                         for i in range(start, len(decoded)):
@@ -56,20 +56,20 @@ def decode_sse_response(file_path: str) -> dict:
             except:
                 continue
 
-    # 方法2: 直接搜索 JSON 数组模式
+    # 方法2: 直接搜尋 JSON 陣列模式
     array_match = re.search(r'\[{"[^"]*"[^}]{50,}', content)
     if array_match:
-        # 找到完整的数据范围
+        # 找到完整的資料範圍
         raw_content = content
-        # 查找第一个 { 和最后一个 }
-        start = raw_content.find('{"Top100产品"')
+        # 查詢第一個 { 和最後一個 }
+        start = raw_content.find('{"Top100產品"')
         if start == -1:
-            start = raw_content.find('{"类目统计报告"')
+            start = raw_content.find('{"類目統計報告"')
         if start == -1:
-            start = raw_content.find('{\\"关键词\\"')
+            start = raw_content.find('{\\"關鍵詞\\"')
 
         if start != -1:
-            # 手动解析
+            # 手動解析
             bracket_count = 0
             in_string = False
             escape_next = False
@@ -100,31 +100,31 @@ def decode_sse_response(file_path: str) -> dict:
                             break
 
             if end != -1:
-                # 提取并解码
+                # 提取並解碼
                 raw_json = raw_content[start:end]
-                # 解码 unicode escapes like \u0022
+                # 解碼 unicode escapes like \u0022
                 decoded = codecs.decode(raw_json, 'unicode-escape')
                 return json.loads(decoded)
 
-    raise ValueError("无法解析 SSE 响应文件")
+    raise ValueError("無法解析 SSE 響應檔案")
 
 
 def fix_mojibake(obj):
     """
-    修复 UTF-8/Latin-1 双重编码问题 (Mojibake)
+    修復 UTF-8/Latin-1 雙重編碼問題 (Mojibake)
 
-    当 UTF-8 字节被错误地解释为 Latin-1 时会产生乱码:
-    - 'æ ' 应该是 '标' (E6 A0 87)
-    - 'é¢' 应该是 '题' (E9 A2 98)
+    當 UTF-8 位元組被錯誤地解釋為 Latin-1 時會產生亂碼:
+    - 'æ ' 應該是 '標' (E6 A0 87)
+    - 'é¢' 應該是 '題' (E9 A2 98)
 
-    解决方法: encode('latin-1') → decode('utf-8')
+    解決方法: encode('latin-1') → decode('utf-8')
     """
     if isinstance(obj, dict):
         return {fix_mojibake(k): fix_mojibake(v) for k, v in obj.items()}
     elif isinstance(obj, list):
         return [fix_mojibake(item) for item in obj]
     elif isinstance(obj, str):
-        # 检查是否包含典型 Mojibake 模式
+        # 檢查是否包含典型 Mojibake 模式
         mojibake_patterns = ['æ ', 'é¢', 'å ', 'ä»£', 'åç']
         if any(p in obj for p in mojibake_patterns):
             try:
@@ -137,13 +137,13 @@ def fix_mojibake(obj):
 
 
 def save_decoded_data(data: dict, output_dir: str):
-    """保存解码后的数据，自动修复编码问题"""
+    """儲存解碼後的資料，自動修復編碼問題"""
     os.makedirs(output_dir, exist_ok=True)
 
-    # 修复可能的 Mojibake 编码问题
+    # 修復可能的 Mojibake 編碼問題
     fixed_data = fix_mojibake(data)
 
-    # 保存完整 JSON
+    # 儲存完整 JSON
     output_file = os.path.join(output_dir, 'data.json')
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(fixed_data, f, ensure_ascii=False, indent=2)
@@ -152,14 +152,14 @@ def save_decoded_data(data: dict, output_dir: str):
 
 
 def extract_category_stats(data: dict) -> dict:
-    """提取类目统计数据"""
-    stats = data.get('类目统计报告', {})
+    """提取類目統計資料"""
+    stats = data.get('類目統計報告', {})
 
     return {
         'nodeid': stats.get('nodeid', ''),
-        '类目名称': stats.get('类目名称', ''),
-        'top100产品月销量': stats.get('top100产品月销量', '0'),
-        'top100产品月销额': stats.get('top100产品月销额', '0'),
+        '類目名稱': stats.get('類目名稱', ''),
+        'top100產品月銷量': stats.get('top100產品月銷量', '0'),
+        'top100產品月銷額': stats.get('top100產品月銷額', '0'),
         'average_price': stats.get('average_price', '0'),
         'median_price': stats.get('median_price', '0'),
         'top3_brands_sales_volume_share': stats.get('top3_brands_sales_volume_share', '0'),
@@ -170,38 +170,38 @@ def extract_category_stats(data: dict) -> dict:
 
 
 def extract_top_products(data: dict, limit: int = 20) -> list:
-    """提取 Top N 产品"""
-    products_list = data.get('Top100产品', [])
+    """提取 Top N 產品"""
+    products_list = data.get('Top100產品', [])
 
     result = []
     for p in products_list[:limit]:
-        # 提取月销量（处理字符串格式的数字）
-        monthly_sales = p.get('月销量', '0')
+        # 提取月銷量（處理字串格式的數字）
+        monthly_sales = p.get('月銷量', '0')
         if isinstance(monthly_sales, str):
-            # 移除非数字字符
+            # 移除非數字字元
             monthly_sales = re.sub(r'[^\d.]', '', monthly_sales)
 
-        # 提取价格
-        price = float(p.get('价格', 0))
+        # 提取價格
+        price = float(p.get('價格', 0))
 
-        # 计算月销额 = 价格 * 月销量
+        # 計算月銷額 = 價格 * 月銷量
         monthly_sales_num = int(float(monthly_sales)) if monthly_sales else 0
         monthly_revenue = price * monthly_sales_num
 
         result.append({
             'ASIN': p.get('ASIN', ''),
-            '标题': p.get('标题', '')[:80],
-            '价格': price,
-            '月销量': monthly_sales_num,
-            '月销额': monthly_revenue,  # 新增：计算得出
-            '评分': float(p.get('星级', 0)),
+            '標題': p.get('標題', '')[:80],
+            '價格': price,
+            '月銷量': monthly_sales_num,
+            '月銷額': monthly_revenue,  # 新增：計算得出
+            '評分': float(p.get('星級', 0)),
             '品牌': p.get('品牌', 'Unknown'),
-            '评论数': int(p.get('评论数', 0)),
-            '卖家来源': p.get('卖家来源', ''),
-            '卖家': p.get('卖家', ''),  # 新增：卖家名称
-            '上架天数': p.get('上架天数', 0),  # 新增：如果有此字段
-            '类目排名': p.get('类目排名', ''),  # 新增：类目排名
-            '图片': p.get('图片', ''),  # 新增：产品图片URL
+            '評論數': int(p.get('評論數', 0)),
+            '賣家來源': p.get('賣家來源', ''),
+            '賣家': p.get('賣家', ''),  # 新增：賣家名稱
+            '上架天數': p.get('上架天數', 0),  # 新增：如果有此欄位
+            '類目排名': p.get('類目排名', ''),  # 新增：類目排名
+            '圖片': p.get('圖片', ''),  # 新增：產品圖片URL
         })
 
     return result
@@ -209,14 +209,14 @@ def extract_top_products(data: dict, limit: int = 20) -> list:
 
 def calculate_five_dimension_score(stats: dict) -> dict:
     """
-    计算五维评分 (标准版本)
+    計算五維評分 (標準版本)
 
-    评分标准:
-    - 市场规模 (20分): >10M=20, >5M=17, >1M=14, 其他=10
-    - 增长潜力 (25分): 低评论占比>40%=22, >20%=18, 其他=14
-    - 竞争烈度 (20分): Top3<30%=18, <50%=14, 其他=8
-    - 进入壁垒 (20分): Amazon占比+新品机会组合评分
-    - 利润空间 (15分): 均价>$300=12, >$150=10, >$50=7, 其他=4
+    評分標準:
+    - 市場規模 (20分): >10M=20, >5M=17, >1M=14, 其他=10
+    - 增長潛力 (25分): 低評論佔比>40%=22, >20%=18, 其他=14
+    - 競爭烈度 (20分): Top3<30%=18, <50%=14, 其他=8
+    - 進入壁壘 (20分): Amazon佔比+新品機會組合評分
+    - 利潤空間 (15分): 均價>$300=12, >$150=10, >$50=7, 其他=4
     """
     def safe_float(value, default=0):
         try:
@@ -226,40 +226,40 @@ def calculate_five_dimension_score(stats: dict) -> dict:
 
     scores = {}
 
-    # 1. 市场规模 (20分)
-    revenue = safe_float(stats.get('top100产品月销额', 0))
+    # 1. 市場規模 (20分)
+    revenue = safe_float(stats.get('top100產品月銷額', 0))
     if revenue > 10_000_000:
-        scores['市场规模'] = 20
+        scores['市場規模'] = 20
     elif revenue > 5_000_000:
-        scores['市场规模'] = 17
+        scores['市場規模'] = 17
     elif revenue > 1_000_000:
-        scores['市场规模'] = 14
+        scores['市場規模'] = 14
     else:
-        scores['市场规模'] = 10
+        scores['市場規模'] = 10
 
-    # 2. 增长潜力 (25分)
+    # 2. 增長潛力 (25分)
     low_review_share = safe_float(stats.get('low_reviews_sales_volume_share', 0))
     if low_review_share > 40:
-        scores['增长潜力'] = 22
+        scores['增長潛力'] = 22
     elif low_review_share > 20:
-        scores['增长潜力'] = 18
+        scores['增長潛力'] = 18
     else:
-        scores['增长潜力'] = 14
+        scores['增長潛力'] = 14
 
-    # 3. 竞争烈度 (20分)
+    # 3. 競爭烈度 (20分)
     top3_share = safe_float(stats.get('top3_brands_sales_volume_share', 0))
     if top3_share < 30:
-        scores['竞争烈度'] = 18
+        scores['競爭烈度'] = 18
     elif top3_share < 50:
-        scores['竞争烈度'] = 14
+        scores['競爭烈度'] = 14
     else:
-        scores['竞争烈度'] = 8
+        scores['競爭烈度'] = 8
 
-    # 4. 进入壁垒 (20分)
+    # 4. 進入壁壘 (20分)
     amazon_share = safe_float(stats.get('amazonOwned_sales_volume_share', 0))
 
     barrier_score = 0
-    # Amazon 占比越低，壁垒越小
+    # Amazon 佔比越低，壁壘越小
     if amazon_share < 20:
         barrier_score += 10
     elif amazon_share < 40:
@@ -267,7 +267,7 @@ def calculate_five_dimension_score(stats: dict) -> dict:
     else:
         barrier_score += 3
 
-    # 新品机会越大，壁垒越小
+    # 新品機會越大，壁壘越小
     if low_review_share > 40:
         barrier_score += 10
     elif low_review_share > 20:
@@ -275,76 +275,76 @@ def calculate_five_dimension_score(stats: dict) -> dict:
     else:
         barrier_score += 3
 
-    scores['进入壁垒'] = barrier_score
+    scores['進入壁壘'] = barrier_score
 
-    # 5. 利润空间 (15分)
+    # 5. 利潤空間 (15分)
     avg_price = safe_float(stats.get('average_price', 0))
     if avg_price > 300:
-        scores['利润空间'] = 12
+        scores['利潤空間'] = 12
     elif avg_price > 150:
-        scores['利润空间'] = 10
+        scores['利潤空間'] = 10
     elif avg_price > 50:
-        scores['利润空间'] = 7
+        scores['利潤空間'] = 7
     else:
-        scores['利润空间'] = 4
+        scores['利潤空間'] = 4
 
-    # 总分
-    scores['总分'] = sum(scores.values())
+    # 總分
+    scores['總分'] = sum(scores.values())
 
-    # 评级
-    if scores['总分'] >= 80:
-        scores['评级'] = '优秀'
-    elif scores['总分'] >= 70:
-        scores['评级'] = '良好'
-    elif scores['总分'] >= 50:
-        scores['评级'] = '一般'
+    # 評級
+    if scores['總分'] >= 80:
+        scores['評級'] = '優秀'
+    elif scores['總分'] >= 70:
+        scores['評級'] = '良好'
+    elif scores['總分'] >= 50:
+        scores['評級'] = '一般'
     else:
-        scores['评级'] = '较差'
+        scores['評級'] = '較差'
 
     return scores
 
 
 def print_summary(stats: dict, products: list):
-    """打印摘要信息"""
+    """列印摘要資訊"""
     print("\n" + "=" * 70)
-    print("类目数据解码成功")
+    print("類目資料解碼成功")
     print("=" * 70)
 
-    print(f"\n类目: {stats.get('类目名称', 'Unknown')}")
+    print(f"\n類目: {stats.get('類目名稱', 'Unknown')}")
     print(f"NodeID: {stats.get('nodeid', 'N/A')}")
 
-    total_sales = stats.get('top100产品月销量', '0')
-    total_revenue = stats.get('top100产品月销额', '0')
+    total_sales = stats.get('top100產品月銷量', '0')
+    total_revenue = stats.get('top100產品月銷額', '0')
     avg_price = stats.get('average_price', '0')
 
-    print(f"\nTop100 月销量: {total_sales}")
-    print(f"Top100 月销额: ${total_revenue}")
-    print(f"平均价格: ${avg_price}")
+    print(f"\nTop100 月銷量: {total_sales}")
+    print(f"Top100 月銷額: ${total_revenue}")
+    print(f"平均價格: ${avg_price}")
 
-    print(f"\nTop3 品牌占比: {stats.get('top3_brands_sales_volume_share', 'N/A')}")
-    print(f"Amazon 自营: {stats.get('amazonOwned_sales_volume_share', 'N/A')}")
-    print(f"新品机会(<300评论): {stats.get('low_reviews_sales_volume_share', 'N/A')}")
+    print(f"\nTop3 品牌佔比: {stats.get('top3_brands_sales_volume_share', 'N/A')}")
+    print(f"Amazon 自營: {stats.get('amazonOwned_sales_volume_share', 'N/A')}")
+    print(f"新品機會(<300評論): {stats.get('low_reviews_sales_volume_share', 'N/A')}")
 
-    # 计算并显示五维评分
+    # 計算並顯示五維評分
     scores = calculate_five_dimension_score(stats)
-    print(f"\n【五维评分】")
+    print(f"\n【五維評分】")
     for key, value in scores.items():
-        if key not in ['总分', '评级']:
+        if key not in ['總分', '評級']:
             print(f"  {key}: {value}")
-    print(f"  总分: {scores['总分']}/100")
-    print(f"  评级: {scores['评级']}")
+    print(f"  總分: {scores['總分']}/100")
+    print(f"  評級: {scores['評級']}")
 
-    print(f"\n【Top {len(products)} 产品】")
+    print(f"\n【Top {len(products)} 產品】")
     print("-" * 100)
     for i, p in enumerate(products, 1):
-        print(f"{i:2}. {p['ASIN']} | {p['品牌']:<15} | ${p['价格']:7.2f} | "
-              f"销量:{p['月销量']:5} | 评分:{p['评分']:3.1f}★")
+        print(f"{i:2}. {p['ASIN']} | {p['品牌']:<15} | ${p['價格']:7.2f} | "
+              f"銷量:{p['月銷量']:5} | 評分:{p['評分']:3.1f}★")
     print("-" * 100)
 
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python sse_decoder.py <SSE响应文件> [输出目录] [产品数量]")
+        print("用法: python sse_decoder.py <SSE響應檔案> [輸出目錄] [產品數量]")
         print("\n示例:")
         print("  python sse_decoder.py response.txt")
         print("  python sse_decoder.py response.txt ./output 50")
@@ -355,37 +355,37 @@ def main():
     limit = int(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[3].isdigit() else 20
 
     try:
-        # 解码 SSE 响应
+        # 解碼 SSE 響應
         data = decode_sse_response(file_path)
 
-        # 保存完整数据
+        # 儲存完整資料
         saved_file = save_decoded_data(data, output_dir)
-        print(f"\n完整数据已保存到: {saved_file}")
+        print(f"\n完整資料已儲存到: {saved_file}")
 
-        # 提取统计数据
+        # 提取統計資料
         stats = extract_category_stats(data)
 
-        # 提取产品列表
+        # 提取產品列表
         products = extract_top_products(data, limit)
 
-        # 打印摘要
+        # 列印摘要
         print_summary(stats, products)
 
-        # 计算并保存评分
+        # 計算並儲存評分
         scores = calculate_five_dimension_score(stats)
         scores_file = os.path.join(output_dir, 'scores.json')
         with open(scores_file, 'w', encoding='utf-8') as f:
             json.dump(scores, f, ensure_ascii=False, indent=2)
-        print(f"\n五维评分已保存到: {scores_file}")
+        print(f"\n五維評分已儲存到: {scores_file}")
 
-        # 保存产品列表到单独文件
+        # 儲存產品列表到單獨檔案
         products_file = os.path.join(output_dir, 'top_products.json')
         with open(products_file, 'w', encoding='utf-8') as f:
             json.dump(products, f, ensure_ascii=False, indent=2)
-        print(f"Top {len(products)} 产品已保存到: {products_file}")
+        print(f"Top {len(products)} 產品已儲存到: {products_file}")
 
     except Exception as e:
-        print(f"错误: {e}")
+        print(f"錯誤: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

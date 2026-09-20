@@ -1,54 +1,54 @@
-# `keyword_miner` — 关键词挖掘 / 种子词扩展
+# `keyword_miner` — 關鍵詞挖掘 / 種子詞擴充套件
 
-对应网页：关键词优化 → 关键词挖掘（`POST /v3/api/keyword-miner`）
+對應網頁：關鍵詞最佳化 → 關鍵詞挖掘（`POST /v3/api/keyword-miner`）
 
 ## 用途
-输入种子词（或 ASIN），挖掘相关长尾词及需求/竞争指标。
+輸入種子詞（或 ASIN），挖掘相關長尾詞及需求/競爭指標。
 
-## 请求参数
+## 請求引數
 
-| 参数 | 类型 | 说明 |
+| 引數 | 型別 | 說明 |
 |------|------|------|
-| `marketplace` | string | 站点（1=US,2=CA,...见下文） |
-| `keyword` | string | 种子词或 ASIN |
+| `marketplace` | string | 站點（1=US,2=CA,...見下文） |
+| `keyword` | string | 種子詞或 ASIN |
 | `month` / `historyDate` | string | yyyyMM |
-| `page/size` | int | 分页 |
-| `order.field` / `order.desc` | string/bool | 默认 searches |
-| `filterRootWord` | int | 0=全部 1=仅词根 |
-| `includeKeywords/excludeKeywords` | string | 包含/排除关键词 |
-| `keywordList` | string | 批量精确查询 |
-| `minRelevancy/minSearchRank/minSearch` | 区间筛选 | 服务端直名参数 |
-| `minPurchases/minPurchasesRate/minSPR` | 区间筛选 | |
-| `minTitleDensity/minProducts` | 区间筛选 | |
-| `minSupplyDemandRatio/minAdProducts` | 区间筛选 | |
-| `minMonopolyClickRate/minBid/minWordCount` | 区间筛选 | |
+| `page/size` | int | 分頁 |
+| `order.field` / `order.desc` | string/bool | 預設 searches |
+| `filterRootWord` | int | 0=全部 1=僅詞根 |
+| `includeKeywords/excludeKeywords` | string | 包含/排除關鍵詞 |
+| `keywordList` | string | 批次精確查詢 |
+| `minRelevancy/minSearchRank/minSearch` | 區間篩選 | 服務端直名引數 |
+| `minPurchases/minPurchasesRate/minSPR` | 區間篩選 | |
+| `minTitleDensity/minProducts` | 區間篩選 | |
+| `minSupplyDemandRatio/minAdProducts` | 區間篩選 | |
+| `minMonopolyClickRate/minBid/minWordCount` | 區間篩選 | |
 
-### 市场编码
+### 市場編碼
 1=US 2=CA 3=UK 4=DE 5=FR 6=IT 7=ES 8=JP 9=IN 10=MX 11=BR 12=AU 13=AE
 
-### 客户端兜底筛选（MCP 无对应区间参数）
-`impressions`、`clicks`、`cvsShareRate`：在客户端对响应过滤
+### 客戶端兜底篩選（MCP 無對應區間引數）
+`impressions`、`clicks`、`cvsShareRate`：在客戶端對響應過濾
 
-## 响应字段
+## 響應欄位
 
-| 字段 | 说明 | 刻度 |
+| 欄位 | 說明 | 刻度 |
 |------|------|------|
-| `keyword` | 关键词 | |
-| `searches/purchases` | 搜索量/购买量 | |
-| `purchaseRate` | 购买率 | **0~1，展示×100** |
-| `products/adProducts` | 商品数/广告商品数 | |
-| `supplyDemandRatio` | 供需比 | **真实比值** |
-| `avgPrice/avgRating` | 均价/平均评分 | |
-| `bid/bidMin/bidMax` | PPC 竞价 | |
-| `cvsShareRate` | 转化份额 | **0~1，展示×100** |
-| `titleDensity` | 标题密度 | |
+| `keyword` | 關鍵詞 | |
+| `searches/purchases` | 搜尋量/購買量 | |
+| `purchaseRate` | 購買率 | **0~1，展示×100** |
+| `products/adProducts` | 商品數/廣告商品數 | |
+| `supplyDemandRatio` | 供需比 | **真實比值** |
+| `avgPrice/avgRating` | 均價/平均評分 | |
+| `bid/bidMin/bidMax` | PPC 競價 | |
+| `cvsShareRate` | 轉化份額 | **0~1，展示×100** |
+| `titleDensity` | 標題密度 | |
 | `spr` | SPR 值 | |
-| `monopolyClickRate` | 点击集中度 | **0~1，展示×100** |
-| `clicks/impressions` | 点击/曝光 | |
-| `wordCount` | 词数 | |
-| `departments` | 所属类目 | |
+| `monopolyClickRate` | 點選集中度 | **0~1，展示×100** |
+| `clicks/impressions` | 點選/曝光 | |
+| `wordCount` | 詞數 | |
+| `departments` | 所屬類目 | |
 
 ## 陷阱
-1. `purchaseRate/cvsShareRate/monopolyClickRate` 为 0~1，展示 ×100
-2. `supplyDemandRatio` 真实比值不换算
-3. 种子词扩展用 `keyword_miner`；类目关键词选品用 `keyword_research`
+1. `purchaseRate/cvsShareRate/monopolyClickRate` 為 0~1，展示 ×100
+2. `supplyDemandRatio` 真實比值不換算
+3. 種子詞擴充套件用 `keyword_miner`；類目關鍵詞選品用 `keyword_research`

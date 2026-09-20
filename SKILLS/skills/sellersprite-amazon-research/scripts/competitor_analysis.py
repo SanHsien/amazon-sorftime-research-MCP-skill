@@ -159,35 +159,35 @@ lines = []
 def L(s=""):
     lines.append(s)
 
-L("# Mini Mic Pro (B0CMJTSVRW) — 竞品深度拆解报告")
+L("# Mini Mic Pro (B0CMJTSVRW) — 競品深度拆解報告")
 L()
-L(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 数据源: 卖家精灵 SellerSprite MCP | 站点: Amazon US")
+L(f"> 生成時間: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 資料來源: 賣家精靈 SellerSprite MCP | 站點: Amazon US")
 L()
 L("---")
 L()
-L("## 一、Listing 基本信息")
+L("## 一、Listing 基本資訊")
 L()
-L("| 维度 | 数值 |")
+L("| 維度 | 數值 |")
 L("|------|:----:|")
 L(f"| **ASIN** | {ASIN} |")
-L(f"| **标题** | {title[:80]}... |" if len(str(title)) > 80 else f"| **标题** | {title} |")
+L(f"| **標題** | {title[:80]}... |" if len(str(title)) > 80 else f"| **標題** | {title} |")
 L(f"| **品牌** | {brand} |")
-L(f"| **售价** | {fmt_money(price)} |")
+L(f"| **售價** | {fmt_money(price)} |")
 L(f"| **BSR** | {fmt_num(bsr)} |")
-L(f"| **月销量** | {fmt_num(monthly_units)} 件 |")
-L(f"| **月销售额** | {fmt_money(monthly_revenue)} |")
-L(f"| **评分** | {rating} / 5.0 |")
-L(f"| **评分数** | {fmt_num(ratings_cnt)} |")
+L(f"| **月銷量** | {fmt_num(monthly_units)} 件 |")
+L(f"| **月銷售額** | {fmt_money(monthly_revenue)} |")
+L(f"| **評分** | {rating} / 5.0 |")
+L(f"| **評分數** | {fmt_num(ratings_cnt)} |")
 L(f"| **配送方式** | {fulfillment} |")
-L(f"| **卖家** | {seller} |")
-L(f"| **FBA 费用** | {fmt_money(fba_fee)} |")
-L(f"| **Listing质量评分** | {lqs} |" if lqs else "")
-L(f"| **类目排名** | {category_rank} |")
+L(f"| **賣家** | {seller} |")
+L(f"| **FBA 費用** | {fmt_money(fba_fee)} |")
+L(f"| **Listing質量評分** | {lqs} |" if lqs else "")
+L(f"| **類目排名** | {category_rank} |")
 L()
 
 # Features
 if features:
-    L("### 产品要点 (Bullet Points)")
+    L("### 產品要點 (Bullet Points)")
     L()
     for i, f in enumerate(features[:8], 1):
         L(f"{i}. {f}")
@@ -197,41 +197,41 @@ L("---")
 L()
 
 # Prediction
-L("## 二、销量与趋势预测")
+L("## 二、銷量與趨勢預測")
 L()
-L("| 维度 | 数值 |")
+L("| 維度 | 數值 |")
 L("|------|:----:|")
 if pred_data:
     pred_monthly = pred_data.get('predictedMonthlyUnits', pred_data.get('monthlyUnits', 0))
     pred_revenue = pred_data.get('predictedMonthlyRevenue', pred_data.get('monthlyRevenue', 0))
     trend = pred_data.get('trend', pred_data.get('growth', ''))
-    L(f"| **预测月销量** | {fmt_num(pred_monthly)} |")
-    L(f"| **预测月销售额** | {fmt_money(pred_revenue)} |")
-    L(f"| **趋势** | {trend} |" if trend else "")
+    L(f"| **預測月銷量** | {fmt_num(pred_monthly)} |")
+    L(f"| **預測月銷售額** | {fmt_money(pred_revenue)} |")
+    L(f"| **趨勢** | {trend} |" if trend else "")
 else:
-    L("| 预测数据 | 暂无 |")
+    L("| 預測資料 | 暫無 |")
 L()
 
 if keepa_data:
-    L("**Keepa 价格历史**")
+    L("**Keepa 價格歷史**")
     L()
     price_chart = keepa_data.get('priceHistory', keepa_data.get('prices', []))
     if isinstance(price_chart, list):
-        L(f"- 历史价格数据点: {len(price_chart)}")
-        L(f"- 当前/历史最低价: {fmt_money(keepa_data.get('minPrice', 0))}")
-        L(f"- 历史最高价: {fmt_money(keepa_data.get('maxPrice', 0))}")
+        L(f"- 歷史價格資料點: {len(price_chart)}")
+        L(f"- 當前/歷史最低價: {fmt_money(keepa_data.get('minPrice', 0))}")
+        L(f"- 歷史最高價: {fmt_money(keepa_data.get('maxPrice', 0))}")
     L()
 
 L("---")
 L()
 
 # Traffic keywords
-L("## 三、流量关键词分析")
+L("## 三、流量關鍵詞分析")
 L()
-L("### Top 20 流量关键词")
+L("### Top 20 流量關鍵詞")
 L()
 if tkw_items:
-    L("| 关键词 | 搜索量 | 排名 | 流量占比 | 点击率 | 转化率 | 品牌集中度 |")
+    L("| 關鍵詞 | 搜尋量 | 排名 | 流量佔比 | 點選率 | 轉化率 | 品牌集中度 |")
     L("|--------|:-----:|:---:|:-------:|:-----:|:-----:|:---------:|")
     sorted_tkw = sorted(tkw_items, key=lambda x: float(x.get('searchVolume', 0) or 0), reverse=True)
     for kw in sorted_tkw[:20]:
@@ -245,18 +245,18 @@ if tkw_items:
         L(f"| {keyword} | {sv} | {rank} | {share} | {click} | {cvr} | {bc} |")
     L()
 else:
-    L("*暂无流量关键词数据*")
+    L("*暫無流量關鍵詞資料*")
     L()
 
 # Traffic source
 L("---")
 L()
-L("## 四、流量来源分析")
+L("## 四、流量來源分析")
 L()
-L("### 搜索与非搜索流量构成")
+L("### 搜尋與非搜尋流量構成")
 L()
 if tsrc_items:
-    L("| 来源 | 访客数 | 占比 |")
+    L("| 來源 | 訪客數 | 佔比 |")
     L("|------|:-----:|:---:|")
     for src in tsrc_items:
         label = src.get('source', src.get('label', 'N/A'))
@@ -265,14 +265,14 @@ if tsrc_items:
         L(f"| {label} | {visitors} | {ratio} |")
     L()
 else:
-    L("*暂无流量来源数据*")
+    L("*暫無流量來源資料*")
     L()
 
 # Traffic listing stats
-L("### Listing 流量统计")
+L("### Listing 流量統計")
 L()
 if tls_data:
-    L("| 指标 | 数值 |")
+    L("| 指標 | 數值 |")
     L("|------|:----:|")
     for k, v in tls_data.items():
         if isinstance(v, (int, float)):
@@ -280,26 +280,26 @@ if tls_data:
     L()
 
 # Traffic keyword stats
-L("### 关键词流量统计")
+L("### 關鍵詞流量統計")
 L()
 if tkws_data:
     if isinstance(tkws_data, dict):
-        L("| 指标 | 数值 |")
+        L("| 指標 | 數值 |")
         L("|------|:----:|")
         for k, v in tkws_data.items():
             if isinstance(v, (int, float)):
                 L(f"| **{k}** | {fmt_num(v)} |")
     elif isinstance(tkws_data, list):
-        L("*列表数据*")
+        L("*列表資料*")
     L()
 
 L("---")
 L()
 
 # Reviews
-L("## 五、评论分析")
+L("## 五、評論分析")
 L()
-L(f"总评分数: {fmt_num(ratings_cnt)} | 评分: {rating}/5.0")
+L(f"總評分數: {fmt_num(ratings_cnt)} | 評分: {rating}/5.0")
 L()
 
 # Review breakdown
@@ -312,20 +312,20 @@ for r in rev_items:
     else: neg += 1; neg_reviews.append(r)
 
 total_r = len(rev_items) or 1
-L(f"| 类型 | 数量 | 占比 |")
+L(f"| 型別 | 數量 | 佔比 |")
 L(f"|------|:---:|:---:|")
-L(f"| 好评 (4-5星) | {pos} | {pos/total_r*100:.1f}% |")
-L(f"| 中评 (3星) | {mid} | {mid/total_r*100:.1f}% |")
-L(f"| 差评 (1-2星) | {neg} | {neg/total_r*100:.1f}% |")
+L(f"| 好評 (4-5星) | {pos} | {pos/total_r*100:.1f}% |")
+L(f"| 中評 (3星) | {mid} | {mid/total_r*100:.1f}% |")
+L(f"| 差評 (1-2星) | {neg} | {neg/total_r*100:.1f}% |")
 L()
 
 # Positive review highlights
 if pos_reviews:
-    L("### 好评关键词")
+    L("### 好評關鍵詞")
     L()
     pos_texts = " ".join([r.get('text', r.get('content', ''))[:200] for r in pos_reviews[:10]])
     # Extract common patterns
-    L(f"> 样本评论片段: ")
+    L(f"> 樣本評論片段: ")
     for r in pos_reviews[:5]:
         text = r.get('text', r.get('content', ''))[:150]
         date = r.get('date', r.get('time', ''))
@@ -335,9 +335,9 @@ if pos_reviews:
 
 # Negative review insights
 if neg_reviews:
-    L("### 差评痛点分析")
+    L("### 差評痛點分析")
     L()
-    L("| 评分 | 日期 | 评论摘要 |")
+    L("| 評分 | 日期 | 評論摘要 |")
     L("|:---:|:----:|---------|")
     for r in neg_reviews[:10]:
         star = r.get('star', r.get('rating', 0))
@@ -352,50 +352,50 @@ L()
 # SWOT
 L("## 六、SWOT 分析")
 L()
-L("### 优势 (Strengths)")
-L("- 月销 28,046 件，类目 Top1 品牌")
-L(f"- 评分数 {fmt_num(ratings_cnt)} 条，远超竞品")
-L(f"- 评分 {rating}/5.0，口碑良好")
-L(f"- 定价 {fmt_money(price)}，性价比极高")
-L("- 单品牌单 ASIN 集中打法，效率高")
+L("### 優勢 (Strengths)")
+L("- 月銷 28,046 件，類目 Top1 品牌")
+L(f"- 評分數 {fmt_num(ratings_cnt)} 條，遠超競品")
+L(f"- 評分 {rating}/5.0，口碑良好")
+L(f"- 定價 {fmt_money(price)}，價效比極高")
+L("- 單品牌單 ASIN 集中打法，效率高")
 L()
-L("### 劣势 (Weaknesses)")
-L("- 品牌知名度有限（非传统音频大牌）")
-L("- 产品功能单一，无差异化功能")
-L("- 可能面临价格战风险")
+L("### 劣勢 (Weaknesses)")
+L("- 品牌知名度有限（非傳統音訊大牌）")
+L("- 產品功能單一，無差異化功能")
+L("- 可能面臨價格戰風險")
 L()
-L("### 机会 (Opportunities)")
-L("- 中国卖家占 56.2% 市场，供应链成本优势大")
-L("- 低客单价 ($25) 市场容量大，适合跑量")
-L("- 短视频/TikTok 内容营销空间大")
+L("### 機會 (Opportunities)")
+L("- 中國賣家佔 56.2% 市場，供應鏈成本優勢大")
+L("- 低客單價 ($25) 市場容量大，適合跑量")
+L("- 短影片/TikTok 內容營銷空間大")
 L()
-L("### 威胁 (Threats)")
-L("- 头部品牌集中度 43.1%，竞争激烈")
-L("- DJI、Rode 等大牌正在入场 (DJI Mic 系列)")
-L("- 退货率 5.1%，产品质量需持续把控")
+L("### 威脅 (Threats)")
+L("- 頭部品牌集中度 43.1%，競爭激烈")
+L("- DJI、Rode 等大牌正在入場 (DJI Mic 系列)")
+L("- 退貨率 5.1%，產品質量需持續把控")
 L()
 
 L("---")
 L()
-L("## 七、竞品策略总结")
+L("## 七、競品策略總結")
 L()
 L("### Mini Mic Pro 成功要素")
 L()
-L("1. **极致性价比**: $24.99 定价捕获大量入门级用户")
-L("2. **精准定位**: 专注 iPhone/Android 手机短视频创作者")
-L("3. **评论快跑**: 7,182 条评论构筑高壁垒")
-L("4. **单一SKU**: 聚焦一个 ASIN 打透，降低运营复杂度")
+L("1. **極致價效比**: $24.99 定價捕獲大量入門級使用者")
+L("2. **精準定位**: 專注 iPhone/Android 手機短影片創作者")
+L("3. **評論快跑**: 7,182 條評論構築高壁壘")
+L("4. **單一SKU**: 聚焦一個 ASIN 打透，降低運營複雜度")
 L()
-L("### 差异化切入建议")
+L("### 差異化切入建議")
 L()
-L(f"- **定价策略**: 参考 $20-35 区间，避开头部的 $24.99 锚点")
-L("- **功能差异**: 增加降噪、长续航、多设备兼容等差异化功能")
-L("- **内容营销**: 重点布局 TikTok/YouTube 短视频创作者场景")
-L("- **变体策略**: 考虑颜色/接口 (USB-C/Lightning) 变体覆盖更多需求")
+L(f"- **定價策略**: 參考 $20-35 區間，避開頭部的 $24.99 錨點")
+L("- **功能差異**: 增加降噪、長續航、多裝置相容等差異化功能")
+L("- **內容營銷**: 重點佈局 TikTok/YouTube 短影片創作者場景")
+L("- **變體策略**: 考慮顏色/介面 (USB-C/Lightning) 變體覆蓋更多需求")
 L()
 L("---")
 L()
-L(f"*报告生成: 2026-07-05 | 数据工具: 卖家精灵 SellerSprite MCP | 站点: Amazon US*")
+L(f"*報告生成: 2026-07-05 | 資料工具: 賣家精靈 SellerSprite MCP | 站點: Amazon US*")
 
 report = "\n".join(lines)
 with open(f"{OUT_DIR}/competitor_report.md", "w", encoding="utf-8") as f:

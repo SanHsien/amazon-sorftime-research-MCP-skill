@@ -1,307 +1,307 @@
-# 亚马逊竞品Listing全维度穿透分析报告
+# 亞馬遜競品Listing全維度穿透分析報告
 
-## 分析对象
+## 分析物件
 - **ASIN**: B0CS9NP59F
-- **产品标题**: WINNER SPACE Medieval Dragons Castle Building Sets, Guarding Dice Tower Kits, Red Dragon Medieval Castle Sets Toys for Ages 8-13, Dragon Model Decor, Idea Gifts for Boys, Kids, Adult Fans (927 Pcs)
-- **亚马逊站点**: US
-- **分析时间**: 2026-03-05
-- **数据来源**: Sorftime MCP
+- **產品標題**: WINNER SPACE Medieval Dragons Castle Building Sets, Guarding Dice Tower Kits, Red Dragon Medieval Castle Sets Toys for Ages 8-13, Dragon Model Decor, Idea Gifts for Boys, Kids, Adult Fans (927 Pcs)
+- **亞馬遜站點**: US
+- **分析時間**: 2026-03-05
+- **資料來源**: Sorftime MCP
 
 ---
 
-## 第一部分：产品基础数据
+## 第一部分：產品基礎資料
 
-### 核心指标
-| 指标 | 数值 |
+### 核心指標
+| 指標 | 數值 |
 |------|------|
 | **品牌** | WINNER SPACE |
-| **价格** | $40.99 |
-| **评分** | 4.40 / 5.0 |
-| **评论数** | 187 |
-| **类目** | Toy Building Block (NodeID: 166099011) |
-| **类目排名** | #4,793 |
-| **卖家** | BEIYU-US (中国卖家) |
-| **配送方式** | FBA (推测) |
-| **上架天数** | 新品 (数据未显示) |
-| **子体数量** | 1 |
+| **價格** | $40.99 |
+| **評分** | 4.40 / 5.0 |
+| **評論數** | 187 |
+| **類目** | Toy Building Block (NodeID: 166099011) |
+| **類目排名** | #4,793 |
+| **賣家** | BEIYU-US (中國賣家) |
+| **配送方式** | FBA (推測) |
+| **上架天數** | 新品 (資料未顯示) |
+| **子體數量** | 1 |
 
-### 市场表现
-- **月销量**: 数据未显示 (新品或销量较低)
-- **月销额**: 数据未显示
-- **生命周期阶段**: 新品成长期
+### 市場表現
+- **月銷量**: 資料未顯示 (新品或銷量較低)
+- **月銷額**: 資料未顯示
+- **生命週期階段**: 新品成長期
 
-### 产品定位分析
-- **目标受众**: 8-13岁儿童、成人收藏者、D&D玩家
-- **产品卖点**: 中古城堡+红龙+骰子塔三合一设计
-- **差异化策略**: 结合桌面游戏(D&D)元素的积木套装
+### 產品定位分析
+- **目標受眾**: 8-13歲兒童、成人收藏者、D&D玩家
+- **產品賣點**: 中古城堡+紅龍+骰子塔三合一設計
+- **差異化策略**: 結合桌面遊戲(D&D)元素的積木套裝
 
 ---
 
-## 第二部分：关键词布局分析 (The Brain)
+## 第二部分：關鍵詞佈局分析 (The Brain)
 
-### 流量关键词 Top 15
+### 流量關鍵詞 Top 15
 
-| 关键词 | 月搜索量 | 推荐竞价 | 自然排名位置 | 曝光能力 |
+| 關鍵詞 | 月搜尋量 | 推薦競價 | 自然排名位置 | 曝光能力 |
 |--------|----------|----------|--------------|----------|
-| lego dragon | 22,984 | $0.48 | 第2页，第38/48位 | ⭐⭐⭐ |
-| dragon lego | 10,880 | $0.54 | 第1页，第43/50位 | ⭐⭐⭐⭐ |
-| dragon lego set | 7,189 | $0.78 | 第1页，第38/50位 | ⭐⭐⭐⭐ |
-| toothless lego set | 15,684 | $0.53 | 第3页，第3/48位 | ⭐⭐ |
-| lego dungeons and dragons | 8,468 | $0.46 | **第1页，第9/48位** | ⭐⭐⭐⭐⭐ |
-| lego dnd | 2,844 | $0.35 | 第1页，第38/48位 | ⭐⭐⭐ |
-| bionicle lego sets | 2,477 | $0.63 | 第2页，第15/48位 | ⭐⭐⭐ |
-| lego monkie kid | 4,826 | $0.42 | 第3页，第19/48位 | ⭐⭐ |
-| lego toothless | 16,680 | $0.53 | 第3页，第3/47位 | ⭐⭐ |
-| dungeons and dragons lego | 1,434 | $0.76 | 第1页，第28/48位 | ⭐⭐⭐ |
-| avatar lego set | 11,848 | $0.41 | 第3页，第50/52位 | ⭐ |
-| lego dragons | 686 | $0.45 | 第1页，第44/48位 | ⭐⭐ |
-| zelda lego | 17,124 | $0.61 | 第3页，第46/48位 | ⭐ |
-| medieval lego | 1,373 | $0.37 | 第3页，第45/48位 | ⭐ |
+| lego dragon | 22,984 | $0.48 | 第2頁，第38/48位 | ⭐⭐⭐ |
+| dragon lego | 10,880 | $0.54 | 第1頁，第43/50位 | ⭐⭐⭐⭐ |
+| dragon lego set | 7,189 | $0.78 | 第1頁，第38/50位 | ⭐⭐⭐⭐ |
+| toothless lego set | 15,684 | $0.53 | 第3頁，第3/48位 | ⭐⭐ |
+| lego dungeons and dragons | 8,468 | $0.46 | **第1頁，第9/48位** | ⭐⭐⭐⭐⭐ |
+| lego dnd | 2,844 | $0.35 | 第1頁，第38/48位 | ⭐⭐⭐ |
+| bionicle lego sets | 2,477 | $0.63 | 第2頁，第15/48位 | ⭐⭐⭐ |
+| lego monkie kid | 4,826 | $0.42 | 第3頁，第19/48位 | ⭐⭐ |
+| lego toothless | 16,680 | $0.53 | 第3頁，第3/47位 | ⭐⭐ |
+| dungeons and dragons lego | 1,434 | $0.76 | 第1頁，第28/48位 | ⭐⭐⭐ |
+| avatar lego set | 11,848 | $0.41 | 第3頁，第50/52位 | ⭐ |
+| lego dragons | 686 | $0.45 | 第1頁，第44/48位 | ⭐⭐ |
+| zelda lego | 17,124 | $0.61 | 第3頁，第46/48位 | ⭐ |
+| medieval lego | 1,373 | $0.37 | 第3頁，第45/48位 | ⭐ |
 
-### 竞品关键词布局分析
+### 競品關鍵詞佈局分析
 
-**总计获流关键词**: 47个
+**總計獲流關鍵詞**: 47個
 
-**强势排名关键词** (第1页):
-| 关键词 | 排名位置 | 月搜索量 |
+**強勢排名關鍵詞** (第1頁):
+| 關鍵詞 | 排名位置 | 月搜尋量 |
 |--------|----------|----------|
-| lego dungeons and dragons | 第1页，第9/53位 | 8,468 |
-| dnd lego | 第1页，第19/49位 | 844 |
-| lego dnd | 第1页，第23/48位 | 2,844 |
-| dungeons and dragons lego | 第1页，第27/53位 | 1,434 |
+| lego dungeons and dragons | 第1頁，第9/53位 | 8,468 |
+| dnd lego | 第1頁，第19/49位 | 844 |
+| lego dnd | 第1頁，第23/48位 | 2,844 |
+| dungeons and dragons lego | 第1頁，第27/53位 | 1,434 |
 
-**中等排名关键词** (第2页):
-| 关键词 | 排名位置 | 月搜索量 |
+**中等排名關鍵詞** (第2頁):
+| 關鍵詞 | 排名位置 | 月搜尋量 |
 |--------|----------|----------|
-| dragon lego | 第1页，第37/56位 | 10,880 |
-| lego dragon | 第1页，第50/56位 | 22,984 |
+| dragon lego | 第1頁，第37/56位 | 10,880 |
+| lego dragon | 第1頁，第50/56位 | 22,984 |
 
-### 文案构建逻辑分析
+### 文案構建邏輯分析
 
-**标题策略**: 参数压制 + 场景驱动
+**標題策略**: 引數壓制 + 場景驅動
 ```
-结构：品牌 + 核心词(Medieval Dragons Castle) + 功能描述(Guarding Dice Tower Kits)
-     + 情感词(Red Dragon) + 适用人群(8-13, Kids, Adult Fans) + 场景(Idea Gifts)
+結構：品牌 + 核心詞(Medieval Dragons Castle) + 功能描述(Guarding Dice Tower Kits)
+     + 情感詞(Red Dragon) + 適用人群(8-13, Kids, Adult Fans) + 場景(Idea Gifts)
 ```
 
-**关键词埋点策略**:
-1. ✅ "Medieval Dragons Castle" - 中古城堡核心词
-2. ✅ "Building Sets" - 类目大词
-3. ✅ "Dice Tower" - 差异化功能词（D&D场景）
-4. ✅ "Dragon Model Decor" - 收藏/装饰场景
-5. ❌ 未埋 "LEGO" - 合规规避，但损失搜索流量
+**關鍵詞埋點策略**:
+1. ✅ "Medieval Dragons Castle" - 中古城堡核心詞
+2. ✅ "Building Sets" - 類目大詞
+3. ✅ "Dice Tower" - 差異化功能詞（D&D場景）
+4. ✅ "Dragon Model Decor" - 收藏/裝飾場景
+5. ❌ 未埋 "LEGO" - 合規規避，但損失搜尋流量
 
-**文案问题诊断**:
-- 标题过长，核心信息被稀释
-- 品牌词 "WINNER SPACE" 知名度低，占据宝贵字符位置
-- 未在标题中强调 "927 Pcs" 的价值感
+**文案問題診斷**:
+- 標題過長，核心資訊被稀釋
+- 品牌詞 "WINNER SPACE" 知名度低，佔據寶貴字元位置
+- 未在標題中強調 "927 Pcs" 的價值感
 
 ---
 
-## 第三部分：评论定性分析 (The Voice)
+## 第三部分：評論定性分析 (The Voice)
 
-### 评论数据概览
-- **总评分**: 4.40 / 5.0
-- **分析样本**: 7条评论
-- **好评率**: ~71% (5/7)
-- **差评率**: ~29% (2/7)
+### 評論資料概覽
+- **總評分**: 4.40 / 5.0
+- **分析樣本**: 7條評論
+- **好評率**: ~71% (5/7)
+- **差評率**: ~29% (2/7)
 
-### 核心优势 Top 3
+### 核心優勢 Top 3
 
-1. **设计与颜值优势** 🎨
-   - "Really cool dragon!" - 龙的设计非常有吸引力
-   - "looks awesome!" - 成品外观震撼
-   - "It has been on display for almost a year with no issues" - 适合摆件展示
+1. **設計與顏值優勢** 🎨
+   - "Really cool dragon!" - 龍的設計非常有吸引力
+   - "looks awesome!" - 成品外觀震撼
+   - "It has been on display for almost a year with no issues" - 適合擺件展示
 
-2. **性价比优势** 💰
-   - "Great budget alternative to the name brand version" - 作为LEGO平价替代品
-   - "This was a fun project you wouldn't find in other places" - 独特性设计
+2. **價效比優勢** 💰
+   - "Great budget alternative to the name brand version" - 作為LEGO平價替代品
+   - "This was a fun project you wouldn't find in other places" - 獨特性設計
 
-3. **拼搭体验** 🧩
-   - "Instructions were clear and no pieces missing" (部分用户)
-   - "11-year-old was able to assemble" - 适合目标年龄段
+3. **拼搭體驗** 🧩
+   - "Instructions were clear and no pieces missing" (部分使用者)
+   - "11-year-old was able to assemble" - 適合目標年齡段
 
-### 核心痛点 Top 3
+### 核心痛點 Top 3
 
-1. **缺件问题** ⚠️ **严重**
+1. **缺件問題** ⚠️ **嚴重**
    - "Missing main pieces and unable to complete without them"
    - "The first set of instructions call for three 6x14 plates as the base, which were all missing"
    - "No information anywhere on who to contact to get the missing pieces"
-   - **影响**: 2条1星差评均因缺件导致
+   - **影響**: 2條1星差評均因缺件導致
 
-2. **组装难度与质量** ⚠️
+2. **組裝難度與質量** ⚠️
    - "Some of it was a pain to put together"
    - "there will be some wonkiness in terms of connection strength"
    - "my 11-year-old was able to assemble with only a few moments of frustration"
 
-3. **说明书问题** ⚠️
-   - "Didn't like it or the instructions" - 说明书不够清晰
+3. **說明書問題** ⚠️
+   - "Didn't like it or the instructions" - 說明書不夠清晰
 
-### 改进建议 Top 3
+### 改進建議 Top 3
 
-1. **建立缺件补发机制** 🚨 **最高优先级**
-   - 在包装内附赠补件联系方式
-   - 在Listing详情页突出显示"缺件免费补发"承诺
-   - 建立自动化补件系统
+1. **建立缺件補發機制** 🚨 **最高優先順序**
+   - 在包裝內附贈補件聯絡方式
+   - 在Listing詳情頁突出顯示"缺件免費補發"承諾
+   - 建立自動化補件系統
 
-2. **优化产品质量控制**
-   - 加强来料检验，确保配件完整
-   - 改进连接件设计，提升拼接稳固度
-   - 增加说明书详细程度
+2. **最佳化產品質量控制**
+   - 加強來料檢驗，確保配件完整
+   - 改進連線件設計，提升拼接穩固度
+   - 增加說明書詳細程度
 
-3. **强化Listing信任建设**
-   - 在Q&A和A+页面展示补件流程
-   - 邀请满意用户晒图评价
-   - 突出"927片"的性价比对比
+3. **強化Listing信任建設**
+   - 在Q&A和A+頁面展示補件流程
+   - 邀請滿意使用者曬圖評價
+   - 突出"927片"的價效比對比
 
 ---
 
-## 第四部分：竞争策略分析 (The Pulse)
+## 第四部分：競爭策略分析 (The Pulse)
 
-### 竞争优势 ✅
+### 競爭優勢 ✅
 
-1. **差异化定位精准**
-   - 骰子塔设计切入D&D细分市场
-   - 中古城堡+红龙组合满足收藏需求
-   - 避开了与LEGO主流产品的直接竞争
+1. **差異化定位精準**
+   - 骰子塔設計切入D&D細分市場
+   - 中古城堡+紅龍組合滿足收藏需求
+   - 避開了與LEGO主流產品的直接競爭
 
-2. **价格优势明显**
-   - $40.99 vs LEGO同类产品$80-150
-   - 927片积木的性价比极高
+2. **價格優勢明顯**
+   - $40.99 vs LEGO同類產品$80-150
+   - 927片積木的價效比極高
 
-3. **关键词布局有效**
-   - 在 "lego dungeons and dragons" 获得第1页第9位
-   - 成功承接LEGO D&D相关搜索流量
+3. **關鍵詞佈局有效**
+   - 在 "lego dungeons and dragons" 獲得第1頁第9位
+   - 成功承接LEGO D&D相關搜尋流量
 
-### 竞争劣势 ❌
+### 競爭劣勢 ❌
 
 1. **品牌力弱**
-   - WINNER SPACE为不知名中国品牌
-   - 无法获得品牌搜索流量
-   - 用户信任度需要建立
+   - WINNER SPACE為不知名中國品牌
+   - 無法獲得品牌搜尋流量
+   - 使用者信任度需要建立
 
-2. **质量稳定性存疑**
-   - 29%差评率主要因缺件导致
-   - 连接稳固度不如LEGO
-   - 影响复购和口碑传播
+2. **質量穩定性存疑**
+   - 29%差評率主要因缺件導致
+   - 連線穩固度不如LEGO
+   - 影響復購和口碑傳播
 
-3. **流量依赖竞品词**
-   - 47个关键词中大部分含"lego"
-   - 自然排名较低（多在第2-3页）
-   - 无法摆脱对LEGO品牌的流量依赖
+3. **流量依賴競品詞**
+   - 47個關鍵詞中大部分含"lego"
+   - 自然排名較低（多在第2-3頁）
+   - 無法擺脫對LEGO品牌的流量依賴
 
-### 市场机会 🎯
+### 市場機會 🎯
 
-1. **D&D市场增长红利**
-   - D&D玩家群体扩大，相关周边需求增长
-   - "lego dungeons and dragons" 月搜索量8,468
-   - 官方LEGO D&D产品较少，市场空白
+1. **D&D市場增長紅利**
+   - D&D玩家群體擴大，相關周邊需求增長
+   - "lego dungeons and dragons" 月搜尋量8,468
+   - 官方LEGO D&D產品較少，市場空白
 
-2. **成人收藏市场**
-   - "Adult Fans"在标题中被提及
-   - 中古城堡、红龙符合成人审美
-   - 可拓展桌面游戏场景产品线
+2. **成人收藏市場**
+   - "Adult Fans"在標題中被提及
+   - 中古城堡、紅龍符合成人審美
+   - 可拓展桌面遊戲場景產品線
 
-3. **平价替代市场**
-   - LEGO价格上涨明显
-   - 预算敏感用户寻求替代品
-   - 可强调"Same fun, half price"
+3. **平價替代市場**
+   - LEGO價格上漲明顯
+   - 預算敏感使用者尋求替代品
+   - 可強調"Same fun, half price"
 
-### 潜在威胁 ⚠️
+### 潛在威脅 ⚠️
 
-1. **LEGO可能推出竞品**
-   - LEGO已推出 "LEGO D&D" 相关产品
-   - 若官方推出中古城堡+骰子塔套装，将直接打击
+1. **LEGO可能推出競品**
+   - LEGO已推出 "LEGO D&D" 相關產品
+   - 若官方推出中古城堡+骰子塔套裝，將直接打擊
 
-2. **质量口碑恶化**
-   - 缺件问题若不解决，将导致差评累积
-   - 退货率上升影响Listing权重
+2. **質量口碑惡化**
+   - 缺件問題若不解決，將導致差評累積
+   - 退貨率上升影響Listing權重
 
-3. **同类山寨竞争**
-   - 其他中国卖家可能跟进类似设计
-   - 价格战可能爆发
+3. **同類山寨競爭**
+   - 其他中國賣家可能跟進類似設計
+   - 價格戰可能爆發
 
 ---
 
-## 战略反击建议
+## 戰略反擊建議
 
-### 关键词策略
+### 關鍵詞策略
 
-**短期优化** (1-2周):
-1. 将标题中的 "WINNER SPACE" 缩短或移至尾部，节省字符给核心卖点
-2. 在五点描述第一条强化 "Dungeons & Dragons Dice Tower" 关键词
+**短期最佳化** (1-2周):
+1. 將標題中的 "WINNER SPACE" 縮短或移至尾部，節省字元給核心賣點
+2. 在五點描述第一條強化 "Dungeons & Dragons Dice Tower" 關鍵詞
 3. Search Terms 埋入: "dnd miniature", "tabletop gaming accessories", "dragon collectible"
 
-**中期布局** (1-3个月):
-1. 增加 "castle building set for adults" 等成人场景词
-2. 拓展 "medieval decor", "fantasy collectible" 等收藏场景词
-3. 减少 "lego" 相关词依赖，建立独立品牌认知
+**中期佈局** (1-3個月):
+1. 增加 "castle building set for adults" 等成人場景詞
+2. 拓展 "medieval decor", "fantasy collectible" 等收藏場景詞
+3. 減少 "lego" 相關詞依賴，建立獨立品牌認知
 
-### 定价策略
+### 定價策略
 
-**当前定价**: $40.99
+**當前定價**: $40.99
 
-**建议调整**:
-- 保持当前价格，增加"组合装"变体
-- 推出 $49.99 豪华版（增加发光件、人仔）
-- 推出 $29.99 精简版（简化城堡，保留龙+骰子塔）
+**建議調整**:
+- 保持當前價格，增加"組合裝"變體
+- 推出 $49.99 豪華版（增加發光件、人仔）
+- 推出 $29.99 精簡版（簡化城堡，保留龍+骰子塔）
 
-### 产品优化方向
+### 產品最佳化方向
 
-**质量改进** (最高优先级):
-1. 建立缺件补发SOP，包装内附赠补件卡
-2. 改进连接件结构，提升稳固度
-3. 优化说明书，增加步骤分解图
+**質量改進** (最高優先順序):
+1. 建立缺件補發SOP，包裝內附贈補件卡
+2. 改進連線件結構，提升穩固度
+3. 最佳化說明書，增加步驟分解圖
 
-**产品线扩展**:
-1. 推出"扩展包"：增加城墙、守卫人仔
-2. 推出"场景包"： tavern, dungeon等D&D场景
-3. 考虑与D&D主播/KOL合作推广
+**產品線擴充套件**:
+1. 推出"擴充套件包"：增加城牆、守衛人仔
+2. 推出"場景包"： tavern, dungeon等D&D場景
+3. 考慮與D&D主播/KOL合作推廣
 
-### Listing优化建议
+### Listing最佳化建議
 
-**标题优化方案**:
+**標題最佳化方案**:
 ```
-原标题: WINNER SPACE Medieval Dragons Castle Building Sets, Guarding Dice Tower Kits, Red Dragon Medieval Castle Sets Toys for Ages 8-13, Dragon Model Decor, Idea Gifts for Boys, Kids, Adult Fans (927 Pcs)
+原標題: WINNER SPACE Medieval Dragons Castle Building Sets, Guarding Dice Tower Kits, Red Dragon Medieval Castle Sets Toys for Ages 8-13, Dragon Model Decor, Idea Gifts for Boys, Kids, Adult Fans (927 Pcs)
 
-优化后: Medieval Dragon Castle Building Set with Dice Tower - 927PCS D&D Tabletop Game Accessories, Red Dragon Toy for Ages 8+, Fantasy Castle Decor for Adults & Kids, Compatible with Major Brands (Red)
+最佳化後: Medieval Dragon Castle Building Set with Dice Tower - 927PCS D&D Tabletop Game Accessories, Red Dragon Toy for Ages 8+, Fantasy Castle Decor for Adults & Kids, Compatible with Major Brands (Red)
 ```
 
-**五点描述优化**:
-1. 第一条突出 "D&D骰子塔" 功能差异化
-2. 第二条强调 "927片高性价比"
-3. 第三条突出 "缺件免费补发" 售后承诺
-4. 第四条强调 "成人收藏+儿童玩具" 双场景
-5. 第五条展示 "品牌质量保证"
+**五點描述最佳化**:
+1. 第一條突出 "D&D骰子塔" 功能差異化
+2. 第二條強調 "927片高價效比"
+3. 第三條突出 "缺件免費補發" 售後承諾
+4. 第四條強調 "成人收藏+兒童玩具" 雙場景
+5. 第五條展示 "品牌質量保證"
 
-**A+页面建议**:
-- 展示D&D游戏场景实拍图
-- 对比LEGO价格优势
-- 展示拼搭步骤和成品细节
-- 增加补件流程说明
+**A+頁面建議**:
+- 展示D&D遊戲場景實拍圖
+- 對比LEGO價格優勢
+- 展示拼搭步驟和成品細節
+- 增加補件流程說明
 
 ---
 
-## 总结与行动优先级
+## 總結與行動優先順序
 
-### 立即执行 (本周内)
-- [ ] 在包装内添加补件联系卡片
-- [ ] Listing详情页添加"缺件补发"承诺
-- [ ] 优化标题，精简品牌名
-- [ ] 回复所有差评，提供补件方案
+### 立即執行 (本週內)
+- [ ] 在包裝內新增補件聯絡卡片
+- [ ] Listing詳情頁新增"缺件補發"承諾
+- [ ] 最佳化標題，精簡品牌名
+- [ ] 回覆所有差評，提供補件方案
 
-### 短期优化 (1个月内)
-- [ ] 建立自动化补件系统
-- [ ] A+页面增加D&D场景展示
-- [ ] 邀请满意用户晒图评价
-- [ ] 监控关键词排名，调整PPC竞价
+### 短期最佳化 (1個月內)
+- [ ] 建立自動化補件系統
+- [ ] A+頁面增加D&D場景展示
+- [ ] 邀請滿意使用者曬圖評價
+- [ ] 監控關鍵詞排名，調整PPC競價
 
-### 中期规划 (3个月内)
-- [ ] 评估推出扩展包的可行性
-- [ ] 联系D&D相关KOL合作
-- [ ] 考虑注册美国本土品牌
-- [ ] 拓展产品线，覆盖更多D&D场景
+### 中期規劃 (3個月內)
+- [ ] 評估推出擴充套件包的可行性
+- [ ] 聯絡D&D相關KOL合作
+- [ ] 考慮註冊美國本土品牌
+- [ ] 拓展產品線，覆蓋更多D&D場景
 
 ---
 
-*本报告由 Claude Code 自动生成 | 数据来源: Sorftime | 分析时间: 2026-03-05*
+*本報告由 Claude Code 自動生成 | 資料來源: Sorftime | 分析時間: 2026-03-05*

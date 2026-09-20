@@ -76,7 +76,7 @@
       {"combination": "$60+ PLA Standard", "status": "空白", "products": 0},
       {"combination": "$60+ PLA+ Pro", "status": "空白", "products": 0},
       {"combination": "$60+ PETG", "status": "空白", "products": 0},
-      {"combination": "$0-30 Special Effects", "status": "机会", "products": 8}
+      {"combination": "$0-30 Special Effects", "status": "機會", "products": 8}
     ],
     "red_ocean": [
       {"combination": "$0-30 PLA Standard", "products": 50},
@@ -84,10 +84,10 @@
     ]
   },
   "dimensions_analysis": [
-    {"dimension": "材质类型", "market_distribution": "PLA(60%), PETG(15%), PLA+(12%), 其他(13%)", "opportunity": "高速PLA、工程材料缺口"},
-    {"dimension": "表面效果", "market_distribution": "Standard(65%), Matte(15%), Silk(12%), 特效(8%)", "opportunity": "夜光、变色效果不足"},
-    {"dimension": "包装规格", "market_distribution": "1KG标准(70%), 多色套装(20%), 补充装(10%)", "opportunity": "样品装、小众规格"},
-    {"dimension": "功能特性", "market_distribution": "高速打印(8%), 增强强度(5%), 防潮(2%)", "opportunity": "专业应用特性"}
+    {"dimension": "材質型別", "market_distribution": "PLA(60%), PETG(15%), PLA+(12%), 其他(13%)", "opportunity": "高速PLA、工程材料缺口"},
+    {"dimension": "表面效果", "market_distribution": "Standard(65%), Matte(15%), Silk(12%), 特效(8%)", "opportunity": "夜光、變色效果不足"},
+    {"dimension": "包裝規格", "market_distribution": "1KG標準(70%), 多色套裝(20%), 補充裝(10%)", "opportunity": "樣品裝、小眾規格"},
+    {"dimension": "功能特性", "market_distribution": "高速列印(8%), 增強強度(5%), 防潮(2%)", "opportunity": "專業應用特性"}
   ],
   "top_brands": [
     {
@@ -160,7 +160,7 @@
       "monthly_sales": 60931,
       "reviews": 21193,
       "rating": 4.4,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-11-26"
     },
     {
@@ -171,7 +171,7 @@
       "monthly_sales": 36090,
       "reviews": 3851,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2024-12-12"
     },
     {
@@ -182,7 +182,7 @@
       "monthly_sales": 34883,
       "reviews": 7406,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-04-29"
     },
     {
@@ -193,7 +193,7 @@
       "monthly_sales": 31731,
       "reviews": 6340,
       "rating": 4.3,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-06-14"
     },
     {
@@ -204,7 +204,7 @@
       "monthly_sales": 29691,
       "reviews": 3104,
       "rating": 4.2,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2024-02-29"
     },
     {
@@ -215,7 +215,7 @@
       "monthly_sales": 27453,
       "reviews": 9981,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-11-25"
     },
     {
@@ -226,7 +226,7 @@
       "monthly_sales": 22303,
       "reviews": 5569,
       "rating": 4.4,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2025-01-27"
     },
     {
@@ -237,7 +237,7 @@
       "monthly_sales": 21468,
       "reviews": 16595,
       "rating": 4.4,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-11-03"
     },
     {
@@ -248,7 +248,7 @@
       "monthly_sales": 21144,
       "reviews": 18214,
       "rating": 4.2,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-04-28"
     },
     {
@@ -259,113 +259,113 @@
       "monthly_sales": 20664,
       "reviews": 8529,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2023-05-10"
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "线轴缠绕",
-        "pain_point": "Spool打结、卡料、混乱，导致打印失败",
+        "dimension": "線軸纏繞",
+        "pain_point": "Spool打結、卡料、混亂，導致列印失敗",
         "frequency": 82,
         "percentage": "41%",
         "affected_brands": ["SUNLU", "OVERTURE"],
-        "brand_opportunity": "改进绕线工艺 + 自动检测设备",
-        "product_solution": "预绕线测试 + 卡点设计 + 防缠绕线轴"
+        "brand_opportunity": "改進繞線工藝 + 自動檢測裝置",
+        "product_solution": "預繞線測試 + 卡點設計 + 防纏繞線軸"
       },
       {
         "dimension": "材料一致性",
-        "pain_point": "批次间质量波动、色差、断料、混色",
+        "pain_point": "批次間質量波動、色差、斷料、混色",
         "frequency": 48,
         "percentage": "24%",
         "affected_brands": ["SUNLU", "OVERTURE"],
-        "brand_opportunity": "建立QC标准 + 批次追溯系统",
-        "product_solution": "ISO标准 + 色差<2ΔE + 批次编号"
+        "brand_opportunity": "建立QC標準 + 批次追溯系統",
+        "product_solution": "ISO標準 + 色差<2ΔE + 批次編號"
       },
       {
-        "dimension": "底板附着力",
-        "pain_point": "打印翘边、不粘底板、支撑脱落",
+        "dimension": "底板附著力",
+        "pain_point": "列印翹邊、不粘底板、支撐脫落",
         "frequency": 32,
         "percentage": "16%",
         "affected_brands": ["SUNLU", "OVERTURE"],
-        "brand_opportunity": "优化材料配方 + 表面处理",
-        "product_solution": "PEI专用配方 + 附着力增强剂"
+        "brand_opportunity": "最佳化材料配方 + 表面處理",
+        "product_solution": "PEI專用配方 + 附著力增強劑"
       },
       {
-        "dimension": "材料易断",
-        "pain_point": "材料脆性高、易折断、在挤出器内断裂",
+        "dimension": "材料易斷",
+        "pain_point": "材料脆性高、易折斷、在擠出器內斷裂",
         "frequency": 24,
         "percentage": "12%",
         "affected_brands": ["SUNLU", "OVERTURE"],
-        "brand_opportunity": "改进材料韧性",
-        "product_solution": "韧性增强剂 + 优化拉丝工艺"
+        "brand_opportunity": "改進材料韌性",
+        "product_solution": "韌性增強劑 + 最佳化拉絲工藝"
       },
       {
-        "dimension": "包装问题",
-        "pain_point": "密封不良、重量不足、包装破损",
+        "dimension": "包裝問題",
+        "pain_point": "密封不良、重量不足、包裝破損",
         "frequency": 14,
         "percentage": "7%",
         "affected_brands": ["SUNLU"],
-        "brand_opportunity": "改进包装工艺",
-        "product_solution": "双层真空密封 + 称重QC"
+        "brand_opportunity": "改進包裝工藝",
+        "product_solution": "雙層真空密封 + 稱重QC"
       }
     ],
-    "summary": "主要痛点集中在线轴缠绕(41%)和材料一致性(24%)，合计占65%的负面反馈。解决这两个问题可显著提升产品竞争力。"
+    "summary": "主要痛點集中線上軸纏繞(41%)和材料一致性(24%)，合計佔65%的負面反饋。解決這兩個問題可顯著提升產品競爭力。"
   },
   "barriers": [
-    {"type": "Review壁垒", "level": "高", "data_anchor": "Top10均值4,000+评论", "estimated_cost": "$8,000-15,000", "solution": "Vine + PPC + 早期评论人"},
-    {"type": "资金壁垒", "level": "中", "data_anchor": "首批备货$5K-10K + 广告$3K-5K", "estimated_cost": "¥50,000-80,000", "solution": "控制MOQ，分批备货"},
-    {"type": "供应链壁垒", "level": "中", "data_anchor": "需要稳定材料供应商", "estimated_cost": "¥20,000", "solution": "华东/华南塑料厂OEM"},
-    {"type": "认证壁垒", "level": "低", "data_anchor": "无特殊认证要求", "estimated_cost": "$0", "solution": "-"},
-    {"type": "技术壁垒", "level": "中低", "data_anchor": "PLA技术成熟", "estimated_cost": "¥10,000", "solution": "OEM合作"}
+    {"type": "Review壁壘", "level": "高", "data_anchor": "Top10均值4,000+評論", "estimated_cost": "$8,000-15,000", "solution": "Vine + PPC + 早期評論人"},
+    {"type": "資金壁壘", "level": "中", "data_anchor": "首批備貨$5K-10K + 廣告$3K-5K", "estimated_cost": "¥50,000-80,000", "solution": "控制MOQ，分批備貨"},
+    {"type": "供應鏈壁壘", "level": "中", "data_anchor": "需要穩定材料供應商", "estimated_cost": "¥20,000", "solution": "華東/華南塑膠廠OEM"},
+    {"type": "認證壁壘", "level": "低", "data_anchor": "無特殊認證要求", "estimated_cost": "$0", "solution": "-"},
+    {"type": "技術壁壘", "level": "中低", "data_anchor": "PLA技術成熟", "estimated_cost": "¥10,000", "solution": "OEM合作"}
   ],
   "decision": {
     "overall_score": 6.0,
-    "verdict": "谨慎进入",
-    "verdict_detail": "市场规模巨大但竞争激烈，Top3品牌集中度52%，需要明确的差异化定位",
-    "准入条件": ["必须解决线轴缠绕问题（核心卖点）", "需要专业3D打印品牌背书", "建议从细分市场切入（高速PLA、特殊效果）"],
-    "禁止进入": ["不建议做标准PLA（红海）", "不建议价格低于$12（无利润）"],
-    "risk_warning": ["Review壁垒高（Top10平均4,000+评论）", "头部品牌集中度高（SUNLU、ELEGOO、OVERTURE占52%）", "价格竞争激烈（标准PLA已到$10-12）"],
+    "verdict": "謹慎進入",
+    "verdict_detail": "市場規模巨大但競爭激烈，Top3品牌集中度52%，需要明確的差異化定位",
+    "准入條件": ["必須解決線軸纏繞問題（核心賣點）", "需要專業3D列印品牌背書", "建議從細分市場切入（高速PLA、特殊效果）"],
+    "禁止進入": ["不建議做標準PLA（紅海）", "不建議價格低於$12（無利潤）"],
+    "risk_warning": ["Review壁壘高（Top10平均4,000+評論）", "頭部品牌集中度高（SUNLU、ELEGOO、OVERTURE佔52%）", "價格競爭激烈（標準PLA已到$10-12）"],
     "scores": [
-      {"dimension": "市场规模", "weight": 0.20, "score": 9, "weighted_score": 1.80, "basis": "月销90万件，月销额$20M+"},
-      {"dimension": "竞争格局", "weight": 0.25, "score": 4, "weighted_score": 1.00, "basis": "Top3品牌集中度52%，红海竞争"},
-      {"dimension": "增长潜力", "weight": 0.20, "score": 6, "weighted_score": 1.20, "basis": "3D打印趋势上升，但耗材增长放缓"},
-      {"dimension": "进入壁垒", "weight": 0.20, "score": 5, "weighted_score": 1.00, "basis": "Review壁垒高，资金/技术壁垒中等"},
-      {"dimension": "利润空间", "weight": 0.15, "score": 6, "weighted_score": 0.90, "basis": "成本$8-10，售价$15-30，毛利30-50%"}
+      {"dimension": "市場規模", "weight": 0.20, "score": 9, "weighted_score": 1.80, "basis": "月銷90萬件，月銷額$20M+"},
+      {"dimension": "競爭格局", "weight": 0.25, "score": 4, "weighted_score": 1.00, "basis": "Top3品牌集中度52%，紅海競爭"},
+      {"dimension": "增長潛力", "weight": 0.20, "score": 6, "weighted_score": 1.20, "basis": "3D列印趨勢上升，但耗材增長放緩"},
+      {"dimension": "進入壁壘", "weight": 0.20, "score": 5, "weighted_score": 1.00, "basis": "Review壁壘高，資金/技術壁壘中等"},
+      {"dimension": "利潤空間", "weight": 0.15, "score": 6, "weighted_score": 0.90, "basis": "成本$8-10，售價$15-30，毛利30-50%"}
     ]
   },
   "product_matrix": {
     "tier_1": {
-      "positioning": "高速PLA Professional - 解决线轴缠绕痛点",
-      "target_market": "$60+高端PLA空白 + 解决41% VOC痛点",
+      "positioning": "高速PLA Professional - 解決線軸纏繞痛點",
+      "target_market": "$60+高階PLA空白 + 解決41% VOC痛點",
       "specs": {
         "material_type": "高速PLA+",
-        "surface_finish": "Matte半哑光",
-        "package_size": "1KG标准 + 补充装",
-        "spool_design": "防缠绕卡点设计（核心卖点）",
-        "colors": "8色基础 + 3色特效",
+        "surface_finish": "Matte半啞光",
+        "package_size": "1KG標準 + 補充裝",
+        "spool_design": "防纏繞卡點設計（核心賣點）",
+        "colors": "8色基礎 + 3色特效",
         "print_speed": "30-600mm/s",
         "accuracy": "±0.02mm",
-        "moisture_proof": "双层真空 + 干燥剂"
+        "moisture_proof": "雙層真空 + 乾燥劑"
       },
       "target_price": "$24.99-29.99",
-      "usp": "唯一解决缠绕问题的高速PLA",
-      "competitor": "ELEGOO Rapid PLA — 我们的防缠绕线轴",
+      "usp": "唯一解決纏繞問題的高速PLA",
+      "competitor": "ELEGOO Rapid PLA — 我們的防纏繞線軸",
       "estimated_monthly_sales": "3000-5000"
     },
     "tier_2": {
       "positioning": "特效PLA Creative Bundle",
       "specs": {
-        "material_combo": "夜光PLA + 变色PLA + 丝绸PLA",
+        "material_combo": "夜光PLA + 變色PLA + 絲綢PLA",
         "package_size": "3色 × 250g = 750g"
       },
       "target_price": "$34.99",
-      "target_market": "教育机构、创客、创意打印"
+      "target_market": "教育機構、創客、創意列印"
     },
     "tier_3": {
-      "positioning": "长期储备",
-      "products": ["PETG Professional（户外应用）", "TPU 柔性材料（弹性零件）", "ASA 工程材料（耐候户外）"]
+      "positioning": "長期儲備",
+      "products": ["PETG Professional（戶外應用）", "TPU 柔性材料（彈性零件）", "ASA 工程材料（耐候戶外）"]
     }
   },
   "trend_data": [

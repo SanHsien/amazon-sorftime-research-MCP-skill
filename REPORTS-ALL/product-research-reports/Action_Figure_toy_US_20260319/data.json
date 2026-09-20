@@ -64,20 +64,20 @@
   ],
   "dimensions": [
     {
-      "dimension": "IP类型",
+      "dimension": "IP型別",
       "values": [
-        {"value": "动漫IP", "count": 45, "share": 0.45},
-        {"value": "影视IP", "count": 30, "share": 0.30},
-        {"value": "原创", "count": 15, "share": 0.15},
+        {"value": "動漫IP", "count": 45, "share": 0.45},
+        {"value": "影視IP", "count": 30, "share": 0.30},
+        {"value": "原創", "count": 15, "share": 0.15},
         {"value": "其他", "count": 10, "share": 0.10}
       ]
     },
     {
-      "dimension": "产品形态",
+      "dimension": "產品形態",
       "values": [
-        {"value": "单个", "count": 60, "share": 0.60},
-        {"value": "套装", "count": 25, "share": 0.25},
-        {"value": "可动人偶", "count": 15, "share": 0.15}
+        {"value": "單個", "count": 60, "share": 0.60},
+        {"value": "套裝", "count": 25, "share": 0.25},
+        {"value": "可動人偶", "count": 15, "share": 0.15}
       ]
     },
     {
@@ -91,8 +91,8 @@
     {
       "dimension": "功能",
       "values": [
-        {"value": "可动", "count": 40, "share": 0.40},
-        {"value": "电动", "count": 25, "share": 0.25},
+        {"value": "可動", "count": 40, "share": 0.40},
+        {"value": "電動", "count": 25, "share": 0.25},
         {"value": "收藏", "count": 20, "share": 0.20},
         {"value": "盲盒", "count": 15, "share": 0.15}
       ]
@@ -197,7 +197,7 @@
       "monthly_sales": 26127,
       "reviews": 47601,
       "rating": 4.7,
-      "type": "量级标杆",
+      "type": "量級標杆",
       "launch_date": "2019-05-30"
     },
     {
@@ -208,7 +208,7 @@
       "monthly_sales": 9166,
       "reviews": 2260,
       "rating": 4.9,
-      "type": "低价切入",
+      "type": "低價切入",
       "launch_date": "2024-05-04"
     },
     {
@@ -219,7 +219,7 @@
       "monthly_sales": 6980,
       "reviews": 1309,
       "rating": 4.6,
-      "type": "网红IP",
+      "type": "網紅IP",
       "launch_date": "2025-04-08"
     },
     {
@@ -230,7 +230,7 @@
       "monthly_sales": 5694,
       "reviews": 10962,
       "rating": 4.6,
-      "type": "经典IP",
+      "type": "經典IP",
       "launch_date": "2018-01-24"
     },
     {
@@ -241,7 +241,7 @@
       "monthly_sales": 6228,
       "reviews": 2319,
       "rating": 4.2,
-      "type": "3D打印",
+      "type": "3D列印",
       "launch_date": "2024-05-14"
     },
     {
@@ -252,133 +252,133 @@
       "monthly_sales": 5091,
       "reviews": 17761,
       "rating": 4.6,
-      "type": "动漫IP",
+      "type": "動漫IP",
       "launch_date": "2023-04-27"
     }
   ],
   "voc_analysis": {
     "dimensions": [
       {
-        "dimension": "质量缺陷",
-        "pain_point": "零件缺失、破损、做工差、数量不足",
+        "dimension": "質量缺陷",
+        "pain_point": "零件缺失、破損、做工差、數量不足",
         "frequency": 60,
         "percentage": "40%",
         "affected_brands": ["Disney", "AKFAHOIF", "MRBEAST LAB", "Paw Patrol"],
-        "brand_opportunity": "供应链QC体系成熟，可建立全检流程",
-        "product_solution": "100%出厂全检 + 过程QC + 自动计数设备"
+        "brand_opportunity": "供應鏈QC體系成熟，可建立全檢流程",
+        "product_solution": "100%出廠全檢 + 過程QC + 自動計數裝置"
       },
       {
-        "dimension": "电动功能",
-        "pain_point": "电池故障、声音失效、电路不工作",
+        "dimension": "電動功能",
+        "pain_point": "電池故障、聲音失效、電路不工作",
         "frequency": 45,
         "percentage": "30%",
         "affected_brands": ["Disney", "Paw Patrol"],
-        "brand_opportunity": "电子方案设计能力，电池测试设备",
-        "product_solution": "双重测试（产线+出货前）+ 电路保护设计"
+        "brand_opportunity": "電子方案設計能力，電池測試裝置",
+        "product_solution": "雙重測試（產線+出貨前）+ 電路保護設計"
       },
       {
-        "dimension": "价值感知",
-        "pain_point": "价格虚高、内容不足、玩偶太小",
+        "dimension": "價值感知",
+        "pain_point": "價格虛高、內容不足、玩偶太小",
         "frequency": 23,
         "percentage": "15%",
         "affected_brands": ["MRBEAST LAB", "Paw Patrol"],
-        "brand_opportunity": "成本控制 + 产品设计能力",
-        "product_solution": "实物比例图 + 多配件配置 + 明确规格"
+        "brand_opportunity": "成本控制 + 產品設計能力",
+        "product_solution": "實物比例圖 + 多配件配置 + 明確規格"
       },
       {
-        "dimension": "结构耐用性",
-        "pain_point": "连接不牢、易断裂、头手脚脱落",
+        "dimension": "結構耐用性",
+        "pain_point": "連線不牢、易斷裂、頭手腳脫落",
         "frequency": 21,
         "percentage": "14%",
         "affected_brands": ["MRBEAST LAB", "AKFAHOIF"],
-        "brand_opportunity": "结构设计能力，材料选择",
-        "product_solution": "增强卡扣 + 材料升级（ABS→POM）+ 公差优化"
+        "brand_opportunity": "結構設計能力，材料選擇",
+        "product_solution": "增強卡扣 + 材料升級（ABS→POM）+ 公差最佳化"
       }
     ],
-    "summary": "核心痛点：'买了就坏'（质量 + 功能故障占比 70%）。改进方向：优先解决质量缺陷和电动功能问题。"
+    "summary": "核心痛點：'買了就壞'（質量 + 功能故障佔比 70%）。改進方向：優先解決質量缺陷和電動功能問題。"
   },
   "barriers": [
     {
-      "type": "IP壁垒",
+      "type": "IP壁壘",
       "level": "高",
-      "data_anchor": "头部品牌均为知名IP（Disney, Marvel, Transformers）",
+      "data_anchor": "頭部品牌均為知名IP（Disney, Marvel, Transformers）",
       "estimated_cost": "$10,000-50,000/年",
-      "solution": "自创IP、合作授权或公共领域IP"
+      "solution": "自創IP、合作授權或公共領域IP"
     },
     {
-      "type": "Review壁垒",
+      "type": "Review壁壘",
       "level": "高",
-      "data_anchor": "Top10均值8,000+评论",
+      "data_anchor": "Top10均值8,000+評論",
       "estimated_cost": "$15,000-30,000",
-      "solution": "Vine计划 + 早期评论获取"
+      "solution": "Vine計劃 + 早期評論獲取"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "中",
-      "data_anchor": "首批备货 + 广告 + IP授权",
+      "data_anchor": "首批備貨 + 廣告 + IP授權",
       "estimated_cost": "$50,000-100,000",
-      "solution": "控制首批MOQ，小批量试销"
+      "solution": "控制首批MOQ，小批次試銷"
     },
     {
-      "type": "质量壁垒",
+      "type": "質量壁壘",
       "level": "中",
-      "data_anchor": "40%差评与质量相关",
+      "data_anchor": "40%差評與質量相關",
       "estimated_cost": "$5,000-10,000",
-      "solution": "QC流程 + 供应商筛选 + 出厂全检"
+      "solution": "QC流程 + 供應商篩選 + 出廠全檢"
     },
     {
-      "type": "渠道壁垒",
+      "type": "渠道壁壘",
       "level": "低",
-      "data_anchor": "亚马逊自营51%份额",
+      "data_anchor": "亞馬遜自營51%份額",
       "estimated_cost": "$2,000-5,000",
-      "solution": "FBA + 多渠道布局"
+      "solution": "FBA + 多渠道佈局"
     }
   ],
   "decision": {
     "overall_score": 6.2,
-    "verdict": "谨慎进入",
+    "verdict": "謹慎進入",
     "scores": [
-      {"dimension": "市场规模", "weight": 0.20, "score": 7.5, "weighted": 1.50},
-      {"dimension": "竞争格局", "weight": 0.25, "score": 8.0, "weighted": 2.00},
-      {"dimension": "增长潜力", "weight": 0.20, "score": 6.0, "weighted": 1.20},
-      {"dimension": "进入壁垒", "weight": 0.20, "score": 5.0, "weighted": 1.00},
-      {"dimension": "利润空间", "weight": 0.15, "score": 5.5, "weighted": 0.83}
+      {"dimension": "市場規模", "weight": 0.20, "score": 7.5, "weighted": 1.50},
+      {"dimension": "競爭格局", "weight": 0.25, "score": 8.0, "weighted": 2.00},
+      {"dimension": "增長潛力", "weight": 0.20, "score": 6.0, "weighted": 1.20},
+      {"dimension": "進入壁壘", "weight": 0.20, "score": 5.0, "weighted": 1.00},
+      {"dimension": "利潤空間", "weight": 0.15, "score": 5.5, "weighted": 0.83}
     ],
     "entry_conditions": [
-      "具备自有IP、授权或公共领域IP",
-      "预算至少$50,000（首批$20,000 + 广告$20,000 + IP $10,000）",
-      "有能力建立QC流程，解决40%质量痛点",
-      "避开$0-30红海，瞄准$30-60细分市场"
+      "具備自有IP、授權或公共領域IP",
+      "預算至少$50,000（首批$20,000 + 廣告$20,000 + IP $10,000）",
+      "有能力建立QC流程，解決40%質量痛點",
+      "避開$0-30紅海，瞄準$30-60細分市場"
     ],
     "forbidden_conditions": [
-      "禁止未经授权使用知名IP",
-      "禁止忽视质量管控（70%差评与质量/功能相关）",
-      "禁止进入$0-30红海价格带"
+      "禁止未經授權使用知名IP",
+      "禁止忽視質量管控（70%差評與質量/功能相關）",
+      "禁止進入$0-30紅海價格帶"
     ],
     "risks": [
-      {"type": "IP侵权", "description": "未经授权使用知名IP", "mitigation": "严格IP尽职调查，使用原创或授权IP"},
-      {"type": "质量退货", "description": "因质量问题导致高退货率", "mitigation": "100%出厂全检，QC流程"},
-      {"type": "库存积压", "description": "销量不及预期", "mitigation": "小批量试销，按订单补货"},
-      {"type": "价格战", "description": "竞争者降价竞争", "mitigation": "差异化定位，避免同质化"}
+      {"type": "IP侵權", "description": "未經授權使用知名IP", "mitigation": "嚴格IP盡職調查，使用原創或授權IP"},
+      {"type": "質量退貨", "description": "因質量問題導致高退貨率", "mitigation": "100%出廠全檢，QC流程"},
+      {"type": "庫存積壓", "description": "銷量不及預期", "mitigation": "小批次試銷，按訂單補貨"},
+      {"type": "價格戰", "description": "競爭者降價競爭", "mitigation": "差異化定位，避免同質化"}
     ]
   },
   "product_matrix": [
     {
       "tier": "Tier 1",
-      "name": "原创可动人偶（推荐）",
-      "target_market": "$30-60 + 原创IP + 可动关节（蓝海空白）",
+      "name": "原創可動人偶（推薦）",
+      "target_market": "$30-60 + 原創IP + 可動關節（藍海空白）",
       "specs": {
-        "ip_type": "原创机械战士",
+        "ip_type": "原創機械戰士",
         "size": "6英寸",
-        "articulation": "18-20点可动",
+        "articulation": "18-20點可動",
         "material": "ABS + POM",
-        "accessories": "3-5个",
-        "function": "可动 + 收藏"
+        "accessories": "3-5個",
+        "function": "可動 + 收藏"
       },
       "target_price": 39.99,
-      "differentiation": "工厂级质量，18点可动，零缺陷承诺",
+      "differentiation": "工廠級質量，18點可動，零缺陷承諾",
       "competitor_reference": "MerryXD (B0D3BW4QQ6)",
-      "our_advantage": "有QC保证，解决质量痛点",
+      "our_advantage": "有QC保證，解決質量痛點",
       "estimated_monthly_sales": "3000-5000",
       "cost_structure": {
         "product_cost": "$8-10",
@@ -393,38 +393,38 @@
     },
     {
       "tier": "Tier 2",
-      "name": "IP可动人偶（需授权）",
-      "target_market": "$25-40 + 二线IP + 可动关节",
+      "name": "IP可動人偶（需授權）",
+      "target_market": "$25-40 + 二線IP + 可動關節",
       "specs": {
-        "ip_type": "二线动漫/游戏IP",
+        "ip_type": "二線動漫/遊戲IP",
         "size": "5-6英寸",
-        "articulation": "15-18点可动",
+        "articulation": "15-18點可動",
         "material": "ABS + 部分PVC",
-        "accessories": "2-3个",
-        "function": "可动 + 电动（可选）"
+        "accessories": "2-3個",
+        "function": "可動 + 電動（可選）"
       },
       "target_price": 29.99,
-      "differentiation": "正版授权，工厂直供，零缺陷",
+      "differentiation": "正版授權，工廠直供，零缺陷",
       "competitor_reference": "ANIME HEROES",
-      "our_advantage": "同IP价格更低质量更好",
+      "our_advantage": "同IP價格更低質量更好",
       "estimated_monthly_sales": "5000-8000"
     },
     {
       "tier": "Tier 3",
-      "name": "低价盲盒（试水）",
-      "target_market": "$10-15 + 盲盒 + 原创设计",
+      "name": "低價盲盒（試水）",
+      "target_market": "$10-15 + 盲盒 + 原創設計",
       "specs": {
-        "ip_type": "原创可爱形象",
+        "ip_type": "原創可愛形象",
         "size": "2-3英寸",
-        "articulation": "固定姿态",
+        "articulation": "固定姿態",
         "material": "PVC",
         "accessories": "收集卡",
-        "function": "收藏 + 摆件"
+        "function": "收藏 + 擺件"
       },
       "target_price": 12.99,
       "differentiation": "每盒不同，100%收集率",
       "competitor_reference": "Smiski / Sonny Angel",
-      "our_advantage": "更高性价比",
+      "our_advantage": "更高價效比",
       "estimated_monthly_sales": "8000-15000"
     }
   ],

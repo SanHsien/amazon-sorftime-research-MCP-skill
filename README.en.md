@@ -9,7 +9,7 @@
 ## Key Highlights
 
 - **Quadruple E-Commerce MCP Data Integration**: Seamlessly integrates **Sorftime**, **SellerSprite**, **Xiyou Insight**, and **Sif** Model Context Protocol data streams.
-- **14 Amazon Marketplaces & Multi-Platform Influencer Analysis**: Supports US, EU, UK, JP, and other major marketplaces, extended with TikTok video analysis, creator insights, and 1688 supply-chain cost extraction.
+- **14 Amazon Marketplaces & Multi-Platform Influencer Analysis**: Supports 14 Amazon marketplaces (US, EU, UK, JP, etc.) on Windows 11 + PowerShell, extended with TikTok video analysis, creator insights, and 1688 supply-chain cost extraction.
 - **Automated Competitor Teardown via Slash Commands**: Trigger full-dimension penetration analysis with simple commands like `/amazon-analyse` and `/product-research`.
 - **Negative Review Mining & Actionable Improvements**: Analyzes thousands of customer reviews across 6 pain-point dimensions, generating tangible product iteration roadmaps and customer support templates.
 - **Built-in 8-Step Workflow for High-Converting Listings**: Complete pipeline from keyword/question/evidence libraries to title, bullets, A+ content, and search terms.

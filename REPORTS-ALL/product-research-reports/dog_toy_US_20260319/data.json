@@ -117,19 +117,19 @@
         "segment": "$15-25 Puzzle Toys",
         "status": "opportunity",
         "count": 4,
-        "reason": "供给不足但需求增长"
+        "reason": "供給不足但需求增長"
       },
       {
         "segment": "$10-15 Wood Blend",
         "status": "thin_supply",
         "count": 4,
-        "reason": "市场验证充分但竞争较少"
+        "reason": "市場驗證充分但競爭較少"
       },
       {
         "segment": "$5-10 Nylon Bone",
         "status": "red_ocean",
         "count": 25,
-        "reason": "竞争极度激烈"
+        "reason": "競爭極度激烈"
       }
     ]
   },
@@ -204,7 +204,7 @@
       "monthly_sales": 51390,
       "reviews": 106762,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2013-10-31"
     },
     {
@@ -215,7 +215,7 @@
       "monthly_sales": 27585,
       "reviews": 21738,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2021-09-02"
     },
     {
@@ -226,7 +226,7 @@
       "monthly_sales": 21897,
       "reviews": 91229,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2011-03-25"
     },
     {
@@ -237,7 +237,7 @@
       "monthly_sales": 19270,
       "reviews": 5032,
       "rating": 4.3,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2024-11-03"
     },
     {
@@ -248,7 +248,7 @@
       "monthly_sales": 19219,
       "reviews": 51865,
       "rating": 4.6,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2011-03-25"
     },
     {
@@ -259,7 +259,7 @@
       "monthly_sales": 13945,
       "reviews": 70511,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2014-10-27"
     },
     {
@@ -270,7 +270,7 @@
       "monthly_sales": 13342,
       "reviews": 8806,
       "rating": 4.0,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-11-09"
     },
     {
@@ -281,7 +281,7 @@
       "monthly_sales": 13038,
       "reviews": 45906,
       "rating": 4.2,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2011-11-07"
     },
     {
@@ -292,7 +292,7 @@
       "monthly_sales": 12654,
       "reviews": 30785,
       "rating": 4.5,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2019-05-07"
     },
     {
@@ -303,7 +303,7 @@
       "monthly_sales": 12482,
       "reviews": 40149,
       "rating": 4.2,
-      "type": "竞品",
+      "type": "競品",
       "launch_date": "2022-11-04"
     }
   ],
@@ -311,210 +311,210 @@
     "dimensions": [
       {
         "dimension": "耐久性",
-        "pain_point": "被咬碎/损坏/不耐用，极端撕咬者可能几天内破坏",
+        "pain_point": "被咬碎/損壞/不耐用，極端撕咬者可能幾天內破壞",
         "frequency": 28,
         "percentage": "39%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "改进橡胶配方，增加硬度",
-        "product_solution": "采用更硬质天然橡胶，提供耐久性等级标识"
+        "brand_opportunity": "改進橡膠配方，增加硬度",
+        "product_solution": "採用更硬質天然橡膠，提供耐久性等級標識"
       },
       {
         "dimension": "尺寸不符",
-        "pain_point": "实际尺寸与描述不符，比预期小很多",
+        "pain_point": "實際尺寸與描述不符，比預期小很多",
         "frequency": 18,
         "percentage": "25%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "明确尺寸标注",
-        "product_solution": "增加犬型对照表，标注实际尺寸图"
+        "brand_opportunity": "明確尺寸標註",
+        "product_solution": "增加犬型對照表，標註實際尺寸圖"
       },
       {
-        "dimension": "填充体验",
-        "pain_point": "开口太小难以填充零食，取出困难",
+        "dimension": "填充體驗",
+        "pain_point": "開口太小難以填充零食，取出困難",
         "frequency": 8,
         "percentage": "11%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "优化开口设计",
-        "product_solution": "宽口径设计，增加可视填充线"
+        "brand_opportunity": "最佳化開口設計",
+        "product_solution": "寬口徑設計，增加可視填充線"
       },
       {
-        "dimension": "质量问题",
-        "pain_point": "有粉末残留、脏污、损坏等质量问题",
+        "dimension": "質量問題",
+        "pain_point": "有粉末殘留、髒汙、損壞等質量問題",
         "frequency": 6,
         "percentage": "8%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "质检优化",
-        "product_solution": "加强出厂检验，改进包装"
+        "brand_opportunity": "質檢最佳化",
+        "product_solution": "加強出廠檢驗，改進包裝"
       },
       {
-        "dimension": "气味问题",
-        "pain_point": "橡胶味太重，或者没有香味狗不感兴趣",
+        "dimension": "氣味問題",
+        "pain_point": "橡膠味太重，或者沒有香味狗不感興趣",
         "frequency": 4,
         "percentage": "6%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "香料添加技术",
-        "product_solution": "天然肉味渗透工艺，持久香味"
+        "brand_opportunity": "香料新增技術",
+        "product_solution": "天然肉味滲透工藝，持久香味"
       },
       {
-        "dimension": "清洁问题",
-        "pain_point": "内部难以清洗",
+        "dimension": "清潔問題",
+        "pain_point": "內部難以清洗",
         "frequency": 3,
         "percentage": "4%",
         "affected_brands": [
           "KONG"
         ],
-        "brand_opportunity": "表面优化",
-        "product_solution": "光滑内壁设计，可用洗碗机清洗"
+        "brand_opportunity": "表面最佳化",
+        "product_solution": "光滑內壁設計，可用洗碗機清洗"
       }
     ],
-    "summary": "主要痛点集中在耐久性(39%)、尺寸问题(25%)、填充体验(11%)。核心机会：改进橡胶耐久性配方，明确尺寸标注，优化填充开口设计。"
+    "summary": "主要痛點集中在耐久性(39%)、尺寸問題(25%)、填充體驗(11%)。核心機會：改進橡膠耐久性配方，明確尺寸標註，最佳化填充開口設計。"
   },
   "barriers": [
     {
-      "type": "Review 壁垒",
+      "type": "Review 壁壘",
       "level": "高",
-      "data_anchor": "Top10 均值 50,000+ 评论",
+      "data_anchor": "Top10 均值 50,000+ 評論",
       "estimated_cost": "$8,000+",
       "solution": "Vine + PPC + Coupon"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "中",
-      "data_anchor": "首批 1000 件 + 广告",
-      "estimated_cost": "¥5-8万",
+      "data_anchor": "首批 1000 件 + 廣告",
+      "estimated_cost": "¥5-8萬",
       "solution": "控制首批 MOQ"
     },
     {
-      "type": "品牌壁垒",
+      "type": "品牌壁壘",
       "level": "中高",
-      "data_anchor": "Benebone/KONG/Nylabone 占 45%",
+      "data_anchor": "Benebone/KONG/Nylabone 佔 45%",
       "estimated_cost": "-",
-      "solution": "差异化定位"
+      "solution": "差異化定位"
     },
     {
-      "type": "认证壁垒",
+      "type": "認證壁壘",
       "level": "低",
-      "data_anchor": "无特殊认证要求",
+      "data_anchor": "無特殊認證要求",
       "estimated_cost": "$500",
-      "solution": "基本安全检测"
+      "solution": "基本安全檢測"
     },
     {
-      "type": "供应链壁垒",
+      "type": "供應鏈壁壘",
       "level": "中",
-      "data_anchor": "需优质尼龙/橡胶原料",
-      "estimated_cost": "¥2-3万",
-      "solution": "1688 直接采购"
+      "data_anchor": "需優質尼龍/橡膠原料",
+      "estimated_cost": "¥2-3萬",
+      "solution": "1688 直接採購"
     },
     {
-      "type": "CPC 门槛",
+      "type": "CPC 門檻",
       "level": "中",
-      "data_anchor": "关键词 CPC $1.1-$1.8",
+      "data_anchor": "關鍵詞 CPC $1.1-$1.8",
       "estimated_cost": "$3,000/月",
-      "solution": "长尾词策略"
+      "solution": "長尾詞策略"
     }
   ],
   "decision": {
     "overall_score": 6.31,
-    "verdict": "谨慎进入",
+    "verdict": "謹慎進入",
     "scores": [
       {
-        "dimension": "市场规模",
+        "dimension": "市場規模",
         "weight": 0.2,
         "score": 9.0,
         "weighted_score": 1.8,
-        "rationale": "Top100 月销 51万件，月销额 $640万，规模巨大"
+        "rationale": "Top100 月銷 51萬件，月銷額 $640萬，規模巨大"
       },
       {
-        "dimension": "竞争格局",
+        "dimension": "競爭格局",
         "weight": 0.25,
         "score": 4.5,
         "weighted_score": 1.13,
-        "rationale": "Top3 品牌集中度 45%，竞争激烈"
+        "rationale": "Top3 品牌集中度 45%，競爭激烈"
       },
       {
-        "dimension": "增长潜力",
+        "dimension": "增長潛力",
         "weight": 0.2,
         "score": 7.0,
         "weighted_score": 1.4,
-        "rationale": "季节性明显(12月峰值5.75x)，趋势上升"
+        "rationale": "季節性明顯(12月峰值5.75x)，趨勢上升"
       },
       {
-        "dimension": "进入壁垒",
+        "dimension": "進入壁壘",
         "weight": 0.2,
         "score": 5.0,
         "weighted_score": 1.0,
-        "rationale": "Review 壁垒高，但供应链门槛低"
+        "rationale": "Review 壁壘高，但供應鏈門檻低"
       },
       {
-        "dimension": "利润空间",
+        "dimension": "利潤空間",
         "weight": 0.15,
         "score": 6.5,
         "weighted_score": 0.98,
-        "rationale": "均价 $12.4，但竞争导致价格战"
+        "rationale": "均價 $12.4，但競爭導致價格戰"
       }
     ],
     "entry_conditions": [
       {
         "condition": "禁止",
-        "description": "进入 $5-10 Nylon Bone 红海市场"
+        "description": "進入 $5-10 Nylon Bone 紅海市場"
       },
       {
-        "condition": "建议",
-        "description": "选择 $15-25 益智互动玩具细分赛道"
+        "condition": "建議",
+        "description": "選擇 $15-25 益智互動玩具細分賽道"
       },
       {
-        "condition": "建议",
-        "description": "选择 Wood Blend 耐咬玩具细分赛道"
+        "condition": "建議",
+        "description": "選擇 Wood Blend 耐咬玩具細分賽道"
       },
       {
-        "condition": "风险",
-        "description": "Review 壁垒高，需准备 $8,000+ 评论获取预算"
+        "condition": "風險",
+        "description": "Review 壁壘高，需準備 $8,000+ 評論獲取預算"
       }
     ],
     "tier1_product": {
-      "positioning": "益智互动玩具细分市场",
-      "target_market": "$15-25 价位段，关注犬类智力开发和中大型犬的主人",
-      "decision_rationale": "该价格段供给仅 4 款产品，竞争较少，且需求呈上升趋势",
+      "positioning": "益智互動玩具細分市場",
+      "target_market": "$15-25 價位段，關注犬類智力開發和中大型犬的主人",
+      "decision_rationale": "該價格段供給僅 4 款產品，競爭較少，且需求呈上升趨勢",
       "specifications": [
         {
-          "dimension": "产品类型",
+          "dimension": "產品型別",
           "spec": "Treat Dispensing Puzzle Toy",
-          "rationale": "可填充零食的益智玩具，满足犬类智力刺激需求"
+          "rationale": "可填充零食的益智玩具，滿足犬類智力刺激需求"
         },
         {
-          "dimension": "材质",
+          "dimension": "材質",
           "spec": "Food-Grade Rubber + Nylon Reinforcement",
-          "rationale": "食品级橡胶确保安全，尼龙加固提高耐久性"
+          "rationale": "食品級橡膠確保安全，尼龍加固提高耐久性"
         },
         {
           "dimension": "尺寸",
           "spec": "Large (for 25-75 lbs dogs)",
-          "rationale": "中大型犬市场更大，付费意愿更强"
+          "rationale": "中大型犬市場更大，付費意願更強"
         },
         {
-          "dimension": "难度等级",
+          "dimension": "難度等級",
           "spec": "Level 1-3 Adjustable",
-          "rationale": "可调节难度，适应不同犬只能力"
+          "rationale": "可調節難度，適應不同犬隻能力"
         },
         {
-          "dimension": "清洁性",
+          "dimension": "清潔性",
           "spec": "Dishwasher Safe",
-          "rationale": "解决用户清洁痛点"
+          "rationale": "解決使用者清潔痛點"
         }
       ],
       "target_price": "$19.99-$24.99",
-      "differentiation": "可调节难度 + 宽口径填充 + 食品级材质",
+      "differentiation": "可調節難度 + 寬口徑填充 + 食品級材質",
       "competitor_asin": "B00N54E9MI (West Paw Toppl)",
-      "our_advantage": "价格优势($19.99 vs $25.95) + 可调节难度 + 易清洁设计",
+      "our_advantage": "價格優勢($19.99 vs $25.95) + 可調節難度 + 易清潔設計",
       "estimated_monthly_sales": "3,000-5,000 件"
     }
   },

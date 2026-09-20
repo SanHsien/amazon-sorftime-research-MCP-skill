@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toy Building Sets - US 选品分析看板</title>
+    <title>Toy Building Sets - US 選品分析看板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         * {
@@ -61,7 +61,7 @@
             border-bottom: 1px solid #e1e8ef;
         }
 
-        /* KPI 卡片网格 */
+        /* KPI 卡片網格 */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -94,7 +94,7 @@
             margin-top: 4px;
         }
 
-        /* Go/No-Go 评分卡 */
+        /* Go/No-Go 評分卡 */
         .gogono-card {
             background: linear-gradient(135deg, #ef4444, #dc2626 100%);
             border-radius: 12px;
@@ -120,7 +120,7 @@
             opacity: 0.9;
         }
 
-        /* 表格样式 */
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -143,7 +143,7 @@
             background: #f8fafc;
         }
 
-        /* 标签 */
+        /* 標籤 */
         .tag {
             display: inline-block;
             padding: 4px 12px;
@@ -158,7 +158,7 @@
         .tag-blue { background: #dbeafe; color: #1e40af; }
         .tag-gray { background: #f1f5f9; color: #475569; }
 
-        /* 机会卡片 */
+        /* 機會卡片 */
         .opportunity-card {
             background: #f0fdf4;
             border-left: 4px solid #16a34a;
@@ -180,7 +180,7 @@
             margin-right: 12px;
         }
 
-        /* 页脚 */
+        /* 頁尾 */
         .footer {
             text-align: center;
             padding: 24px;
@@ -190,14 +190,14 @@
             margin-top: 40px;
         }
 
-        /* 维度分布表格 */
+        /* 維度分佈表格 */
         .dimension-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        /* 响应式 */
+        /* 響應式 */
         @media (max-width: 768px) {
             .kpi-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -212,41 +212,41 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Toy Building Sets 选品分析看板</h1>
+            <h1>Toy Building Sets 選品分析看板</h1>
             <div class="subtitle">
-                站点: US | 分析日期: 20260319
+                站點: US | 分析日期: 20260319
             </div>
         </div>
 
-        <!-- Go/No-Go 评分 -->
+        <!-- Go/No-Go 評分 -->
         <div class="section">
-            <div class="section-title">选品决策评估</div>
+            <div class="section-title">選品決策評估</div>
             <div class="gogono-card" style="background: linear-gradient(135deg, #ef4444, #dc2626 100%);">
-                <div class="verdict">不建议进入</div>
+                <div class="verdict">不建議進入</div>
                 <div class="score">3.4 / 10</div>
-                <div class="verdict-detail">不建议进入</div>
+                <div class="verdict-detail">不建議進入</div>
             </div>
         </div>
 
-        <!-- 市场概况 KPI -->
+        <!-- 市場概況 KPI -->
         <div class="section">
-            <div class="section-title">市场概况</div>
+            <div class="section-title">市場概況</div>
             <div class="kpi-grid">
                 
                 <div class="kpi-card">
-                    <div class="label">Top100 月销量</div>
+                    <div class="label">Top100 月銷量</div>
                     <div class="value">492,754</div>
                     <div class="note">件</div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">Top100 月销额</div>
+                    <div class="label">Top100 月銷額</div>
                     <div class="value">$9,741,647</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">平均价格</div>
+                    <div class="label">平均價格</div>
                     <div class="value">$19.77</div>
                     <div class="note"></div>
                 </div>
@@ -258,13 +258,13 @@
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">亚马逊自营份额</div>
+                    <div class="label">亞馬遜自營份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">中国卖家份额</div>
+                    <div class="label">中國賣家份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
@@ -272,18 +272,18 @@
             </div>
         </div>
 
-        <!-- 维度分布 -->
+        <!-- 維度分佈 -->
         <div class="section">
-            <div class="section-title">产品维度分布</div>
+            <div class="section-title">產品維度分佈</div>
             <div class="dimension-grid">
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">價格區間分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>价格区间</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>價格區間</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -293,13 +293,13 @@
                 </div>
             
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">產品型別分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>产品类型</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>產品型別</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -313,107 +313,107 @@
         <!-- 交叉分析 -->
         
         <div class="section">
-            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <div class="section-title">價格區間 × 產品型別 交叉分析</div>
             <table>
                 <thead>
                     <tr>
-                        <th>价格区间 \ 产品类型</th>
+                        <th>價格區間 \ 產品型別</th>
                         <th>botanicals</th><th>creator</th><th>duplo</th><th>minecraft</th><th>speed_champions</th><th>star_wars</th>
-                        <th>合计</th>
+                        <th>合計</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr><td><strong>$0-30</strong></td><td>4</td><td>12</td><td>2</td><td>8</td><td>3</td><td>4</td><td><strong>33</strong></td></tr><tr><td><strong>$30-60</strong></td><td>3</td><td>3</td><td>1</td><td>2</td><td>8</td><td>3</td><td><strong>20</strong></td></tr><tr><td><strong>$60-100</strong></td><td>1</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td>1</td><td>1</td><td><strong>3</strong></td></tr>
                     <tr style="background: #f8fafc; font-weight: 600;">
-                        <td><strong>合计</strong></td>
+                        <td><strong>合計</strong></td>
                         <td><strong>8</strong></td><td><strong>15</strong></td><td><strong>3</strong></td><td><strong>10</strong></td><td><strong>12</strong></td><td><strong>8</strong></td>
                         <td><strong>56</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>机会:</strong>  (相对机会)</div>
+            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>機會:</strong>  (相對機會)</div>
         </div>
         
 
         <!-- VOC 分析 -->
         
         <div class="section">
-            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <div class="section-title">VOC 分析 - 使用者痛點洞察</div>
             <table>
                 <thead>
                     <tr>
-                        <th>维度</th>
-                        <th>痛点</th>
-                        <th>频次/占比</th>
+                        <th>維度</th>
+                        <th>痛點</th>
+                        <th>頻次/佔比</th>
                         <th>涉及品牌</th>
-                        <th>品牌机会</th>
-                        <th>产品方案</th>
+                        <th>品牌機會</th>
+                        <th>產品方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td><strong>缺件问题</strong></td>
-                    <td>缺少零件/配件导致无法完成拼装</td>
+                    <td><strong>缺件問題</strong></td>
+                    <td>缺少零件/配件導致無法完成拼裝</td>
                     <td>8<br><small>42%</small></td>
                     <td>LEGO</td>
-                    <td>严格QC流程+10%备用件+快速补件服务</td>
-                    <td>每套含10%备用零件，扫码申请免费补件48小时内发货</td>
+                    <td>嚴格QC流程+10%備用件+快速補件服務</td>
+                    <td>每套含10%備用零件，掃碼申請免費補件48小時內發貨</td>
                 </tr>
             
                 <tr>
-                    <td><strong>包装破损</strong></td>
-                    <td>运输导致盒子压坏，影响送礼体验</td>
+                    <td><strong>包裝破損</strong></td>
+                    <td>運輸導致盒子壓壞，影響送禮體驗</td>
                     <td>4<br><small>21%</small></td>
                     <td>LEGO</td>
-                    <td>加强物流包装，使用双层纸箱</td>
-                    <td>双层瓦楞纸箱+气泡袋缓冲，箱体标注'礼品请轻放'</td>
+                    <td>加強物流包裝，使用雙層紙箱</td>
+                    <td>雙層瓦楞紙箱+氣泡袋緩衝，箱體標註'禮品請輕放'</td>
                 </tr>
             
                 <tr>
-                    <td><strong>说明问题</strong></td>
-                    <td>说明书缺失、错误或只有部分图纸</td>
+                    <td><strong>說明問題</strong></td>
+                    <td>說明書缺失、錯誤或只有部分圖紙</td>
                     <td>3<br><small>16%</small></td>
                     <td>LEGO</td>
-                    <td>数字化说明书+视频教程</td>
-                    <td>扫码获取全套视频教程+AR拼装指引</td>
+                    <td>數字化說明書+影片教程</td>
+                    <td>掃碼獲取全套影片教程+AR拼裝指引</td>
                 </tr>
             
                 <tr>
-                    <td><strong>难度不符</strong></td>
-                    <td>标注年龄与实际难度不符，孩子无法独立完成</td>
+                    <td><strong>難度不符</strong></td>
+                    <td>標註年齡與實際難度不符，孩子無法獨立完成</td>
                     <td>2<br><small>11%</small></td>
                     <td>LEGO</td>
-                    <td>重新进行年龄评级测试</td>
-                    <td>按实际测试结果标注年龄，提供难度分级标签</td>
+                    <td>重新進行年齡評級測試</td>
+                    <td>按實際測試結果標註年齡，提供難度分級標籤</td>
                 </tr>
             
                 <tr>
-                    <td><strong>质量问题</strong></td>
-                    <td>零件不匹配、质量差或数量不符</td>
+                    <td><strong>質量問題</strong></td>
+                    <td>零件不匹配、質量差或數量不符</td>
                     <td>2<br><small>11%</small></td>
                     <td>LEGO, 其他品牌</td>
-                    <td>提高模具精度和品控标准</td>
-                    <td>ISO 9001认证+100%尺寸检测</td>
+                    <td>提高模具精度和品控標準</td>
+                    <td>ISO 9001認證+100%尺寸檢測</td>
                 </tr>
             
                 </tbody>
             </table>
-            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在缺件(42%)、包装破损(21%)、说明书问题(16%)。缺件是行业共性问题，但包装和说明书可通过改进解决。</div>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>總結：</strong>主要痛點集中在缺件(42%)、包裝破損(21%)、說明書問題(16%)。缺件是行業共性問題，但包裝和說明書可透過改進解決。</div>
         </div>
         
 
-        <!-- 竞品格局 -->
+        <!-- 競品格局 -->
         
         <div class="section">
-            <div class="section-title">竞品格局 (Top8)</div>
+            <div class="section-title">競品格局 (Top8)</div>
             <table>
                 <thead>
                     <tr>
-                        <th>品牌/型号</th>
-                        <th>价格</th>
-                        <th>月销量</th>
-                        <th>类型</th>
+                        <th>品牌/型號</th>
+                        <th>價格</th>
+                        <th>月銷量</th>
+                        <th>型別</th>
                         <th>定位</th>
                     </tr>
                 </thead>
@@ -423,7 +423,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$15.97</td>
                     <td>36,277</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -431,7 +431,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$12.99</td>
                     <td>23,855</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -439,7 +439,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$19.99</td>
                     <td>18,713</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -447,7 +447,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$0.00</td>
                     <td>17,279</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -455,7 +455,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$27.49</td>
                     <td>15,921</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -463,7 +463,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$19.97</td>
                     <td>10,948</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -471,7 +471,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$9.97</td>
                     <td>10,562</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -479,7 +479,7 @@
                     <td>LEGO<br><small></small></td>
                     <td>$9.97</td>
                     <td>9,126</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -488,60 +488,60 @@
         </div>
         
 
-        <!-- 进入壁垒 -->
+        <!-- 進入壁壘 -->
         
         <div class="section">
-            <div class="section-title">进入壁垒评估</div>
+            <div class="section-title">進入壁壘評估</div>
             <table>
                 <thead>
                     <tr>
-                        <th>壁垒类型</th>
-                        <th>等级</th>
-                        <th>预估成本</th>
-                        <th>数据锚点</th>
-                        <th>缓解方案</th>
+                        <th>壁壘型別</th>
+                        <th>等級</th>
+                        <th>預估成本</th>
+                        <th>資料錨點</th>
+                        <th>緩解方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td>品牌壁垒</td>
-                    <td><span class="tag tag-gray">极高</span></td>
-                    <td>无法量化</td>
-                    <td><small>LEGO 98%市场份额</small></td>
-                    <td>无有效绕过方案</td>
+                    <td>品牌壁壘</td>
+                    <td><span class="tag tag-gray">極高</span></td>
+                    <td>無法量化</td>
+                    <td><small>LEGO 98%市場份額</small></td>
+                    <td>無有效繞過方案</td>
                 </tr>
             
                 <tr>
-                    <td>Review壁垒</td>
-                    <td><span class="tag tag-gray">极高</span></td>
+                    <td>Review壁壘</td>
+                    <td><span class="tag tag-gray">極高</span></td>
                     <td>$50,000+</td>
-                    <td><small>Top10均值5000+评论</small></td>
-                    <td>Vine+PPC但仍需时间积累</td>
+                    <td><small>Top10均值5000+評論</small></td>
+                    <td>Vine+PPC但仍需時間積累</td>
                 </tr>
             
                 <tr>
-                    <td>资金壁垒</td>
+                    <td>資金壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
                     <td>¥2,000,000+</td>
-                    <td><small>备货+广告+IP授权</small></td>
-                    <td>控制MOQ但起订量仍高</td>
+                    <td><small>備貨+廣告+IP授權</small></td>
+                    <td>控制MOQ但起訂量仍高</td>
                 </tr>
             
                 <tr>
-                    <td>供应链壁垒</td>
-                    <td><span class="tag tag-gray">极高</span></td>
+                    <td>供應鏈壁壘</td>
+                    <td><span class="tag tag-gray">極高</span></td>
                     <td>N/A</td>
-                    <td><small>精度要求+IP授权</small></td>
-                    <td>需正版IP授权</td>
+                    <td><small>精度要求+IP授權</small></td>
+                    <td>需正版IP授權</td>
                 </tr>
             
                 <tr>
-                    <td>渠道壁垒</td>
+                    <td>渠道壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
-                    <td>适中</td>
-                    <td><small>Amazon自营为主</small></td>
-                    <td>FBA可解决但竞争激烈</td>
+                    <td>適中</td>
+                    <td><small>Amazon自營為主</small></td>
+                    <td>FBA可解決但競爭激烈</td>
                 </tr>
             
                 </tbody>
@@ -549,15 +549,15 @@
         </div>
         
 
-        <!-- 页脚 -->
+        <!-- 頁尾 -->
         <div class="footer">
-            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 18:11</p>
-            <p>完整报告请查看 Markdown 文件</p>
+            <p>資料來源: Sorftime MCP | 生成時間: 2026-03-19 18:11</p>
+            <p>完整報告請檢視 Markdown 檔案</p>
         </div>
     </div>
 
     <script>
-        // 页面交互脚本
+        // 頁面互動指令碼
         console.log('Dashboard loaded successfully');
     </script>
 </body>

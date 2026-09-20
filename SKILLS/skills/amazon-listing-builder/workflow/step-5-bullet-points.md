@@ -1,65 +1,65 @@
-# 第五步：五点描述
+# 第五步：五點描述
 
-> **五点不是参数表，而是购买决策链**。每一点回答一个用户疑虑，推动买家做决策。
+> **五點不是參數列，而是購買決策鏈**。每一點回答一個使用者疑慮，推動買家做決策。
 
-## 🚨 本步不调 MCP
+## 🚨 本步不調 MCP
 
-本步基于**第一步词库 + 第二步问题库 Top 5 + 第三步痛点-证据映射表**生成五点，不再调用 MCP 工具。
+本步基於**第一步詞庫 + 第二步問題庫 Top 5 + 第三步痛點-證據對映表**生成五點，不再呼叫 MCP 工具。
 
-### 数据来源
-- 每点对应的卖点：第三步证据库
-- 每点埋入的关键词：第一步词库
-- 每点回答的用户疑虑：第二步问题库
-- 字符限制：基于目标站点规范
+### 資料來源
+- 每點對應的賣點：第三步證據庫
+- 每點埋入的關鍵詞：第一步詞庫
+- 每點回答的使用者疑慮：第二步問題庫
+- 字元限制：基於目標站點規範
 
-### ❌ 禁止行为
+### ❌ 禁止行為
 
-不要用浏览器抓竞品五点凑内容，所有竞品五点参考已在第二步通过 `asin_detail` MCP 拿到。
+不要用瀏覽器抓競品五點湊內容，所有競品五點參考已在第二步透過 `asin_detail` MCP 拿到。
 
 ---
 
-## 一、五点 = 五个决策环节
+## 一、五點 = 五個決策環節
 
-| 点位 | 决策环节 | 回答的问题 | 示例（抗 UV 户外仿真植物） |
+| 點位 | 決策環節 | 回答的問題 | 示例（抗 UV 戶外模擬植物） |
 |------|---------|----------|---------------------------|
-| 1 | 核心价值 | 为什么这个产品适合 XX 场景？ | Designed for Outdoor Sunlight（抗 UV） |
-| 2 | 痛点解决 | 会不会有 XX 问题？ | Realistic Color and Layered Petals（真实感） |
-| 3 | 使用场景 | 适合哪些具体场景？ | Perfect for Porch, Patio and Garden Planters |
-| 4 | 规格使用 | 数量多少？怎么用？ | 12 Bundles, Flexible Stems for Direct Insertion |
-| 5 | 信任风险 | 包装/维护/售后？ | Protective Packaging and Maintenance-Free |
+| 1 | 核心價值 | 為什麼這個產品適合 XX 場景？ | Designed for Outdoor Sunlight（抗 UV） |
+| 2 | 痛點解決 | 會不會有 XX 問題？ | Realistic Color and Layered Petals（真實感） |
+| 3 | 使用場景 | 適合哪些具體場景？ | Perfect for Porch, Patio and Garden Planters |
+| 4 | 規格使用 | 數量多少？怎麼用？ | 12 Bundles, Flexible Stems for Direct Insertion |
+| 5 | 信任風險 | 包裝/維護/售後？ | Protective Packaging and Maintenance-Free |
 
 ---
 
-## 二、写法原则
+## 二、寫法原則
 
-### 原则 1：每一点一句话承诺 + 一句证据
+### 原則 1：每一點一句話承諾 + 一句證據
 
-✅ **第 1 点示例**：
+✅ **第 1 點示例**：
 > **Designed for Outdoor Sunlight** — Made with UV-resistant materials to help reduce fading in patio, porch and garden use.
 
-✗ **错误示例（堆词无证据）**：
+✗ **錯誤示例（堆詞無證據）**：
 > **Premium Quality**：High quality material, perfect for any occasion, great for home and garden.
 
-### 原则 2：关键词自然融入，不堆砌
+### 原則 2：關鍵詞自然融入，不堆砌
 
-把 L2 功能词、L3 场景词、L4 问题词自然融入，不是塞进去。
+把 L2 功能詞、L3 場景詞、L4 問題詞自然融入，不是塞進去。
 
 ✅ `Made with UV-resistant materials to help reduce fading in patio, porch and garden use.`
 - 含 UV-resistant（L2）、fading（L4）、patio/porch/garden（L3）
 
-### 原则 3：禁用空泛词
+### 原則 3：禁用空泛詞
 
-| 禁用 | 用具体卖点替代 |
+| 禁用 | 用具體賣點替代 |
 |------|--------------|
-| Premium quality | 写具体材料 / 工艺 |
-| Perfect for any occasion | 写具体场景 |
-| Easy to use | 写具体怎么用 |
-| Great gift | 写适合什么人送礼 |
-| High performance | 写具体数据 |
+| Premium quality | 寫具體材料 / 工藝 |
+| Perfect for any occasion | 寫具體場景 |
+| Easy to use | 寫具體怎麼用 |
+| Great gift | 寫適合什麼人送禮 |
+| High performance | 寫具體資料 |
 
 ---
 
-## 三、抗 UV 户外仿真植物完整示例
+## 三、抗 UV 戶外模擬植物完整示例
 
 ### Point 1: Designed for Outdoor Sunlight
 Made with UV-resistant materials to help reduce fading in patio, porch and garden use.
@@ -69,7 +69,7 @@ Made with UV-resistant materials to help reduce fading in patio, porch and garde
 ### Point 2: Realistic Color and Layered Petals
 Natural color variation and fuller flower heads create a more lifelike look from a distance.
 
-**埋入**：realistic、lifelike（L2）、natural color（L4 变体）
+**埋入**：realistic、lifelike（L2）、natural color（L4 變體）
 
 ### Point 3: Perfect for Porch, Patio and Garden Planters
 Flexible stems can be directly inserted into planters, baskets and porch boxes for instant outdoor decor.
@@ -88,89 +88,89 @@ Shipped with reinforced packaging to reduce transit damage. No watering, no trim
 
 ---
 
-## 四、字符规范
+## 四、字元規範
 
-| 站点 | 单点字符上限 | 建议范围 |
+| 站點 | 單點字元上限 | 建議範圍 |
 |------|------------|---------|
-| 美国站 | 500 | 200-300 |
-| 欧洲站 | 500 | 200-300 |
-| 日本站 | 250（字节） | 150-200 |
+| 美國站 | 500 | 200-300 |
+| 歐洲站 | 500 | 200-300 |
+| 日本站 | 250（位元組） | 150-200 |
 
-每点结构：**加粗卖点标题（5-8 词）+ 短句承诺 + 长句证据**。
+每點結構：**加粗賣點標題（5-8 詞）+ 短句承諾 + 長句證據**。
 
 ---
 
-## 五、给 Codex 的提示词（本步专用）
+## 五、給 Codex 的提示詞（本步專用）
 
-> 输入：痛点-证据映射表（第三步）、关键词分层词库（第一步）、用户问题库 Top 5（第二步）、产品规格、合规限制。
+> 輸入：痛點-證據對映表（第三步）、關鍵詞分層詞庫（第一步）、使用者問題庫 Top 5（第二步）、產品規格、合規限制。
 >
-> 任务：
-> 1. 严格按 5 个决策环节生成五点
-> 2. 每点结构：加粗卖点标题 + 1 句承诺 + 1-2 句证据
-> 3. 每点埋入至少 3 个关键词（来自不同层级）
-> 4. 禁用空泛词清单（premium / perfect / easy / great gift / high performance）
-> 5. 字符控制在 200-300 之间
-> 6. 每点对应一个用户问题（来自问题库 Top 5）
-> 7. 不夸大，不绝对化
+> 任務：
+> 1. 嚴格按 5 個決策環節生成五點
+> 2. 每點結構：加粗賣點標題 + 1 句承諾 + 1-2 句證據
+> 3. 每點埋入至少 3 個關鍵詞（來自不同層級）
+> 4. 禁用空泛詞清單（premium / perfect / easy / great gift / high performance）
+> 5. 字元控制在 200-300 之間
+> 6. 每點對應一個使用者問題（來自問題庫 Top 5）
+> 7. 不誇大，不絕對化
 
 ---
 
-## 六、给 Codex 的禁忌词清单
+## 六、給 Codex 的禁忌詞清單
 
-直接传给 AI：
+直接傳給 AI：
 
 ```
-禁用词清单（绝对不能出现在五点中）：
+禁用詞清單（絕對不能出現在五點中）：
 - Premium quality / High quality
 - Perfect for any occasion / Perfect for everyone
 - Great gift / Best gift
 - 100% / Lifetime / Never / Always
-- Eco-friendly（无认证）
-- FDA approved（无认证）
-- Cures / Treats / Heals（医疗）
+- Eco-friendly（無認證）
+- FDA approved（無認證）
+- Cures / Treats / Heals（醫療）
 - Best / Number 1 / Top rated
 - Cheap / Lowest price
 
-替换规则：
-- premium quality → 写具体材料（如 PE plastic / stainless steel）
-- perfect for any occasion → 写具体 2-3 个场景
-- great gift → 写具体适合什么人（如 for housewarmings, for Mother's Day）
+替換規則：
+- premium quality → 寫具體材料（如 PE plastic / stainless steel）
+- perfect for any occasion → 寫具體 2-3 個場景
+- great gift → 寫具體適合什麼人（如 for housewarmings, for Mother's Day）
 - 100% no fade → help reduce fading
 ```
 
 ---
 
-## 七、输出模板
+## 七、輸出模板
 
 ```markdown
-# 五点描述草稿 — {产品名}
+# 五點描述草稿 — {產品名}
 
 ## Point 1: Designed for Outdoor Sunlight
-**加粗卖点标题**：Designed for Outdoor Sunlight
+**加粗賣點標題**：Designed for Outdoor Sunlight
 **正文**：Made with UV-resistant materials to help reduce fading in patio, porch and garden use.
-**字符数**：118
-**埋入关键词**：UV-resistant（L2）、outdoor、sunlight、fading（L4）、patio、porch、garden（L3）
-**对应问题**：Q1 - Will these flowers fade in direct sunlight?
-**合规检查**：✅ 用 "help reduce" 而非 "no fade"
+**字元數**：118
+**埋入關鍵詞**：UV-resistant（L2）、outdoor、sunlight、fading（L4）、patio、porch、garden（L3）
+**對應問題**：Q1 - Will these flowers fade in direct sunlight?
+**合規檢查**：✅ 用 "help reduce" 而非 "no fade"
 
 ## Point 2-5: ...
 
-## 检查结果
-- [x] 5 个决策环节全覆盖
-- [x] 每点埋入 3+ 关键词
-- [x] 无禁用词
-- [x] 无绝对化表达
-- [x] 字符数 200-300 之间
+## 檢查結果
+- [x] 5 個決策環節全覆蓋
+- [x] 每點埋入 3+ 關鍵詞
+- [x] 無禁用詞
+- [x] 無絕對化表達
+- [x] 字元數 200-300 之間
 ```
 
 ---
 
-## 八、检查清单
+## 八、檢查清單
 
-- [ ] 5 个决策环节全覆盖（核心价值 / 痛点 / 场景 / 规格 / 信任）
-- [ ] 每点都有具体证据，无空话
-- [ ] 禁用词全部规避
-- [ ] 每点埋入 3+ 关键词
-- [ ] 每点对应一个用户问题
-- [ ] 合规检查通过
-- [ ] 字符数符合规范
+- [ ] 5 個決策環節全覆蓋（核心價值 / 痛點 / 場景 / 規格 / 信任）
+- [ ] 每點都有具體證據，無空話
+- [ ] 禁用詞全部規避
+- [ ] 每點埋入 3+ 關鍵詞
+- [ ] 每點對應一個使用者問題
+- [ ] 合規檢查透過
+- [ ] 字元數符合規範

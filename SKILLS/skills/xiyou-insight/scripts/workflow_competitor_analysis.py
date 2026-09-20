@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-竞品流量及广告策略分析工作流
+競品流量及廣告策略分析工作流
 
-场景5: 精准拆解竞品流量以及广告策略
+場景5: 精準拆解競品流量以及廣告策略
 
 使用方式:
     python workflow_competitor_analysis.py <asin> <site> <output_dir>
@@ -26,7 +26,7 @@ from scripts.dashboard_generator import DashboardGenerator
 
 
 class CompetitorAnalysisWorkflow:
-    """竞品分析工作流"""
+    """競品分析工作流"""
 
     def __init__(self):
         self.aggregator = DataAggregator()
@@ -35,30 +35,30 @@ class CompetitorAnalysisWorkflow:
 
     def run(self, asin: str, site: str = 'US', output_dir: str = None) -> Dict[str, Any]:
         """
-        执行竞品分析工作流
+        執行競品分析工作流
 
         Args:
-            asin: 竞品ASIN
-            site: 站点
-            output_dir: 输出目录
+            asin: 競品ASIN
+            site: 站點
+            output_dir: 輸出目錄
 
         Returns:
-            dict: 分析结果
+            dict: 分析結果
         """
         if not output_dir:
             date_str = datetime.now().strftime('%Y%m%d')
             output_dir = os.path.join('xiyou-insight-reports', f'competitor_analysis_{asin}_{site}_{date_str}')
         os.makedirs(output_dir, exist_ok=True)
 
-        print(f"🚀 开始竞品分析: {asin} ({site})")
-        print(f"📁 输出目录: {output_dir}")
+        print(f"🚀 開始競品分析: {asin} ({site})")
+        print(f"📁 輸出目錄: {output_dir}")
 
         raw_data = self._collect_data(asin, site)
         
-        aggregated_data = self.aggregator.aggregate(raw_data, scenario='流量广告策略')
+        aggregated_data = self.aggregator.aggregate(raw_data, scenario='流量廣告策略')
         aggregated_data['target'] = asin
         aggregated_data['site'] = site
-        aggregated_data['title'] = f'竞品分析 - {asin}'
+        aggregated_data['title'] = f'競品分析 - {asin}'
 
         insights = self._generate_insights(aggregated_data)
         aggregated_data['insights'] = insights
@@ -71,7 +71,7 @@ class CompetitorAnalysisWorkflow:
 
         report_file = self.report_generator.generate(
             aggregated_data, 
-            scenario='流量广告策略', 
+            scenario='流量廣告策略', 
             target=asin, 
             site=site,
             output_dir=output_dir
@@ -81,18 +81,18 @@ class CompetitorAnalysisWorkflow:
         self.dashboard_generator.render(aggregated_data, dashboard_file)
 
         print(f"\n✅ 分析完成!")
-        print(f"   📊 数据文件: {data_file}")
-        print(f"   📝 报告文件: {report_file}")
+        print(f"   📊 資料檔案: {data_file}")
+        print(f"   📝 報告檔案: {report_file}")
         print(f"   📈 Dashboard: {dashboard_file}")
 
         return aggregated_data
 
     def _collect_data(self, asin: str, site: str) -> Dict[str, Any]:
         """
-        收集数据（模拟MCP调用）
+        收集資料（模擬MCP呼叫）
         
-        注意: 实际使用时，这些数据需要通过LLM调用MCP工具获取
-        这里提供数据结构模板和示例数据
+        注意: 實際使用時，這些資料需要透過LLM呼叫MCP工具獲取
+        這裡提供資料結構模板和示例資料
         """
         end_date = datetime.now().strftime('%Y-%m-%d')
         start_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
@@ -104,7 +104,7 @@ class CompetitorAnalysisWorkflow:
             'asin_info': [
                 {
                     'asin': asin,
-                    'title': '示例产品标题 - Wireless Bluetooth Headphones with Noise Cancelling',
+                    'title': '示例產品標題 - Wireless Bluetooth Headphones with Noise Cancelling',
                     'price': '59.99',
                     'currency': 'USD',
                     'stars': 4.5,
@@ -189,10 +189,10 @@ class CompetitorAnalysisWorkflow:
 
     def _generate_insights(self, data: Dict[str, Any]) -> List[str]:
         """
-        生成关键洞察
+        生成關鍵洞察
         
-        注意: 实际使用时，这些洞察由LLM生成
-        这里提供示例洞察
+        注意: 實際使用時，這些洞察由LLM生成
+        這裡提供示例洞察
         """
         insights = []
 
@@ -200,23 +200,23 @@ class CompetitorAnalysisWorkflow:
             asin_traffic = list(data['traffic'].values())[0] if data['traffic'] else {}
             natural_share = asin_traffic.get('natural_traffic_share', 0)
             if natural_share > 60:
-                insights.append(f"自然流量占比达{natural_share}%，说明产品在自然搜索方面表现优秀，品牌认知度较高")
+                insights.append(f"自然流量佔比達{natural_share}%，說明產品在自然搜尋方面表現優秀，品牌認知度較高")
             else:
-                insights.append(f"自然流量占比{natural_share}%，广告流量依赖度较高，建议优化Listing提升自然排名")
+                insights.append(f"自然流量佔比{natural_share}%，廣告流量依賴度較高，建議最佳化Listing提升自然排名")
 
         if data.get('keywords'):
             asin_keywords = list(data['keywords'].values())[0] if data['keywords'] else []
             if asin_keywords:
                 top_keyword = asin_keywords[0]
-                insights.append(f"核心关键词 '{top_keyword['keyword']}' 贡献了{top_keyword['traffic_share']}的流量，是主要流量来源")
+                insights.append(f"核心關鍵詞 '{top_keyword['keyword']}' 貢獻了{top_keyword['traffic_share']}的流量，是主要流量來源")
 
         if data.get('ad_trends'):
             ad_trends = list(data['ad_trends'].values())[0] if data['ad_trends'] else {}
             summary = ad_trends.get('summary', {})
             if summary.get('net_change', 0) > 0:
-                insights.append(f"近7天广告活动净增{summary['net_change']}个，竞品正在加大广告投放力度")
+                insights.append(f"近7天廣告活動淨增{summary['net_change']}個，競品正在加大廣告投放力度")
             elif summary.get('net_change', 0) < 0:
-                insights.append(f"近7天广告活动净减{abs(summary['net_change'])}个，竞品可能在调整广告策略")
+                insights.append(f"近7天廣告活動淨減{abs(summary['net_change'])}個，競品可能在調整廣告策略")
 
         if data.get('traffic_trends'):
             trends = list(data['traffic_trends'].values())[0] if data['traffic_trends'] else []
@@ -224,10 +224,10 @@ class CompetitorAnalysisWorkflow:
                 recent_avg = sum(t['total_traffic'] for t in trends[-7:]) / 7
                 earlier_avg = sum(t['total_traffic'] for t in trends[:7]) / 7 if len(trends) >= 14 else recent_avg
                 if recent_avg > earlier_avg * 1.1:
-                    insights.append("近7天流量呈上升趋势，竞品可能在进行促销活动或广告加投")
+                    insights.append("近7天流量呈上升趨勢，競品可能在進行促銷活動或廣告加投")
 
-        insights.append("建议重点关注竞品的核心关键词布局，寻找流量缺口")
-        insights.append("持续监控竞品广告活动变化，及时调整自身广告策略")
+        insights.append("建議重點關注競品的核心關鍵詞佈局，尋找流量缺口")
+        insights.append("持續監控競品廣告活動變化，及時調整自身廣告策略")
 
         return insights
 

@@ -1,105 +1,105 @@
 ---
 name: amazon-listing-builder
-description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + Alexa/Rufus 对话式购物趋势）。通过"先分析、再生成、最后校验"的 AI 工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"。提供八步工作流（关键词分层词库 → 用户问题库 → 卖点证据库 → 标题 → 五点 → 描述A+ → Search Terms → QA）、给 Codex 的可复用提示词、真实案例（抗 UV 户外仿真植物、down filled pillows QA）以及五大常见误区检查。触发场景：(1) 用户说"帮我写 Listing / 写标题 / 写五点 / 写描述 / 写 A+ / 写 QA / 写 Search Terms"(2) 用户输入 /listing-builder, /build-listing, /cosmo-listing, /alexa-qa, /listing-title, /listing-bullets, /listing-aplus, /listing-st, /listing-qa(3) 用户提及 Cosmo 算法、Alexa 算法、Rufus、对话式购物、语义搜索、答案型 Listing(4) 用户希望结合卖家精灵 MCP 数据做关键词分层与痛点映射。适用于亚马逊美国站等站点的运营、Listing 优化师、产品开发、跨境营销人员。
+description: 亞馬遜爆款 Listing 打造助手（基於 Cosmo 語義演算法 + Alexa/Rufus 對話式購物趨勢）。透過"先分析、再生成、最後校驗"的 AI 工程化流程，把 Listing 從"關鍵詞堆砌"升級為"語義覆蓋 + 需求證據 + 答案型內容"。提供八步工作流（關鍵詞分層詞庫 → 使用者問題庫 → 賣點證據庫 → 標題 → 五點 → 描述A+ → Search Terms → QA）、給 Codex 的可複用提示詞、真實案例（抗 UV 戶外模擬植物、down filled pillows QA）以及五大常見誤區檢查。觸發場景：(1) 使用者說"幫我寫 Listing / 寫標題 / 寫五點 / 寫描述 / 寫 A+ / 寫 QA / 寫 Search Terms"(2) 使用者輸入 /listing-builder, /build-listing, /cosmo-listing, /alexa-qa, /listing-title, /listing-bullets, /listing-aplus, /listing-st, /listing-qa(3) 使用者提及 Cosmo 演算法、Alexa 演算法、Rufus、對話式購物、語義搜尋、答案型 Listing(4) 使用者希望結合賣家精靈 MCP 資料做關鍵詞分層與痛點對映。適用於亞馬遜美國站等站點的運營、Listing 最佳化師、產品開發、跨境營銷人員。
 ---
 
-# 亚马逊爆款 Listing 打造助手（Cosmo / Alexa 新算法版）
+# 亞馬遜爆款 Listing 打造助手（Cosmo / Alexa 新演算法版）
 
 ---
 
-## 🚨 铁律 0：数据来源优先级（必须先读）
+## 🚨 鐵律 0：資料來源優先順序（必須先讀）
 
-> **MCP（卖家精灵）> 浏览器**
+> **MCP（賣家精靈）> 瀏覽器**
 >
-> 核心数据必须走 MCP；浏览器仅作为 MCP 没有覆盖的数据的补充来源。
+> 核心資料必須走 MCP；瀏覽器僅作為 MCP 沒有覆蓋的資料的補充來源。
 
-### 必须使用 MCP 的场景（禁止浏览器抓 Amazon）
+### 必須使用 MCP 的場景（禁止瀏覽器抓 Amazon）
 
-| 数据类型 | MCP 工具 |
+| 資料型別 | MCP 工具 |
 |---------|---------|
-| 关键词搜索量 / PPC / 趋势 | `mcp__sellersprite__keyword_miner` / `keyword_research_trends` |
-| 竞品 ASIN 详情（标题/五点/价格/评分） | `mcp__sellersprite__asin_detail` |
-| 竞品关键词反查 | `mcp__sellersprite__traffic_keyword` / `keyword_order` |
-| **竞品评论（含差评）** | `mcp__sellersprite__review` ⚠️ **禁止抓 `amazon.com/product-reviews/`** |
-| 竞品流量结构 | `mcp__sellersprite__traffic_listing` / `traffic_keyword_stat` |
-| 价格 / BSR 历史 | `mcp__sellersprite__keepa_info` |
-| 市场价格分布 | `mcp__sellersprite__market_price_distribution` |
-| 类目节点 | `mcp__sellersprite__product_node` |
+| 關鍵詞搜尋量 / PPC / 趨勢 | `mcp__sellersprite__keyword_miner` / `keyword_research_trends` |
+| 競品 ASIN 詳情（標題/五點/價格/評分） | `mcp__sellersprite__asin_detail` |
+| 競品關鍵詞反查 | `mcp__sellersprite__traffic_keyword` / `keyword_order` |
+| **競品評論（含差評）** | `mcp__sellersprite__review` ⚠️ **禁止抓 `amazon.com/product-reviews/`** |
+| 競品流量結構 | `mcp__sellersprite__traffic_listing` / `traffic_keyword_stat` |
+| 價格 / BSR 歷史 | `mcp__sellersprite__keepa_info` |
+| 市場價格分佈 | `mcp__sellersprite__market_price_distribution` |
+| 類目節點 | `mcp__sellersprite__product_node` |
 
-### 允许使用浏览器的场景（MCP 无对应数据）
+### 允許使用瀏覽器的場景（MCP 無對應資料）
 
-| 数据类型 | 浏览器来源 |
+| 資料型別 | 瀏覽器來源 |
 |---------|----------|
-| 站外买家反馈 | Reddit / TikTok / Pinterest |
-| 亚马逊前台 QA 板块 | `amazon.com/ask-questions/...`（MCP 无 QA 工具） |
-| 自己的广告报表 / 客服 / 退货 | 卖家后台导出 |
-| 认证查询 | FDA / CPSIA / RoHS 官网 |
-| 品牌官网 | 验证品牌定位 |
+| 站外買家反饋 | Reddit / TikTok / Pinterest |
+| 亞馬遜前臺 QA 板塊 | `amazon.com/ask-questions/...`（MCP 無 QA 工具） |
+| 自己的廣告報表 / 客服 / 退貨 | 賣家後臺匯出 |
+| 認證查詢 | FDA / CPSIA / RoHS 官網 |
+| 品牌官網 | 驗證品牌定位 |
 
-> 详细协议、调用顺序、参数模板见 `reference/mcp-mandatory-protocol.md`。
-> MCP 调用失败的字段标 `DATA_MISSING`，**禁止用浏览器凑 Amazon 数据**。
-
----
-
-## 一、为什么需要这个 Skill
-
-旧 Listing 方法正在失效：找词 → 标题埋大词 → 五点写功能 → ST 填同义词 → 跑广告。这套逻辑只解决"被检索"，没解决"被系统理解、被买家相信、被转化"。
-
-新语境（Cosmo 语义算法 + Alexa/Rufus 对话式购物）要求 Listing 同时回答三类问题：
-- 系统问：你的产品属于什么品类、解决什么需求、适合什么场景？
-- 买家问：会不会褪色？尺寸多大？能不能用在 XX 场景？包装会不会坏？
-- AI 助手问：用户用自然语言问"适合全日照户外花盆的仿真花"，你的 Listing 是不是最强匹配？
-
-本 Skill 的目标：**把关键词背后的"用户任务、使用场景、痛点问题、产品证据、购买疑虑"全部讲清楚**。
+> 詳細協議、呼叫順序、引數模板見 `reference/mcp-mandatory-protocol.md`。
+> MCP 呼叫失敗的欄位標 `DATA_MISSING`，**禁止用瀏覽器湊 Amazon 資料**。
 
 ---
 
-## 二、核心方法论：先分析、再生成、最后校验
+## 一、為什麼需要這個 Skill
 
-| 阶段 | 动作 | 输出 |
+舊 Listing 方法正在失效：找詞 → 標題埋大詞 → 五點寫功能 → ST 填同義詞 → 跑廣告。這套邏輯只解決"被檢索"，沒解決"被系統理解、被買家相信、被轉化"。
+
+新語境（Cosmo 語義演算法 + Alexa/Rufus 對話式購物）要求 Listing 同時回答三類問題：
+- 系統問：你的產品屬於什麼品類、解決什麼需求、適合什麼場景？
+- 買家問：會不會褪色？尺寸多大？能不能用在 XX 場景？包裝會不會壞？
+- AI 助手問：使用者用自然語言問"適合全日照戶外花盆的模擬花"，你的 Listing 是不是最強匹配？
+
+本 Skill 的目標：**把關鍵詞背後的"使用者任務、使用場景、痛點問題、產品證據、購買疑慮"全部講清楚**。
+
+---
+
+## 二、核心方法論：先分析、再生成、最後校驗
+
+| 階段 | 動作 | 輸出 |
 |------|------|------|
-| **准备阶段** | 建词库 + 问题库 + 卖点证据库 | 三份结构化数据 |
-| **生成阶段** | 多版本标题/五点/描述/ST/QA | 至少 3 版可对比草稿 |
-| **校验阶段** | 合规 + 关键词覆盖 + 语义覆盖 + 转化逻辑 | 4 项检查报告 |
+| **準備階段** | 建詞庫 + 問題庫 + 賣點證據庫 | 三份結構化資料 |
+| **生成階段** | 多版本標題/五點/描述/ST/QA | 至少 3 版可對比草稿 |
+| **校驗階段** | 合規 + 關鍵詞覆蓋 + 語義覆蓋 + 轉化邏輯 | 4 項檢查報告 |
 
-> ⚠️ 不要让 AI 直接写。先有词库、痛点库、问题库、证据库，再写才有根。
+> ⚠️ 不要讓 AI 直接寫。先有詞庫、痛點庫、問題庫、證據庫，再寫才有根。
 
 ---
 
-## 三、八步工作流总览
+## 三、八步工作流總覽
 
-| 步骤 | 名称 | 关键产出 | 详见 |
+| 步驟 | 名稱 | 關鍵產出 | 詳見 |
 |------|------|----------|------|
-| 1 | 关键词分层词库 | 5 层词表（核心/功能/场景/问题/规格） | `workflow/step-1-keyword-library.md` |
-| 2 | 用户问题库 | 真实买家疑虑清单（来自评论/QA/Reddit/TikTok） | `workflow/step-2-question-library.md` |
-| 3 | 卖点证据库 | 每个卖点对应材料/数据/图片证据 | `workflow/step-3-evidence-library.md` |
-| 4 | 标题结构设计 | 品牌+核心词+差异属性+主场景+规格 | `workflow/step-4-title-design.md` |
-| 5 | 五点描述 | 5 点对应 5 个决策环节（不堆词） | `workflow/step-5-bullet-points.md` |
-| 6 | 描述 + A+ 内容 | 痛点 → 场景 → 方案 → 细节 → 对比 → 注意 | `workflow/step-6-description-aplus.md` |
-| 7 | Search Terms | 只放补充索引词，不重复、不堆砌 | `workflow/step-7-search-terms.md` |
-| 8 | QA 设计 | 答案型内容，对应自然语言搜索 | `workflow/step-8-qa-design.md` |
+| 1 | 關鍵詞分層詞庫 | 5 層詞表（核心/功能/場景/問題/規格） | `workflow/step-1-keyword-library.md` |
+| 2 | 使用者問題庫 | 真實買家疑慮清單（來自評論/QA/Reddit/TikTok） | `workflow/step-2-question-library.md` |
+| 3 | 賣點證據庫 | 每個賣點對應材料/資料/圖片證據 | `workflow/step-3-evidence-library.md` |
+| 4 | 標題結構設計 | 品牌+核心詞+差異屬性+主場景+規格 | `workflow/step-4-title-design.md` |
+| 5 | 五點描述 | 5 點對應 5 個決策環節（不堆詞） | `workflow/step-5-bullet-points.md` |
+| 6 | 描述 + A+ 內容 | 痛點 → 場景 → 方案 → 細節 → 對比 → 注意 | `workflow/step-6-description-aplus.md` |
+| 7 | Search Terms | 只放補充索引詞，不重複、不堆砌 | `workflow/step-7-search-terms.md` |
+| 8 | QA 設計 | 答案型內容，對應自然語言搜尋 | `workflow/step-8-qa-design.md` |
 
 ---
 
-## 四、给 Codex / Claude 的主提示词（直接复用）
+## 四、給 Codex / Claude 的主提示詞（直接複用）
 
-详见 `prompts/master-prompt.md`。精简版：
+詳見 `prompts/master-prompt.md`。精簡版：
 
-> 你是一名亚马逊美国站资深 Listing 策略顾问，熟悉 Cosmo 语义搜索、Alexa/Rufus 对话式购物、关键词索引、转化文案和合规表达。
+> 你是一名亞馬遜美國站資深 Listing 策略顧問，熟悉 Cosmo 語義搜尋、Alexa/Rufus 對話式購物、關鍵詞索引、轉化文案和合規表達。
 >
-> 接下来我会提供：产品信息、竞品 Listing、关键词数据、广告搜索词、评论痛点、QA 问题、供应链卖点和合规限制。
+> 接下來我會提供：產品資訊、競品 Listing、關鍵詞資料、廣告搜尋詞、評論痛點、QA 問題、供應鏈賣點和合規限制。
 >
-> **请你先不要直接写 Listing**，而是先完成以下分析：
-> 1. 关键词分层词库（核心 / 功能 / 场景 / 属性 / 问题 / 同义词 / 后台补充）
-> 2. 每个词标注：搜索意图、建议位置、是否必须前台、是否进 ST
-> 3. 评论痛点 + 用户问题 → 输出"痛点-解决方案-证据-关键词-图片模块"映射表
-> 4. 基于 Cosmo + 对话式购物逻辑，列出必须覆盖的用户任务和自然语言问题
-> 5. 生成 3 版标题（关键词覆盖版 / 转化表达版 / 简洁合规版）+ 优缺点对比
-> 6. 五点描述：每点对应一个用户疑虑 + 一个核心卖点，禁用空泛词
-> 7. 产品描述 + A+ 模块结构（使用场景 → 产品结构 → 痛点解决 → 信任证明）
-> 8. Search Terms 建议（只放前台未覆盖但有索引价值的词）
-> 9. 10 个 QA：问题来自真实疑虑，答案稳健不夸大
-> 10. 最后做：合规检查 + 关键词覆盖检查 + 语义覆盖检查 + 转化逻辑检查
+> **請你先不要直接寫 Listing**，而是先完成以下分析：
+> 1. 關鍵詞分層詞庫（核心 / 功能 / 場景 / 屬性 / 問題 / 同義詞 / 後臺補充）
+> 2. 每個詞標註：搜尋意圖、建議位置、是否必須前臺、是否進 ST
+> 3. 評論痛點 + 使用者問題 → 輸出"痛點-解決方案-證據-關鍵詞-圖片模組"對映表
+> 4. 基於 Cosmo + 對話式購物邏輯，列出必須覆蓋的使用者任務和自然語言問題
+> 5. 生成 3 版標題（關鍵詞覆蓋版 / 轉化表達版 / 簡潔合規版）+ 優缺點對比
+> 6. 五點描述：每點對應一個使用者疑慮 + 一個核心賣點，禁用空泛詞
+> 7. 產品描述 + A+ 模組結構（使用場景 → 產品結構 → 痛點解決 → 信任證明）
+> 8. Search Terms 建議（只放前臺未覆蓋但有索引價值的詞）
+> 9. 10 個 QA：問題來自真實疑慮，答案穩健不誇大
+> 10. 最後做：合規檢查 + 關鍵詞覆蓋檢查 + 語義覆蓋檢查 + 轉化邏輯檢查
 
 ---
 
@@ -108,101 +108,101 @@ description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + 
 | 命令 | 用途 |
 |------|------|
 | `/listing-builder` | 完整八步流程，端到端生成全套 Listing |
-| `/listing-title` | 仅生成多版本标题（含优缺点对比） |
-| `/listing-bullets` | 仅生成五点描述（按决策链） |
-| `/listing-aplus` | 仅生成描述 + A+ 模块结构 |
-| `/listing-st` | 仅生成 Search Terms（补充索引策略） |
-| `/alexa-qa` | 仅生成对话式 QA（针对 Alexa/Rufus） |
-| `/listing-audit` | 对现有 Listing 做合规 + 语义 + 转化四项校验 |
+| `/listing-title` | 僅生成多版本標題（含優缺點對比） |
+| `/listing-bullets` | 僅生成五點描述（按決策鏈） |
+| `/listing-aplus` | 僅生成描述 + A+ 模組結構 |
+| `/listing-st` | 僅生成 Search Terms（補充索引策略） |
+| `/alexa-qa` | 僅生成對話式 QA（針對 Alexa/Rufus） |
+| `/listing-audit` | 對現有 Listing 做合規 + 語義 + 轉化四項校驗 |
 
 ---
 
-## 六、与卖家精灵 MCP 集成（必须使用，本项目已配置）
+## 六、與賣家精靈 MCP 整合（必須使用，本專案已配置）
 
-本项目 `.mcp.json` 已配置 sellersprite MCP，**核心数据必须走 MCP**，详见顶部"铁律 0"和 `reference/mcp-mandatory-protocol.md`。
+本專案 `.mcp.json` 已配置 sellersprite MCP，**核心資料必須走 MCP**，詳見頂部"鐵律 0"和 `reference/mcp-mandatory-protocol.md`。
 
-### 八步工作流的 MCP 调用清单
+### 八步工作流的 MCP 呼叫清單
 
-| 步骤 | 必须调用的 MCP 工具 | 浏览器补充 |
+| 步驟 | 必須呼叫的 MCP 工具 | 瀏覽器補充 |
 |------|------------------|----------|
-| 1 关键词分层 | `keyword_miner` + `keyword_research_trends` + `traffic_keyword` + `keyword_order` | 无 |
-| 2 用户问题库 | `review`（差评主题）+ `asin_detail`（竞品结构） | Reddit / TikTok / 竞品 QA 板块 |
-| 3 卖点证据库 | `review`（好评证据） | 品牌官网 + 认证官网 |
-| 4 标题 | 不调（基于 1-3 步数据） | 无 |
-| 5 五点 | 不调 | 无 |
-| 6 描述+A+ | 不调 | 品牌官网（参考定位） |
-| 7 Search Terms | 不调（基于第 1 步 + 第 4 步做差集） | 无 |
-| 8 QA | 不调 | 竞品 QA 板块（补充问题） |
+| 1 關鍵詞分層 | `keyword_miner` + `keyword_research_trends` + `traffic_keyword` + `keyword_order` | 無 |
+| 2 使用者問題庫 | `review`（差評主題）+ `asin_detail`（競品結構） | Reddit / TikTok / 競品 QA 板塊 |
+| 3 賣點證據庫 | `review`（好評證據） | 品牌官網 + 認證官網 |
+| 4 標題 | 不調（基於 1-3 步資料） | 無 |
+| 5 五點 | 不調 | 無 |
+| 6 描述+A+ | 不調 | 品牌官網（參考定位） |
+| 7 Search Terms | 不調（基於第 1 步 + 第 4 步做差集） | 無 |
+| 8 QA | 不調 | 競品 QA 板塊（補充問題） |
 
-### 浏览器使用红线
+### 瀏覽器使用紅線
 
-| 场景 | ❌ 错误做法 | ✅ 正确做法 |
+| 場景 | ❌ 錯誤做法 | ✅ 正確做法 |
 |------|-----------|-----------|
-| 抓竞品评论 | `webReader(amazon.com/product-reviews/...)` | `mcp__sellersprite__review` |
-| 抓竞品标题 | `webReader(amazon.com/dp/...)` | `mcp__sellersprite__asin_detail` |
-| 拿关键词 | `webReader(Amazon 搜索建议)` | `mcp__sellersprite__keyword_miner` |
-| 看 Reddit | ✅ `webReader(reddit.com/r/...)` | MCP 无此数据 |
-| 看竞品 QA | ✅ `webReader(amazon.com/ask-questions/...)` | MCP 无 QA 工具 |
-| 验证 FDA | ✅ `webReader(fda.gov)` | MCP 无认证查询 |
+| 抓競品評論 | `webReader(amazon.com/product-reviews/...)` | `mcp__sellersprite__review` |
+| 抓競品標題 | `webReader(amazon.com/dp/...)` | `mcp__sellersprite__asin_detail` |
+| 拿關鍵詞 | `webReader(Amazon 搜尋建議)` | `mcp__sellersprite__keyword_miner` |
+| 看 Reddit | ✅ `webReader(reddit.com/r/...)` | MCP 無此資料 |
+| 看競品 QA | ✅ `webReader(amazon.com/ask-questions/...)` | MCP 無 QA 工具 |
+| 驗證 FDA | ✅ `webReader(fda.gov)` | MCP 無認證查詢 |
 
-> 完整调用顺序、参数模板见 `reference/mcp-mandatory-protocol.md`。MCP 数据缺失时，必须列出需要人工补充的数据字段，**禁止用浏览器凑 Amazon 数据**。
-
----
-
-## 七、五大常见误区（必须主动检查）
-
-1. **把 Cosmo / Alexa 讲成玄学** — 没有隐藏规则，最终都是"更相关、更清楚、更可信、更能转化"
-2. **认为关键词不重要** — 关键词仍是地基，区别在于要分层
-3. **只优化标题** — Listing 是整体，标题/主图/五点/描述/ST/QA/评论/A+ 必须协同
-4. **直接让 AI 写一版就上线** — 没有词库和证据库，AI 只会写漂亮废话
-5. **用一个 Listing 承接所有人群** — 主图主场景，其他场景放五点/A+/QA 承接
-
-详见 `reference/common-mistakes.md`。
+> 完整呼叫順序、引數模板見 `reference/mcp-mandatory-protocol.md`。MCP 資料缺失時，必須列出需要人工補充的資料欄位，**禁止用瀏覽器湊 Amazon 資料**。
 
 ---
 
-## 八、真实案例参考
+## 七、五大常見誤區（必須主動檢查）
 
-| 案例 | 详见 |
+1. **把 Cosmo / Alexa 講成玄學** — 沒有隱藏規則，最終都是"更相關、更清楚、更可信、更能轉化"
+2. **認為關鍵詞不重要** — 關鍵詞仍是地基，區別在於要分層
+3. **只最佳化標題** — Listing 是整體，標題/主圖/五點/描述/ST/QA/評論/A+ 必須協同
+4. **直接讓 AI 寫一版就上線** — 沒有詞庫和證據庫，AI 只會寫漂亮廢話
+5. **用一個 Listing 承接所有人群** — 主圖主場景，其他場景放五點/A+/QA 承接
+
+詳見 `reference/common-mistakes.md`。
+
+---
+
+## 八、真實案例參考
+
+| 案例 | 詳見 |
 |------|------|
-| 抗 UV 户外仿真植物（端到端 7 步） | `examples/uv-outdoor-plants-fullcase.md` |
-| down filled pillows QA（Alexa 风格示例） | `examples/down-pillows-qa-example.md` |
-| 关键词分层词库填写模板 | `examples/layered-keyword-template.md` |
+| 抗 UV 戶外模擬植物（端到端 7 步） | `examples/uv-outdoor-plants-fullcase.md` |
+| down filled pillows QA（Alexa 風格示例） | `examples/down-pillows-qa-example.md` |
+| 關鍵詞分層詞庫填寫模板 | `examples/layered-keyword-template.md` |
 
 ---
 
-## 九、输出格式规范
+## 九、輸出格式規範
 
-| 文件 | 命名规则 | 必存 |
+| 檔案 | 命名規則 | 必存 |
 |------|----------|:----:|
-| 完整 Listing 包 | `{产品名}/listing_package.md` | ✅ |
-| 关键词分层词库 | `{产品名}/keyword_library.md` | ✅ |
-| 痛点-证据映射表 | `{产品名}/painpoint_evidence_map.md` | ✅ |
-| 多版本草稿对比 | `{产品名}/drafts_comparison.md` | ✅ |
-| 合规与语义校验报告 | `{产品名}/audit_report.md` | ✅ |
-| 原始输入数据 | `{产品名}/input_data.json` | ✅ |
+| 完整 Listing 包 | `{產品名}/listing_package.md` | ✅ |
+| 關鍵詞分層詞庫 | `{產品名}/keyword_library.md` | ✅ |
+| 痛點-證據對映表 | `{產品名}/painpoint_evidence_map.md` | ✅ |
+| 多版本草稿對比 | `{產品名}/drafts_comparison.md` | ✅ |
+| 合規與語義校驗報告 | `{產品名}/audit_report.md` | ✅ |
+| 原始輸入資料 | `{產品名}/input_data.json` | ✅ |
 
-**所有报告必须保存为文件**，禁止只打印到控制台。详见 `reference/output-format-spec.md`。
-
----
-
-## 十、执行流程
-
-收到"帮我做 Listing"类请求时：
-
-1. **澄清输入** — 产品信息（标题/类目/规格）、是否提供竞品 ASIN、是否启用卖家精灵 MCP、目标站点
-2. **跑八步工作流** — 按步骤执行，每步保存产出
-3. **生成草稿** — 至少 3 版标题 + 1 套五点 + 描述/A+/ST/QA
-4. **跑校验** — 合规 + 关键词覆盖 + 语义覆盖 + 转化逻辑
-5. **打包交付** — `listing_package.md` 汇总，附 HTML 可视化版本（可选）
+**所有報告必須儲存為檔案**，禁止只列印到控制檯。詳見 `reference/output-format-spec.md`。
 
 ---
 
-## 十一、关键原则（每次都要回顾）
+## 十、執行流程
 
-- **标题不是堆词**，是让系统和买家快速定位
-- **五点不是卖点罗列**，是购买决策链
-- **描述和 A+ 不是重复信息**，是场景和信任构建
-- **ST 不是垃圾桶**，是补充索引池
-- **QA 不是可有可无**，是对话式搜索和转化疑虑的补丁
-- **先分析、再生成、最后校验** — 永远不要让 AI 直接写
+收到"幫我做 Listing"類請求時：
+
+1. **澄清輸入** — 產品資訊（標題/類目/規格）、是否提供競品 ASIN、是否啟用賣家精靈 MCP、目標站點
+2. **跑八步工作流** — 按步驟執行，每步儲存產出
+3. **生成草稿** — 至少 3 版標題 + 1 套五點 + 描述/A+/ST/QA
+4. **跑校驗** — 合規 + 關鍵詞覆蓋 + 語義覆蓋 + 轉化邏輯
+5. **打包交付** — `listing_package.md` 彙總，附 HTML 視覺化版本（可選）
+
+---
+
+## 十一、關鍵原則（每次都要回顧）
+
+- **標題不是堆詞**，是讓系統和買家快速定位
+- **五點不是賣點羅列**，是購買決策鏈
+- **描述和 A+ 不是重複資訊**，是場景和信任構建
+- **ST 不是垃圾桶**，是補充索引池
+- **QA 不是可有可無**，是對話式搜尋和轉化疑慮的補丁
+- **先分析、再生成、最後校驗** — 永遠不要讓 AI 直接寫

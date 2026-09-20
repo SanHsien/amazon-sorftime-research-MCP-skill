@@ -1,8 +1,8 @@
 {
-  "title": "新品推广分析 - B07PQFT83F",
+  "title": "新品推廣分析 - B07PQFT83F",
   "target": "B07PQFT83F",
   "site": "US",
-  "scenario": "新品推广",
+  "scenario": "新品推廣",
   "asin_info": {
     "B07PQFT83F": {
       "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
@@ -25,10 +25,10 @@
     }
   },
   "overview": {
-    "B07PQFT83F - 总流量": 127.8,
+    "B07PQFT83F - 總流量": 127.8,
     "B07PQFT83F - 自然流量": 85.5,
-    "B07PQFT83F - 广告流量": 42.3,
-    "B07PQFT83F - 关键词数": 156
+    "B07PQFT83F - 廣告流量": 42.3,
+    "B07PQFT83F - 關鍵詞數": 156
   },
   "traffic_trends": {
     "B07PQFT83F": [
@@ -120,8 +120,8 @@
   },
   "traffic_stage": {
     "stage": "stable",
-    "stage_name": "稳定期",
-    "reason": "流量得分127.8较高且稳定，关键词数量156充足",
+    "stage_name": "穩定期",
+    "reason": "流量得分127.8較高且穩定，關鍵詞數量156充足",
     "traffic_score": 127.8,
     "keyword_count": 156
   },
@@ -228,9 +228,9 @@
     }
   ],
   "insights": [
-    "产品处于稳定期，已获得稳定的自然流量",
-    "重点维护排名，扩大市场份额",
-    "可以考虑拓展相关关键词",
-    "发现4个流量增长的关键词，建议加大投放"
+    "產品處於穩定期，已獲得穩定的自然流量",
+    "重點維護排名，擴大市場份額",
+    "可以考慮拓展相關關鍵詞",
+    "發現4個流量增長的關鍵詞，建議加大投放"
   ]
 }

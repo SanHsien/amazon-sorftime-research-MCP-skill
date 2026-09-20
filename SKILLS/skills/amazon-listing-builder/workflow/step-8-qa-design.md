@@ -1,53 +1,53 @@
-# 第八步：QA 设计
+# 第八步：QA 設計
 
-> QA 在 Alexa/Rufus 对话式购物时代会越来越重要，**因为它天然就是问题和答案结构**。它是 Listing 的"答案型内容补丁"。
+> QA 在 Alexa/Rufus 對話式購物時代會越來越重要，**因為它天然就是問題和答案結構**。它是 Listing 的"答案型內容補丁"。
 
-## 🚨 本步基于第二步数据，可选浏览器补充
+## 🚨 本步基於第二步資料，可選瀏覽器補充
 
-本步主要基于**第二步问题库 Top 10 + 第三步卖点证据库**生成，不再调用 MCP 工具。
+本步主要基於**第二步問題庫 Top 10 + 第三步賣點證據庫**生成，不再呼叫 MCP 工具。
 
-### ✅ 浏览器补充（MCP 无 QA 工具，允许）
+### ✅ 瀏覽器補充（MCP 無 QA 工具，允許）
 
 ```javascript
-// 1. 竞品 QA 板块（补充 MCP 拿不到的问题）
+// 1. 競品 QA 板塊（補充 MCP 拿不到的問題）
 mcp__web_reader__webReader({
   url:"https://www.amazon.com/ask-questions/B07XXX...",
   return_format:"text",
   retain_images:false
 })
 
-// 2. Reddit 真实买家提问（可选）
+// 2. Reddit 真實買家提問（可選）
 mcp__web_reader__webReader({url:"https://www.reddit.com/r/..."})
 ```
 
-### ❌ 禁止行为
+### ❌ 禁止行為
 
-不要用浏览器抓竞品评论凑问题，所有竞品评论已在第二步通过 `review` MCP 拿到。
-
----
-
-## 一、QA 的双重作用
-
-1. **承接自然语言搜索** — 当用户用完整问题提问时，QA 直接匹配
-2. **补 Listing 没讲透的地方** — 标题五点不能太长，QA 可以补规格、适配、使用、维护、场景边界
+不要用瀏覽器抓競品評論湊問題，所有競品評論已在第二步透過 `review` MCP 拿到。
 
 ---
 
-## 二、QA 来源
+## 一、QA 的雙重作用
 
-| 来源 | 优先级 |
+1. **承接自然語言搜尋** — 當使用者用完整問題提問時，QA 直接匹配
+2. **補 Listing 沒講透的地方** — 標題五點不能太長，QA 可以補規格、適配、使用、維護、場景邊界
+
+---
+
+## 二、QA 來源
+
+| 來源 | 優先順序 |
 |------|--------|
-| 第二步用户问题库 Top 10 | ⭐⭐⭐ |
-| 竞品 QA 板块高频问题 | ⭐⭐⭐ |
-| 客服记录 | ⭐⭐⭐ |
-| 差评反馈的疑虑 | ⭐⭐⭐ |
+| 第二步使用者問題庫 Top 10 | ⭐⭐⭐ |
+| 競品 QA 板塊高頻問題 | ⭐⭐⭐ |
+| 客服記錄 | ⭐⭐⭐ |
+| 差評反饋的疑慮 | ⭐⭐⭐ |
 | 5W1H 推演 | ⭐⭐ |
 
 ---
 
-## 三、QA 写法两大原则
+## 三、QA 寫法兩大原則
 
-### 原则 1：回答要具体，不要只说 yes
+### 原則 1：回答要具體，不要只說 yes
 
 ✅ **好回答**：
 > **Q: Will these artificial flowers fade in direct sunlight?**
@@ -57,20 +57,20 @@ mcp__web_reader__webReader({url:"https://www.reddit.com/r/..."})
 > **Q: Will these fade?**
 > A: Yes, they are fade-resistant.
 
-### 原则 2：QA 补 Listing 没讲透的地方
+### 原則 2：QA 補 Listing 沒講透的地方
 
-| 类型 | 示例 QA |
+| 型別 | 示例 QA |
 |------|---------|
-| 规格 | How many bundles do I need for a medium planter? |
-| 适配 | Will these fit a 12-inch window box? |
+| 規格 | How many bundles do I need for a medium planter? |
+| 適配 | Will these fit a 12-inch window box? |
 | 使用 | Do I need to assemble anything? |
-| 维护 | How do I clean them? |
-| 场景边界 | Can I use them in a bathroom with high humidity? |
-| 风险 | Are they waterproof? Can they stay out in rain? |
+| 維護 | How do I clean them? |
+| 場景邊界 | Can I use them in a bathroom with high humidity? |
+| 風險 | Are they waterproof? Can they stay out in rain? |
 
 ---
 
-## 四、抗 UV 户外仿真植物 QA 完整示例
+## 四、抗 UV 戶外模擬植物 QA 完整示例
 
 ### Q1: Will these artificial flowers fade in direct sunlight?
 **A**: They are made with UV-resistant materials to help reduce fading during outdoor use, but like all outdoor decor, long-term extreme sun exposure may gradually affect color. For best longevity, shelter during severe weather.
@@ -114,9 +114,9 @@ mcp__web_reader__webReader({url:"https://www.reddit.com/r/..."})
 
 ---
 
-## 五、down filled pillows QA 示例（来自需求文档）
+## 五、down filled pillows QA 示例（來自需求文件）
 
-> 用户输入示例：产品特性 24x24 / bulk / fluffy；核心卖点 24x24；关键词 down filled pillows / feather down pillow / down feather pillow / goose down pillows
+> 使用者輸入示例：產品特性 24x24 / bulk / fluffy；核心賣點 24x24；關鍵詞 down filled pillows / feather down pillow / down feather pillow / goose down pillows
 
 ### Q1: Are these pillows machine washable, or do they need dry cleaning?
 **A**: These 24 x 24 down filled pillows are best maintained with spot cleaning or professional dry cleaning to preserve the fluffy feather down filling. Frequent machine washing may reduce the loft of the goose down fill over time.
@@ -136,28 +136,28 @@ mcp__web_reader__webReader({url:"https://www.reddit.com/r/..."})
 
 ---
 
-## 六、给 Codex 的提示词（本步专用）
+## 六、給 Codex 的提示詞（本步專用）
 
-详见 `prompts/master-prompt.md` 第 9 步。精简版：
+詳見 `prompts/master-prompt.md` 第 9 步。精簡版：
 
-> 输入：用户问题库 Top 10、产品规格、卖点证据库、产品关键词列表（必须埋入）。
+> 輸入：使用者問題庫 Top 10、產品規格、賣點證據庫、產品關鍵詞列表（必須埋入）。
 >
-> 任务：
-> 1. 生成 10 个 QA，覆盖 5 个决策环节（场景适配 / 痛点担忧 / 规格确认 / 使用成本 / 信任）
-> 2. 每个回答具体（不只用 yes/no），含场景边界和注意事项
-> 3. 每个回答自然埋入 2-3 个指定关键词
-> 4. 答案稳健，不夸大（如医疗/环保承诺）
-> 5. 涵盖至少 2 个"边界问题"（如某场景是否适合、极端使用情况）
-> 6. 模拟 Alexa/Rufus 可能问的自然语言变体
+> 任務：
+> 1. 生成 10 個 QA，覆蓋 5 個決策環節（場景適配 / 痛點擔憂 / 規格確認 / 使用成本 / 信任）
+> 2. 每個回答具體（不只用 yes/no），含場景邊界和注意事項
+> 3. 每個回答自然埋入 2-3 個指定關鍵詞
+> 4. 答案穩健，不誇大（如醫療/環保承諾）
+> 5. 涵蓋至少 2 個"邊界問題"（如某場景是否適合、極端使用情況）
+> 6. 模擬 Alexa/Rufus 可能問的自然語言變體
 
 ---
 
-## 七、Alexa/Rufus 风格问题模板
+## 七、Alexa/Rufus 風格問題模板
 
-对话式购物的问题特征：
-- 用完整句子问，不是短词
-- 含具体场景和约束（"for my front porch that gets full sun"）
-- 含比较（"better than X for Y"）
+對話式購物的問題特徵：
+- 用完整句子問，不是短詞
+- 含具體場景和約束（"for my front porch that gets full sun"）
+- 含比較（"better than X for Y"）
 
 ### 模板
 - "Which [product type] won't [problem] in [scenario]?"
@@ -167,38 +167,38 @@ mcp__web_reader__webReader({url:"https://www.reddit.com/r/..."})
 
 ---
 
-## 八、输出模板
+## 八、輸出模板
 
 ```markdown
-# QA 草稿 — {产品名}
+# QA 草稿 — {產品名}
 
 ## Q1: Will these artificial flowers fade in direct sunlight?
 **A**: They are made with UV-resistant materials to help reduce fading during outdoor use, but like all outdoor decor, long-term extreme sun exposure may gradually affect color. For best longevity, shelter during severe weather.
-**埋入关键词**：UV-resistant, fade, outdoor, sunlight
-**对应问题库**：Q1
-**对应卖点**：抗 UV
-**Alexa 变体**："Which artificial flowers won't fade in full sun?"
+**埋入關鍵詞**：UV-resistant, fade, outdoor, sunlight
+**對應問題庫**：Q1
+**對應賣點**：抗 UV
+**Alexa 變體**："Which artificial flowers won't fade in full sun?"
 
 ## Q2-Q10: ...
 
-## 检查清单
-- [x] 10 个 QA
-- [x] 5 个决策环节覆盖
-- [x] 每个回答具体
-- [x] 关键词自然埋入
-- [x] 无夸大承诺
-- [x] 含至少 2 个边界问题
+## 檢查清單
+- [x] 10 個 QA
+- [x] 5 個決策環節覆蓋
+- [x] 每個回答具體
+- [x] 關鍵詞自然埋入
+- [x] 無誇大承諾
+- [x] 含至少 2 個邊界問題
 ```
 
 ---
 
-## 九、检查清单
+## 九、檢查清單
 
-- [ ] 至少 10 个 QA
-- [ ] 5 个决策环节全覆盖
-- [ ] 每个回答具体（不只 yes/no）
-- [ ] 每个回答埋入 2-3 个关键词
-- [ ] 无夸大承诺
-- [ ] 至少 2 个边界问题（极端场景）
-- [ ] Alexa 自然语言变体已生成
-- [ ] 与五点描述互补（不重复，补缺口）
+- [ ] 至少 10 個 QA
+- [ ] 5 個決策環節全覆蓋
+- [ ] 每個回答具體（不只 yes/no）
+- [ ] 每個回答埋入 2-3 個關鍵詞
+- [ ] 無誇大承諾
+- [ ] 至少 2 個邊界問題（極端場景）
+- [ ] Alexa 自然語言變體已生成
+- [ ] 與五點描述互補（不重複，補缺口）

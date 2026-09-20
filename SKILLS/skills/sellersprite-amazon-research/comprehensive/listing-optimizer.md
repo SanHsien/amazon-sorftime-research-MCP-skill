@@ -1,42 +1,42 @@
-# Listing 优化诊断
+# Listing 最佳化診斷
 
-诊断 Listing 质量，发现关键词覆盖缺口。
+診斷 Listing 質量，發現關鍵詞覆蓋缺口。
 
 ## 使用方式
 
 ```
-/listing-optimizer [ASIN] [站点]
+/listing-optimizer [ASIN] [站點]
 ```
 
-## 工具调用
+## 工具呼叫
 
-通过 MCP client 调用：`mcp__sellersprite__<tool_name>`
+透過 MCP client 呼叫：`mcp__sellersprite__<tool_name>`
 
-**响应解析**：`result.content[0].text` 是 JSON 字符串，需二次解析。
+**響應解析**：`result.content[0].text` 是 JSON 字串，需二次解析。
 
-## 执行步骤
+## 執行步驟
 
-### 第1步: 获取 Listing 基本信息
+### 第1步: 獲取 Listing 基本資訊
 
-`mcp__sellersprite__asin_detail` — 扁平参数 `{"marketplace":"US", "asin":"B0XXX"}`
+`mcp__sellersprite__asin_detail` — 扁平引數 `{"marketplace":"US", "asin":"B0XXX"}`
 
-### 第2步: 获取 Listing 流量数据
+### 第2步: 獲取 Listing 流量資料
 
 `mcp__sellersprite__traffic_listing` — `{"request": {"marketplace":"US", "asin":"B0XXX"}}`
 
-### 第3步: 获取关键词表现
+### 第3步: 獲取關鍵詞表現
 
 `mcp__sellersprite__keyword_order` — `{"request": {"marketplace":"US", "asin":"B0XXX"}}`
 
 `mcp__sellersprite__traffic_keyword` — `{"request": {"marketplace":"US", "asin":"B0XXX"}}`
 
-### 第4步: 保存结果 + 生成报告
+### 第4步: 儲存結果 + 生成報告
 
-同时保存原始数据和报告到 `{类别目录}/`。
+同時儲存原始資料和報告到 `{類別目錄}/`。
 
-**报告结构：** Listing概览 → 关键词覆盖分析（自然/广告排名）→ 标题优化 → 搜索词埋词 → 图片内容诊断 → 评分评论诊断 → 行动优先级
+**報告結構：** Listing概覽 → 關鍵詞覆蓋分析（自然/廣告排名）→ 標題最佳化 → 搜尋詞埋詞 → 圖片內容診斷 → 評分評論診斷 → 行動優先順序
 
-### 字段注意
+### 欄位注意
 - `traffic_keyword` 中 `rankPosition` 取 `.position`
-- `naturalRatio/adRatio` 为 0~1，展示 ×100
-- HTML 实体解码：`html.unescape(title)`
+- `naturalRatio/adRatio` 為 0~1，展示 ×100
+- HTML 實體解碼：`html.unescape(title)`

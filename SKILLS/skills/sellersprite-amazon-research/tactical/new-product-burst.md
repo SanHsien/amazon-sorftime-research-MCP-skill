@@ -1,19 +1,19 @@
-# 新品快速爆发
+# 新品快速爆發
 
-找上架不久但销量已快速攀升的新品。
+找上架不久但銷量已快速攀升的新品。
 
 ## 工具
 `mcp__sellersprite__product_research` — `{"request": {...}}`
 
-## 筛选参数
-- `minUnits`: 300, `maxRatings`: 100, `minUnitsCr`: 正增长
+## 篩選引數
+- `minUnits`: 300, `maxRatings`: 100, `minUnitsCr`: 正增長
 - 按 `units` 降序
 
-## 逻辑
-上架≤2月 + 月销量≥300 + Review≤100 → 已验证市场需求，评论门槛低。
+## 邏輯
+上架≤2月 + 月銷量≥300 + Review≤100 → 已驗證市場需求，評論門檻低。
 
-## 输出
-新品 ASIN 列表 + 销量/价格/评分/BSR 对比 + 进入可行性分析
+## 輸出
+新品 ASIN 列表 + 銷量/價格/評分/BSR 對比 + 進入可行性分析
 
 ## 注意
-响应字段用 `units`(销量)、`revenue`(销售额)、`ratings`(评分)
+響應欄位用 `units`(銷量)、`revenue`(銷售額)、`ratings`(評分)

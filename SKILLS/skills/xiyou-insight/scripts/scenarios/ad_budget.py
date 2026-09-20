@@ -3,10 +3,10 @@ from typing import Dict, List, Any
 
 
 class AdBudgetScenario(BaseScenario):
-    """透视竞品广告策略和预算"""
+    """透視競品廣告策略和預算"""
 
     NAME = "ad_budget"
-    DESCRIPTION = "透视竞品广告策略和预算"
+    DESCRIPTION = "透視競品廣告策略和預算"
     REQUIRED_PARAMS = ['asin', 'site']
 
     def get_mcp_tools(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -21,7 +21,7 @@ class AdBudgetScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'广告预算分析：获取{asin}基础信息'
+                    'intent_summary': f'廣告預算分析：獲取{asin}基礎資訊'
                 }
             },
             {
@@ -29,7 +29,7 @@ class AdBudgetScenario(BaseScenario):
                 'arguments': {
                     'asin': asin,
                     'country': site,
-                    'intent_summary': f'广告预算分析：获取{asin}变体关系'
+                    'intent_summary': f'廣告預算分析：獲取{asin}變體關係'
                 }
             },
             {
@@ -39,7 +39,7 @@ class AdBudgetScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'广告预算分析：获取{asin}广告活动变化'
+                    'intent_summary': f'廣告預算分析：獲取{asin}廣告活動變化'
                 }
             },
             {
@@ -47,7 +47,7 @@ class AdBudgetScenario(BaseScenario):
                 'arguments': {
                     'asins': [asin],
                     'country': site,
-                    'intent_summary': f'广告预算分析：获取{asin}流量得分'
+                    'intent_summary': f'廣告預算分析：獲取{asin}流量得分'
                 }
             },
             {
@@ -57,7 +57,7 @@ class AdBudgetScenario(BaseScenario):
                     'country': site,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'intent_summary': f'广告预算分析：获取{asin}流量趋势'
+                    'intent_summary': f'廣告預算分析：獲取{asin}流量趨勢'
                 }
             },
             {
@@ -69,7 +69,7 @@ class AdBudgetScenario(BaseScenario):
                     'page_size': 50,
                     'sort_field': 'traffic',
                     'sort_order': 'desc',
-                    'intent_summary': f'广告预算分析：获取{asin}关键词列表'
+                    'intent_summary': f'廣告預算分析：獲取{asin}關鍵詞列表'
                 }
             }
         ]
@@ -81,10 +81,10 @@ class AdBudgetScenario(BaseScenario):
         site = params['site']
 
         data = {
-            'title': f'广告策略与预算分析 - {asin}',
+            'title': f'廣告策略與預算分析 - {asin}',
             'target': asin,
             'site': site,
-            'scenario': '广告预算'
+            'scenario': '廣告預算'
         }
 
         if raw_data.get('get_asin_info'):
@@ -118,7 +118,7 @@ class AdBudgetScenario(BaseScenario):
 
             data['ad_type_share'] = {
                 '自然流量': natural_traffic_share,
-                '广告流量': ad_traffic_share
+                '廣告流量': ad_traffic_share
             }
 
         if data.get('ad_trends'):
@@ -136,32 +136,32 @@ class AdBudgetScenario(BaseScenario):
 
         ad_type_share = data.get('ad_type_share', {})
         if ad_type_share:
-            ad_share = ad_type_share.get('广告流量', 0)
+            ad_share = ad_type_share.get('廣告流量', 0)
             if ad_share > 50:
-                insights.append(f"广告流量占比{ad_share}%，竞品高度依赖广告投放")
+                insights.append(f"廣告流量佔比{ad_share}%，競品高度依賴廣告投放")
             elif ad_share > 30:
-                insights.append(f"广告流量占比{ad_share}%，竞品保持适度的广告投入")
+                insights.append(f"廣告流量佔比{ad_share}%，競品保持適度的廣告投入")
             else:
-                insights.append(f"广告流量占比{ad_share}%，竞品以自然流量为主")
+                insights.append(f"廣告流量佔比{ad_share}%，競品以自然流量為主")
 
         core_keywords = data.get('core_keywords', [])
         if core_keywords:
-            insights.append(f"识别出{len(core_keywords)}个核心广告关键词")
+            insights.append(f"識別出{len(core_keywords)}個核心廣告關鍵詞")
             top_kw = core_keywords[0]
-            insights.append(f"最核心广告关键词：'{top_kw['keyword']}'，流量{top_kw['traffic']}")
+            insights.append(f"最核心廣告關鍵詞：'{top_kw['keyword']}'，流量{top_kw['traffic']}")
 
         budget_inference = data.get('budget_inference', {})
         trend = budget_inference.get('trend', '')
         if trend == 'increasing':
-            insights.append("竞品广告预算呈上升趋势，可能正在扩大市场份额")
+            insights.append("競品廣告預算呈上升趨勢，可能正在擴大市場份額")
         elif trend == 'decreasing':
-            insights.append("竞品广告预算呈下降趋势，可能在收缩或调整策略")
+            insights.append("競品廣告預算呈下降趨勢，可能在收縮或調整策略")
         else:
-            insights.append("竞品广告预算保持稳定，策略较为保守")
+            insights.append("競品廣告預算保持穩定，策略較為保守")
 
         estimated_monthly = budget_inference.get('estimated_monthly', 0)
         if estimated_monthly > 0:
-            insights.append(f"预估月广告预算约${estimated_monthly}")
+            insights.append(f"預估月廣告預算約${estimated_monthly}")
 
         return insights
 
@@ -193,7 +193,7 @@ class AdBudgetScenario(BaseScenario):
 
         return {
             'trend': trend,
-            'peak_hours': '推测为美国时间上午10点-下午4点',
+            'peak_hours': '推測為美國時間上午10點-下午4點',
             'adjustment_dates': peak_days[:5],
             'estimated_monthly': estimated_monthly
         }
@@ -307,6 +307,6 @@ class AdBudgetScenario(BaseScenario):
     def _build_overview(self, traffic: Dict[str, Any]) -> Dict[str, Any]:
         overview = {}
         for asin, data in traffic.items():
-            overview[f"{asin} - 总流量"] = data['total_traffic']
-            overview[f"{asin} - 广告流量占比"] = f"{data['ad_traffic_share']}%"
+            overview[f"{asin} - 總流量"] = data['total_traffic']
+            overview[f"{asin} - 廣告流量佔比"] = f"{data['ad_traffic_share']}%"
         return overview

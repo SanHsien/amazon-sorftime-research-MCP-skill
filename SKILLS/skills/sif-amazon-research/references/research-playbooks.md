@@ -74,7 +74,7 @@ Tools:
 3. `market_get_keyword_demand` for lifecycle and timing.
 4. `market_get_keyword_competition` for enterability.
 
-Score each keyword on demand, trend, concentration, competition, relevance, and expansion space. Label as `攻主词`, `铺长尾`, `观察`, or `放弃`.
+Score each keyword on demand, trend, concentration, competition, relevance, and expansion space. Label as `攻主詞`, `鋪長尾`, `觀察`, or `放棄`.
 
 ## 7. Market validation
 
@@ -88,7 +88,7 @@ Tools:
 
 Decision logic: demand stable/growing + non-monopoly + reachable price/profit band + clear keyword entry + tolerable review/brand moat = worth testing.
 
-Output: `做 / 不做 / 小样测试`, rationale, entry route, risk gates, minimum data needed before spend.
+Output: `做 / 不做 / 小樣測試`, rationale, entry route, risk gates, minimum data needed before spend.
 
 ## 8. Full analysis
 

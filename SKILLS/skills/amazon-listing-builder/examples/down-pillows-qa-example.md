@@ -1,38 +1,38 @@
-# 案例：down filled pillows QA（Alexa 风格）
+# 案例：down filled pillows QA（Alexa 風格）
 
-> 来自需求文档的示例：基于 Alexa 算法做 QA 问答，在 QA 中自然埋入指定关键词。
+> 來自需求文件的示例：基於 Alexa 演算法做 QA 問答，在 QA 中自然埋入指定關鍵詞。
 
 ---
 
-## 输入信息
+## 輸入資訊
 
-- **品类**：Down filled pillows（羽绒枕）
-- **产品特性**：24 x 24 / bulk / fluffy
-- **核心卖点**：24 x 24（尺寸规格）
-- **必须埋入的关键词**：
+- **品類**：Down filled pillows（羽絨枕）
+- **產品特性**：24 x 24 / bulk / fluffy
+- **核心賣點**：24 x 24（尺寸規格）
+- **必須埋入的關鍵詞**：
   - down filled pillows
   - feather down pillow
   - down feather pillow
   - goose down pillows
-- **目标**：模拟 Alexa 算法下客户可能问的问题及答案
+- **目標**：模擬 Alexa 演算法下客戶可能問的問題及答案
 
 ---
 
-## 设计思路
+## 設計思路
 
-按需求文档要求，从 4 个维度构建 QA：
-1. **产品应用场景**（用在哪些场景）
-2. **产品功能**（规格、性能、特性）
-3. **产品适用人群**（适合谁）
-4. **产品使用方式**（怎么用）
+按需求文件要求，從 4 個維度構建 QA：
+1. **產品應用場景**（用在哪些場景）
+2. **產品功能**（規格、效能、特性）
+3. **產品適用人群**（適合誰）
+4. **產品使用方式**（怎麼用）
 
-每题答案具体不空泛，自然埋入关键词，不堆砌。
+每題答案具體不空泛，自然埋入關鍵詞，不堆砌。
 
 ---
 
-## 完整 QA（10 题）
+## 完整 QA（10 題）
 
-### 场景类（产品应用场景）
+### 場景類（產品應用場景）
 
 **Q1: Can I use these pillows for both sleeping and as decorative throw pillows?**
 A: Yes, the 24 x 24 down filled pillows work well for both. The fluffy feather down filling provides soft support for back sleeping, while the bulk fill holds shape inside decorative shams for couches, beds, and reading nooks.
@@ -49,7 +49,7 @@ A: Yes, the 24 x 24 down filled pillows are an ideal size for sectional sofas an
 
 > 埋入：24 x 24, down filled pillows, fluffy, feather down, bulk
 
-### 功能类（产品功能）
+### 功能類（產品功能）
 
 **Q4: How fluffy are these pillows right out of the package?**
 A: Each 24 x 24 feather down pillow ships compressed. Allow 24-48 hours for the goose down fill to fully expand — the bulk down fill will reach maximum fluffy loft after a few hours of air exposure and gentle fluffing.
@@ -71,14 +71,14 @@ A: These 24 x 24 down filled pillows are best maintained with spot cleaning or p
 
 > 埋入：24 x 24, down filled pillows, fluffy, feather down, goose down
 
-### 适用人群类
+### 適用人群類
 
 **Q8: Are these pillows suitable for side sleepers?**
 A: The 24 x 24 size and bulk feather down fill provide enough loft for most side sleepers, though stomach sleepers may prefer a flatter profile. The down filled pillows work best for back sleepers and as decorative throw pillows.
 
 > 埋入：24 x 24, bulk, feather down, down filled pillows
 
-### 使用方式类
+### 使用方式類
 
 **Q9: What size pillow cover fits these?**
 A: Standard 24 x 24 inch pillow covers fit perfectly. The bulk filling holds shape well inside shams and decorative covers, making them ideal for couches, beds, and reading nooks.
@@ -92,11 +92,11 @@ A: Fluff the 24 x 24 feather down pillows daily when making the bed. Air them ou
 
 ---
 
-## Alexa 自然语言变体
+## Alexa 自然語言變體
 
-模拟 Alexa/Rufus 可能问的完整问题：
+模擬 Alexa/Rufus 可能問的完整問題：
 
-| 短词搜索 | Alexa 自然语言变体 | QA 对应 |
+| 短詞搜尋 | Alexa 自然語言變體 | QA 對應 |
 |---------|------------------|--------|
 | down pillows for sleeping | "Which down pillows work for both sleeping and decoration?" | Q1 |
 | fluffy 24x24 pillow | "How fluffy are these 24 by 24 pillows out of the package?" | Q4 |
@@ -106,52 +106,52 @@ A: Fluff the 24 x 24 feather down pillows daily when making the bed. Air them ou
 
 ---
 
-## 关键词覆盖检查
+## 關鍵詞覆蓋檢查
 
-| 关键词 | 出现次数 | QA 编号 |
+| 關鍵詞 | 出現次數 | QA 編號 |
 |--------|---------|---------|
 | down filled pillows | 6 | Q1, Q3, Q7, Q8, Q9 + Alexa |
 | feather down pillow | 7 | Q1, Q2, Q3, Q5, Q6, Q7, Q10 |
 | down feather pillow | 2 | Q5, Q6 |
 | goose down pillows | 4 | Q2, Q6, Q7, Q10 |
-| 24 x 24 | 10 | 每题都有 |
+| 24 x 24 | 10 | 每題都有 |
 | fluffy | 6 | Q1, Q3, Q4, Q6, Q7, Q10 |
 | bulk | 7 | Q1, Q2, Q3, Q5, Q6, Q8, Q9, Q10 |
 
-✅ 所有关键词均自然埋入，无堆砌感。
+✅ 所有關鍵詞均自然埋入，無堆砌感。
 
 ---
 
-## 设计要点总结
+## 設計要點總結
 
-1. **每题答案 60-120 字**，不只 yes/no
-2. **关键词自然出现 2-4 次/题**（不堆砌）
-3. **覆盖 4 个维度**：场景 / 功能 / 人群 / 使用
-4. **场景边界明确**（如"stomach sleepers may prefer flatter"）
-5. **预期管理**（如"machine washing may reduce loft"）
-6. **埋入规格证据**（24 x 24、bulk、fluffy 反复出现）
+1. **每題答案 60-120 字**，不只 yes/no
+2. **關鍵詞自然出現 2-4 次/題**（不堆砌）
+3. **覆蓋 4 個維度**：場景 / 功能 / 人群 / 使用
+4. **場景邊界明確**（如"stomach sleepers may prefer flatter"）
+5. **預期管理**（如"machine washing may reduce loft"）
+6. **埋入規格證據**（24 x 24、bulk、fluffy 反覆出現）
 
 ---
 
-## 给 Codex 的提示词模板（基于此案例）
+## 給 Codex 的提示詞模板（基於此案例）
 
 ```
-我是亚马逊美国站卖家，销售的产品为：[产品名]，现在要根据亚马逊最新 Alexa 算法做 QA 问答。请根据产品特性及核心卖点，模拟 Alexa 算法下客户可能提问的问题及答案（从产品应用场景 / 产品功能 / 产品适用人群 / 产品使用方式着手），并在 QA 中自然埋入下列产品关键词。用英文输出。
+我是亞馬遜美國站賣家，銷售的產品為：[產品名]，現在要根據亞馬遜最新 Alexa 演算法做 QA 問答。請根據產品特性及核心賣點，模擬 Alexa 演算法下客戶可能提問的問題及答案（從產品應用場景 / 產品功能 / 產品適用人群 / 產品使用方式著手），並在 QA 中自然埋入下列產品關鍵詞。用英文輸出。
 
-产品特性：[填，如 24 x 24 / bulk / fluffy]
-产品核心卖点：[填]
-关键词：
-- [关键词 1]
-- [关键词 2]
-- [关键词 3]
-- [关键词 4]
+產品特性：[填，如 24 x 24 / bulk / fluffy]
+產品核心賣點：[填]
+關鍵詞：
+- [關鍵詞 1]
+- [關鍵詞 2]
+- [關鍵詞 3]
+- [關鍵詞 4]
 
 要求：
-1. 生成 10 个 QA
+1. 生成 10 個 QA
 2. 每 Q 答案 60-120 字，不只 yes/no
-3. 关键词自然出现 2-4 次/题，不堆砌
-4. 覆盖 4 个维度（场景/功能/人群/使用）
-5. 每题明确场景边界，做预期管理
-6. 模拟 5 个 Alexa 自然语言变体
-7. 输出关键词覆盖检查表
+3. 關鍵詞自然出現 2-4 次/題，不堆砌
+4. 覆蓋 4 個維度（場景/功能/人群/使用）
+5. 每題明確場景邊界，做預期管理
+6. 模擬 5 個 Alexa 自然語言變體
+7. 輸出關鍵詞覆蓋檢查表
 ```

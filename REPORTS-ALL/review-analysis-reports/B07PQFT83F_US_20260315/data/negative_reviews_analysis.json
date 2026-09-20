@@ -15,21 +15,21 @@
   },
   "pain_point_categories": [
     {
-      "category": "电子模块故障",
+      "category": "電子模組故障",
       "category_en": "Electronic Module Failure",
       "count": 28,
       "percentage": 45,
       "severity": "high",
-      "description": "产品到货即坏、声音失效、灯光不亮、更换电池后仍不工作",
+      "description": "產品到貨即壞、聲音失效、燈光不亮、更換電池後仍不工作",
       "root_causes": [
-        "电池仓缺乏用户友好的开启设计",
-        "电路板焊接/装配质量不稳定",
-        "出厂测试流程存在漏洞"
+        "電池倉缺乏使用者友好的開啟設計",
+        "電路板焊接/裝配質量不穩定",
+        "出廠測試流程存在漏洞"
       ],
       "improvement_suggestions": [
-        "电池仓增加清晰开启标识和说明书",
-        "电路板关键焊点点胶加固",
-        "增加自动化声光功能检测线"
+        "電池倉增加清晰開啟標識和說明書",
+        "電路板關鍵焊點點膠加固",
+        "增加自動化聲光功能檢測線"
       ],
       "sample_reviews": [
         "2 weeks after purchase the sound went out. Waste of money, and this isn't cheap.",
@@ -40,26 +40,26 @@
       ]
     },
     {
-      "category": "结构/组装问题",
+      "category": "結構/組裝問題",
       "category_en": "Structural/Assembly Issues",
       "count": 18,
       "percentage": 29,
       "severity": "high",
-      "description": "关节断裂、头盔锁扣失效、头部未安装、零件破损、金属线外露",
+      "description": "關節斷裂、頭盔鎖釦失效、頭部未安裝、零件破損、金屬線外露",
       "root_causes": [
-        "透明头盔塑料脆性过高，未经过儿童玩具落摔测试",
-        "手腕控制面板盖采用易脱落的插入式结构",
-        "手臂关节连接点承受力不足",
-        "零件模具精度不足，导致装配缺失",
-        "Jessie人偶金属线末端未进行保护性处理"
+        "透明頭盔塑膠脆性過高，未經過兒童玩具落摔測試",
+        "手腕控制面板蓋採用易脫落的插入式結構",
+        "手臂關節連線點承受力不足",
+        "零件模具精度不足，導致裝配缺失",
+        "Jessie人偶金屬線末端未進行保護性處理"
       ],
       "improvement_suggestions": [
-        "透明头盔材质从ABS改为聚碳酸酯(PC)，增加2mm壁厚",
-        "手臂关节采用金属轴芯+尼龙齿轮结构",
-        "手腕盖板改为螺丝固定或卡扣+螺丝双重锁定",
-        "产线增加头颈连接拉力测试工位",
-        "金属线末端增加热熔塑料封头或尼龙端帽",
-        "在帽孔内侧增加织物衬垫"
+        "透明頭盔材質從ABS改為聚碳酸酯(PC)，增加2mm壁厚",
+        "手臂關節採用金屬軸芯+尼龍齒輪結構",
+        "手腕蓋板改為螺絲固定或卡扣+螺絲雙重鎖定",
+        "產線增加頭頸連線拉力測試工位",
+        "金屬線末端增加熱熔塑膠封頭或尼龍端帽",
+        "在帽孔內側增加織物襯墊"
       ],
       "sample_reviews": [
         "Cool features but not very durable. Less than 24 hours after taking it out of the box, three different parts have broken off. There is a little cover that pops off over the fake control panel on buzzes wrist, the back part of the clear plastic helmet has broken off, and one of the elbow joints broke, so now his arm just hangs/wires are exposed.",
@@ -74,19 +74,19 @@
       "count": 8,
       "percentage": 13,
       "severity": "medium",
-      "description": "持续发声无法停止、电池迅速耗尽、无法独立站立",
+      "description": "持續發聲無法停止、電池迅速耗盡、無法獨立站立",
       "root_causes": [
-        "拉绳触发开关存在短路或粘连",
-        "电池仓密封性差，可能导致电池漏液",
-        "重心设计不合理，腿部关节可动范围过大"
+        "拉繩觸發開關存在短路或粘連",
+        "電池倉密封性差，可能導致電池漏液",
+        "重心設計不合理，腿部關節可動範圍過大"
       ],
       "improvement_suggestions": [
-        "拉绳机械开关改为磁簧开关或光电断续器",
-        "增加3分钟无操作自动关机电路",
-        "电池盒增加硅胶O型圈密封",
-        "在脚底增加金属配重块降低重心",
-        "增加踝关节活动限位器",
-        "脚底增加硅胶防滑垫"
+        "拉繩機械開關改為磁簧開關或光電斷續器",
+        "增加3分鐘無操作自動關機電路",
+        "電池盒增加矽膠O型圈密封",
+        "在腳底增加金屬配重塊降低重心",
+        "增加踝關節活動限位器",
+        "腳底增加矽膠防滑墊"
       ],
       "sample_reviews": [
         "(Jesse Doll) This toy talks non stop until you turn it off or the batteries run out. Even when you do not pull the string she talks and talks. clearly something is defective.",
@@ -94,21 +94,21 @@
       ]
     },
     {
-      "category": "外观/材质问题",
+      "category": "外觀/材質問題",
       "category_en": "Appearance/Material Issues",
       "count": 6,
       "percentage": 10,
       "severity": "low",
-      "description": "涂装瑕疵、与描述不符、包装破损",
+      "description": "塗裝瑕疵、與描述不符、包裝破損",
       "root_causes": [
-        "列表图片未更新，与当前生产批次存在款式差异",
-        "喷涂工艺质量控制不稳定",
-        "包装内缓冲不足，导致运输中表面刮伤"
+        "列表圖片未更新，與當前生產批次存在款式差異",
+        "噴塗工藝質量控制不穩定",
+        "包裝內緩衝不足，導致運輸中表面刮傷"
       ],
       "improvement_suggestions": [
-        "拍摄当前批次实拍图替换Amazon主图",
-        "增加100%外观检查工位",
-        "在关键部件外增加珍珠棉保护套"
+        "拍攝當前批次實拍圖替換Amazon主圖",
+        "增加100%外觀檢查工位",
+        "在關鍵部件外增加珍珠棉保護套"
       ],
       "sample_reviews": [
         "However, I'm giving it 4 stars because it doesn't match the picture. Her pants are not sparkly and her face is different.",
@@ -122,14 +122,14 @@
       "count": 2,
       "percentage": 3,
       "severity": "low",
-      "description": "款式与图片不一致、功能与描述不符",
+      "description": "款式與圖片不一致、功能與描述不符",
       "root_causes": [
-        "产品迭代但Listing未更新",
-        "营销图片与实际产品存在差异"
+        "產品迭代但Listing未更新",
+        "營銷圖片與實際產品存在差異"
       ],
       "improvement_suggestions": [
-        "定期更新Listing图片与描述",
-        "添加视频演示确保预期一致"
+        "定期更新Listing圖片與描述",
+        "新增影片演示確保預期一致"
       ],
       "sample_reviews": [
         "Her pants are not sparkly and her face is different."
@@ -138,21 +138,21 @@
   ],
   "safety_alerts": [
     {
-      "issue": "金属线外露伤人",
+      "issue": "金屬線外露傷人",
       "severity": "critical",
       "review": "The wiring/boning for the Jessie doll's right arm somehow poked through the hole where her hat gets plugged into while my child was playing, and it scraped her face.",
-      "recommendation": "立即评估Jessie SKU的安全风险，考虑增加安全衬垫或产品召回"
+      "recommendation": "立即評估Jessie SKU的安全風險，考慮增加安全襯墊或產品召回"
     }
   ],
   "quality_metrics": {
     "defect_rate_estimated": "45% (based on negative reviews about DOA/failure)",
     "return_issues": [
-      "电子功能失效",
-      "零件破损",
-      "安全隐患"
+      "電子功能失效",
+      "零件破損",
+      "安全隱患"
     ],
     "customer_satisfaction_drivers": [
-      "产品到货即能正常工作",
+      "產品到貨即能正常工作",
       "耐用性/抗摔性",
       "安全性"
     ]

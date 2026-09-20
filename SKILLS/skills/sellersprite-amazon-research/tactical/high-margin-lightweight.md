@@ -1,12 +1,12 @@
-# 高毛利轻小品
+# 高毛利輕小品
 
-找 FBA 运费低、毛利高的轻小商品。
+找 FBA 運費低、毛利高的輕小商品。
 
 ## 工具
 `mcp__sellersprite__product_research` — `{"request": {...}}`
 
-## 筛选
+## 篩選
 - `maxFba`: 4, `minProfit`: 0.5, `fulfillment`: "FBA"
 
-## 输出
-候选商品 + 销量/价格/利润/运费 + 进入建议
+## 輸出
+候選商品 + 銷量/價格/利潤/運費 + 進入建議

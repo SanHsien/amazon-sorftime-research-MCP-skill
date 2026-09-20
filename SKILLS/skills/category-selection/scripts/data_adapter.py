@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-数据结构适配器
-将 sse_decoder.py 输出的中文键数据转换为 generate_excel_report.py 期望的英文键格式
+資料結構介面卡
+將 sse_decoder.py 輸出的中文鍵資料轉換為 generate_excel_report.py 期望的英文鍵格式
 """
 
 import json
@@ -11,25 +11,25 @@ from typing import Dict, List
 
 
 class DataAdapter:
-    """将中文键数据转换为英文键数据"""
+    """將中文鍵資料轉換為英文鍵資料"""
 
-    # 评分键名映射
+    # 評分鍵名對映
     SCORE_KEY_MAP = {
-        '市场规模': 'market_size',
-        '增长潜力': 'growth_potential',
-        '竞争烈度': 'competition',
-        '进入壁垒': 'entry_barrier',
-        '利润空间': 'profit_margin',
-        '总分': 'total',
-        '评级': 'rating'
+        '市場規模': 'market_size',
+        '增長潛力': 'growth_potential',
+        '競爭烈度': 'competition',
+        '進入壁壘': 'entry_barrier',
+        '利潤空間': 'profit_margin',
+        '總分': 'total',
+        '評級': 'rating'
     }
 
-    # 统计数据键名映射
+    # 統計資料鍵名對映
     STATS_KEY_MAP = {
-        '类目名称': 'category_name',
+        '類目名稱': 'category_name',
         'nodeid': 'node_id',
-        'top100产品月销量': 'total_monthly_sales',
-        'top100产品月销额': 'total_monthly_revenue',
+        'top100產品月銷量': 'total_monthly_sales',
+        'top100產品月銷額': 'total_monthly_revenue',
         'average_price': 'average_price',
         'median_price': 'median_price',
         'top3_brands_sales_volume_share': 'top3_brand_share',
@@ -38,26 +38,26 @@ class DataAdapter:
         'low_reviews_sales_volume_share': 'low_reviews_share'
     }
 
-    # 产品键名映射
+    # 產品鍵名對映
     PRODUCT_KEY_MAP = {
         'ASIN': 'asin',
-        '标题': 'title',
+        '標題': 'title',
         '品牌': 'brand',
-        '价格': 'price',
-        '星级': 'rating',
-        '评论数': 'review_count',
-        '月销量': 'monthly_sales',
-        '月销额': 'monthly_revenue',
-        '卖家': 'seller',
-        '卖家来源': 'seller_source',
-        '上架天数': 'days_online',
-        '类目排名': 'category_rank',
-        '图片': 'image'
+        '價格': 'price',
+        '星級': 'rating',
+        '評論數': 'review_count',
+        '月銷量': 'monthly_sales',
+        '月銷額': 'monthly_revenue',
+        '賣家': 'seller',
+        '賣家來源': 'seller_source',
+        '上架天數': 'days_online',
+        '類目排名': 'category_rank',
+        '圖片': 'image'
     }
 
     @classmethod
     def convert_scores(cls, scores: Dict) -> Dict:
-        """转换评分数据"""
+        """轉換評分資料"""
         converted = {}
         for cn_key, value in scores.items():
             en_key = cls.SCORE_KEY_MAP.get(cn_key, cn_key)
@@ -66,7 +66,7 @@ class DataAdapter:
 
     @classmethod
     def convert_stats(cls, stats: Dict) -> Dict:
-        """转换统计数据"""
+        """轉換統計資料"""
         converted = {}
         for cn_key, value in stats.items():
             en_key = cls.STATS_KEY_MAP.get(cn_key, cn_key)
@@ -75,7 +75,7 @@ class DataAdapter:
 
     @classmethod
     def convert_products(cls, products: List[Dict]) -> List[Dict]:
-        """转换产品列表"""
+        """轉換產品列表"""
         converted_list = []
         for p in products:
             converted = {}
@@ -88,15 +88,15 @@ class DataAdapter:
     @classmethod
     def adapt_for_excel(cls, data_dir: str) -> Dict:
         """
-        将 sse_decoder 输出的数据转换为 generate_excel_report 期望的格式
+        將 sse_decoder 輸出的資料轉換為 generate_excel_report 期望的格式
 
         Args:
-            data_dir: 包含 data.json, top_products.json, scores.json 的目录
+            data_dir: 包含 data.json, top_products.json, scores.json 的目錄
 
         Returns:
-            适配后的数据字典
+            適配後的資料字典
         """
-        # 读取数据文件
+        # 讀取資料檔案
         data_file = os.path.join(data_dir, 'data.json')
         products_file = os.path.join(data_dir, 'top_products.json')
         scores_file = os.path.join(data_dir, 'scores.json')
@@ -110,42 +110,42 @@ class DataAdapter:
         with open(scores_file, 'r', encoding='utf-8') as f:
             raw_scores = json.load(f)
 
-        # 提取统计数据
-        stats = raw_data.get('类目统计报告', {})
+        # 提取統計資料
+        stats = raw_data.get('類目統計報告', {})
 
-        # 转换评分
+        # 轉換評分
         five_dimension_score = cls.convert_scores(raw_scores)
 
-        # 转换产品列表
+        # 轉換產品列表
         top100_products = cls.convert_products(raw_products)
 
-        # 计算市场份额
+        # 計算市場份額
         total_revenue = sum(p.get('monthly_revenue', 0) for p in top100_products)
         for p in top100_products:
             p['market_share'] = (p.get('monthly_revenue', 0) / total_revenue * 100) if total_revenue > 0 else 0
 
-        # 构建品牌分析
+        # 構建品牌分析
         brand_data = cls._analyze_brands(top100_products)
 
-        # 构建价格分布
+        # 構建價格分佈
         price_distribution = cls._analyze_price_distribution(top100_products)
 
-        # 构建评分分布
+        # 構建評分分佈
         rating_distribution = cls._analyze_rating_distribution(top100_products)
 
-        # 构建卖家分布
+        # 構建賣家分佈
         seller_distribution = cls._analyze_seller_distribution(top100_products)
 
-        # 构建新产品分析
+        # 構建新產品分析
         new_products = cls._filter_new_products(top100_products)
 
-        # 构建KPI
+        # 構建KPI
         kpi = cls._build_kpi(stats, top100_products, brand_data)
 
-        # 构建最终数据结构
+        # 構建最終資料結構
         adapted_data = {
-            'category_name': stats.get('类目名称', ''),
-            'site': 'US',  # 默认，可以从外部传入
+            'category_name': stats.get('類目名稱', ''),
+            'site': 'US',  # 預設，可以從外部傳入
             'node_id': stats.get('nodeid', ''),
             'five_dimension_score': five_dimension_score,
             'kpi': kpi,
@@ -155,7 +155,7 @@ class DataAdapter:
             'rating_distribution': rating_distribution,
             'seller_distribution': seller_distribution,
             'new_products': new_products,
-            # 趋势数据 (占位符)
+            # 趨勢資料 (佔位符)
             'sales_trend': {'dates': [], 'sales': []},
             'price_trend': {'dates': [], 'prices': []},
             'rating_trend': {'dates': [], 'ratings': []},
@@ -166,7 +166,7 @@ class DataAdapter:
 
     @staticmethod
     def _analyze_brands(products: List[Dict]) -> List[Dict]:
-        """分析品牌数据"""
+        """分析品牌資料"""
         brands = {}
         for p in products:
             brand = p.get('brand', 'Unknown')
@@ -184,7 +184,7 @@ class DataAdapter:
             if p.get('rating'):
                 brands[brand]['ratings'].append(p['rating'])
 
-        # 计算市场份额和平均评分
+        # 計算市場份額和平均評分
         total_revenue = sum(b['monthly_revenue'] for b in brands.values())
         result = []
         for b in brands.values():
@@ -192,19 +192,19 @@ class DataAdapter:
             b['avg_rating'] = sum(b['ratings']) / len(b['ratings']) if b['ratings'] else 0
             result.append(b)
 
-        # 按市场份额排序
+        # 按市場份額排序
         result.sort(key=lambda x: x['market_share'], reverse=True)
         return result
 
     @staticmethod
     def _analyze_price_distribution(products: List[Dict]) -> List[Dict]:
-        """分析价格分布"""
+        """分析價格分佈"""
         ranges = [
-            {"name": "超低价", "min": 0, "max": 50},
-            {"name": "低价", "min": 50, "max": 150},
-            {"name": "中价", "min": 150, "max": 300},
-            {"name": "高价", "min": 300, "max": 500},
-            {"name": "超高价", "min": 500, "max": float('inf')},
+            {"name": "超低價", "min": 0, "max": 50},
+            {"name": "低價", "min": 50, "max": 150},
+            {"name": "中價", "min": 150, "max": 300},
+            {"name": "高價", "min": 300, "max": 500},
+            {"name": "超高價", "min": 500, "max": float('inf')},
         ]
 
         result = []
@@ -229,7 +229,7 @@ class DataAdapter:
 
     @staticmethod
     def _analyze_rating_distribution(products: List[Dict]) -> List[Dict]:
-        """分析评分分布"""
+        """分析評分分佈"""
         ranges = [
             {"name": "低分", "min": 0, "max": 3.5},
             {"name": "中低分", "min": 3.5, "max": 4.0},
@@ -255,7 +255,7 @@ class DataAdapter:
 
     @staticmethod
     def _analyze_seller_distribution(products: List[Dict]) -> List[Dict]:
-        """分析卖家来源分布"""
+        """分析賣家來源分佈"""
         sources = {}
         for p in products:
             source = p.get('seller_source', '其他')
@@ -281,7 +281,7 @@ class DataAdapter:
 
     @staticmethod
     def _filter_new_products(products: List[Dict]) -> Dict:
-        """筛选新产品 (评论数<100视为新品)"""
+        """篩選新產品 (評論數<100視為新品)"""
         new_products = [p for p in products if p.get('review_count', 0) < 100]
         new_product_sales = sum(p.get('monthly_sales', 0) for p in new_products)
         total_sales = sum(p.get('monthly_sales', 0) for p in products)
@@ -295,13 +295,13 @@ class DataAdapter:
 
     @staticmethod
     def _build_kpi(stats: Dict, products: List[Dict], brands: List[Dict]) -> Dict:
-        """构建KPI指标"""
-        # 计算CR3
+        """構建KPI指標"""
+        # 計算CR3
         total_revenue = sum(p.get('monthly_revenue', 0) for p in products)
         top3_revenue = sum(b['monthly_revenue'] for b in brands[:3]) if len(brands) >= 3 else total_revenue
         cr3 = (top3_revenue / total_revenue * 100) if total_revenue > 0 else 0
 
-        # 计算HHI
+        # 計算HHI
         hhi = sum((b['market_share'] / 100) ** 2 for b in brands) if brands else 0
 
         return {
@@ -311,15 +311,15 @@ class DataAdapter:
             'avg_rating': sum(p.get('rating', 0) for p in products) / len(products) if products else 0,
             'total_sales': total_revenue,
             'cr3': cr3,
-            'hhi': hhi * 100  # 转换为百分比形式
+            'hhi': hhi * 100  # 轉換為百分比形式
         }
 
 
 def main():
-    """命令行入口"""
+    """命令列入口"""
     import sys
     if len(sys.argv) < 2:
-        print("用法: python data_adapter.py <数据目录> [输出文件]")
+        print("用法: python data_adapter.py <資料目錄> [輸出檔案]")
         print("\n示例:")
         print("  python data_adapter.py category-reports/Sofas_US_20260304")
         print("  python data_adapter.py category-reports/Sofas_US_20260304 adapted_data.json")
@@ -328,19 +328,19 @@ def main():
     data_dir = sys.argv[1]
     output_file = sys.argv[2] if len(sys.argv) > 2 else os.path.join(data_dir, 'adapted_data.json')
 
-    # 适配数据
+    # 適配資料
     adapted_data = DataAdapter.adapt_for_excel(data_dir)
 
-    # 保存适配后的数据
+    # 儲存適配後的資料
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(adapted_data, f, ensure_ascii=False, indent=2)
 
-    print(f"适配后的数据已保存到: {output_file}")
-    print("\n数据结构:")
+    print(f"適配後的資料已儲存到: {output_file}")
+    print("\n資料結構:")
     print(f"  - category_name: {adapted_data.get('category_name', 'N/A')}")
     print(f"  - five_dimension_score: {list(adapted_data.get('five_dimension_score', {}).keys())}")
-    print(f"  - top100_products: {len(adapted_data.get('top100_products', []))} 个产品")
-    print(f"  - brand_analysis: {len(adapted_data.get('brand_analysis', []))} 个品牌")
+    print(f"  - top100_products: {len(adapted_data.get('top100_products', []))} 個產品")
+    print(f"  - brand_analysis: {len(adapted_data.get('brand_analysis', []))} 個品牌")
 
 
 if __name__ == "__main__":

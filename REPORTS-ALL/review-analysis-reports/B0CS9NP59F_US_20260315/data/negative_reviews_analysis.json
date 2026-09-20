@@ -13,19 +13,19 @@
     "total_negative_reviews": 3,
     "categories": [
       {
-        "category": "结构/组装问题",
+        "category": "結構/組裝問題",
         "count": 2,
         "percentage": 66.7,
         "severity": "high"
       },
       {
-        "category": "设计/功能缺陷",
+        "category": "設計/功能缺陷",
         "count": 2,
         "percentage": 66.7,
         "severity": "medium"
       },
       {
-        "category": "外观/材质问题",
+        "category": "外觀/材質問題",
         "count": 0,
         "percentage": 0,
         "severity": "none"
@@ -37,7 +37,7 @@
         "severity": "none"
       },
       {
-        "category": "电子模块故障",
+        "category": "電子模組故障",
         "count": 0,
         "percentage": 0,
         "severity": "none"
@@ -46,26 +46,26 @@
   },
   "detailed_analysis": [
     {
-      "pain_point": "配件缺失导致无法完成拼装",
-      "category": "结构/组装问题",
+      "pain_point": "配件缺失導致無法完成拼裝",
+      "category": "結構/組裝問題",
       "severity": "high",
       "affected_count": 2,
       "percentage": 66.7,
       "root_cause": {
-        "packaging_quality": "包装时配件遗漏，缺少关键零件如6x14底板",
-        "quality_control": "出厂质检未能检测到配件缺失",
-        "customer_support": "缺失配件时无明确的客服联系方式"
+        "packaging_quality": "包裝時配件遺漏，缺少關鍵零件如6x14底板",
+        "quality_control": "出廠質檢未能檢測到配件缺失",
+        "customer_support": "缺失配件時無明確的客服聯絡方式"
       },
       "customer_quotes": [
         "The first set of instructions call for three 6x14 plates as the base, which were all missing.",
         "Missing main pieces and unable to complete without them. No information anywhere on who to contact to get the missing pieces. Total disappointment for my sons birthday and we missed the return window by 1 day. Total waste of money."
       },
       "product_improvements": [
-        "建立包装配件核对清单制度，每个包装环节后进行扫码确认",
-        "在包装内放置配件清单（checklist），方便客户自行核对",
-        "改进称重检测系统，通过重量异常发现配件缺失",
-        "在产品包装和Listing显著位置提供缺失配件申请通道（二维码或网址）",
-        "建立快速补件机制，客户可通过网站填写表单，7天内免费补发缺失零件"
+        "建立包裝配件核對清單制度，每個包裝環節後進行掃碼確認",
+        "在包裝內放置配件清單（checklist），方便客戶自行核對",
+        "改進稱重檢測系統，透過重量異常發現配件缺失",
+        "在產品包裝和Listing顯著位置提供缺失配件申請通道（二維碼或網址）",
+        "建立快速補件機制，客戶可透過網站填寫表單，7天內免費補發缺失零件"
       ],
       "customer_service_template": {
         "subject": "Missing Pieces? We'll Fix It Right Away!",
@@ -73,25 +73,25 @@
       }
     },
     {
-      "pain_point": "积木连接紧密度不足",
-      "category": "设计/功能缺陷",
+      "pain_point": "積木連線緊密度不足",
+      "category": "設計/功能缺陷",
       "severity": "medium",
       "affected_count": 1,
       "percentage": 33.3,
       "root_cause": {
-        "mold_precision": "模具精度不足，导致积木件之间的公差配合不佳",
-        "material_quality": "塑料材质的弹性和硬度可能与名牌产品存在差异",
-        "design_tolerance": "非名牌积木的连接结构设计可能存在兼容性问题"
+        "mold_precision": "模具精度不足，導致積木件之間的公差配合不佳",
+        "material_quality": "塑膠材質的彈性和硬度可能與名牌產品存在差異",
+        "design_tolerance": "非名牌積木的連線結構設計可能存在相容性問題"
       },
       "customer_quotes": [
         "This is a great budget alternative to the name brand version, but know there will be some wonkiness in terms of connection strength. We anticipated that there might be fiddly moments, and my 11-year-old was able to assemble with only a few moments of frustration... It has been on display for almost a year with no issues, and still looks pretty cool!"
       ],
       "product_improvements": [
-        "提升模具精度至±0.01mm以内，确保积木件紧密度",
-        "使用ABS环保塑料，调整材料配方提高弹性和耐用性",
-        "建立连接强度测试标准，每个新模具投产前进行100次插拔测试",
-        "在Listing中明确说明'与主流品牌兼容'，管理客户期望",
-        "提供额外的备用连接件，应对可能出现的松动情况"
+        "提升模具精度至±0.01mm以內，確保積木件緊密度",
+        "使用ABS環保塑膠，調整材料配方提高彈性和耐用性",
+        "建立連線強度測試標準，每個新模具投產前進行100次插拔測試",
+        "在Listing中明確說明'與主流品牌相容'，管理客戶期望",
+        "提供額外的備用連線件，應對可能出現的鬆動情況"
       ],
       "customer_service_template": {
         "subject": "Tips for Getting the Best Fit with Your Dragon Castle Set",
@@ -99,26 +99,26 @@
       }
     },
     {
-      "pain_point": "说明书不清晰",
-      "category": "设计/功能缺陷",
+      "pain_point": "說明書不清晰",
+      "category": "設計/功能缺陷",
       "severity": "medium",
       "affected_count": 1,
       "percentage": 33.3,
       "root_cause": {
-        "instruction_design": "说明书图示可能不够清晰或步骤跳跃过大",
-        "visual_clarity": "图纸的视角、颜色区分或尺寸标注可能存在问题",
-        "language_barrier": "如果是翻译版本，可能存在表达不准确的问题"
+        "instruction_design": "說明書圖示可能不夠清晰或步驟跳躍過大",
+        "visual_clarity": "圖紙的視角、顏色區分或尺寸標註可能存在問題",
+        "language_barrier": "如果是翻譯版本，可能存在表達不準確的問題"
       },
       "customer_quotes": [
         "Didn't like it or the instructions"
       ],
       "product_improvements": [
-        "重新设计说明书，采用3D渲染图替代实物照片，提高清晰度",
-        "将复杂步骤拆分为更多子步骤，每个步骤只增加3-5个零件",
-        "使用箭头和高亮标注关键连接点，减少歧义",
-        "在Listing中提供电子版说明书下载链接，方便客户预览",
-        "考虑制作视频教程（YouTube链接或二维码），作为说明书的补充",
-        "提供在线客服支持，客户可发送照片获取组装帮助"
+        "重新設計說明書，採用3D渲染圖替代實物照片，提高畫質晰度",
+        "將複雜步驟拆分為更多子步驟，每個步驟只增加3-5個零件",
+        "使用箭頭和高亮標註關鍵連線點，減少歧義",
+        "在Listing中提供電子版說明書下載連結，方便客戶預覽",
+        "考慮製作影片教程（YouTube連結或二維碼），作為說明書的補充",
+        "提供線上客服支援，客戶可傳送照片獲取組裝幫助"
       ],
       "customer_service_template": {
         "subject": "Need Help Building Your Dragon Castle? We're Here for You!",
@@ -130,31 +130,31 @@
   "quality_metrics": {
     "defect_rate_estimate": "1.5% (3/198 negative reviews)",
     "primary_return_driver": "配件缺失 (missing parts)",
-    "customer_satisfaction_trend": "总体评分较高(4.40)，配件缺失是主要退货原因"
+    "customer_satisfaction_trend": "總體評分較高(4.40)，配件缺失是主要退貨原因"
   },
   "expert_recommendations": {
     "supply_chain_improvements": [
-      "建立电子化配件核对系统：每个包装站配备扫码枪，扫描配件条码确认数量",
-      "实施称重检测：每箱重量与标准重量偏差超过2%时自动报警",
-      "设置复检流程：包装完成后由另一名员工进行抽检（10%抽检率）",
-      "优化包装流程：将配件按步骤分袋包装，减少遗漏风险",
-      "建立补件快速通道：设置专门的补件仓库和物流渠道"
+      "建立電子化配件核對系統：每個包裝站配備掃碼槍，掃描配件條碼確認數量",
+      "實施稱重檢測：每箱重量與標準重量偏差超過2%時自動報警",
+      "設定複檢流程：包裝完成後由另一名員工進行抽檢（10%抽檢率）",
+      "最佳化包裝流程：將配件按步驟分袋包裝，減少遺漏風險",
+      "建立補件快速通道：設定專門的補件倉庫和物流渠道"
     ],
     "listing_optimizations": [
-      "在Bullet Points首条添加配件保证：'✓ 927个精密积木件，如有缺失免费补发'",
-      "添加售后承诺：'30天内缺失配件免费补发，7天内无理由退货'",
-      "在A+页面添加'What's Inside'部分，展示所有关键配件类型",
-      "提供电子说明书下载：'提前预览说明书，了解拼装难度'",
-      "添加视频教程链接：'YouTube视频教程，手把手教你拼装'",
-      "在Q&A部分主动回答常见问题：'如何申请缺失配件？'",
-      "展示真实买家评价：突出'配件齐全'、'说明书清晰'的正面反馈"
+      "在Bullet Points首條新增配件保證：'✓ 927個精密積木件，如有缺失免費補發'",
+      "新增售後承諾：'30天內缺失配件免費補發，7天內無理由退貨'",
+      "在A+頁面新增'What's Inside'部分，展示所有關鍵配件型別",
+      "提供電子說明書下載：'提前預覽說明書，瞭解拼裝難度'",
+      "新增影片教程連結：'YouTube影片教程，手把手教你拼裝'",
+      "在Q&A部分主動回答常見問題：'如何申請缺失配件？'",
+      "展示真實買家評價：突出'配件齊全'、'說明書清晰'的正面反饋"
     ],
     "special_considerations": [
-      "作为非名牌积木的替代产品，客户对价格敏感但对质量期望仍高",
-      "927片的大套装，任何配件缺失都会导致无法完成，影响体验极差",
-      "生日礼物场景下，客户对时效性和完美性要求更高",
-      "建议在包装内插入客服联系卡，明确告知缺失配件的申请流程",
-      "考虑设置'配件保险'：额外支付少量费用，可获得1年内免费补件服务"
+      "作為非名牌積木的替代產品，客戶對價格敏感但對質量期望仍高",
+      "927片的大套裝，任何配件缺失都會導致無法完成，影響體驗極差",
+      "生日禮物場景下，客戶對時效性和完美性要求更高",
+      "建議在包裝內插入客服聯絡卡，明確告知缺失配件的申請流程",
+      "考慮設定'配件保險'：額外支付少量費用，可獲得1年內免費補件服務"
     ]
   }
 }

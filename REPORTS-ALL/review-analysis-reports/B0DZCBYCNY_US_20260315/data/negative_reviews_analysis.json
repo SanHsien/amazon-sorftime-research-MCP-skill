@@ -11,7 +11,7 @@
   },
   "analysis_date": "2026-03-15 15:30:10",
   "pain_points": {
-    "电子模块故障": {
+    "電子模組故障": {
       "count": 17,
       "percentage": 37.8,
       "severity": {
@@ -232,7 +232,7 @@
       ],
       "service_subcategories": {}
     },
-    "设计/功能缺陷": {
+    "設計/功能缺陷": {
       "count": 17,
       "percentage": 37.8,
       "severity": {
@@ -503,7 +503,7 @@
       ],
       "service_subcategories": {}
     },
-    "服务/物流问题": {
+    "服務/物流問題": {
       "count": 5,
       "percentage": 11.1,
       "severity": {
@@ -579,12 +579,12 @@
       "service_subcategories": {
         "收到二手/瑕疵品": 4,
         "配件缺失": 1,
-        "退换货困难": 4,
-        "客服问题": 3,
-        "物流问题": 2
+        "退換貨困難": 4,
+        "客服問題": 3,
+        "物流問題": 2
       }
     },
-    "结构/组装问题": {
+    "結構/組裝問題": {
       "count": 2,
       "percentage": 4.4,
       "severity": {
@@ -620,7 +620,7 @@
       ],
       "service_subcategories": {}
     },
-    "外观/材质问题": {
+    "外觀/材質問題": {
       "count": 1,
       "percentage": 2.2,
       "severity": {

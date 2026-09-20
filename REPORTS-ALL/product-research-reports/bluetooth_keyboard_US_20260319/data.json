@@ -25,11 +25,11 @@
     { "range": "$150-200", "count": 1, "sales": 10720, "revenue": 2140000, "share": 0.01 }
   ],
   "product_types": [
-    { "type": "标准套装", "count": 65, "share": 0.65 },
-    { "type": "紧凑型", "count": 20, "share": 0.20 },
-    { "type": "人体工学型", "count": 8, "share": 0.08 },
-    { "type": "复古打字机", "count": 5, "share": 0.05 },
-    { "type": "游戏型", "count": 2, "share": 0.02 }
+    { "type": "標準套裝", "count": 65, "share": 0.65 },
+    { "type": "緊湊型", "count": 20, "share": 0.20 },
+    { "type": "人體工學型", "count": 8, "share": 0.08 },
+    { "type": "復古打字機", "count": 5, "share": 0.05 },
+    { "type": "遊戲型", "count": 2, "share": 0.02 }
   ],
   "top_brands": [
     { "brand": "Logitech", "sales": 166641, "revenue": 9158152, "count": 18, "share": 0.489 },
@@ -40,44 +40,44 @@
   ],
   "dimensions": [
     {
-      "dimension": "连接方式",
+      "dimension": "連線方式",
       "values": [
-        { "value": "2.4GHz无线", "count": 58, "share": 0.58 },
-        { "value": "蓝牙", "count": 22, "share": 0.22 },
-        { "value": "双模(2.4G+BT)", "count": 20, "share": 0.20 }
+        { "value": "2.4GHz無線", "count": 58, "share": 0.58 },
+        { "value": "藍芽", "count": 22, "share": 0.22 },
+        { "value": "雙模(2.4G+BT)", "count": 20, "share": 0.20 }
       ]
     },
     {
-      "dimension": "尺寸规格",
+      "dimension": "尺寸規格",
       "values": [
         { "value": "全尺寸", "count": 70, "share": 0.70 },
-        { "value": "紧凑", "count": 22, "share": 0.22 },
+        { "value": "緊湊", "count": 22, "share": 0.22 },
         { "value": "超薄", "count": 8, "share": 0.08 }
       ]
     },
     {
       "dimension": "背光功能",
       "values": [
-        { "value": "无背光", "count": 68, "share": 0.68 },
+        { "value": "無背光", "count": 68, "share": 0.68 },
         { "value": "白色背光", "count": 18, "share": 0.18 },
         { "value": "RGB背光", "count": 14, "share": 0.14 }
       ]
     },
     {
-      "dimension": "供电方式",
+      "dimension": "供電方式",
       "values": [
-        { "value": "电池供电", "count": 56, "share": 0.56 },
-        { "value": "可充电", "count": 32, "share": 0.32 },
-        { "value": "双模", "count": 12, "share": 0.12 }
+        { "value": "電池供電", "count": 56, "share": 0.56 },
+        { "value": "可充電", "count": 32, "share": 0.32 },
+        { "value": "雙模", "count": 12, "share": 0.12 }
       ]
     },
     {
-      "dimension": "特殊设计",
+      "dimension": "特殊設計",
       "values": [
-        { "value": "标准设计", "count": 65, "share": 0.65 },
-        { "value": "人体工学", "count": 12, "share": 0.12 },
-        { "value": "复古打字机", "count": 15, "share": 0.15 },
-        { "value": "游戏风格", "count": 8, "share": 0.08 }
+        { "value": "標準設計", "count": 65, "share": 0.65 },
+        { "value": "人體工學", "count": 12, "share": 0.12 },
+        { "value": "復古打字機", "count": 15, "share": 0.15 },
+        { "value": "遊戲風格", "count": 8, "share": 0.08 }
       ]
     }
   ],
@@ -89,13 +89,13 @@
       { "price_range": "$100+", "standard": 0, "compact": 1, "ergonomic": 1, "retro": 0, "gaming": 0 }
     ],
     "opportunities": [
-      { "combination": "高端($100+) + 复古打字机", "status": "空白", "products": 0, "rating": "低" },
-      { "combination": "中价($30-60) + 人体工学", "status": "薄供给", "products": 3, "rating": "中" },
-      { "combination": "低价($0-30) + 游戏型", "status": "空白", "products": 0, "rating": "低" }
+      { "combination": "高階($100+) + 復古打字機", "status": "空白", "products": 0, "rating": "低" },
+      { "combination": "中價($30-60) + 人體工學", "status": "薄供給", "products": 3, "rating": "中" },
+      { "combination": "低價($0-30) + 遊戲型", "status": "空白", "products": 0, "rating": "低" }
     ],
     "red_ocean": [
-      { "combination": "中价($30-60) + 标准套装", "status": "红海", "products": 28, "risk": "高" },
-      { "combination": "低价($0-30) + 标准套装", "status": "红海", "products": 35, "risk": "高" }
+      { "combination": "中價($30-60) + 標準套裝", "status": "紅海", "products": 28, "risk": "高" },
+      { "combination": "低價($0-30) + 標準套裝", "status": "紅海", "products": 35, "risk": "高" }
     ]
   },
   "competitors": [
@@ -108,9 +108,9 @@
       "monthly_revenue": 813699,
       "reviews": 116949,
       "rating": 4.4,
-      "type": "量级标杆",
-      "key_features": ["2年续航", "紧凑鼠标", "8个快捷键"],
-      "positioning": "入门级无线套装，走量为主"
+      "type": "量級標杆",
+      "key_features": ["2年續航", "緊湊滑鼠", "8個快捷鍵"],
+      "positioning": "入門級無線套裝，走量為主"
     },
     {
       "asin": "B0F36RKWDH",
@@ -121,9 +121,9 @@
       "monthly_revenue": 357981,
       "reviews": 903,
       "rating": 4.3,
-      "type": "量级标杆",
-      "key_features": ["蓝牙连接", "紧凑设计", "快速连接"],
-      "positioning": "入门蓝牙套装，超低价竞争"
+      "type": "量級標杆",
+      "key_features": ["藍芽連線", "緊湊設計", "快速連線"],
+      "positioning": "入門藍芽套裝，超低價競爭"
     },
     {
       "asin": "B0FDFZLCMM",
@@ -134,9 +134,9 @@
       "monthly_revenue": 1523448,
       "reviews": 53,
       "rating": 4.2,
-      "type": "量级标杆",
-      "key_features": ["波浪键", "垂直鼠标", "多设备切换"],
-      "positioning": "高端人体工学，溢价明显"
+      "type": "量級標杆",
+      "key_features": ["波浪鍵", "垂直滑鼠", "多裝置切換"],
+      "positioning": "高階人體工學，溢價明顯"
     },
     {
       "asin": "B00QXT5T3U",
@@ -147,9 +147,9 @@
       "monthly_revenue": 420354,
       "reviews": 40854,
       "rating": 4.4,
-      "type": "中价位",
-      "key_features": ["掌托设计", "2.4GHz无线", "全尺寸"],
-      "positioning": "经典中端款，平衡性价比"
+      "type": "中價位",
+      "key_features": ["掌託設計", "2.4GHz無線", "全尺寸"],
+      "positioning": "經典中端款，平衡價效比"
     },
     {
       "asin": "B0BKVY4WKT",
@@ -160,216 +160,216 @@
       "monthly_revenue": 2143893,
       "reviews": 995,
       "rating": 4.5,
-      "type": "高价位",
-      "key_features": ["可定制背光", "快滚轮", "USB-C充电"],
-      "positioning": "专业办公旗舰，定价最高"
+      "type": "高價位",
+      "key_features": ["可定製背光", "快滾輪", "USB-C充電"],
+      "positioning": "專業辦公旗艦，定價最高"
     }
   ],
   "voc_analysis": {
     "total_reviews_analyzed": 417,
     "dimensions": [
       {
-        "dimension": "鼠标可靠性",
-        "pain_point": "滚轮失灵、左键双击/无响应、连接断开",
+        "dimension": "滑鼠可靠性",
+        "pain_point": "滾輪失靈、左鍵雙擊/無響應、連線斷開",
         "frequency": 156,
         "percentage": "37%",
         "affected_brands": ["全部"],
-        "brand_opportunity": "采用欧姆龙50M次微动、光学编码器替代机械编码器",
-        "product_solution": "工业级滚轮5000万次寿命，2年质保承诺"
+        "brand_opportunity": "採用歐姆龍50M次微動、光學編碼器替代機械編碼器",
+        "product_solution": "工業級滾輪5000萬次壽命，2年質保承諾"
       },
       {
-        "dimension": "键盘质量",
-        "pain_point": "按键粘连/无响应、空格键异响、掉漆",
+        "dimension": "鍵盤質量",
+        "pain_point": "按鍵粘連/無響應、空格鍵異響、掉漆",
         "frequency": 87,
         "percentage": "21%",
         "affected_brands": ["全部"],
-        "brand_opportunity": "采用剪刀脚开关、加强键帽结构",
-        "product_solution": "1000万次按键寿命，静音设计"
+        "brand_opportunity": "採用剪刀腳開關、加強鍵帽結構",
+        "product_solution": "1000萬次按鍵壽命，靜音設計"
       },
       {
-        "dimension": "连接稳定性",
-        "pain_point": "蓝牙频繁断连、USB接收器缺失、延迟",
+        "dimension": "連線穩定性",
+        "pain_point": "藍芽頻繁斷連、USB接收器缺失、延遲",
         "frequency": 68,
         "percentage": "16%",
         "affected_brands": ["Logitech"],
-        "brand_opportunity": "双模方案(2.4G+BT5.3)、Nordic/TI最新芯片",
-        "product_solution": "零延迟2.4GHz + 多设备蓝牙5.3"
+        "brand_opportunity": "雙模方案(2.4G+BT5.3)、Nordic/TI最新晶片",
+        "product_solution": "零延遲2.4GHz + 多裝置藍芽5.3"
       },
       {
         "dimension": "耐用性",
-        "pain_point": "6-24个月内故障、塑料材质易损",
+        "pain_point": "6-24個月內故障、塑膠材質易損",
         "frequency": 52,
         "percentage": "12%",
         "affected_brands": ["全部"],
-        "brand_opportunity": "加强材质工艺、延长质保期",
-        "product_solution": "3年超长质保"
+        "brand_opportunity": "加強材質工藝、延長質保期",
+        "product_solution": "3年超長質保"
       },
       {
-        "dimension": "舒适度",
-        "pain_point": "鼠标太小、键盘太高、手部疲劳",
+        "dimension": "舒適度",
+        "pain_point": "滑鼠太小、鍵盤太高、手部疲勞",
         "frequency": 35,
         "percentage": "8%",
-        "affected_brands": ["紧凑型"],
-        "brand_opportunity": "人体工学设计、可调节角度",
-        "product_solution": "波浪键设计+可拆卸掌托"
+        "affected_brands": ["緊湊型"],
+        "brand_opportunity": "人體工學設計、可調節角度",
+        "product_solution": "波浪鍵設計+可拆卸掌託"
       },
       {
-        "dimension": "软件兼容",
-        "pain_point": "驱动不支持、设置软件不稳定",
+        "dimension": "軟體相容",
+        "pain_point": "驅動不支援、設定軟體不穩定",
         "frequency": 19,
         "percentage": "5%",
-        "affected_brands": ["高端款"],
-        "brand_opportunity": "简化软件、免驱动即插即用",
-        "product_solution": "免驱动设计，按键可编程"
+        "affected_brands": ["高階款"],
+        "brand_opportunity": "簡化軟體、免驅動即插即用",
+        "product_solution": "免驅動設計，按鍵可程式設計"
       }
     ],
-    "summary": "主要痛点集中在鼠标可靠性(37%)、键盘质量(21%)、连接稳定性(16%)。Logitech质量下滑严重，为新进入者提供机会窗口。",
-    "key_insight": "37%痛点集中在鼠标，而非键盘；高端款($100+)依然出现相同问题；用户普遍反映'不再像以前那样耐用'"
+    "summary": "主要痛點集中在滑鼠可靠性(37%)、鍵盤質量(21%)、連線穩定性(16%)。Logitech質量下滑嚴重，為新進入者提供機會視窗。",
+    "key_insight": "37%痛點集中在滑鼠，而非鍵盤；高階款($100+)依然出現相同問題；使用者普遍反映'不再像以前那樣耐用'"
   },
   "barriers": [
     {
-      "type": "品牌壁垒",
+      "type": "品牌壁壘",
       "level": "高",
-      "data_anchor": "Logitech 48.9%份额，11.7万评论",
-      "estimated_cost": "$50万+",
-      "solution": "差异化定位，避开正面竞争"
+      "data_anchor": "Logitech 48.9%份額，11.7萬評論",
+      "estimated_cost": "$50萬+",
+      "solution": "差異化定位，避開正面競爭"
     },
     {
-      "type": "Review壁垒",
+      "type": "Review壁壘",
       "level": "高",
-      "data_anchor": "Top10均值6,000+评论",
-      "estimated_cost": "$3-5万",
-      "solution": "Vine计划 + 早期评论人"
+      "data_anchor": "Top10均值6,000+評論",
+      "estimated_cost": "$3-5萬",
+      "solution": "Vine計劃 + 早期評論人"
     },
     {
-      "type": "资金壁垒",
+      "type": "資金壁壘",
       "level": "中",
-      "data_anchor": "首批备货1000件 + PPC",
-      "estimated_cost": "¥15-20万",
+      "data_anchor": "首批備貨1000件 + PPC",
+      "estimated_cost": "¥15-20萬",
       "solution": "控制MOQ，小步快跑"
     },
     {
-      "type": "技术壁垒",
+      "type": "技術壁壘",
       "level": "低",
-      "data_anchor": "产品同质化严重",
-      "estimated_cost": "¥5万",
-      "solution": "专注解决VOC痛点"
+      "data_anchor": "產品同質化嚴重",
+      "estimated_cost": "¥5萬",
+      "solution": "專注解決VOC痛點"
     },
     {
-      "type": "认证壁垒",
+      "type": "認證壁壘",
       "level": "中",
-      "data_anchor": "FCC、蓝牙认证等",
-      "estimated_cost": "$2万",
-      "solution": "选择有经验的工厂"
+      "data_anchor": "FCC、藍芽認證等",
+      "estimated_cost": "$2萬",
+      "solution": "選擇有經驗的工廠"
     }
   ],
   "go_nogo": {
     "overall_score": 5.27,
-    "decision": "暂缓观望",
+    "decision": "暫緩觀望",
     "scores": [
-      { "dimension": "市场规模", "weight": 0.20, "score": 8.5, "weighted": 1.70, "basis": "月销额$14M，大市场" },
-      { "dimension": "竞争格局", "weight": 0.25, "score": 3.0, "weighted": 0.75, "basis": "Top3品牌59.36%，高垄断" },
-      { "dimension": "进入壁垒", "weight": 0.20, "score": 4.0, "weighted": 0.80, "basis": "Review+品牌壁垒高" },
-      { "dimension": "利润空间", "weight": 0.15, "score": 5.0, "weighted": 0.75, "basis": "价格战激烈，溢价难" },
-      { "dimension": "差异化机会", "weight": 0.20, "score": 6.0, "weighted": 1.20, "basis": "VOC痛点明显，有改进空间" }
+      { "dimension": "市場規模", "weight": 0.20, "score": 8.5, "weighted": 1.70, "basis": "月銷額$14M，大市場" },
+      { "dimension": "競爭格局", "weight": 0.25, "score": 3.0, "weighted": 0.75, "basis": "Top3品牌59.36%，高壟斷" },
+      { "dimension": "進入壁壘", "weight": 0.20, "score": 4.0, "weighted": 0.80, "basis": "Review+品牌壁壘高" },
+      { "dimension": "利潤空間", "weight": 0.15, "score": 5.0, "weighted": 0.75, "basis": "價格戰激烈，溢價難" },
+      { "dimension": "差異化機會", "weight": 0.20, "score": 6.0, "weighted": 1.20, "basis": "VOC痛點明顯，有改進空間" }
     ],
-    "decision_basis": "市场规模大但竞争激烈，Logitech垄断地位难以撼动，价格战严重利润空间薄。VOC痛点明确但需验证改进方案的市场接受度。",
+    "decision_basis": "市場規模大但競爭激烈，Logitech壟斷地位難以撼動，價格戰嚴重利潤空間薄。VOC痛點明確但需驗證改進方案的市場接受度。",
     "entry_conditions": [
-      "有键盘鼠标供应链资源，能解决鼠标可靠性问题",
-      "预算≥¥20万，能支撑6-12个月的亏损期",
-      "有差异化定位方案，不与Logitech正面竞争",
-      "目标细分市场（如Mac用户、人体工学需求）"
+      "有鍵盤滑鼠供應鏈資源，能解決滑鼠可靠性問題",
+      "預算≥¥20萬，能支撐6-12個月的虧損期",
+      "有差異化定位方案，不與Logitech正面競爭",
+      "目標細分市場（如Mac使用者、人體工學需求）"
     ],
     "prohibit_conditions": [
-      "纯贸易商，无供应链优势",
-      "预算<¥10万",
-      "计划做$30以下价格段"
+      "純貿易商，無供應鏈優勢",
+      "預算<¥10萬",
+      "計劃做$30以下價格段"
     ],
     "decision_mapping": {
-      "7.5-10": "建议进入",
-      "6.0-7.4": "谨慎进入",
-      "4.0-5.9": "暂缓观望",
-      "0-3.9": "不建议进入"
+      "7.5-10": "建議進入",
+      "6.0-7.4": "謹慎進入",
+      "4.0-5.9": "暫緩觀望",
+      "0-3.9": "不建議進入"
     }
   },
   "product_matrix": [
     {
       "tier": "Tier 1",
-      "name": "鼠标可靠性改进套装",
-      "target_market": "对Logitech质量不满的中高端用户",
+      "name": "滑鼠可靠性改進套裝",
+      "target_market": "對Logitech質量不滿的中高階使用者",
       "price_range": "$50-80",
-      "status": "谨慎推进",
+      "status": "謹慎推進",
       "specs": {
-        "连接方式": "2.4GHz + 蓝牙5.3双模",
-        "键盘": "全尺寸 + 可拆卸掌托",
-        "鼠标": "50M次微动 + 光学编码器",
-        "背光": "白色单色背光",
-        "供电": "键盘电池 + 鼠标Type-C充电",
-        "材质": "ABS + 类肤涂层"
+        "連線方式": "2.4GHz + 藍芽5.3雙模",
+        "鍵盤": "全尺寸 + 可拆卸掌託",
+        "滑鼠": "50M次微動 + 光學編碼器",
+        "背光": "白色單色背光",
+        "供電": "鍵盤電池 + 滑鼠Type-C充電",
+        "材質": "ABS + 類膚塗層"
       },
       "target_price": 59.99,
-      "usp": "首款'滚轮永固'无线套装，2年故障包换",
+      "usp": "首款'滾輪永固'無線套裝，2年故障包換",
       "competitor": "Logitech MK540 ($49.99)",
       "advantage": "可靠性更好",
       "estimated_sales": "500-1,500件/月"
     },
     {
       "tier": "Tier 2",
-      "name": "轻量化Mac套装",
-      "target_market": "Mac/iPad用户",
+      "name": "輕量化Mac套裝",
+      "target_market": "Mac/iPad使用者",
       "price_range": "$70-100",
-      "status": "观察",
+      "status": "觀察",
       "specs": {
-        "兼容性": "macOS专用布局",
-        "尺寸": "85%紧凑尺寸",
-        "设计": "简约银色设计",
-        "多设备": "3设备切换"
+        "相容性": "macOS專用佈局",
+        "尺寸": "85%緊湊尺寸",
+        "設計": "簡約銀色設計",
+        "多裝置": "3裝置切換"
       },
       "target_price": 79.99,
-      "usp": "专为Mac打造，1/3价格",
+      "usp": "專為Mac打造，1/3價格",
       "competitor": "Apple Magic Keyboard",
-      "advantage": "价格优势"
+      "advantage": "價格優勢"
     },
     {
       "tier": "Tier 3",
-      "name": "复古打字机RGB",
-      "target_market": "追求个性化外观的年轻用户",
+      "name": "復古打字機RGB",
+      "target_market": "追求個性化外觀的年輕使用者",
       "price_range": "$40-60",
-      "status": "不推荐",
-      "reason": "功能同质化严重，中国卖家已大量涌入"
+      "status": "不推薦",
+      "reason": "功能同質化嚴重，中國賣家已大量湧入"
     }
   ],
   "roadmap": [
     {
       "phase": "Phase 1",
-      "name": "市场验证",
+      "name": "市場驗證",
       "duration": "4-6周",
       "tasks": [
-        "关键词调研：分析长尾词和竞品PPC广告",
-        "供应链对接：联系3-5家工厂，索要样品",
-        "差异化验证：调研'鼠标滚轮'替换需求"
+        "關鍵詞調研：分析長尾詞和競品PPC廣告",
+        "供應鏈對接：聯絡3-5家工廠，索要樣品",
+        "差異化驗證：調研'滑鼠滾輪'替換需求"
       ]
     },
     {
       "phase": "Phase 2",
-      "name": "产品开发",
+      "name": "產品開發",
       "duration": "8-12周",
       "tasks": [
-        "首批打样3-5款方案",
-        "可靠性测试：滚轮、按键寿命测试",
-        "认证申请：FCC、蓝牙认证",
-        "包装设计：强调'可靠性'卖点"
+        "首批打樣3-5款方案",
+        "可靠性測試：滾輪、按鍵壽命測試",
+        "認證申請：FCC、藍芽認證",
+        "包裝設計：強調'可靠性'賣點"
       ]
     },
     {
       "phase": "Phase 3",
-      "name": "上市推广",
-      "duration": "持续",
+      "name": "上市推廣",
+      "duration": "持續",
       "tasks": [
-        "Vine计划：30个名额获取早期评论",
-        "PPC启动：$50-100/天预算",
-        "视频营销：展示耐用性测试视频",
-        "差评监控：第一时间处理质量问题"
+        "Vine計劃：30個名額獲取早期評論",
+        "PPC啟動：$50-100/天預算",
+        "影片營銷：展示耐用性測試影片",
+        "差評監控：第一時間處理質量問題"
       ]
     }
   ],

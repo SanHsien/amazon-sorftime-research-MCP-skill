@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canned Dog Food - US 选品分析看板</title>
+    <title>Canned Dog Food - US 選品分析看板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         * {
@@ -61,7 +61,7 @@
             border-bottom: 1px solid #e1e8ef;
         }
 
-        /* KPI 卡片网格 */
+        /* KPI 卡片網格 */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -94,7 +94,7 @@
             margin-top: 4px;
         }
 
-        /* Go/No-Go 评分卡 */
+        /* Go/No-Go 評分卡 */
         .gogono-card {
             background: linear-gradient(135deg, #64748b, #475569 100%);
             border-radius: 12px;
@@ -120,7 +120,7 @@
             opacity: 0.9;
         }
 
-        /* 表格样式 */
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -143,7 +143,7 @@
             background: #f8fafc;
         }
 
-        /* 标签 */
+        /* 標籤 */
         .tag {
             display: inline-block;
             padding: 4px 12px;
@@ -158,7 +158,7 @@
         .tag-blue { background: #dbeafe; color: #1e40af; }
         .tag-gray { background: #f1f5f9; color: #475569; }
 
-        /* 机会卡片 */
+        /* 機會卡片 */
         .opportunity-card {
             background: #f0fdf4;
             border-left: 4px solid #16a34a;
@@ -180,7 +180,7 @@
             margin-right: 12px;
         }
 
-        /* 页脚 */
+        /* 頁尾 */
         .footer {
             text-align: center;
             padding: 24px;
@@ -190,14 +190,14 @@
             margin-top: 40px;
         }
 
-        /* 维度分布表格 */
+        /* 維度分佈表格 */
         .dimension-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        /* 响应式 */
+        /* 響應式 */
         @media (max-width: 768px) {
             .kpi-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -212,41 +212,41 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Canned Dog Food 选品分析看板</h1>
+            <h1>Canned Dog Food 選品分析看板</h1>
             <div class="subtitle">
-                站点: US | 分析日期: 20260319
+                站點: US | 分析日期: 20260319
             </div>
         </div>
 
-        <!-- Go/No-Go 评分 -->
+        <!-- Go/No-Go 評分 -->
         <div class="section">
-            <div class="section-title">选品决策评估</div>
+            <div class="section-title">選品決策評估</div>
             <div class="gogono-card" style="background: linear-gradient(135deg, #64748b, #475569 100%);">
-                <div class="verdict">谨慎进入/暂缓观望</div>
+                <div class="verdict">謹慎進入/暫緩觀望</div>
                 <div class="score">5.5 / 10</div>
-                <div class="verdict-detail">谨慎进入/暂缓观望</div>
+                <div class="verdict-detail">謹慎進入/暫緩觀望</div>
             </div>
         </div>
 
-        <!-- 市场概况 KPI -->
+        <!-- 市場概況 KPI -->
         <div class="section">
-            <div class="section-title">市场概况</div>
+            <div class="section-title">市場概況</div>
             <div class="kpi-grid">
                 
                 <div class="kpi-card">
-                    <div class="label">Top100 月销量</div>
+                    <div class="label">Top100 月銷量</div>
                     <div class="value">825,483</div>
                     <div class="note">件</div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">Top100 月销额</div>
+                    <div class="label">Top100 月銷額</div>
                     <div class="value">$22,478,380</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">平均价格</div>
+                    <div class="label">平均價格</div>
                     <div class="value">$27.23</div>
                     <div class="note"></div>
                 </div>
@@ -258,13 +258,13 @@
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">亚马逊自营份额</div>
+                    <div class="label">亞馬遜自營份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
             
                 <div class="kpi-card">
-                    <div class="label">中国卖家份额</div>
+                    <div class="label">中國賣家份額</div>
                     <div class="value">0.0%</div>
                     <div class="note"></div>
                 </div>
@@ -272,18 +272,18 @@
             </div>
         </div>
 
-        <!-- 维度分布 -->
+        <!-- 維度分佈 -->
         <div class="section">
-            <div class="section-title">产品维度分布</div>
+            <div class="section-title">產品維度分佈</div>
             <div class="dimension-grid">
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">價格區間分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>价格区间</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>價格區間</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -293,13 +293,13 @@
                 </div>
             
                 <div>
-                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">產品型別分佈</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>产品类型</th>
-                                <th>产品数</th>
-                                <th>占比</th>
+                                <th>產品型別</th>
+                                <th>產品數</th>
+                                <th>佔比</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -313,19 +313,19 @@
         <!-- 交叉分析 -->
         
         <div class="section">
-            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <div class="section-title">價格區間 × 產品型別 交叉分析</div>
             <table>
                 <thead>
                     <tr>
-                        <th>价格区间 \ 产品类型</th>
+                        <th>價格區間 \ 產品型別</th>
                         <th>Classic Loaf/Chopped Ground</th><th>Filets in Gravy/Stew</th><th>Grain Free</th><th>Science Diet Premium</th>
-                        <th>合计</th>
+                        <th>合計</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>$0-30</strong></td><td>54 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>3</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>57</strong></td></tr><tr><td><strong>$30-60</strong></td><td>3</td><td>35 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>2</td><td><span class="tag tag-gray">0</span></td><td><strong>40</strong></td></tr><tr><td><strong>$60-100</strong></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td>3</td><td><strong>3</strong></td></tr>
+                    <tr><td><strong>$0-30</strong></td><td>54 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>3</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>57</strong></td></tr><tr><td><strong>$30-60</strong></td><td>3</td><td>35 <span class="tag tag-red" style="font-size: 10px;">紅海</span></td><td>2</td><td><span class="tag tag-gray">0</span></td><td><strong>40</strong></td></tr><tr><td><strong>$60-100</strong></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td>3</td><td><strong>3</strong></td></tr>
                     <tr style="background: #f8fafc; font-weight: 600;">
-                        <td><strong>合计</strong></td>
+                        <td><strong>合計</strong></td>
                         <td><strong>57</strong></td><td><strong>38</strong></td><td><strong>2</strong></td><td><strong>3</strong></td>
                         <td><strong>100</strong></td>
                     </tr>
@@ -338,91 +338,91 @@
         <!-- VOC 分析 -->
         
         <div class="section">
-            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <div class="section-title">VOC 分析 - 使用者痛點洞察</div>
             <table>
                 <thead>
                     <tr>
-                        <th>维度</th>
-                        <th>痛点</th>
-                        <th>频次/占比</th>
+                        <th>維度</th>
+                        <th>痛點</th>
+                        <th>頻次/佔比</th>
                         <th>涉及品牌</th>
-                        <th>品牌机会</th>
-                        <th>产品方案</th>
+                        <th>品牌機會</th>
+                        <th>產品方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td><strong>产品质量</strong></td>
-                    <td>变质、异味、批次质量不稳定、过期产品</td>
+                    <td><strong>產品質量</strong></td>
+                    <td>變質、異味、批次質量不穩定、過期產品</td>
                     <td>28<br><small>20%</small></td>
                     <td>Cesar, Pedigree, Purina ONE</td>
-                    <td>加强品质控制、新鲜度保证、缩短供应链周期</td>
-                    <td>新鲜日期标注、真空密封包装、小批量生产</td>
+                    <td>加強品質控制、新鮮度保證、縮短供應鏈週期</td>
+                    <td>新鮮日期標註、真空密封包裝、小批次生產</td>
                 </tr>
             
                 <tr>
-                    <td><strong>包装问题</strong></td>
-                    <td>罐头凹陷、漏液、破损、缺少易拉盖</td>
+                    <td><strong>包裝問題</strong></td>
+                    <td>罐頭凹陷、漏液、破損、缺少易拉蓋</td>
                     <td>37<br><small>26%</small></td>
                     <td>Cesar, Pedigree, Purina ONE, 全品牌</td>
-                    <td>改进包装材料、加强运输保护、优化罐体设计</td>
-                    <td>加强外包装、添加易拉盖设计、防伪密封</td>
+                    <td>改進包裝材料、加強運輸保護、最佳化罐體設計</td>
+                    <td>加強外包裝、新增易拉蓋設計、防偽密封</td>
                 </tr>
             
                 <tr>
                     <td><strong>消化健康</strong></td>
-                    <td>导致腹泻、呕吐、肠胃不适、软便</td>
+                    <td>導致腹瀉、嘔吐、腸胃不適、軟便</td>
                     <td>22<br><small>16%</small></td>
                     <td>Pedigree, Purina ONE</td>
-                    <td>添加益生菌、单一蛋白配方、敏感肠胃专用配方</td>
-                    <td>易消化配方、添加益生元、无谷物配方</td>
+                    <td>新增益生菌、單一蛋白配方、敏感腸胃專用配方</td>
+                    <td>易消化配方、新增益生元、無穀物配方</td>
                 </tr>
             
                 <tr>
-                    <td><strong>适口性</strong></td>
-                    <td>狗狗拒吃、挑食、不爱吃</td>
+                    <td><strong>適口性</strong></td>
+                    <td>狗狗拒吃、挑食、不愛吃</td>
                     <td>18<br><small>13%</small></td>
                     <td>Pedigree, Purina ONE, Cesar</td>
-                    <td>改善口味、增加天然诱食剂、优化肉质</td>
-                    <td>真实肉块、天然肉汤、适口性测试</td>
+                    <td>改善口味、增加天然誘食劑、最佳化肉質</td>
+                    <td>真實肉塊、天然肉湯、適口性測試</td>
                 </tr>
             
                 <tr>
-                    <td><strong>性价比</strong></td>
-                    <td>涨价、肉块少汤汁多、分量不足</td>
+                    <td><strong>價效比</strong></td>
+                    <td>漲價、肉塊少湯汁多、分量不足</td>
                     <td>15<br><small>11%</small></td>
                     <td>Pedigree, Cesar</td>
-                    <td>提高固形物含量、透明化配料表、合理定价</td>
-                    <td>增加肉块比例、减少填充物、物有所值</td>
+                    <td>提高固形物含量、透明化配料表、合理定價</td>
+                    <td>增加肉塊比例、減少填充物、物有所值</td>
                 </tr>
             
                 <tr>
                     <td><strong>成分透明度</strong></td>
-                    <td>副产品多、营养评分低、成分不透明</td>
+                    <td>副產品多、營養評分低、成分不透明</td>
                     <td>10<br><small>7%</small></td>
                     <td>Cesar, Pedigree</td>
-                    <td>使用全肉、无谷配方、透明化配料表</td>
-                    <td>第一成分是真实肉类、无副产品、AAFCO认证</td>
+                    <td>使用全肉、無谷配方、透明化配料表</td>
+                    <td>第一成分是真實肉類、無副產品、AAFCO認證</td>
                 </tr>
             
                 </tbody>
             </table>
-            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在包装问题(26%)、产品质量(20%)、消化健康(16%)</div>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>總結：</strong>主要痛點集中在包裝問題(26%)、產品質量(20%)、消化健康(16%)</div>
         </div>
         
 
-        <!-- 竞品格局 -->
+        <!-- 競品格局 -->
         
         <div class="section">
-            <div class="section-title">竞品格局 (Top8)</div>
+            <div class="section-title">競品格局 (Top8)</div>
             <table>
                 <thead>
                     <tr>
-                        <th>品牌/型号</th>
-                        <th>价格</th>
-                        <th>月销量</th>
-                        <th>类型</th>
+                        <th>品牌/型號</th>
+                        <th>價格</th>
+                        <th>月銷量</th>
+                        <th>型別</th>
                         <th>定位</th>
                     </tr>
                 </thead>
@@ -432,7 +432,7 @@
                     <td>Cesar<br><small></small></td>
                     <td>$35.94</td>
                     <td>51,762</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -440,7 +440,7 @@
                     <td>Pedigree<br><small></small></td>
                     <td>$12.34</td>
                     <td>39,373</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -448,7 +448,7 @@
                     <td>Purina ONE<br><small></small></td>
                     <td>$23.76</td>
                     <td>33,472</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -456,7 +456,7 @@
                     <td>Beneful<br><small></small></td>
                     <td>$27.84</td>
                     <td>28,071</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -464,7 +464,7 @@
                     <td>Cesar<br><small></small></td>
                     <td>$35.94</td>
                     <td>27,029</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -472,7 +472,7 @@
                     <td>Hill’s Science Diet<br><small></small></td>
                     <td>$49.06</td>
                     <td>25,238</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -480,7 +480,7 @@
                     <td>Nature’s Recipe<br><small></small></td>
                     <td>$29.56</td>
                     <td>22,973</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -488,7 +488,7 @@
                     <td>Nutrish<br><small></small></td>
                     <td>$28.68</td>
                     <td>20,893</td>
-                    <td>竞品</td>
+                    <td>競品</td>
                     <td><small></small></td>
                 </tr>
             
@@ -497,59 +497,59 @@
         </div>
         
 
-        <!-- 进入壁垒 -->
+        <!-- 進入壁壘 -->
         
         <div class="section">
-            <div class="section-title">进入壁垒评估</div>
+            <div class="section-title">進入壁壘評估</div>
             <table>
                 <thead>
                     <tr>
-                        <th>壁垒类型</th>
-                        <th>等级</th>
-                        <th>预估成本</th>
-                        <th>数据锚点</th>
-                        <th>缓解方案</th>
+                        <th>壁壘型別</th>
+                        <th>等級</th>
+                        <th>預估成本</th>
+                        <th>資料錨點</th>
+                        <th>緩解方案</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td>品牌壁垒</td>
+                    <td>品牌壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
                     <td>$100K+</td>
-                    <td><small>Top10 品牌占86%市场份额</small></td>
+                    <td><small>Top10 品牌佔86%市場份額</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>Review壁垒</td>
+                    <td>Review壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
                     <td>$20K+</td>
-                    <td><small>Top10 均值15,000+评论</small></td>
+                    <td><small>Top10 均值15,000+評論</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>渠道壁垒</td>
+                    <td>渠道壁壘</td>
                     <td><span class="tag tag-red">高</span></td>
                     <td>-</td>
-                    <td><small>Amazon占80%份额</small></td>
+                    <td><small>Amazon佔80%份額</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>资金壁垒</td>
+                    <td>資金壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
                     <td>¥50-100K</td>
-                    <td><small>首批备货 + 广告投入</small></td>
+                    <td><small>首批備貨 + 廣告投入</small></td>
                     <td></td>
                 </tr>
             
                 <tr>
-                    <td>供应链壁垒</td>
+                    <td>供應鏈壁壘</td>
                     <td><span class="tag tag-yellow">中</span></td>
                     <td>¥30-50K</td>
-                    <td><small>湿粮生产 + 保质期管理</small></td>
+                    <td><small>溼糧生產 + 保質期管理</small></td>
                     <td></td>
                 </tr>
             
@@ -558,15 +558,15 @@
         </div>
         
 
-        <!-- 页脚 -->
+        <!-- 頁尾 -->
         <div class="footer">
-            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 20:24</p>
-            <p>完整报告请查看 Markdown 文件</p>
+            <p>資料來源: Sorftime MCP | 生成時間: 2026-03-19 20:24</p>
+            <p>完整報告請檢視 Markdown 檔案</p>
         </div>
     </div>
 
     <script>
-        // 页面交互脚本
+        // 頁面互動指令碼
         console.log('Dashboard loaded successfully');
     </script>
 </body>
