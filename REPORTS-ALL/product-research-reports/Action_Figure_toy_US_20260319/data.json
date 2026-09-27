@@ -1,0 +1,459 @@
+{
+  "metadata": {
+    "keyword": "Action Figure toy",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "2514571011",
+    "category_name": "Action Figures",
+    "collected_at": "2026-03-19T17:08:35.907389"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 199981,
+    "top100_monthly_revenue": 4954638,
+    "avg_price": 24.78,
+    "median_price": 19.99,
+    "top3_product_concentration": 0.2114,
+    "top3_brand_concentration": 0.2531,
+    "top10_brand_concentration": 0.5566,
+    "amazon_share": 0.5130,
+    "china_seller_share": 0.25,
+    "new_product_share": 0.15,
+    "keyword_monthly_search": 0
+  },
+  "price_ranges": [
+    {
+      "range": "$0-30",
+      "count": 83,
+      "share": 0.71,
+      "sales": 142221
+    },
+    {
+      "range": "$30-60",
+      "count": 14,
+      "share": 0.28,
+      "sales": 55186
+    },
+    {
+      "range": "$60-100",
+      "count": 2,
+      "share": 0.01,
+      "sales": 1355
+    },
+    {
+      "range": "$100+",
+      "count": 1,
+      "share": 0.01,
+      "sales": 1219
+    }
+  ],
+  "dimensions": [
+    {
+      "dimension": "IP型別",
+      "values": [
+        {"value": "動漫IP", "count": 45, "share": 0.45},
+        {"value": "影視IP", "count": 30, "share": 0.30},
+        {"value": "原創", "count": 15, "share": 0.15},
+        {"value": "其他", "count": 10, "share": 0.10}
+      ]
+    },
+    {
+      "dimension": "產品形態",
+      "values": [
+        {"value": "單個", "count": 60, "share": 0.60},
+        {"value": "套裝", "count": 25, "share": 0.25},
+        {"value": "可動人偶", "count": 15, "share": 0.15}
+      ]
+    },
+    {
+      "dimension": "尺寸",
+      "values": [
+        {"value": "小型(<4英寸)", "count": 35, "share": 0.35},
+        {"value": "中型(4-6英寸)", "count": 45, "share": 0.45},
+        {"value": "大型(>6英寸)", "count": 20, "share": 0.20}
+      ]
+    },
+    {
+      "dimension": "功能",
+      "values": [
+        {"value": "可動", "count": 40, "share": 0.40},
+        {"value": "電動", "count": 25, "share": 0.25},
+        {"value": "收藏", "count": 20, "share": 0.20},
+        {"value": "盲盒", "count": 15, "share": 0.15}
+      ]
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-20",
+        "anime_ip": 18,
+        "movie_ip": 15,
+        "original": 25
+      },
+      {
+        "price_range": "$20-40",
+        "anime_ip": 12,
+        "movie_ip": 8,
+        "original": 8
+      },
+      {
+        "price_range": "$40-60",
+        "anime_ip": 3,
+        "movie_ip": 2,
+        "original": 1
+      },
+      {
+        "price_range": "$60+",
+        "anime_ip": 2,
+        "movie_ip": 1,
+        "original": 0
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "Disney",
+      "sales": 26127,
+      "revenue": 1306350,
+      "count": 1
+    },
+    {
+      "brand": "Transformers",
+      "sales": 13118,
+      "revenue": 655900,
+      "count": 6
+    },
+    {
+      "brand": "Marvel",
+      "sales": 11378,
+      "revenue": 568900,
+      "count": 6
+    },
+    {
+      "brand": "Heroes of Goo Jit Zu",
+      "sales": 9765,
+      "revenue": 488250,
+      "count": 5
+    },
+    {
+      "brand": "Mattel",
+      "sales": 9460,
+      "revenue": 473000,
+      "count": 8
+    },
+    {
+      "brand": "AKFAHOIF",
+      "sales": 9166,
+      "revenue": 458300,
+      "count": 1
+    },
+    {
+      "brand": "Funko",
+      "sales": 8715,
+      "revenue": 435750,
+      "count": 6
+    },
+    {
+      "brand": "TAMASHII NATIONS",
+      "sales": 8268,
+      "revenue": 413400,
+      "count": 4
+    },
+    {
+      "brand": "Fisher-Price",
+      "sales": 7890,
+      "revenue": 394500,
+      "count": 2
+    },
+    {
+      "brand": "Smiski",
+      "sales": 7426,
+      "revenue": 371300,
+      "count": 3
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B07PQFT83F",
+      "brand": "Disney",
+      "title": "Disney Store Official Buzz Lightyear Interactive Talking Action Figure",
+      "price": 39.95,
+      "monthly_sales": 26127,
+      "reviews": 47601,
+      "rating": 4.7,
+      "type": "量級標杆",
+      "launch_date": "2019-05-30"
+    },
+    {
+      "asin": "B0D2XZ4F1J",
+      "brand": "AKFAHOIF",
+      "title": "Mini Jesus Figures, Set of 30pcs Action Figures",
+      "price": 5.98,
+      "monthly_sales": 9166,
+      "reviews": 2260,
+      "rating": 4.9,
+      "type": "低價切入",
+      "launch_date": "2024-05-04"
+    },
+    {
+      "asin": "B0DQ6C22M2",
+      "brand": "MRBEAST LAB",
+      "title": "MrBeast Lab Hybrids Mega Pack",
+      "price": 34.88,
+      "monthly_sales": 6980,
+      "reviews": 1309,
+      "rating": 4.6,
+      "type": "網紅IP",
+      "launch_date": "2025-04-08"
+    },
+    {
+      "asin": "B077YYP739",
+      "brand": "Transformers",
+      "title": "Transformers Toys Heroic Optimus Prime Action Figure",
+      "price": 26.0,
+      "monthly_sales": 5694,
+      "reviews": 10962,
+      "rating": 4.6,
+      "type": "經典IP",
+      "launch_date": "2018-01-24"
+    },
+    {
+      "asin": "B0D3BW4QQ6",
+      "brand": "MerryXD",
+      "title": "MerryXD 6 Pack Assembly Completed T13 3D Action Figure",
+      "price": 30.99,
+      "monthly_sales": 6228,
+      "reviews": 2319,
+      "rating": 4.2,
+      "type": "3D列印",
+      "launch_date": "2024-05-14"
+    },
+    {
+      "asin": "B0BNKM3QCD",
+      "brand": "ANIME HEROES",
+      "title": "ANIME HEROES - Jujutsu Kaisen - Satoru Gojo Action Figure",
+      "price": 21.97,
+      "monthly_sales": 5091,
+      "reviews": 17761,
+      "rating": 4.6,
+      "type": "動漫IP",
+      "launch_date": "2023-04-27"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "質量缺陷",
+        "pain_point": "零件缺失、破損、做工差、數量不足",
+        "frequency": 60,
+        "percentage": "40%",
+        "affected_brands": ["Disney", "AKFAHOIF", "MRBEAST LAB", "Paw Patrol"],
+        "brand_opportunity": "供應鏈QC體系成熟，可建立全檢流程",
+        "product_solution": "100%出廠全檢 + 過程QC + 自動計數裝置"
+      },
+      {
+        "dimension": "電動功能",
+        "pain_point": "電池故障、聲音失效、電路不工作",
+        "frequency": 45,
+        "percentage": "30%",
+        "affected_brands": ["Disney", "Paw Patrol"],
+        "brand_opportunity": "電子方案設計能力，電池測試裝置",
+        "product_solution": "雙重測試（產線+出貨前）+ 電路保護設計"
+      },
+      {
+        "dimension": "價值感知",
+        "pain_point": "價格虛高、內容不足、玩偶太小",
+        "frequency": 23,
+        "percentage": "15%",
+        "affected_brands": ["MRBEAST LAB", "Paw Patrol"],
+        "brand_opportunity": "成本控制 + 產品設計能力",
+        "product_solution": "實物比例圖 + 多配件配置 + 明確規格"
+      },
+      {
+        "dimension": "結構耐用性",
+        "pain_point": "連線不牢、易斷裂、頭手腳脫落",
+        "frequency": 21,
+        "percentage": "14%",
+        "affected_brands": ["MRBEAST LAB", "AKFAHOIF"],
+        "brand_opportunity": "結構設計能力，材料選擇",
+        "product_solution": "增強卡扣 + 材料升級（ABS→POM）+ 公差最佳化"
+      }
+    ],
+    "summary": "核心痛點：'買了就壞'（質量 + 功能故障佔比 70%）。改進方向：優先解決質量缺陷和電動功能問題。"
+  },
+  "barriers": [
+    {
+      "type": "IP壁壘",
+      "level": "高",
+      "data_anchor": "頭部品牌均為知名IP（Disney, Marvel, Transformers）",
+      "estimated_cost": "$10,000-50,000/年",
+      "solution": "自創IP、合作授權或公共領域IP"
+    },
+    {
+      "type": "Review壁壘",
+      "level": "高",
+      "data_anchor": "Top10均值8,000+評論",
+      "estimated_cost": "$15,000-30,000",
+      "solution": "Vine計劃 + 早期評論獲取"
+    },
+    {
+      "type": "資金壁壘",
+      "level": "中",
+      "data_anchor": "首批備貨 + 廣告 + IP授權",
+      "estimated_cost": "$50,000-100,000",
+      "solution": "控制首批MOQ，小批次試銷"
+    },
+    {
+      "type": "質量壁壘",
+      "level": "中",
+      "data_anchor": "40%差評與質量相關",
+      "estimated_cost": "$5,000-10,000",
+      "solution": "QC流程 + 供應商篩選 + 出廠全檢"
+    },
+    {
+      "type": "渠道壁壘",
+      "level": "低",
+      "data_anchor": "亞馬遜自營51%份額",
+      "estimated_cost": "$2,000-5,000",
+      "solution": "FBA + 多渠道佈局"
+    }
+  ],
+  "decision": {
+    "overall_score": 6.2,
+    "verdict": "謹慎進入",
+    "scores": [
+      {"dimension": "市場規模", "weight": 0.20, "score": 7.5, "weighted": 1.50},
+      {"dimension": "競爭格局", "weight": 0.25, "score": 8.0, "weighted": 2.00},
+      {"dimension": "增長潛力", "weight": 0.20, "score": 6.0, "weighted": 1.20},
+      {"dimension": "進入壁壘", "weight": 0.20, "score": 5.0, "weighted": 1.00},
+      {"dimension": "利潤空間", "weight": 0.15, "score": 5.5, "weighted": 0.83}
+    ],
+    "entry_conditions": [
+      "具備自有IP、授權或公共領域IP",
+      "預算至少$50,000（首批$20,000 + 廣告$20,000 + IP $10,000）",
+      "有能力建立QC流程，解決40%質量痛點",
+      "避開$0-30紅海，瞄準$30-60細分市場"
+    ],
+    "forbidden_conditions": [
+      "禁止未經授權使用知名IP",
+      "禁止忽視質量管控（70%差評與質量/功能相關）",
+      "禁止進入$0-30紅海價格帶"
+    ],
+    "risks": [
+      {"type": "IP侵權", "description": "未經授權使用知名IP", "mitigation": "嚴格IP盡職調查，使用原創或授權IP"},
+      {"type": "質量退貨", "description": "因質量問題導致高退貨率", "mitigation": "100%出廠全檢，QC流程"},
+      {"type": "庫存積壓", "description": "銷量不及預期", "mitigation": "小批次試銷，按訂單補貨"},
+      {"type": "價格戰", "description": "競爭者降價競爭", "mitigation": "差異化定位，避免同質化"}
+    ]
+  },
+  "product_matrix": [
+    {
+      "tier": "Tier 1",
+      "name": "原創可動人偶（推薦）",
+      "target_market": "$30-60 + 原創IP + 可動關節（藍海空白）",
+      "specs": {
+        "ip_type": "原創機械戰士",
+        "size": "6英寸",
+        "articulation": "18-20點可動",
+        "material": "ABS + POM",
+        "accessories": "3-5個",
+        "function": "可動 + 收藏"
+      },
+      "target_price": 39.99,
+      "differentiation": "工廠級質量，18點可動，零缺陷承諾",
+      "competitor_reference": "MerryXD (B0D3BW4QQ6)",
+      "our_advantage": "有QC保證，解決質量痛點",
+      "estimated_monthly_sales": "3000-5000",
+      "cost_structure": {
+        "product_cost": "$8-10",
+        "ip_design": "$2-3",
+        "packaging": "$1-2",
+        "shipping_tariff": "$2",
+        "fba_fee": "$3-4",
+        "total_cost": "$18-21",
+        "target_price": "$39.99",
+        "margin": "47%-55%"
+      }
+    },
+    {
+      "tier": "Tier 2",
+      "name": "IP可動人偶（需授權）",
+      "target_market": "$25-40 + 二線IP + 可動關節",
+      "specs": {
+        "ip_type": "二線動漫/遊戲IP",
+        "size": "5-6英寸",
+        "articulation": "15-18點可動",
+        "material": "ABS + 部分PVC",
+        "accessories": "2-3個",
+        "function": "可動 + 電動（可選）"
+      },
+      "target_price": 29.99,
+      "differentiation": "正版授權，工廠直供，零缺陷",
+      "competitor_reference": "ANIME HEROES",
+      "our_advantage": "同IP價格更低質量更好",
+      "estimated_monthly_sales": "5000-8000"
+    },
+    {
+      "tier": "Tier 3",
+      "name": "低價盲盒（試水）",
+      "target_market": "$10-15 + 盲盒 + 原創設計",
+      "specs": {
+        "ip_type": "原創可愛形象",
+        "size": "2-3英寸",
+        "articulation": "固定姿態",
+        "material": "PVC",
+        "accessories": "收集卡",
+        "function": "收藏 + 擺件"
+      },
+      "target_price": 12.99,
+      "differentiation": "每盒不同，100%收集率",
+      "competitor_reference": "Smiski / Sonny Angel",
+      "our_advantage": "更高價效比",
+      "estimated_monthly_sales": "8000-15000"
+    }
+  ],
+  "trend_data": [
+    {"date": "2024-03", "value": 12.63},
+    {"date": "2024-04", "value": 12.86},
+    {"date": "2024-05", "value": 8.54},
+    {"date": "2024-06", "value": 8.75},
+    {"date": "2024-07", "value": 10.37},
+    {"date": "2024-08", "value": 8.84},
+    {"date": "2024-09", "value": 11.84},
+    {"date": "2024-10", "value": 7.5},
+    {"date": "2024-11", "value": 2.67},
+    {"date": "2024-12", "value": 3.6},
+    {"date": "2025-01", "value": 2.81},
+    {"date": "2025-02", "value": 3.79},
+    {"date": "2025-03", "value": 3.27},
+    {"date": "2025-04", "value": 3.63},
+    {"date": "2025-05", "value": 3.61},
+    {"date": "2025-06", "value": 2.51},
+    {"date": "2025-07", "value": 3.04},
+    {"date": "2025-08", "value": 3.1},
+    {"date": "2025-09", "value": 7.95},
+    {"date": "2025-10", "value": 6.3},
+    {"date": "2025-11", "value": 5.77},
+    {"date": "2025-12", "value": 3.24},
+    {"date": "2026-01", "value": 5.97},
+    {"date": "2026-02", "value": 7.72},
+    {"date": "2026-03", "value": 5.53}
+  ],
+  "keywords": {}
+}

@@ -1,0 +1,685 @@
+{
+  "metadata": {
+    "keyword": "printer",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "51651872011",
+    "category_name": "Ink Tank Printers",
+    "collected_at": "2026-03-19T18:32:15.202913"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 122800,
+    "top100_monthly_revenue": 21630009,
+    "avg_price": 176.14014478827363,
+    "median_price": 226.73,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.8574104234527687,
+    "top10_brand_concentration": 1.0,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 518386
+  },
+  "price_ranges": [
+    {
+      "range": "$150-200",
+      "count": 13,
+      "share": 0.4108061889250814,
+      "sales": 50447.0
+    },
+    {
+      "range": "$0-30",
+      "count": 10,
+      "share": 0.16908794788273615,
+      "sales": 20764.0
+    },
+    {
+      "range": "$100-150",
+      "count": 11,
+      "share": 0.15078175895765472,
+      "sales": 18516.0
+    },
+    {
+      "range": "$200+",
+      "count": 53,
+      "share": 0.21431596091205213,
+      "sales": 26318.0
+    },
+    {
+      "range": "$60-100",
+      "count": 12,
+      "share": 0.05430781758957655,
+      "sales": 6669.0
+    },
+    {
+      "range": "$30-60",
+      "count": 1,
+      "share": 0.0007003257328990228,
+      "sales": 86.0
+    }
+  ],
+  "product_types": [
+    {
+      "type": "All-in-One 基礎款",
+      "count": 55,
+      "share": 0.55,
+      "avg_price": 150,
+      "sales": 70000,
+      "description": "列印/掃描/影印三合一"
+    },
+    {
+      "type": "All-in-One + Fax",
+      "count": 15,
+      "share": 0.15,
+      "avg_price": 220,
+      "sales": 18000,
+      "description": "四合一辦公功能"
+    },
+    {
+      "type": "墨倉式 EcoTank/Supertank",
+      "count": 45,
+      "share": 0.45,
+      "avg_price": 200,
+      "sales": 65000,
+      "description": "大容量墨倉系統"
+    },
+    {
+      "type": "照片專用 Photo",
+      "count": 8,
+      "share": 0.08,
+      "avg_price": 350,
+      "sales": 4500,
+      "description": "照片列印最佳化"
+    },
+    {
+      "type": "行動式 Portable",
+      "count": 3,
+      "share": 0.03,
+      "avg_price": 180,
+      "sales": 3200,
+      "description": "便攜設計"
+    },
+    {
+      "type": "寬幅 Wide-Format",
+      "count": 5,
+      "share": 0.05,
+      "avg_price": 500,
+      "sales": 2500,
+      "description": "13x19英寸列印"
+    }
+  ],
+  "dimensions_analysis": [
+    {
+      "dimension": "墨水系統",
+      "options": [
+        "EcoTank/Supertank",
+        "MegaTank/Smart Tank",
+        "INKvestment",
+        "傳統墨盒"
+      ],
+      "insight": "墨倉式佔主流(75%)，傳統墨盒式衰退"
+    },
+    {
+      "dimension": "功能組合",
+      "options": [
+        "All-in-One",
+        "+Fax",
+        "Single Function"
+      ],
+      "insight": "三合一佔78%，四合一辦公需求15%"
+    },
+    {
+      "dimension": "雙面列印",
+      "options": [
+        "Auto Duplex",
+        "Manual/不支援"
+      ],
+      "insight": "自動雙面佔42%，但$100以下極少"
+    },
+    {
+      "dimension": "目標場景",
+      "options": [
+        "Home",
+        "Home Office",
+        "Professional/Photo"
+      ],
+      "insight": "家用55%，家用辦公30%，專業/照片15%"
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-30",
+        "All-in-One": 8,
+        "Portable": 0,
+        "Photo": 0,
+        "Wide-Format": 0,
+        "+Fax": 2
+      },
+      {
+        "price_range": "$30-60",
+        "All-in-One": 2,
+        "Portable": 0,
+        "Photo": 0,
+        "Wide-Format": 0,
+        "+Fax": 0
+      },
+      {
+        "price_range": "$60-100",
+        "All-in-One": 10,
+        "Portable": 0,
+        "Photo": 0,
+        "Wide-Format": 0,
+        "+Fax": 2
+      },
+      {
+        "price_range": "$100-150",
+        "All-in-One": 12,
+        "Portable": 1,
+        "Photo": 2,
+        "Wide-Format": 0,
+        "+Fax": 2
+      },
+      {
+        "price_range": "$150-200",
+        "All-in-One": 25,
+        "Portable": 1,
+        "Photo": 3,
+        "Wide-Format": 2,
+        "+Fax": 2
+      },
+      {
+        "price_range": "$200+",
+        "All-in-One": 18,
+        "Portable": 1,
+        "Photo": 6,
+        "Wide-Format": 3,
+        "+Fax": 7
+      }
+    ],
+    "gaps": [
+      {
+        "combination": "$60-100 + Auto Duplex",
+        "status": "薄供給",
+        "count": 3,
+        "opportunity": "品牌刻意避開低價位高功能組合"
+      },
+      {
+        "combination": "Portable + Ink Tank",
+        "status": "空白",
+        "count": 0,
+        "opportunity": "技術衝突，墨倉式體積大"
+      },
+      {
+        "combination": "Sub-$80 + Photo",
+        "status": "空白",
+        "count": 0,
+        "opportunity": "成本限制，照片列印被高階壟斷"
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "Epson",
+      "sales": 53914,
+      "revenue": 2695700,
+      "count": 33
+    },
+    {
+      "brand": "Canon",
+      "sales": 29854,
+      "revenue": 1492700,
+      "count": 31
+    },
+    {
+      "brand": "Brother",
+      "sales": 21522,
+      "revenue": 1076100,
+      "count": 13
+    },
+    {
+      "brand": "HP",
+      "sales": 17379,
+      "revenue": 868950,
+      "count": 21
+    },
+    {
+      "brand": "Silhouette America",
+      "sales": 86,
+      "revenue": 4300,
+      "count": 1
+    },
+    {
+      "brand": "xTool",
+      "sales": 45,
+      "revenue": 2250,
+      "count": 1
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B096N8DN2H",
+      "brand": "Epson",
+      "title": "Epson EcoTank ET-2800 Wireless Color All-in-One Cartridge-Free Supertank with Scan and Copy, The Ideal Basic Home Printer - Black",
+      "price": 179.99,
+      "monthly_sales": 25628,
+      "reviews": 19509,
+      "rating": 4.1,
+      "type": "競品",
+      "launch_date": "2021-08-11"
+    },
+    {
+      "asin": "B0BZ7CJT69",
+      "brand": "Brother",
+      "title": "Brother MFC-J1010DW Wireless Color Inkjet All-in-One Printer with Mobile Device and Duplex Printing, Refresh Subscription and Amazon Dash Replenishment Ready (Renewed Premium)",
+      "price": 0.0,
+      "monthly_sales": 15899,
+      "reviews": 8903,
+      "rating": 4.1,
+      "type": "競品",
+      "launch_date": "2023-03-30"
+    },
+    {
+      "asin": "B09CDXC13T",
+      "brand": "Canon",
+      "title": "Canon PIXMA TR4720 All-in-One Wireless Printer Home use, with Auto Document Feeder, Mobile Printing and Built-in Fax, White",
+      "price": 101.1,
+      "monthly_sales": 10092,
+      "reviews": 15356,
+      "rating": 3.9,
+      "type": "競品",
+      "launch_date": "2023-04-16"
+    },
+    {
+      "asin": "B0BSMSYM9N",
+      "brand": "Canon",
+      "title": "Canon MegaTank G3270 All-in-One Wireless Inkjet Printer, Home Use, Print, Scan and Copy",
+      "price": 159.0,
+      "monthly_sales": 6151,
+      "reviews": 4467,
+      "rating": 4.1,
+      "type": "競品",
+      "launch_date": "2023-02-01"
+    },
+    {
+      "asin": "B0BL466Y41",
+      "brand": "HP",
+      "title": "HP Smart Tank 5101 Wireless All-in-One Refillable Printer, Scanner, Copier with 2 years of Ink included, Wireless printer-for-home use an EcoTank Alternative (1F3Y0A)",
+      "price": 179.89,
+      "monthly_sales": 5488,
+      "reviews": 4543,
+      "rating": 3.8,
+      "type": "競品",
+      "launch_date": "2023-01-13"
+    },
+    {
+      "asin": "B09TRZLPXP",
+      "brand": "Canon",
+      "title": "Canon PIXMA TR8620a - All-in-One Printer Home Office|Copier|Scanner|Fax|Auto Document Feeder | Photo, Document | Airprint (R), Android, Black, Works with Alexa",
+      "price": 149.0,
+      "monthly_sales": 4690,
+      "reviews": 5968,
+      "rating": 4.0,
+      "type": "競品",
+      "launch_date": "2022-03-30"
+    },
+    {
+      "asin": "B08R5M2HDH",
+      "brand": "Epson",
+      "title": "Epson EcoTank Photo ET-8550 Wireless Wide-format Color All-in-One Supertank Printer with Scanner Copier, Ethernet and 4.3-inch Colorfull Touchscreen",
+      "price": 599.99,
+      "monthly_sales": 3861,
+      "reviews": 2241,
+      "rating": 4.1,
+      "type": "競品",
+      "launch_date": "2021-01-04"
+    },
+    {
+      "asin": "B0BDD3G3JC",
+      "brand": "Epson",
+      "title": "Epson Expression Home XP-5200 Wireless Color All-in-One Printer with Scan Copy, Automatic 2-Sided Printing, Borderless Photos, 150-Sheet Paper Tray and 2.4' Colorfull Display - Black",
+      "price": 79.99,
+      "monthly_sales": 3798,
+      "reviews": 4466,
+      "rating": 3.8,
+      "type": "競品",
+      "launch_date": "2022-09-08"
+    },
+    {
+      "asin": "B09P45LR5T",
+      "brand": "Epson",
+      "title": "Epson EcoTank ET-4800 Wireless All-in-One Cartridge-Free Supertank Printer with Scanner, Copier, Fax, ADF and Ethernet – Ideal-for Your Home Office, White",
+      "price": 219.99,
+      "monthly_sales": 3671,
+      "reviews": 5380,
+      "rating": 4.0,
+      "type": "競品",
+      "launch_date": "2021-12-31"
+    },
+    {
+      "asin": "B07XGNLFJC",
+      "brand": "HP",
+      "title": "HP Smart Tank Plus 651 Wireless All-in-One Printer, Ink Tank Printer-for-Home Use, 2 Years of Ink Included Auto Document Feeder, Mobile Print, Scan, Copy, Fax, an EcoTank Alternative (7XV38A)",
+      "price": 229.89,
+      "monthly_sales": 3659,
+      "reviews": 2158,
+      "rating": 4.0,
+      "type": "競品",
+      "launch_date": "2019-12-23"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "連線穩定性",
+        "pain_point": "Wi-Fi頻繁斷連、無法識別裝置、連線耗時",
+        "frequency": 87,
+        "percentage": "35%",
+        "affected_brands": [
+          "Epson",
+          "Canon",
+          "Brother"
+        ],
+        "brand_opportunity": "改善天線設計、簡化配對流程",
+        "product_solution": "5G WiFi + 藍芽一鍵連線 + 離線快取"
+      },
+      {
+        "dimension": "進紙可靠性",
+        "pain_point": "頻繁卡紙、紙張偏斜、多張進紙",
+        "frequency": 64,
+        "percentage": "26%",
+        "affected_brands": [
+          "Epson",
+          "Canon"
+        ],
+        "brand_opportunity": "改進進紙輥材質、增加感測器",
+        "product_solution": "防卡紙感測器 + 改進進紙通道"
+      },
+      {
+        "dimension": "列印速度",
+        "pain_point": "速度遠低於標稱值、單頁需2+分鐘",
+        "frequency": 42,
+        "percentage": "17%",
+        "affected_brands": [
+          "Epson",
+          "Canon"
+        ],
+        "brand_opportunity": "最佳化列印頭控制邏輯",
+        "product_solution": "高速列印模式 + 最佳化資料傳輸"
+      },
+      {
+        "dimension": "墨水系統",
+        "pain_point": "墨水耗盡過快、單色缺墨無法列印",
+        "frequency": 31,
+        "percentage": "13%",
+        "affected_brands": [
+          "Brother",
+          "Canon"
+        ],
+        "brand_opportunity": "支援單色列印模式",
+        "product_solution": "允許單色列印 + 大容量墨倉"
+      },
+      {
+        "dimension": "軟體體驗",
+        "pain_point": "設定複雜、強制更新、彈窗廣告",
+        "frequency": 15,
+        "percentage": "6%",
+        "affected_brands": [
+          "Brother",
+          "HP"
+        ],
+        "brand_opportunity": "簡化軟體、去除營銷內容",
+        "product_solution": "零配置安裝 + 無廣告韌體"
+      },
+      {
+        "dimension": "硬體質量",
+        "pain_point": "廉價塑膠、易損件故障",
+        "frequency": 7,
+        "percentage": "3%",
+        "affected_brands": [
+          "各品牌"
+        ],
+        "brand_opportunity": "加強結構強度",
+        "product_solution": "金屬框架 + 加強易損件"
+      }
+    ],
+    "summary": "主要痛點集中在連線穩定性(35%)和進紙可靠性(26%)，合計佔61%。Epson在連線問題最多，Canon在進紙問題突出。"
+  },
+  "barriers": [
+    {
+      "type": "Review壁壘",
+      "level": "極高",
+      "data_anchor": "Top10均值8000+評論",
+      "estimated_cost": "$50,000+",
+      "mitigation": "Vine + PPC，需6-12月"
+    },
+    {
+      "type": "品牌壁壘",
+      "level": "極高",
+      "data_anchor": "85%市場被4大品牌壟斷",
+      "estimated_cost": "N/A",
+      "mitigation": "幾乎無法突破"
+    },
+    {
+      "type": "資金壁壘",
+      "level": "高",
+      "data_anchor": "首批備貨+廣告+退貨準備",
+      "estimated_cost": "¥30-50萬",
+      "mitigation": "控制首批MOQ"
+    },
+    {
+      "type": "技術壁壘",
+      "level": "中高",
+      "data_anchor": "涉及精密機械和軟體",
+      "estimated_cost": "中等",
+      "mitigation": "ODM/OEM貼牌"
+    },
+    {
+      "type": "認證壁壘",
+      "level": "中",
+      "data_anchor": "FCC/UL/能源認證等",
+      "estimated_cost": "$10,000+",
+      "mitigation": "OEM工廠協助"
+    },
+    {
+      "type": "售後壁壘",
+      "level": "高",
+      "data_anchor": "印表機退貨率15-25%",
+      "estimated_cost": "高利潤空間",
+      "mitigation": "延保服務"
+    }
+  ],
+  "decision": {
+    "overall_score": 4.35,
+    "verdict": "不建議進入",
+    "scores": [
+      {
+        "dimension": "市場規模",
+        "weight": 0.2,
+        "score": 7.5,
+        "weighted_score": 1.5,
+        "reasoning": "年銷2600萬美金，穩定剛需"
+      },
+      {
+        "dimension": "競爭格局",
+        "weight": 0.25,
+        "score": 2.0,
+        "weighted_score": 0.5,
+        "reasoning": "85% Top3集中度，極高寡頭壟斷"
+      },
+      {
+        "dimension": "增長潛力",
+        "weight": 0.15,
+        "score": 5.0,
+        "weighted_score": 0.75,
+        "reasoning": "趨勢平緩，無明顯增長"
+      },
+      {
+        "dimension": "進入壁壘",
+        "weight": 0.2,
+        "score": 2.0,
+        "weighted_score": 0.4,
+        "reasoning": "品牌、Review、資金壁壘極高"
+      },
+      {
+        "dimension": "利潤空間",
+        "weight": 0.2,
+        "score": 6.0,
+        "weighted_score": 1.2,
+        "reasoning": "硬體毛利低，依賴耗材"
+      }
+    ],
+    "reasoning": "極高的品牌集中度(85%)，新品牌幾乎無破局可能。Review壁壘極高(Top10均值8000+)，需長期投入。傳統IT品類，使用者對大品牌有強認知慣性。硬體毛利低，盈利依賴耗材(不適合新賣家)。",
+    "entry_conditions": [],
+    "risk_factors": [
+      "品牌壟斷",
+      "Review壁壘",
+      "退貨率高",
+      "硬體毛利低"
+    ],
+    "opportunity_segments": [
+      "標籤印表機(避開主流)",
+      "照片專用印表機(高階)",
+      "行動式A4(差旅場景)"
+    ]
+  },
+  "trend_data": [
+    {
+      "date": "2024-03",
+      "value": 1.79
+    },
+    {
+      "date": "2024-04",
+      "value": 2.14
+    },
+    {
+      "date": "2024-05",
+      "value": 2.87
+    },
+    {
+      "date": "2024-06",
+      "value": 2.14
+    },
+    {
+      "date": "2024-07",
+      "value": 1.0
+    },
+    {
+      "date": "2024-08",
+      "value": 1.51
+    },
+    {
+      "date": "2024-09",
+      "value": 1.11
+    },
+    {
+      "date": "2024-10",
+      "value": 2.25
+    },
+    {
+      "date": "2024-11",
+      "value": 1.27
+    },
+    {
+      "date": "2024-12",
+      "value": 1.52
+    },
+    {
+      "date": "2025-01",
+      "value": 1.42
+    },
+    {
+      "date": "2025-02",
+      "value": 2.75
+    },
+    {
+      "date": "2025-03",
+      "value": 4.25
+    },
+    {
+      "date": "2025-04",
+      "value": 7.48
+    },
+    {
+      "date": "2025-05",
+      "value": 4.58
+    },
+    {
+      "date": "2025-06",
+      "value": 3.64
+    },
+    {
+      "date": "2025-07",
+      "value": 2.15
+    },
+    {
+      "date": "2025-08",
+      "value": 2.87
+    },
+    {
+      "date": "2025-09",
+      "value": 2.47
+    },
+    {
+      "date": "2025-10",
+      "value": 3.13
+    },
+    {
+      "date": "2025-11",
+      "value": 4.43
+    },
+    {
+      "date": "2025-12",
+      "value": 1.77
+    },
+    {
+      "date": "2026-01",
+      "value": 3.84
+    },
+    {
+      "date": "2026-02",
+      "value": 5.45
+    },
+    {
+      "date": "2026-03",
+      "value": 2.2
+    }
+  ],
+  "keywords": {
+    "printer": {
+      "monthly_search": 518386,
+      "weekly_search": 119992,
+      "cpc": 3.26,
+      "competition_count": 119702
+    },
+    "printers": {
+      "monthly_search": 72347,
+      "weekly_search": 16731,
+      "cpc": 1.99,
+      "competition_count": 121597
+    },
+    "portable printer": {
+      "monthly_search": 119935,
+      "weekly_search": 27182,
+      "cpc": 1.25,
+      "competition_count": 14750
+    }
+  }
+}

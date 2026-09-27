@@ -1,0 +1,341 @@
+{
+  "3d printer": {
+    "關鍵詞": "3d printer",
+    "周搜尋量": "147514",
+    "周搜尋排名": "188",
+    "月搜尋量": "745651",
+    "推薦cpc競價": "0.72",
+    "詞搜尋量旺季": "11月",
+    "搜尋結果競品數量": "26931",
+    "搜尋結果首頁統計": "近15日關鍵詞搜尋首頁產品銷量Top100資料包告：\r\n                    自然位非Best Seller Top100產品數量佔比6.25%,\r\n                    自然位評價數低於100/300/500的產品數量佔比分別為18.75%/31.25%/31.25%,\r\n                    廣告位評價數低於100/300/500的產品數量佔比分別為80.00%/100.00%/100.00%,\r\n                    平均星級為1,\r\n                    平均評價數為4.27,\r\n                    做coupon促銷產品數量/佔比分別為1個 /1.27% ",
+    "近15日前3頁自然位銷量Top100產品統計": {
+      "top5_product": [
+        {
+          "asin": "B0DFGB288Y",
+          "price": 49.99,
+          "title": "Creality 3D Printer Filament 1.75mm 4KG, PLA Filament Bulk +/- 0.02mm, 4 Pack 1kg Spool(2.2lbs) 3D Printing Filament Fits for Most FDM 3D Printers, 4 White",
+          "monthly_sales": "本產品月銷量：20664（佔比：6.37%）",
+          "brand": "Creality",
+          "seller": "Creality Official Store",
+          "url": "https://www.amazon.com/dp/B0DFGB288Y?psc=1"
+        },
+        {
+          "asin": "B08HM4133L",
+          "price": 34.99,
+          "title": "SCRIB3D P1 3D Printing Pen with Display - Includes 3D Pen, 3 Starter Colors of PLA Filament, Stencil Book + Project Guide, and Power adapter",
+          "monthly_sales": "本產品月銷量：13151（佔比：4.06%）",
+          "brand": "SCRIB3D",
+          "seller": "SCRIB3D",
+          "url": "https://www.amazon.com/dp/B08HM4133L?psc=1"
+        },
+        {
+          "asin": "B0B5ZK5TLC",
+          "price": 17.59,
+          "title": "SUNLU 3D Printer Silk Filament,Shiny Silk PLA Filament 1.75mm, Smooth Silky Surface, Great Easy to Print for 3D Printers, Dimensional Accuracy +/- 0.02mm, Silk Light Gold 1KG",
+          "monthly_sales": "本產品月銷量：12423（佔比：3.83%）",
+          "brand": "SUNLU",
+          "seller": "SUNLU 3D Store",
+          "url": "https://www.amazon.com/dp/B0B5ZK5TLC?psc=1"
+        },
+        {
+          "asin": "B0FC6R9J87",
+          "price": 83.69,
+          "title": "SUNLU PLA+2.0 Filament 1.75mm Bundle, 250g Spool, 16 Rolls, BoneWhite+Midnight+CoffeeBrown+Red+Yellow+OliveGreen+Blue+Orange+Purple+Magenta+Oak+Beige+Transparent Series-Clear+Orange+Red+Blue",
+          "monthly_sales": "本產品月銷量：7600（佔比：2.34%）",
+          "brand": "YOOPAI",
+          "seller": "YOOPAI Direct",
+          "url": "https://www.amazon.com/dp/B0FC6R9J87?psc=1"
+        },
+        {
+          "asin": "B0D41ZDC47",
+          "price": 14.99,
+          "title": "ELEGOO PLA+ Filament 1.75mm White 1KG, High Toughness PLA Plus 3D Printer Filament Dimensional Accuracy +/- 0.02mm, 1kg Spool(2.2lbs) Fits for Most FDM 3D Printers",
+          "monthly_sales": "本產品月銷量：6345（佔比：1.96%）",
+          "brand": "ELEGOO",
+          "seller": "ELEGOO Official US",
+          "url": "https://www.amazon.com/dp/B0D41ZDC47?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Creality",
+          "product_count": "在統計樣本中，產品數量:12",
+          "monthly_sales": "統計樣本中本品牌月銷量和：25543（佔比：7.88%）"
+        },
+        {
+          "brand": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：14784（佔比：4.56%）"
+        },
+        {
+          "brand": "FLASHFORGE",
+          "product_count": "在統計樣本中，產品數量:10",
+          "monthly_sales": "統計樣本中本品牌月銷量和：13740（佔比：4.24%）"
+        },
+        {
+          "brand": "SUNLU",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：12423（佔比：3.83%）"
+        },
+        {
+          "brand": "ELEGOO",
+          "product_count": "在統計樣本中，產品數量:4",
+          "monthly_sales": "統計樣本中本品牌月銷量和：10224（佔比：3.15%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Creality Official Store",
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：23346（佔比：7.20%）"
+        },
+        {
+          "seller": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：14784（佔比：4.56%）"
+        },
+        {
+          "seller": "SUNLU 3D Store",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：12423（佔比：3.83%）"
+        },
+        {
+          "seller": "ELEGOO Official US",
+          "product_count": "在統計樣本中，產品數量:4",
+          "monthly_sales": "統計樣本中本品牌月銷量和：10224（佔比：3.15%）"
+        },
+        {
+          "seller": "YOOPAI Direct",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：8740（佔比：2.70%）"
+        }
+      ]
+    }
+  },
+  "3d printers": {
+    "關鍵詞": "3d printers",
+    "周搜尋量": "12204",
+    "周搜尋排名": "28293",
+    "月搜尋量": "55746",
+    "推薦cpc競價": "0.44",
+    "詞搜尋量旺季": "11月",
+    "搜尋結果競品數量": "27611",
+    "搜尋結果首頁統計": "近15日關鍵詞搜尋首頁產品銷量Top100資料包告：\r\n                    自然位非Best Seller Top100產品數量佔比12.50%,\r\n                    自然位評價數低於100/300/500的產品數量佔比分別為25.00%/37.50%/37.50%,\r\n                    廣告位評價數低於100/300/500的產品數量佔比分別為100.00%/100.00%/100.00%,\r\n                    平均星級為2,\r\n                    平均評價數為4.28,\r\n                    做coupon促銷產品數量/佔比分別為3個 /8.82% ",
+    "近15日前3頁自然位銷量Top100產品統計": {
+      "top5_product": [
+        {
+          "asin": "B08HM4133L",
+          "price": 34.99,
+          "title": "SCRIB3D P1 3D Printing Pen with Display - Includes 3D Pen, 3 Starter Colors of PLA Filament, Stencil Book + Project Guide, and Power adapter",
+          "monthly_sales": "本產品月銷量：13151（佔比：10.85%）",
+          "brand": "SCRIB3D",
+          "seller": "SCRIB3D",
+          "url": "https://www.amazon.com/dp/B08HM4133L?psc=1"
+        },
+        {
+          "asin": "B0FWQLBSRM",
+          "price": 159.99,
+          "title": "ANYCUBIC PLA Plus (PLA+), 3D Printer Filament 1.75mm Bundle, 1KG Reusable Spool, Black, White, Brown, Red, Blue, Pink, Tropical Turquoise, Peach Pink, Interstellar Violet, Spring Leaf, 10KG in Total",
+          "monthly_sales": "本產品月銷量：5206（佔比：4.30%）",
+          "brand": "ANYCUBIC",
+          "seller": "ANYCUBIC Official Store",
+          "url": "https://www.amazon.com/dp/B0FWQLBSRM?psc=1"
+        },
+        {
+          "asin": "B0CH4RG161",
+          "price": 379.0,
+          "title": "FLASHFORGE Adventurer 5M Pro 3D Printer with 1 Click Auto Printing System, 600mm/s High-Speed, Quick Detachable 280°C Nozzle, Core XY All-Metal Structure, Multi-Functional 220 x220 x220mm 3D Printer",
+          "monthly_sales": "本產品月銷量：4771（佔比：3.94%）",
+          "brand": "FLASHFORGE",
+          "seller": "FLASHFORGE Official Store",
+          "url": "https://www.amazon.com/dp/B0CH4RG161?psc=1"
+        },
+        {
+          "asin": "B0D17V4SKM",
+          "price": 399.0,
+          "title": "Bambu Lab A1 Combo, A1 3D Printer and AMS lite, Support Multi-Color 3D Printing, High Speed & Precision, Full-Auto Calibration & Active Flow Rate Compensation, ≤48 dB Quiet FDM 3D Printers",
+          "monthly_sales": "本產品月銷量：3967（佔比：3.27%）",
+          "brand": "BAMBULAB",
+          "seller": "Bambu Lab Store",
+          "url": "https://www.amazon.com/dp/B0D17V4SKM?psc=1"
+        },
+        {
+          "asin": "B0F389YZT2",
+          "price": 19.79,
+          "title": "3D Printer Tools Kit, 34pcs 3D Printer Accessories for All FDM/SLA Printers Includes Nozzle Cleaning Tools, Removal Scrapers, Finishing Tools, 5 Types of Files,Brushes, Wire Cutter, Engraving Knife",
+          "monthly_sales": "本產品月銷量：2681（佔比：2.21%）",
+          "brand": "Intarsio",
+          "seller": "intarsio",
+          "url": "https://www.amazon.com/dp/B0F389YZT2?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "FLASHFORGE",
+          "product_count": "在統計樣本中，產品數量:10",
+          "monthly_sales": "統計樣本中本品牌月銷量和：13561（佔比：11.19%）"
+        },
+        {
+          "brand": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：13151（佔比：10.85%）"
+        },
+        {
+          "brand": "BAMBULAB",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：6299（佔比：5.20%）"
+        },
+        {
+          "brand": "ANYCUBIC",
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：6283（佔比：5.18%）"
+        },
+        {
+          "brand": "Creality",
+          "product_count": "在統計樣本中，產品數量:12",
+          "monthly_sales": "統計樣本中本品牌月銷量和：4769（佔比：3.93%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：13151（佔比：10.85%）"
+        },
+        {
+          "seller": "FLASHFORGE Official Store",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：7052（佔比：5.82%）"
+        },
+        {
+          "seller": "Bambu Lab Store",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：6299（佔比：5.20%）"
+        },
+        {
+          "seller": "ANYCUBIC Official Store",
+          "product_count": "在統計樣本中，產品數量:6",
+          "monthly_sales": "統計樣本中本品牌月銷量和：6283（佔比：5.18%）"
+        },
+        {
+          "seller": "ELEGOO Official US",
+          "product_count": "在統計樣本中，產品數量:3",
+          "monthly_sales": "統計樣本中本品牌月銷量和：3879（佔比：3.20%）"
+        }
+      ]
+    }
+  },
+  "portable 3d printer": {
+    "關鍵詞": "portable 3d printer",
+    "周搜尋量": "10",
+    "周搜尋排名": "1891419",
+    "月搜尋量": "60",
+    "推薦cpc競價": "0.42",
+    "詞搜尋量旺季": "均衡",
+    "搜尋結果競品數量": "1431",
+    "搜尋結果首頁統計": "近15日關鍵詞搜尋首頁產品銷量Top100資料包告：\r\n                    自然位非Best Seller Top100產品數量佔比12.50%,\r\n                    自然位評價數低於100/300/500的產品數量佔比分別為100.00%/100.00%/100.00%,\r\n                    廣告位評價數低於100/300/500的產品數量佔比分別為100.00%/100.00%/100.00%,\r\n                    平均星級為2,\r\n                    平均評價數為3.75,\r\n                    做coupon促銷產品數量/佔比分別為0個 /0% ",
+    "近15日前3頁自然位銷量Top100產品統計": {
+      "top5_product": [
+        {
+          "asin": "B0CH4RG161",
+          "price": 379.0,
+          "title": "FLASHFORGE Adventurer 5M Pro 3D Printer with 1 Click Auto Printing System, 600mm/s High-Speed, Quick Detachable 280°C Nozzle, Core XY All-Metal Structure, Multi-Functional 220 x220 x220mm 3D Printer",
+          "monthly_sales": "本產品月銷量：4771（佔比：17.95%）",
+          "brand": "FLASHFORGE",
+          "seller": "FLASHFORGE Official Store",
+          "url": "https://www.amazon.com/dp/B0CH4RG161?psc=1"
+        },
+        {
+          "asin": "B0G4TPZPZM",
+          "price": 449.0,
+          "title": "ELEGOO Centauri Carbon 2 Combo Multi Color 3D Printer, CoreXY 500mm/s High Speed Multicolor Printing with Canvas, 1-Click Full Auto Leveling and 350°C High-Temp Nozzle, 256x256x256mm Build Volume",
+          "monthly_sales": "本產品月銷量：2642（佔比：9.94%）",
+          "brand": "ELEGOO",
+          "seller": "ELEGOO Official US",
+          "url": "https://www.amazon.com/dp/B0G4TPZPZM?psc=1"
+        },
+        {
+          "asin": "B0DN68QV3B",
+          "price": 339.0,
+          "title": "FLASHFORGE AD5X Multi-Color 3D Printer, CoreXY 600mm/s High-Speed, 1-Click Auto Leveling, 300°C Direct Drive Extruder, 220 x220 x220mm Build Volume, Ideal for Precision and Efficiency",
+          "monthly_sales": "本產品月銷量：2281（佔比：8.58%）",
+          "brand": "FLASHFORGE",
+          "seller": "FLASHFORGE Official Store",
+          "url": "https://www.amazon.com/dp/B0DN68QV3B?psc=1"
+        },
+        {
+          "asin": "B08HM3X3D3",
+          "price": 59.99,
+          "title": "SCRIB3D Advanced 3D Printing Pen with 20 Feet of Filament, Stencil Book, and Project Guide",
+          "monthly_sales": "本產品月銷量：1633（佔比：6.14%）",
+          "brand": "SCRIB3D",
+          "seller": "SCRIB3D",
+          "url": "https://www.amazon.com/dp/B08HM3X3D3?psc=1"
+        },
+        {
+          "asin": "B0DNW25S87",
+          "price": 339.0,
+          "title": "FLASHFORGE AD5X Multi-Color 3D Printer with IFS, 600mm/s High Speed, 300°C High Temp Direct Extruder, Fully Auto Leveling, All Metal CoreXY,4-Color Printing for PLA-CF,PETG-CF, 220 x220 x220mm",
+          "monthly_sales": "本產品月銷量：1610（佔比：6.06%）",
+          "brand": "FLASHFORGE",
+          "seller": "FilaBeesFLASHFORGE",
+          "url": "https://www.amazon.com/dp/B0DNW25S87?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "FLASHFORGE",
+          "product_count": "在統計樣本中，產品數量:7",
+          "monthly_sales": "統計樣本中本品牌月銷量和：12734（佔比：47.91%）"
+        },
+        {
+          "brand": "ELEGOO",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：3149（佔比：11.85%）"
+        },
+        {
+          "brand": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1633（佔比：6.14%）"
+        },
+        {
+          "brand": "Comgrow",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1538（佔比：5.79%）"
+        },
+        {
+          "brand": "AOSEED",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：766（佔比：2.88%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "FLASHFORGE Official Store",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：7052（佔比：26.53%）"
+        },
+        {
+          "seller": "Flashforge Technology INC.",
+          "product_count": "在統計樣本中，產品數量:3",
+          "monthly_sales": "統計樣本中本品牌月銷量和：3173（佔比：11.94%）"
+        },
+        {
+          "seller": "ELEGOO Official US",
+          "product_count": "在統計樣本中，產品數量:2",
+          "monthly_sales": "統計樣本中本品牌月銷量和：3149（佔比：11.85%）"
+        },
+        {
+          "seller": "SCRIB3D",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1633（佔比：6.14%）"
+        },
+        {
+          "seller": "FilaBeesFLASHFORGE",
+          "product_count": "在統計樣本中，產品數量:1",
+          "monthly_sales": "統計樣本中本品牌月銷量和：1610（佔比：6.06%）"
+        }
+      ]
+    }
+  }
+}

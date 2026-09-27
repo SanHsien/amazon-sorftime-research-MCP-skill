@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+     
+    "sorftime": {
+      "type": "streamableHttp",
+      "url": "https://mcp.sorftime.com?key=vte0nhg2sexwc",
+      "name": "Sorftime MCP",
+      "description": "Sorftime 跨境電商平臺資料服務。已支援亞馬遜14大站點、Tiktok 6大站點、以1688供應鏈平臺。"
+    },
+    "sif-mcp": {
+      "type": "http",
+      "url": "https://mcp.sif.com/mcp",
+      "headers": {
+        "secret-key": "sifmcp260611p9fapnf"
+      }
+    },
+    "xydc-mcp": {
+      "type": "http",
+      "url": "https://mcp.xydc.com/mcp",
+      "headers": {
+        "Authorization": "Bearer mcp_80c05d7a5b0c"
+      },
+      "name": "西柚洞察MCP",
+      "description": "西柚洞察跨境電商資料服務，提供ASIN流量分析、關鍵詞競爭、廣告策略等功能。"
+    },
+    "sellersprite": {
+      "url": "https://mcp.sellersprite.com/mcp",
+      "headers": {
+        "secret-key": "eaf4c0d6e8284d12"
+      },
+      "name": "賣家精靈MCP"
+    }
+  }
+}

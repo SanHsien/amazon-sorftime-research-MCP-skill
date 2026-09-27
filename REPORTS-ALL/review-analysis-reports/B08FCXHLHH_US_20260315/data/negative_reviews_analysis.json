@@ -1,0 +1,174 @@
+{
+  "product_info": {
+    "asin": "B08FCXHLHH",
+    "title": "Tonies Woody Audio Toy Figurine from Disney and Pixar's Toy Story",
+    "brand": "Tonies",
+    "price": 19.94,
+    "rating": 4.70,
+    "total_reviews": 1178,
+    "analysis_sample": 9,
+    "analysis_date": "2026-03-15"
+  },
+  "pain_points_summary": {
+    "total_negative_reviews": 9,
+    "categories": [
+      {
+        "category": "描述不符/內容質量",
+        "count": 5,
+        "percentage": 55.6,
+        "severity": "high"
+      },
+      {
+        "category": "設計/功能缺陷",
+        "count": 2,
+        "percentage": 22.2,
+        "severity": "medium"
+      },
+      {
+        "category": "外觀/材質問題",
+        "count": 1,
+        "percentage": 11.1,
+        "severity": "low"
+      },
+      {
+        "category": "結構/組裝問題",
+        "count": 0,
+        "percentage": 0,
+        "severity": "none"
+      },
+      {
+        "category": "電子模組故障",
+        "count": 0,
+        "percentage": 0,
+        "severity": "none"
+      }
+    ]
+  },
+  "detailed_analysis": [
+    {
+      "pain_point": "音樂內容與電影原版不符",
+      "category": "描述不符/內容質量",
+      "severity": "high",
+      "affected_count": 5,
+      "percentage": 55.6,
+      "root_cause": {
+        "licensing": "未獲得電影原版音樂授權，使用翻唱版本",
+        "quality": "翻唱質量被描述為'bad karaoke sounding'，不是電影原聲",
+        "expectation_gap": "消費者以$20價格期望獲得正版迪士尼內容"
+      },
+      "customer_quotes": [
+        "I didn't realize that Tonies don't play the original music but some bad karaoke sounding versions of the movie songs. For $20 per character, they should figure out the licensing with the music especially since they use sound bites from the movie.",
+        "The most random music, not from the movie and sounds like songs were picked at random with no thought to the character.",
+        "These songs were not in the movies and they are very bad.",
+        "Disappointed songs aren't the original my son doesn't even listen to this tonie",
+        "You got a friend in me is the only recognizable song from the movie. The remaining songs are either slow/sad or repetitive drivel."
+      ],
+      "product_improvements": [
+        "與迪士尼/皮克斯協商獲得電影原版音樂授權，確保至少包含2-3首原版電影歌曲",
+        "如無法獲得授權，應在產品包裝和Listing顯著位置標註'Features cover versions, not original recordings'",
+        "重新評估內容選曲策略，確保歌曲與角色和電影主題高度相關"
+      ],
+      "customer_service_template": {
+        "subject": "Regarding Your Woody Tonie Music Content Feedback",
+        "body": "Dear [Customer Name],\n\nThank you for taking the time to share your feedback about the Woody Tonie's music content. We sincerely apologize that the audio content did not meet your expectations.\n\nWe understand your disappointment regarding the music versions. Due to licensing agreements with Disney/Pixar, the Woody Tonie features cover versions of the beloved Toy Story songs rather than the original movie recordings. We realize this wasn't clearly communicated, and we're working to improve our product descriptions.\n\nYour feedback is incredibly valuable as we continuously evaluate our content licensing options. We'd love to make this right for you - would you be open to trying another Tonie character from our collection that might better match your family's preferences?\n\nPlease don't hesitate to reach out with any other concerns.\n\nBest regards,\n[Your Name]\nTonies Customer Care Team"
+      }
+    },
+    {
+      "pain_point": "配音聲音與原角色不符",
+      "category": "描述不符/內容質量",
+      "severity": "medium",
+      "affected_count": 2,
+      "percentage": 22.2,
+      "root_cause": {
+        "voice_actor": "未使用Tom Hanks或專業模仿者的聲音",
+        "quality_control": "配音質量把控不嚴，被描述為'raspy old man'、'Goofy vibes'"
+      },
+      "customer_quotes": [
+        "Holy cow. If you want to hear your old great Uncle Bernard singing you got a friend in me, then this is the Tonie for you. It is so awful. None of the voices are familiar and your kid will cry.",
+        "None of the tonies have original character voices, yet most are very close to the real thing. However this one sounds like a raspy old man and giving me Goofy vibes. Makes me cringe a little."
+      ],
+      "product_improvements": [
+        "聘請專業聲音模仿者進行配音，確保與Tom Hanks配音的Woody聲音高度相似",
+        "建立聲音質量測試標準，在產品釋出前進行兒童和家長群體測試",
+        "考慮使用AI聲音合成技術（在版權允許範圍內）生成更接近原版的聲音"
+      ],
+      "customer_service_template": {
+        "subject": "Feedback on Woody Tonie Voice Character",
+        "body": "Dear [Customer Name],\n\nThank you for your honest feedback about the voice characterization in the Woody Tonie. We apologize that the voice didn't capture the essence of the beloved Toy Story character your family knows and loves.\n\nWe strive to make our Tonies as authentic as possible within our licensing capabilities. Your feedback about the voice quality has been shared with our content team, who are constantly working to improve the audio experience across all our characters.\n\nWe value your business and would love the opportunity to send you a different Tonie character that your family might enjoy more. Please reply to this email if you'd like us to arrange this for you.\n\nWarmly,\n[Your Name]\nTonies Customer Success Team"
+      }
+    },
+    {
+      "pain_point": "故事內容不適合兒童",
+      "category": "設計/功能缺陷",
+      "severity": "medium",
+      "affected_count": 1,
+      "percentage": 11.1,
+      "root_cause": {
+        "content_design": "故事情節被認為'frightening'，不適合4歲兒童",
+        "age_appropriateness": "產品標註3+，但實際內容可能對低齡兒童過於複雜"
+      },
+      "customer_quotes": [
+        "We find the story a little bit scary and we do not like the songs except of course 'You've got a friend in me'... We took it away from her because we find it to be a little bit frightening. She is 4."
+      ],
+      "product_improvements": [
+        "重新評估故事內容，確保適合3-6歲年齡段兒童的心理承受能力",
+        "在產品詳情頁新增故事內容概要，幫助家長判斷是否適合孩子",
+        "考慮提供'溫和版'故事選項，去除可能引起恐懼的情節"
+      ],
+      "customer_service_template": {
+        "subject": "Your Feedback on Woody Tonie Story Content",
+        "body": "Dear [Customer Name],\n\nThank you for sharing your concerns about the Woody Tonie story content. We appreciate parents being mindful of what their children listen to, and we apologize that this particular story wasn't the right fit for your 4-year-old.\n\nThe Woody Tonie is recommended for ages 3+, but we understand that every child is different in what content they're ready for. Your feedback is important as we review and refine our storytelling approach for younger listeners.\n\nWe'd be happy to help you find a more suitable Tonie character for your daughter. Our [Character Name] Tonie might be a better match - would you like us to send you a complimentary replacement?\n\nSincerely,\n[Your Name]\nTonies Customer Care Team"
+      }
+    },
+    {
+      "pain_point": "產品整體質量低於預期",
+      "category": "設計/功能缺陷",
+      "severity": "medium",
+      "affected_count": 1,
+      "percentage": 11.1,
+      "root_cause": {
+        "comparison": "與同品牌其他產品（如Buzz Lightyear）質量差距明顯",
+        "consistency": "產品質量一致性不足"
+      },
+      "customer_quotes": [
+        "One of the worst and most disappointing tonies to date",
+        "One of my least favorite tonies. The buzz lightyear one is wayyy better."
+      ],
+      "product_improvements": [
+        "建立內部質量評級體系，確保所有角色產品達到統一標準",
+        "對錶現不佳的產品進行內容重新制作或下架處理",
+        "收集使用者對不同角色的反饋資料，找出最受歡迎的內容模式並應用到新產品開發"
+      ],
+      "customer_service_template": {
+        "subject": "Following Up on Your Woody Tonie Experience",
+        "body": "Dear [Customer Name],\n\nThank you for your feedback about the Woody Tonie. We're sorry to hear that it didn't meet the standards set by other Tonies in our collection, such as the Buzz Lightyear character.\n\nWe want every Tonie experience to be delightful, and we take your disappointment seriously. Our team is reviewing the content and quality of this particular character based on feedback from customers like you.\n\nWe'd love to restore your faith in our brand. Would you be interested in trying a different Tonie character that has received excellent reviews? We'd be happy to send you a replacement of your choice.\n\nBest regards,\n[Your Name]\nTonies Customer Success Team"
+      }
+    }
+  ],
+  "safety_warnings": [],
+  "quality_metrics": {
+    "defect_rate_estimate": "0.8% (9/1178 negative reviews)",
+    "primary_return_driver": "內容與預期不符 (music content mismatch)",
+    "customer_satisfaction_trend": "總體評分較高(4.70)，但內容質量是主要痛點"
+  },
+  "expert_recommendations": {
+    "supply_chain_improvements": [
+      "與迪士尼/皮克斯重新談判授權協議，爭取獲得原版音樂使用權",
+      "建立內容質量審查流程，每個角色產品在釋出前需透過家長和兒童測試小組驗證",
+      "對錶現不佳的角色進行內容重新制作，確保與其他產品質量一致"
+    ],
+    "listing_optimizations": [
+      "在Listing顯著位置（Bullet Points首條）標註：'Features cover versions of Toy Story songs, not original movie recordings'",
+      "新增內容預告：提供30秒音訊試聽片段，讓客戶在購買前瞭解配音和音樂質量",
+      "更新產品描述，準確描述故事內容概述，避免'與電影完全相同'等誤導性表述",
+      "在A+頁面新增'What's Inside'部分，詳細列出故事情節和歌曲清單",
+      "收集並展示正面評價中關於孩子喜歡該產品的內容，平衡負面反饋"
+    ],
+    "special_considerations": [
+      "這是一個基於IP授權的產品，內容質量受限於授權範圍 - 需要從源頭解決授權問題",
+      "客戶對迪士尼產品有極高期望，$20的定價加劇了期望值差距",
+      "建議在包裝內插入'說明卡片'，解釋內容選擇的原因，管理客戶期望",
+      "考慮推出'Premium'系列，以更高價格提供原版音樂內容，滿足高階使用者需求"
+    ]
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "category": "bluetooth keyboard",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "1194464",
+    "category_name": "Keyboard & Mouse Combos"
+  },
+  "market_overview": {
+    "top100_monthly_sales": 340449,
+    "top100_monthly_revenue": 13984207.36,
+    "avg_price": 36.63,
+    "median_price": 18.99,
+    "top3_product_concentration": 0.1930,
+    "top3_brand_concentration": 0.5936,
+    "top10_brand_concentration": 0.8234,
+    "amazon_owned_share": 0.5280,
+    "chinese_seller_share": 0.4090
+  },
+  "price_ranges": [
+    { "range": "$0-30", "count": 42, "sales": 165341, "revenue": 2480000, "share": 0.42 },
+    { "range": "$30-60", "count": 50, "sales": 121580, "revenue": 5040000, "share": 0.50 },
+    { "range": "$60-100", "count": 6, "sales": 38513, "revenue": 2680000, "share": 0.06 },
+    { "range": "$100-150", "count": 1, "sales": 4295, "revenue": 430000, "share": 0.01 },
+    { "range": "$150-200", "count": 1, "sales": 10720, "revenue": 2140000, "share": 0.01 }
+  ],
+  "product_types": [
+    { "type": "標準套裝", "count": 65, "share": 0.65 },
+    { "type": "緊湊型", "count": 20, "share": 0.20 },
+    { "type": "人體工學型", "count": 8, "share": 0.08 },
+    { "type": "復古打字機", "count": 5, "share": 0.05 },
+    { "type": "遊戲型", "count": 2, "share": 0.02 }
+  ],
+  "top_brands": [
+    { "brand": "Logitech", "sales": 166641, "revenue": 9158152, "count": 18, "share": 0.489 },
+    { "brand": "RECCAZR", "sales": 17765, "revenue": 389746, "count": 3, "share": 0.052 },
+    { "brand": "EDJO", "sales": 17678, "revenue": 408968, "count": 9, "share": 0.052 },
+    { "brand": "seenda", "sales": 16609, "revenue": 421000, "count": 6, "share": 0.049 },
+    { "brand": "SABLUTE", "sales": 16577, "revenue": 505000, "count": 11, "share": 0.049 }
+  ],
+  "dimensions": [
+    {
+      "dimension": "連線方式",
+      "values": [
+        { "value": "2.4GHz無線", "count": 58, "share": 0.58 },
+        { "value": "藍芽", "count": 22, "share": 0.22 },
+        { "value": "雙模(2.4G+BT)", "count": 20, "share": 0.20 }
+      ]
+    },
+    {
+      "dimension": "尺寸規格",
+      "values": [
+        { "value": "全尺寸", "count": 70, "share": 0.70 },
+        { "value": "緊湊", "count": 22, "share": 0.22 },
+        { "value": "超薄", "count": 8, "share": 0.08 }
+      ]
+    },
+    {
+      "dimension": "背光功能",
+      "values": [
+        { "value": "無背光", "count": 68, "share": 0.68 },
+        { "value": "白色背光", "count": 18, "share": 0.18 },
+        { "value": "RGB背光", "count": 14, "share": 0.14 }
+      ]
+    },
+    {
+      "dimension": "供電方式",
+      "values": [
+        { "value": "電池供電", "count": 56, "share": 0.56 },
+        { "value": "可充電", "count": 32, "share": 0.32 },
+        { "value": "雙模", "count": 12, "share": 0.12 }
+      ]
+    },
+    {
+      "dimension": "特殊設計",
+      "values": [
+        { "value": "標準設計", "count": 65, "share": 0.65 },
+        { "value": "人體工學", "count": 12, "share": 0.12 },
+        { "value": "復古打字機", "count": 15, "share": 0.15 },
+        { "value": "遊戲風格", "count": 8, "share": 0.08 }
+      ]
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      { "price_range": "$0-30", "standard": 35, "compact": 5, "ergonomic": 1, "retro": 1, "gaming": 0 },
+      { "price_range": "$30-60", "standard": 28, "compact": 12, "ergonomic": 3, "retro": 4, "gaming": 3 },
+      { "price_range": "$60-100", "standard": 2, "compact": 2, "ergonomic": 3, "retro": 0, "gaming": 1 },
+      { "price_range": "$100+", "standard": 0, "compact": 1, "ergonomic": 1, "retro": 0, "gaming": 0 }
+    ],
+    "opportunities": [
+      { "combination": "高階($100+) + 復古打字機", "status": "空白", "products": 0, "rating": "低" },
+      { "combination": "中價($30-60) + 人體工學", "status": "薄供給", "products": 3, "rating": "中" },
+      { "combination": "低價($0-30) + 遊戲型", "status": "空白", "products": 0, "rating": "低" }
+    ],
+    "red_ocean": [
+      { "combination": "中價($30-60) + 標準套裝", "status": "紅海", "products": 28, "risk": "高" },
+      { "combination": "低價($0-30) + 標準套裝", "status": "紅海", "products": 35, "risk": "高" }
+    ]
+  },
+  "competitors": [
+    {
+      "asin": "B079JLY5M5",
+      "brand": "Logitech",
+      "model": "MK270",
+      "price": 24.99,
+      "monthly_sales": 32561,
+      "monthly_revenue": 813699,
+      "reviews": 116949,
+      "rating": 4.4,
+      "type": "量級標杆",
+      "key_features": ["2年續航", "緊湊滑鼠", "8個快捷鍵"],
+      "positioning": "入門級無線套裝，走量為主"
+    },
+    {
+      "asin": "B0F36RKWDH",
+      "brand": "Logitech",
+      "model": "MK250",
+      "price": 19.99,
+      "monthly_sales": 17908,
+      "monthly_revenue": 357981,
+      "reviews": 903,
+      "rating": 4.3,
+      "type": "量級標杆",
+      "key_features": ["藍芽連線", "緊湊設計", "快速連線"],
+      "positioning": "入門藍芽套裝，超低價競爭"
+    },
+    {
+      "asin": "B0FDFZLCMM",
+      "brand": "Logitech",
+      "model": "Wave Keys & Lift",
+      "price": 99.99,
+      "monthly_sales": 15236,
+      "monthly_revenue": 1523448,
+      "reviews": 53,
+      "rating": 4.2,
+      "type": "量級標杆",
+      "key_features": ["波浪鍵", "垂直滑鼠", "多裝置切換"],
+      "positioning": "高階人體工學，溢價明顯"
+    },
+    {
+      "asin": "B00QXT5T3U",
+      "brand": "Logitech",
+      "model": "MK345",
+      "price": 33.99,
+      "monthly_sales": 12367,
+      "monthly_revenue": 420354,
+      "reviews": 40854,
+      "rating": 4.4,
+      "type": "中價位",
+      "key_features": ["掌託設計", "2.4GHz無線", "全尺寸"],
+      "positioning": "經典中端款，平衡價效比"
+    },
+    {
+      "asin": "B0BKVY4WKT",
+      "brand": "Logitech",
+      "model": "MX Keys S Combo",
+      "price": 199.99,
+      "monthly_sales": 10720,
+      "monthly_revenue": 2143893,
+      "reviews": 995,
+      "rating": 4.5,
+      "type": "高價位",
+      "key_features": ["可定製背光", "快滾輪", "USB-C充電"],
+      "positioning": "專業辦公旗艦，定價最高"
+    }
+  ],
+  "voc_analysis": {
+    "total_reviews_analyzed": 417,
+    "dimensions": [
+      {
+        "dimension": "滑鼠可靠性",
+        "pain_point": "滾輪失靈、左鍵雙擊/無響應、連線斷開",
+        "frequency": 156,
+        "percentage": "37%",
+        "affected_brands": ["全部"],
+        "brand_opportunity": "採用歐姆龍50M次微動、光學編碼器替代機械編碼器",
+        "product_solution": "工業級滾輪5000萬次壽命，2年質保承諾"
+      },
+      {
+        "dimension": "鍵盤質量",
+        "pain_point": "按鍵粘連/無響應、空格鍵異響、掉漆",
+        "frequency": 87,
+        "percentage": "21%",
+        "affected_brands": ["全部"],
+        "brand_opportunity": "採用剪刀腳開關、加強鍵帽結構",
+        "product_solution": "1000萬次按鍵壽命，靜音設計"
+      },
+      {
+        "dimension": "連線穩定性",
+        "pain_point": "藍芽頻繁斷連、USB接收器缺失、延遲",
+        "frequency": 68,
+        "percentage": "16%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "雙模方案(2.4G+BT5.3)、Nordic/TI最新晶片",
+        "product_solution": "零延遲2.4GHz + 多裝置藍芽5.3"
+      },
+      {
+        "dimension": "耐用性",
+        "pain_point": "6-24個月內故障、塑膠材質易損",
+        "frequency": 52,
+        "percentage": "12%",
+        "affected_brands": ["全部"],
+        "brand_opportunity": "加強材質工藝、延長質保期",
+        "product_solution": "3年超長質保"
+      },
+      {
+        "dimension": "舒適度",
+        "pain_point": "滑鼠太小、鍵盤太高、手部疲勞",
+        "frequency": 35,
+        "percentage": "8%",
+        "affected_brands": ["緊湊型"],
+        "brand_opportunity": "人體工學設計、可調節角度",
+        "product_solution": "波浪鍵設計+可拆卸掌託"
+      },
+      {
+        "dimension": "軟體相容",
+        "pain_point": "驅動不支援、設定軟體不穩定",
+        "frequency": 19,
+        "percentage": "5%",
+        "affected_brands": ["高階款"],
+        "brand_opportunity": "簡化軟體、免驅動即插即用",
+        "product_solution": "免驅動設計，按鍵可程式設計"
+      }
+    ],
+    "summary": "主要痛點集中在滑鼠可靠性(37%)、鍵盤質量(21%)、連線穩定性(16%)。Logitech質量下滑嚴重，為新進入者提供機會視窗。",
+    "key_insight": "37%痛點集中在滑鼠，而非鍵盤；高階款($100+)依然出現相同問題；使用者普遍反映'不再像以前那樣耐用'"
+  },
+  "barriers": [
+    {
+      "type": "品牌壁壘",
+      "level": "高",
+      "data_anchor": "Logitech 48.9%份額，11.7萬評論",
+      "estimated_cost": "$50萬+",
+      "solution": "差異化定位，避開正面競爭"
+    },
+    {
+      "type": "Review壁壘",
+      "level": "高",
+      "data_anchor": "Top10均值6,000+評論",
+      "estimated_cost": "$3-5萬",
+      "solution": "Vine計劃 + 早期評論人"
+    },
+    {
+      "type": "資金壁壘",
+      "level": "中",
+      "data_anchor": "首批備貨1000件 + PPC",
+      "estimated_cost": "¥15-20萬",
+      "solution": "控制MOQ，小步快跑"
+    },
+    {
+      "type": "技術壁壘",
+      "level": "低",
+      "data_anchor": "產品同質化嚴重",
+      "estimated_cost": "¥5萬",
+      "solution": "專注解決VOC痛點"
+    },
+    {
+      "type": "認證壁壘",
+      "level": "中",
+      "data_anchor": "FCC、藍芽認證等",
+      "estimated_cost": "$2萬",
+      "solution": "選擇有經驗的工廠"
+    }
+  ],
+  "go_nogo": {
+    "overall_score": 5.27,
+    "decision": "暫緩觀望",
+    "scores": [
+      { "dimension": "市場規模", "weight": 0.20, "score": 8.5, "weighted": 1.70, "basis": "月銷額$14M，大市場" },
+      { "dimension": "競爭格局", "weight": 0.25, "score": 3.0, "weighted": 0.75, "basis": "Top3品牌59.36%，高壟斷" },
+      { "dimension": "進入壁壘", "weight": 0.20, "score": 4.0, "weighted": 0.80, "basis": "Review+品牌壁壘高" },
+      { "dimension": "利潤空間", "weight": 0.15, "score": 5.0, "weighted": 0.75, "basis": "價格戰激烈，溢價難" },
+      { "dimension": "差異化機會", "weight": 0.20, "score": 6.0, "weighted": 1.20, "basis": "VOC痛點明顯，有改進空間" }
+    ],
+    "decision_basis": "市場規模大但競爭激烈，Logitech壟斷地位難以撼動，價格戰嚴重利潤空間薄。VOC痛點明確但需驗證改進方案的市場接受度。",
+    "entry_conditions": [
+      "有鍵盤滑鼠供應鏈資源，能解決滑鼠可靠性問題",
+      "預算≥¥20萬，能支撐6-12個月的虧損期",
+      "有差異化定位方案，不與Logitech正面競爭",
+      "目標細分市場（如Mac使用者、人體工學需求）"
+    ],
+    "prohibit_conditions": [
+      "純貿易商，無供應鏈優勢",
+      "預算<¥10萬",
+      "計劃做$30以下價格段"
+    ],
+    "decision_mapping": {
+      "7.5-10": "建議進入",
+      "6.0-7.4": "謹慎進入",
+      "4.0-5.9": "暫緩觀望",
+      "0-3.9": "不建議進入"
+    }
+  },
+  "product_matrix": [
+    {
+      "tier": "Tier 1",
+      "name": "滑鼠可靠性改進套裝",
+      "target_market": "對Logitech質量不滿的中高階使用者",
+      "price_range": "$50-80",
+      "status": "謹慎推進",
+      "specs": {
+        "連線方式": "2.4GHz + 藍芽5.3雙模",
+        "鍵盤": "全尺寸 + 可拆卸掌託",
+        "滑鼠": "50M次微動 + 光學編碼器",
+        "背光": "白色單色背光",
+        "供電": "鍵盤電池 + 滑鼠Type-C充電",
+        "材質": "ABS + 類膚塗層"
+      },
+      "target_price": 59.99,
+      "usp": "首款'滾輪永固'無線套裝，2年故障包換",
+      "competitor": "Logitech MK540 ($49.99)",
+      "advantage": "可靠性更好",
+      "estimated_sales": "500-1,500件/月"
+    },
+    {
+      "tier": "Tier 2",
+      "name": "輕量化Mac套裝",
+      "target_market": "Mac/iPad使用者",
+      "price_range": "$70-100",
+      "status": "觀察",
+      "specs": {
+        "相容性": "macOS專用佈局",
+        "尺寸": "85%緊湊尺寸",
+        "設計": "簡約銀色設計",
+        "多裝置": "3裝置切換"
+      },
+      "target_price": 79.99,
+      "usp": "專為Mac打造，1/3價格",
+      "competitor": "Apple Magic Keyboard",
+      "advantage": "價格優勢"
+    },
+    {
+      "tier": "Tier 3",
+      "name": "復古打字機RGB",
+      "target_market": "追求個性化外觀的年輕使用者",
+      "price_range": "$40-60",
+      "status": "不推薦",
+      "reason": "功能同質化嚴重，中國賣家已大量湧入"
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "Phase 1",
+      "name": "市場驗證",
+      "duration": "4-6周",
+      "tasks": [
+        "關鍵詞調研：分析長尾詞和競品PPC廣告",
+        "供應鏈對接：聯絡3-5家工廠，索要樣品",
+        "差異化驗證：調研'滑鼠滾輪'替換需求"
+      ]
+    },
+    {
+      "phase": "Phase 2",
+      "name": "產品開發",
+      "duration": "8-12周",
+      "tasks": [
+        "首批打樣3-5款方案",
+        "可靠性測試：滾輪、按鍵壽命測試",
+        "認證申請：FCC、藍芽認證",
+        "包裝設計：強調'可靠性'賣點"
+      ]
+    },
+    {
+      "phase": "Phase 3",
+      "name": "上市推廣",
+      "duration": "持續",
+      "tasks": [
+        "Vine計劃：30個名額獲取早期評論",
+        "PPC啟動：$50-100/天預算",
+        "影片營銷：展示耐用性測試影片",
+        "差評監控：第一時間處理質量問題"
+      ]
+    }
+  ],
+  "keywords": [
+    { "keyword": "bluetooth keyboard", "search_volume": "高", "cpc": "中", "competition": "高" },
+    { "keyword": "wireless keyboard mouse", "search_volume": "高", "cpc": "中", "competition": "高" },
+    { "keyword": "ergonomic keyboard", "search_volume": "中", "cpc": "高", "competition": "中" },
+    { "keyword": "mac keyboard", "search_volume": "中", "cpc": "高", "competition": "中" },
+    { "keyword": "gaming keyboard", "search_volume": "高", "cpc": "高", "competition": "高" }
+  ]
+}
