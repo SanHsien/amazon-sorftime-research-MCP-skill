@@ -5,14 +5,14 @@ description = "亞馬遜 AI 選品與運營工具集（Amazon Competitive Intell
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "requests>=2.31.0",
-    "openpyxl>=3.1.2",
+    "requests>=2.31.0",  # freshness-hold: runtime dependency; the floor is the compatibility promise to users with older requests
+    "openpyxl>=3.1.2",  # freshness-hold: runtime dependency; 3.1.x patch floor is enough and a higher one would exclude working installs
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",
-    "ruff>=0.4.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.9",
 ]
 
 [tool.pytest.ini_options]

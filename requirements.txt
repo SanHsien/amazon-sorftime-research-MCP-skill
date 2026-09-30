@@ -1,5 +1,5 @@
-requests>=2.31.0
-openpyxl>=3.1.2
-pytest>=8.0.0
-ruff>=0.4.0
+requests>=2.31.0  # freshness-hold: runtime dependency; the floor is the compatibility promise to users with older requests
+openpyxl>=3.1.2  # freshness-hold: runtime dependency; 3.1.x patch floor is enough and a higher one would exclude working installs
+pytest>=9.1.1
+ruff>=0.16.9
 
