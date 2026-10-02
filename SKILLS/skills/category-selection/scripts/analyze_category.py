@@ -11,6 +11,7 @@ import json
 import re
 import codecs
 import requests
+from report_safety import redact_report_data
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -71,8 +72,8 @@ class CategoryAnalyzer:
             # 解析 SSE 響應
             return self._parse_sse_response(response.text)
 
-        except Exception as e:
-            print(f"  ✗ 異常: {e}")
+        except Exception:
+            print("  ✗ API 請求失敗")
             return None
 
     def _parse_sse_response(self, raw_text: str):
@@ -140,8 +141,8 @@ class CategoryAnalyzer:
 
             return None
 
-        except Exception as e:
-            print(f"  ✗ SSE 解析異常: {e}")
+        except Exception:
+            print("  ✗ SSE 解析失敗")
             return None
 
     def _fix_chinese_keys(self, obj):
@@ -189,7 +190,7 @@ class CategoryAnalyzer:
 
     def search_category(self, category_name: str, site: str = "US") -> Optional[str]:
         """搜尋品類獲取 nodeId"""
-        print(f"[1/6] 搜尋類目: {category_name} ({site})")
+        print("[1/6] 搜尋類目...")
 
         result = self._call_api('category_name_search', {
             'amzSite': site,
@@ -197,7 +198,7 @@ class CategoryAnalyzer:
         })
 
         if not result:
-            print(f"  ✗ 未找到類目: {category_name}")
+            print("  ✗ 未找到類目")
             return None
 
         # 處理不同的返回格式
@@ -225,9 +226,8 @@ class CategoryAnalyzer:
         name = selected.get('Name') or selected.get('name')
 
         # 儲存品類名稱
-        self.category_name = name if name else category_name
-
-        print(f"  ✓ 找到類目: {self.category_name} (nodeId: {node_id})")
+        self.category_name = redact_report_data(name if name else category_name, self.api_key)
+        print("  ✓ 找到類目")
 
         return node_id
 
@@ -269,10 +269,8 @@ class CategoryAnalyzer:
         scores = self._calculate_scores(stats)
 
         print(f"  ✓ 資料提取完成")
-        print(f"    - 總銷量: {stats.get('top100產品月銷量', 'N/A')}")
-        print(f"    - 平均價格: {stats.get('average_price', 'N/A')}")
 
-        return {
+        return redact_report_data({
             'category_name': self.category_name,
             'site': self.site,
             'limit': self.limit,
@@ -280,7 +278,7 @@ class CategoryAnalyzer:
             'products': products,
             'scores': scores,
             'timestamp': datetime.now().isoformat()
-        }
+        }, self.api_key)
 
     def _calculate_scores(self, stats: Dict) -> Dict:
         """計算五維評分"""
@@ -382,14 +380,14 @@ class CategoryAnalyzer:
         output_dir = Path('category-reports') / date_str / f"{safe_name}_{self.site}"
 
         # 生成報告
-        generator = CategoryReportGenerator(data, str(output_dir))
+        generator = CategoryReportGenerator(data, str(output_dir), api_key=self.api_key)
         report_files = generator.generate_all()
 
-        print(f"  ✓ 報告已儲存到: {output_dir}")
+        print("  ✓ 報告已儲存")
 
         # 列印檔案列表
         for format_type, path in report_files.items():
-            print(f"    [{format_type.upper()}] {path}")
+            print(f"    [{format_type.upper()}] 已生成")
 
         return output_dir
 
@@ -418,8 +416,7 @@ class CategoryAnalyzer:
         print("=" * 70)
         print(f"品類選品分析")
         print("=" * 70)
-        print(f"品類: {category_name}")
-        print(f"站點: {site}")
+        print("品類分析進行中")
         print(f"分析數量: Top{limit}")
         print(f"開始時間: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print("=" * 70)
@@ -451,9 +448,7 @@ class CategoryAnalyzer:
         print("分析完成！")
         print("=" * 70)
         print(f"總耗時: {duration:.1f} 秒")
-        print(f"輸出目錄: {output_dir}")
-        print(f"資料時間: {data.get('timestamp', '')}")
-        print(f"綜合評級: {data['scores'].get('評級', 'N/A')} ({data['scores'].get('總分', 0)}/100)")
+        print("輸出目錄: category-reports")
         print("=" * 70)
 
         return True

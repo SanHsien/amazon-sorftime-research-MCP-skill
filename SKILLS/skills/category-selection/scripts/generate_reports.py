@@ -21,23 +21,25 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
+from report_safety import redact_report_data
 
 
 class CategoryReportGenerator:
     """品類選品分析報告生成器"""
 
-    def __init__(self, data: Dict, output_dir: Optional[str] = None):
+    def __init__(self, data: Dict, output_dir: Optional[str] = None, api_key: Optional[str] = None):
         """
         初始化報告生成器
 
         Args:
             data: 包含 statistics, products, scores 的字典
             output_dir: 輸出目錄，預設為 category-reports/{品類名}_{日期}/
+            api_key: 呼叫端已知的憑證，用於移除回應中重複出現的值
         """
-        self.data = data
-        self.statistics = data.get('statistics', {})
-        self.products = data.get('products', [])
-        self.scores = data.get('scores', {})
+        self.data = redact_report_data(data, api_key)
+        self.statistics = self.data.get('statistics', {})
+        self.products = self.data.get('products', [])
+        self.scores = self.data.get('scores', {})
 
         # 確定輸出目錄
         if output_dir:
@@ -90,15 +92,15 @@ class CategoryReportGenerator:
         try:
             md_path = self.generate_markdown()
             results['markdown'] = str(md_path)
-        except Exception as e:
-            print(f"Markdown 生成失敗: {e}")
+        except Exception:
+            print("Markdown 生成失敗")
 
         # 2. CSV 資料檔案
         try:
             csv_path = self.generate_csv()
             results['csv'] = str(csv_path)
-        except Exception as e:
-            print(f"CSV 生成失敗: {e}")
+        except Exception:
+            print("CSV 生成失敗")
 
         # 3. Excel 報告 (需要 openpyxl)
         try:
@@ -106,22 +108,22 @@ class CategoryReportGenerator:
             results['excel'] = str(excel_path)
         except ImportError:
             print("Excel 生成跳過 (需要 openpyxl)")
-        except Exception as e:
-            print(f"Excel 生成失敗: {e}")
+        except Exception:
+            print("Excel 生成失敗")
 
         # 4. HTML 儀表板
         try:
             html_path = self.generate_html()
             results['html'] = str(html_path)
-        except Exception as e:
-            print(f"HTML 生成失敗: {e}")
+        except Exception:
+            print("HTML 生成失敗")
 
         # 5. 儲存原始 JSON 資料
         try:
             json_path = self.generate_json()
             results['json'] = str(json_path)
-        except Exception as e:
-            print(f"JSON 生成失敗: {e}")
+        except Exception:
+            print("JSON 生成失敗")
 
         return results
 
@@ -145,7 +147,7 @@ class CategoryReportGenerator:
             f.write(content)
 
         self.generated_files.append(filename)
-        print(f"✓ Markdown 報告: {filename}")
+        print("✓ Markdown 報告已生成")
         return filename
 
     def generate_csv(self) -> Path:
@@ -191,7 +193,7 @@ class CategoryReportGenerator:
                     writer.writerow([key, value, '', ''])
 
         self.generated_files.extend([stats_file, products_file, scores_file])
-        print(f"✓ CSV 資料檔案: {self.data_dir}")
+        print("✓ CSV 資料檔案已生成")
         return stats_file  # 返回主檔案
 
     def generate_excel(self) -> Path:
@@ -220,7 +222,7 @@ class CategoryReportGenerator:
 
         wb.save(filename)
         self.generated_files.append(filename)
-        print(f"✓ Excel 報告: {filename}")
+        print("✓ Excel 報告已生成")
         return filename
 
     def generate_html(self) -> Path:
@@ -242,7 +244,7 @@ class CategoryReportGenerator:
             f.write(content)
 
         self.generated_files.append(filename)
-        print(f"✓ HTML 儀表板: {filename}")
+        print("✓ HTML 儀表板已生成")
         return filename
 
     def generate_json(self) -> Path:
@@ -252,7 +254,7 @@ class CategoryReportGenerator:
             json.dump(self.data, f, ensure_ascii=False, indent=2)
 
         self.generated_files.append(filename)
-        print(f"✓ JSON 資料: {filename}")
+        print("✓ JSON 資料已生成")
         return filename
 
     def _replace_variables(self, content: str) -> str:
@@ -807,8 +809,8 @@ class CategoryReportGenerator:
             try:
                 with open(trend_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
-            except Exception as e:
-                print(f"讀取趨勢資料失敗: {e}")
+            except Exception:
+                print("讀取趨勢資料失敗")
         return None
 
     def _get_price_distribution(self) -> List[Dict]:
@@ -1137,10 +1139,10 @@ def main():
     print("\n" + "=" * 60)
     print("報告生成完成！")
     print("=" * 60)
-    print(f"輸出目錄: {generator.output_dir}")
+    print("輸出目錄已建立")
     print("\n生成的檔案:")
     for format_type, path in results.items():
-        print(f"  [{format_type.upper()}] {path}")
+        print(f"  [{format_type.upper()}] 已生成")
 
 
 if __name__ == "__main__":
