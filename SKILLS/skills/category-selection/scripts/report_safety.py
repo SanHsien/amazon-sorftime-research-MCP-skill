@@ -41,7 +41,8 @@ def _redact(value, secrets):
     if isinstance(value, str):
         clean = _SECRET_QUERY.sub(lambda match: match.group(1) + REDACTED, value)
         for secret in sorted(secrets, key=len, reverse=True):
-            clean = clean.replace(secret, REDACTED)
+            # The match value is only a delimiter; it must never become output.
+            clean = REDACTED.join(clean.split(secret))
         return clean
     return value
 

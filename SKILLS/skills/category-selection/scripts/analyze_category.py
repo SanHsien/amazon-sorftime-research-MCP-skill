@@ -190,7 +190,7 @@ class CategoryAnalyzer:
 
     def search_category(self, category_name: str, site: str = "US") -> Optional[str]:
         """搜尋品類獲取 nodeId"""
-        print(f"[1/6] 搜尋類目: {redact_report_data(category_name, self.api_key)} ({site})")
+        print("[1/6] 搜尋類目...")
 
         result = self._call_api('category_name_search', {
             'amzSite': site,
@@ -227,7 +227,7 @@ class CategoryAnalyzer:
 
         # 儲存品類名稱
         self.category_name = redact_report_data(name if name else category_name, self.api_key)
-        print(f"  ✓ 找到類目: {self.category_name} (nodeId: {redact_report_data(node_id, self.api_key)})")
+        print("  ✓ 找到類目")
 
         return node_id
 
@@ -269,9 +269,6 @@ class CategoryAnalyzer:
         scores = self._calculate_scores(stats)
 
         print(f"  ✓ 資料提取完成")
-        safe_stats = redact_report_data(stats, self.api_key)
-        print(f"    - 總銷量: {safe_stats.get('top100產品月銷量', 'N/A')}")
-        print(f"    - 平均價格: {safe_stats.get('average_price', 'N/A')}")
 
         return redact_report_data({
             'category_name': self.category_name,
@@ -419,8 +416,7 @@ class CategoryAnalyzer:
         print("=" * 70)
         print(f"品類選品分析")
         print("=" * 70)
-        print(f"品類: {redact_report_data(category_name, self.api_key)}")
-        print(f"站點: {site}")
+        print("品類分析進行中")
         print(f"分析數量: Top{limit}")
         print(f"開始時間: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print("=" * 70)
@@ -453,8 +449,6 @@ class CategoryAnalyzer:
         print("=" * 70)
         print(f"總耗時: {duration:.1f} 秒")
         print("輸出目錄: category-reports")
-        print(f"資料時間: {data.get('timestamp', '')}")
-        print(f"綜合評級: {data['scores'].get('評級', 'N/A')} ({data['scores'].get('總分', 0)}/100)")
         print("=" * 70)
 
         return True
