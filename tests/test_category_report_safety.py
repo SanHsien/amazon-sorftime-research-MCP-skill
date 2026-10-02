@@ -1,6 +1,7 @@
 """Regression checks for credentials in category reports and console output."""
 
 import importlib.util
+import json
 import sys
 import types
 from pathlib import Path
@@ -48,13 +49,9 @@ def test_analyzer_does_not_print_request_exception_with_key(monkeypatch, capsys)
 
 def test_report_files_and_logs_do_not_contain_key(tmp_path, capsys):
     secret = "sample-secret-789"
-    data = {
-        "category_name": f"Sofas {secret}",
-        "statistics": {"月銷量": 100, "password": secret},
-        "products": [{"ASIN": "B000000001", "標題": f"Sofa {secret}", "價格": 10, "月銷量": 2}],
-        "scores": {"市場規模": 10, "總分": 10, "評級": "一般"},
-    }
-    generator = CategoryReportGenerator(data, str(tmp_path / "reports"), api_key=secret)
+    fixture = Path(__file__).parent / "fixtures" / "category_report_credentials.json"
+    data = json.loads(fixture.read_text(encoding="utf-8"))
+    generator = CategoryReportGenerator(data, str(tmp_path / "reports"))
     generated = generator.generate_all()
 
     assert {"markdown", "csv", "html", "json"} <= set(generated)
