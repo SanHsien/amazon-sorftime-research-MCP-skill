@@ -47,6 +47,22 @@ def test_analyzer_does_not_print_request_exception_with_key(monkeypatch, capsys)
     assert secret not in capsys.readouterr().out
 
 
+def test_analyzer_passes_key_as_encoded_query_parameter(monkeypatch):
+    secret = "sample/secret?&=+"
+    analyzer = CategoryAnalyzer(api_key=secret)
+    seen = {}
+
+    def respond(url, **kwargs):
+        seen["url"] = url
+        seen["params"] = kwargs.get("params")
+        return types.SimpleNamespace(status_code=200, text='data: {"result": {"content": []}}')
+
+    monkeypatch.setattr("analyze_category.requests.post", respond)
+    analyzer._call_api("category_report", {})
+
+    assert seen == {"url": "https://mcp.sorftime.com", "params": {"key": secret}}
+
+
 def test_report_files_and_logs_do_not_contain_key(tmp_path, capsys):
     secret = "sample-secret-789"
     fixture = Path(__file__).parent / "fixtures" / "category_report_credentials.json"

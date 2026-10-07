@@ -46,7 +46,6 @@ class CategoryAnalyzer:
 
     def _call_api(self, tool_name: str, arguments: Dict) -> Optional[Dict]:
         """呼叫 Sorftime MCP API"""
-        url = f"{self.base_url}?key={self.api_key}"
         payload = {
             'jsonrpc': '2.0',
             'id': self._get_next_id(),
@@ -59,7 +58,8 @@ class CategoryAnalyzer:
 
         try:
             response = requests.post(
-                url,
+                self.base_url,
+                params={'key': self.api_key},
                 json=payload,
                 timeout=120,
                 headers={'Content-Type': 'application/json'}
