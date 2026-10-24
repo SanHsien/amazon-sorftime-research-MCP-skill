@@ -16,7 +16,7 @@
 
 | 專案 | 說明 |
 |---|---|
-| `AGENTS.md` / `CLAUDE.md` | 本 fork 的 AI 代理協作規範與操作指引 |
+| `AGENTS.md` | 本 fork 的 AI 代理協作規範與操作指引 |
 | `NOTICE.md` / `FORK.md` | 來源、授權與本 fork 定位說明 |
 | `tools/dev_check.ps1` | Windows 本地一鍵 gate（Python Syntax + Tests + UpstreamCheck） |
 | `tools/check_upstream_updates.py` | 上游 commit / PR / Issue 增量查驗工具 |
