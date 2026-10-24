@@ -4,7 +4,7 @@
 
 ## 核心原則
 
-1. **對外只打主人的 repo**: 本 repo 的 PR、push 與 release 一律指向 `SanHsien/amazon-sorftime-research-MCP-skill`。未經當次對話明確授權，嚴禁向上遊倉庫發起 PR 或推送。
+1. **對外只打維護者的 repo**: 本 repo 的 PR、push 與 release 一律指向 `SanHsien/amazon-sorftime-research-MCP-skill`。未經當次對話明確授權，嚴禁向上遊倉庫發起 PR 或推送。
 2. **Windows-first 開發環境**: 所有程式碼與指令碼應在 Windows 11 + PowerShell 環境下驗證透過。
 3. **提交前驗收閘門**: 所有變更在提交或合併前，必須透過本地驗證閘門：
    ```powershell
