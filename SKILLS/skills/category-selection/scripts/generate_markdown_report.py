@@ -20,6 +20,7 @@
 import json
 import os
 import re
+from sorftime_keys import normalize_keys
 from datetime import datetime
 from typing import Dict, List, Any
 
@@ -68,7 +69,7 @@ class MarkdownReportGenerator:
         data_file = os.path.join(self.data_dir, 'data.json')
         if os.path.exists(data_file):
             with open(data_file, 'r', encoding='utf-8') as f:
-                self.raw_data = json.load(f)
+                self.raw_data = normalize_keys(json.load(f))
 
             # 從 raw_data 中提取產品列表
             # 支援多種可能的鍵名
@@ -93,7 +94,7 @@ class MarkdownReportGenerator:
             products_file = os.path.join(self.data_dir, 'top_products.json')
             if os.path.exists(products_file):
                 with open(products_file, 'r', encoding='utf-8') as f:
-                    self.products = json.load(f)
+                    self.products = normalize_keys(json.load(f))
 
         # 載入評分資料
         scores_file = os.path.join(self.data_dir, 'scores.json')

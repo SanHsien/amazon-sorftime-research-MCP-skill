@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-10-26: 全庫繁體化波及 API 比對鍵，真實回應解析不到資料
+
+- **缺陷來歷**: 初始 commit 用 opencc `s2twp` 轉換整個 repo，連程式裡「讀 Sorftime 回應用的鍵名」（`类目统计报告`、`Top100产品`、`top100产品月销额`…）也被改成繁體；Sorftime 實際回應仍是簡體鍵，上游 `568be29` 的真實樣本為證。結果：真實回應 `Top100產品` 取不到、產品數 0，欄位 `.get('標題')` 退回預設值，五維評分在月銷額 8,168 萬美元時只給市場規模 10 分（應為 20）。
+- **修法**: 在資料進入點把簡體鍵名正規化成程式使用的繁體鍵名（`sorftime_keys.py`，`normalize_keys` 轉解析後的 JSON，`normalize_text` 轉原始 JSON 文字裡的 `"鍵":`）。簡體、繁體輸入都對得上，只轉鍵名，值與輸出文字不動。入口：`analyze_category`、`parse_sorftime_sse`、`sse_decoder`、`parse_category_report`、`extract_top_products`、`keywords_parser`、`trend_parser`、`workflow`、`data_adapter`、`generate_markdown_report`、keyword-research `data_parser`、product-research `api_client`。
+- **對照表**: （限制：程式內的鍵若在上游來源找不到，簡體形式以 t2s 還原，可能與 API 實際用字不同；守門測試只檢查「有沒有在表裡」。）由 `tools/generate_sorftime_key_map.py --upstream 568be29` 產生（上游簡體原始碼與真實樣本鍵，以 `s2twp` 轉換；再補上現行程式裡 t2s 可還原的鍵），三個技能各放一份相同的 `sorftime_keys.py`。`tests/test_sorftime_keys.py` 確保程式內每個繁體鍵都在表裡、三份一致；新增鍵名沒進表會紅燈，重跑產生腳本即可。
+- **已知未涵蓋**: `keyword_collector._parse_product_info` 以 `：` 分行比對標籤（上游本來就比對簡體，且回應多半是 JSON，未動）；其他廠商（Sif、西柚洞察、賣家精靈）的回應與舊版已存檔的簡體 JSON（只有 `data_adapter`、`generate_markdown_report` 讀檔時會轉）；回應裡「值」的簡體標籤（如 `销量最大产品月销量:10533`）不轉。
+- **上游觀察（不改）**: stats 中 `top3_brands_sales_volume_share` 等值帶中文標籤前綴（`销量前三的品牌月销量占比:84.11%`），`analyze_category._calculate_scores` 的 `safe_float` 解析不了而退回 0，競爭烈度恆為 18 分。屬上游邏輯，列入觀察清單。
+
+---
+
 ## 2026-10-25: `.mcp.json` 內的上游金鑰維持原樣
 
 - **事實**: `.mcp.json` 含四把廠商金鑰，對應 sorftime、sif、xydc（西柚洞察）、sellersprite（賣家精靈）。值與上游 `liangdabiao` 版相同，自本 fork 初始 commit 起就存在。這些是上游作者的金鑰，不是本 fork 維護者的。

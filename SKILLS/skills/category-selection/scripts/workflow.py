@@ -25,6 +25,7 @@ import json
 import subprocess
 import re
 import codecs
+from sorftime_keys import normalize_keys
 from datetime import datetime
 from collections import Counter
 
@@ -696,7 +697,7 @@ class CategoryAnalysisWorkflow:
         try:
             data = json.loads(json_str)
             # 修復所有字串的編碼
-            data = fix_mojibake(data)
+            data = normalize_keys(fix_mojibake(data))
             return data
         except json.JSONDecodeError as e:
             self.log(f"⚠ JSON 解析失敗: {e}", "ERROR")

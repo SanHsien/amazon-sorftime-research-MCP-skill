@@ -8,6 +8,7 @@
 import json
 import os
 from typing import Dict, List
+from sorftime_keys import normalize_keys
 
 
 class DataAdapter:
@@ -102,10 +103,10 @@ class DataAdapter:
         scores_file = os.path.join(data_dir, 'scores.json')
 
         with open(data_file, 'r', encoding='utf-8') as f:
-            raw_data = json.load(f)
+            raw_data = normalize_keys(json.load(f))
 
         with open(products_file, 'r', encoding='utf-8') as f:
-            raw_products = json.load(f)
+            raw_products = normalize_keys(json.load(f))
 
         with open(scores_file, 'r', encoding='utf-8') as f:
             raw_scores = json.load(f)

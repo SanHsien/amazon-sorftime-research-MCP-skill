@@ -9,6 +9,7 @@ import re
 import sys
 import json
 import codecs
+from sorftime_keys import normalize_keys
 
 
 def fix_chinese_keys(obj):
@@ -118,7 +119,7 @@ def parse_sorftime_sse(file_path: str, limit: int = 100):
             return {'error': f'JSON 解析失敗: {e}'}
 
     # Step 4.5: 修復中文鍵名編碼問題
-    parsed = fix_chinese_keys(parsed)
+    parsed = normalize_keys(fix_chinese_keys(parsed))
 
     # Step 5: 提取統計資料
     stats = extract_stats_from_parsed(parsed)

@@ -8,6 +8,7 @@
 import re
 import sys
 import json
+from sorftime_keys import normalize_text
 from typing import List, Dict, Optional
 
 
@@ -24,7 +25,7 @@ def extract_top_products(file_path: str, limit: int = 100) -> List[Dict]:
     """
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
+            content = normalize_text(f.read())
     except FileNotFoundError:
         print(f"錯誤: 檔案不存在 {file_path}")
         return []

@@ -8,6 +8,7 @@ Sorftime SSE 響應解析器 - 關鍵詞專用版本
 import json
 import codecs
 import re
+from sorftime_keys import normalize_keys
 
 
 def fix_mojibake(text):
@@ -229,7 +230,7 @@ def parse_json_data(text: str):
     # 嘗試解析
     try:
         data = json.loads(json_str)
-        return fix_mojibake(data)
+        return normalize_keys(fix_mojibake(data))
     except json.JSONDecodeError:
         return {}
 

@@ -36,6 +36,7 @@ import re
 import codecs
 import subprocess
 import sys
+from sorftime_keys import normalize_keys
 from datetime import datetime
 from typing import Optional, Dict, List, Any
 from pathlib import Path
@@ -223,6 +224,11 @@ def extract_json_object(text):
 
 
 def decode_sse_response(content):
+    """解碼 Sorftime SSE 響應；鍵名統一成程式使用的繁體鍵名。"""
+    return normalize_keys(_decode_sse_response(content))
+
+
+def _decode_sse_response(content):
     """
     解碼 Sorftime SSE 響應
 

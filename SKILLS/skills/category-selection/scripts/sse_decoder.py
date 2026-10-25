@@ -16,6 +16,7 @@ Sorftime SSE 響應快速解碼器 v6.0 - Mojibake 修復版
 import re
 import json
 import codecs
+from sorftime_keys import normalize_keys
 import sys
 import os
 from datetime import datetime
@@ -80,6 +81,11 @@ def fix_mojibake_text(text: str) -> str:
 
 
 def decode_sse_response(file_path: str, verbose: bool = False) -> dict:
+    """解碼 SSE 回應檔；鍵名統一成程式使用的繁體鍵名。"""
+    return normalize_keys(_decode_sse_response(file_path, verbose))
+
+
+def _decode_sse_response(file_path: str, verbose: bool = False) -> dict:
     """
     解碼 Sorftime SSE 響應檔案
 

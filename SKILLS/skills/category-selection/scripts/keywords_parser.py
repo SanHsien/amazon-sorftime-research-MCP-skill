@@ -18,6 +18,7 @@ Sorftime 關鍵詞 SSE 響應解析器 v3.0 - 穩定增強版
 import re
 import json
 import codecs
+from sorftime_keys import normalize_keys
 import sys
 import os
 
@@ -37,6 +38,11 @@ def safe_int(value, default=0):
 
 
 def parse_keywords_sse(file_path: str, verbose: bool = False) -> list:
+    """解析關鍵詞 SSE 響應；鍵名統一成程式使用的繁體鍵名。"""
+    return normalize_keys(_parse_keywords_sse(file_path, verbose))
+
+
+def _parse_keywords_sse(file_path: str, verbose: bool = False) -> list:
     """
     解析關鍵詞 SSE 響應檔案
 

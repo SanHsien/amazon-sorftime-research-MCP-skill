@@ -12,6 +12,7 @@ import re
 import codecs
 import requests
 from report_safety import redact_report_data
+from sorftime_keys import normalize_keys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -244,7 +245,7 @@ class CategoryAnalyzer:
             print(f"  ✗ 獲取類目報告失敗")
             return None
 
-        result = self._fix_chinese_keys(result)
+        result = normalize_keys(self._fix_chinese_keys(result))
 
         # 統計資訊
         stats = result.get('類目統計報告', {})

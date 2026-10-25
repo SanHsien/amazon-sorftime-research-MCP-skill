@@ -8,6 +8,7 @@ Sorftime 類目趨勢資料解析器
 import re
 import json
 import codecs
+from sorftime_keys import normalize_keys
 import sys
 import os
 from datetime import datetime
@@ -15,6 +16,11 @@ from typing import Dict, List, Optional
 
 
 def decode_sse_trend(file_path: str) -> dict:
+    """解碼趨勢 SSE 響應；鍵名統一成程式使用的繁體鍵名。"""
+    return normalize_keys(_decode_sse_trend(file_path))
+
+
+def _decode_sse_trend(file_path: str) -> dict:
     """
     解碼 Sorftime category_trend SSE 響應
 

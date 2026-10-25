@@ -2,4 +2,4 @@ requests>=2.31.0  # freshness-hold: runtime dependency; the floor is the compati
 openpyxl>=3.1.2  # freshness-hold: runtime dependency; 3.1.x patch floor is enough and a higher one would exclude working installs
 pytest>=9.1.1
 ruff>=0.16.9
-
+opencc-python-reimplemented>=0.1.7  # dev-only: tests and tools/generate_sorftime_key_map.py fold Chinese keys; not imported at runtime

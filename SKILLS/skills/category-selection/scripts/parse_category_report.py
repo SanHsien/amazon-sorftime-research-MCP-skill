@@ -9,6 +9,7 @@ import re
 import sys
 import json
 import codecs
+from sorftime_keys import normalize_text
 from typing import Dict, List, Optional
 
 
@@ -83,10 +84,10 @@ class CategoryReportParser:
                     result_text = data.get('result', {}).get('content', [{}])[0].get('text', '')
                     if result_text:
                         # 解碼 Unicode 轉義
-                        return codecs.decode(result_text, 'unicode-escape')
+                        return normalize_text(codecs.decode(result_text, 'unicode-escape'))
                 except:
                     pass
-        return decoded
+        return normalize_text(decoded)
 
     def extract_products(self, limit: int = 100) -> List[Dict]:
         """提取 Top N 產品"""
