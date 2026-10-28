@@ -233,3 +233,6 @@ Install with: `pip install xlsxwriter`
 | Product analysis | `analysis_{ASIN}_{SITE}_{YYYYMMDD}.md` | `analysis_B07PWTJ4H1_US_20260302.md` |
 | Category reports | `{Category}_{Site}_{YYYYMMDD}/` | `Sofas_US_20260303/` |
 
+## 路線圖
+
+- `ROADMAP.md` 是本 repo 後續工作的單一真相源。完成或新增工作時，在同一個 commit 更新它：做完的列刪掉、新工作加進去。不要在其他文件另列待辦。
