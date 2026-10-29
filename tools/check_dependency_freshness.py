@@ -531,14 +531,15 @@ def collect_status(
             )
             continue
         latest = fetch(package["name"])
+        latest_is_valid = bool(latest and release_key(latest) is not None)
         reviewed, reason = deferrals.get(package["name"].lower(), ("", ""))
-        deferred = bool(reviewed and latest and not is_newer_version(latest, reviewed))
+        deferred = bool(reviewed and latest_is_valid and not is_newer_version(latest, reviewed))
         rows.append(
             {
                 **package,
                 "latest": latest or "unknown",
                 "outdated": bool(latest and is_newer_version(latest, minimum)),
-                "check_failed": latest is None,
+                "check_failed": not latest_is_valid,
                 "no_floor": False,
                 "deferred_reason": reason if deferred else "",
             }

@@ -18,7 +18,7 @@ converter = opencc.OpenCC('s2twp')
 
 # Files/folders to skip
 SKIP_PARTS = {'.git', '.venv', '__pycache__', '.pytest_cache'}
-SKIP_FILES = {'upstream_baseline.json'}
+SKIP_FILES = {'upstream_baseline.json', 'sorftime_keys.py'}
 
 CHINESE_CHAR_RE = re.compile(r'[一-鿿]')
 
@@ -50,6 +50,9 @@ def convert_text_files():
                 content = p.read_text(encoding='gb18030')
             except Exception:
                 continue
+
+        if "\x00" in content:
+            continue
                 
         if not CHINESE_CHAR_RE.search(content):
             continue
