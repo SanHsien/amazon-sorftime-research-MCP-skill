@@ -5,7 +5,7 @@
 
 ## 現況
 
-這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游在 2026-10-28 又推了一個 commit `99c65df845e3`（只改 `README.md`，+2 行），而本 fork 水位 `reviewed_through` 停在 `568be294b159`（`tools/upstream_baseline.json`），所以有一項待審。
+這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游在 2026-10-28 又推了一個 commit `99c65df845e3`（只改 `README.md`，+2 行），而本 fork 水位 `reviewed_through` 停在 `568be294b159`（`tools/upstream_baseline.json`），所以有一項待審；`Dev Check` 會嚴格比對上游，所以推送後它在 `main` 轉紅，這是「上游有未審項目」的提醒，不是新故障（2026-10-29 run 結果）。
 
 ## 近期：可以直接動手
 
