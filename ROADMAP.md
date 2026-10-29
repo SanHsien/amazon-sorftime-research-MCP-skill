@@ -5,13 +5,12 @@
 
 ## 現況
 
-這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游在 2026-10-28 又推了一個 commit `99c65df845e3`（只改 `README.md`，+2 行），而本 fork 水位 `reviewed_through` 停在 `568be294b159`（`tools/upstream_baseline.json`），所以有一項待審；`Dev Check` 會嚴格比對上游，所以推送後它在 `main` 轉紅，這是「上游有未審項目」的提醒，不是新故障（2026-10-29 run 結果）。
+這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-10-28 的 `99c65df`（只在 README 加推廣連結）已於 2026-10-29 審為不引用，水位推進到該 commit（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。
 
 ## 近期：可以直接動手
 
 | 項目 | 為什麼 | 驗收方式 | 建議執行者 | 證據 |
 | --- | --- | --- | --- | --- |
-| 審上游 commit `99c65df845e3` 並推進水位 | 上游最後 push 晚於本 fork 水位；內容僅 README 兩行，多半只需判斷「是否同步到繁中 README」 | 在 `docs/fork/DECISIONS.md` 記一則審查結論；`tools/upstream_baseline.json` 的 `reviewed_through` 更新；`python tools/check_upstream_updates.py --strict` exit 0；跑完還原被改寫的 `upstream-review-report.md` | Claude Haiku | `gh api repos/liangdabiao/amazon-sorftime-research-MCP-skill/commits?per_page=3`；`tools/upstream_baseline.json` |
 | 決定修或不修兩個上游邏輯錯誤：`analyze_category._calculate_scores` 讀不到帶中文標籤前綴的占比值（競爭烈度恆 18 分）、`parse_category_report.extract_products` regex 欄位順序與真實回應相反（恆得 0 產品） | 深掃報告發現 `top3_brands_sales_volume_share` 的值帶前綴，`safe_float` 解析不了而退回 0；`extract_products` 的 regex 欄位順序與真實回應相反。兩者同屬「上游邏輯錯誤是否由 fork 修」的取捨，一起決定；目前沒有人決定修不修 | 對每一個二擇一：(a) 加重現測試（修前紅、修後綠）並在 `docs/fork/DECISIONS.md` 記錄偏離上游；(b) 在 `docs/fork/DECISIONS.md` 新增一則「決定不修」並附理由。不論哪個，`pytest` 綠 | Claude Opus | `docs/fork/DECISIONS.md:13`（`analyze_category` 相關）；深掃報告（2026-10-26） |
 
 ## 中期：等條件成立再做
