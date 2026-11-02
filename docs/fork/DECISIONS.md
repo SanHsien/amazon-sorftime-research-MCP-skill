@@ -4,6 +4,25 @@
 
 ---
 
+## 2026-10-31: 修 analyze_category 占比值前綴解析；仍不修 parse_category_report
+
+- **背景與缺陷本質**:
+  1. `analyze_category._calculate_scores`: `stats` 中 `top3_brands_sales_volume_share` 等欄位在真實 Sorftime 回應中帶有中文標籤前綴（如 `销量前三的品牌月销量占比:84.11%`），原 `safe_float` 只處理 `%` 與 `,`，解析不了前綴就退回預設值 0。審查實測：同一份數據，帶前綴的輸入比純數字多算 17 分、評級升一級，會誤導選品（把競爭激烈的品類評成較好）。
+  2. `parse_category_report.extract_products`: 使用正規表達式提取 JSON 中的產品列表，其 regex 假定欄位順序為 `ASIN` → `月銷量` → `標題` → `價格` → `星級` → `品牌`，但真實 API 回應順序為 `ASIN` → `標題` → `月銷量`，導致 regex 無法匹配，提取產品數恆為 0。
+- **決定（偏離上游）**:
+  - **修 `analyze_category`**：`safe_float` 改成用 regex 取字串尾端的數字（容許千分位、小數與結尾 `%`），前綴文字不再影響評分；無法解析時仍退回預設值。先紅後綠測試 `tests/test_category_report_safety.py::test_calculate_scores_ignores_chinese_label_prefix_on_values`（修前失敗、修後通過）。
+  - **仍不修 `parse_category_report`**：維持上游原樣。
+- **理由**:
+  1. **錯誤成本不對稱**: `analyze_category` 的錯誤會把錯誤的評分與評級交給使用者做選品判斷（輸出看起來正常、實際偏高），值得由 fork 修；`parse_category_report` 的錯誤是產品數恆為 0，結果一眼可見，不會誤導。
+  2. **fork 已不是上游原樣**: `analyze_category.py` 在 fork 內已被多次修改（`4f6acb7` 簡體鍵名正規化、`ce2215e` 金鑰改走 query parameter、`6be1671` 報告脫敏），再多一處小修的合併成本低；保守維持原樣的理由（降低與上游分歧）對這支檔案已不成立。
+  3. **`parse_category_report` 仍不修**: 屬上游獨立輔助腳本，非技能標準入口 `workflow.py`；以 regex 解析 JSON 本屬脆弱實作，單純調整欄位順序不能根治，要修實質是改用 `json.loads` 重寫上游腳本，會擴大分歧。
+  4. **可回復**: 修正只在 `safe_float`（先照舊 `float()`，失敗才用 regex 取尾端數字，且前面不得接英數字或點，避免把 `.5`、`3e5`、`B0ABC12345` 誤解成別的數），若上游日後釋出官方修正，以上游版本取代並保留該測試即可。
+- **重新考慮條件（僅 `parse_category_report`）**:
+  - 上游官方釋出更新修正該 regex；或
+  - 維護者在實機選品流程中明確需要依賴 `parse_category_report.py` 作為核心交付物。
+
+---
+
 ## 2026-10-29: 上游 commit 99c65df 審查
 
 - **上游變更**：`99c65df`（訊息「ok」）只在 `README.md` 開頭加一行，推薦作者另一個 repo（`liangdabiao/Amazon-Skills-Liang`），給沒有金鑰的使用者試用。
@@ -17,7 +36,7 @@
 - **修法**: 在資料進入點把簡體鍵名正規化成程式使用的繁體鍵名（`sorftime_keys.py`，`normalize_keys` 轉解析後的 JSON，`normalize_text` 轉原始 JSON 文字裡的 `"鍵":`）。簡體、繁體輸入都對得上，只轉鍵名，值與輸出文字不動。入口：`analyze_category`、`parse_sorftime_sse`、`sse_decoder`、`parse_category_report`、`extract_top_products`、`keywords_parser`、`trend_parser`、`workflow`、`data_adapter`、`generate_markdown_report`、keyword-research `data_parser`、product-research `api_client`。
 - **對照表**: （限制：程式內的鍵若在上游來源找不到，簡體形式以 t2s 還原，可能與 API 實際用字不同；守門測試只檢查「有沒有在表裡」。）由 `tools/generate_sorftime_key_map.py --upstream 568be29` 產生（上游簡體原始碼與真實樣本鍵，以 `s2twp` 轉換；再補上現行程式裡 t2s 可還原的鍵），三個技能各放一份相同的 `sorftime_keys.py`。`tests/test_sorftime_keys.py` 確保程式內每個繁體鍵都在表裡、三份一致；新增鍵名沒進表會紅燈，重跑產生腳本即可。
 - **已知未涵蓋**: `keyword_collector._parse_product_info` 以 `：` 分行比對標籤（上游本來就比對簡體，且回應多半是 JSON，未動）；其他廠商（Sif、西柚洞察、賣家精靈）的回應與舊版已存檔的簡體 JSON（只有 `data_adapter`、`generate_markdown_report` 讀檔時會轉）；回應裡「值」的簡體標籤（如 `销量最大产品月销量:10533`）不轉。
-- **上游觀察（不改）**: stats 中 `top3_brands_sales_volume_share` 等值帶中文標籤前綴（`销量前三的品牌月销量占比:84.11%`），`analyze_category._calculate_scores` 的 `safe_float` 解析不了而退回 0，競爭烈度恆為 18 分。屬上游邏輯，列入觀察清單。
+- **上游觀察（不改）**: stats 中 `top3_brands_sales_volume_share` 等值帶中文標籤前綴（`销量前三的品牌月销量占比:84.11%`），`analyze_category._calculate_scores` 的 `safe_float` 解析不了而退回 0，競爭烈度恆為 18 分。屬上游邏輯，列入觀察清單。（2026-10-31 更新：`safe_float` 已修正，不再是「不改」，見本檔最上方該日決策。）
 
 ---
 
@@ -81,6 +100,18 @@
     1. **全域安裝**: 支援將 SKILLS/skills/* 掛載至 ~/.codex/skills/（Windows: %USERPROFILE%\.codex\skills\）。
     2. **專案本地執行**: 在本倉庫根目錄直接啟動 codex，代理將自動識別並執行本專案 Skills。
     3. **MCP 配置**: 指引如何將 .mcp.json 整合進 Codex 的設定檔中。
+
+---
+
+## 2026-11-02: 上游 Issue #8 分流
+
+### 8. Issue #8: 賣家精靈 MCP 已更新到 v2，程式碼是否需要適配
+- **問題本質**: 上游使用者（2026-10-31 開）貼了一張截圖，問賣家精靈 MCP 升到 v2 後本專案程式要不要跟著改。內文只有截圖，上游作者尚未回覆。
+- **審查決策 (未判定，列近期驗證)**:
+  - **不改程式碼**：沒有可重現的錯誤，也沒有 v2 的變更說明可對照；本 fork 沒有賣家精靈的帳號金鑰，無法在這裡驗證。
+  - 串接位置是 `.mcp.json` 與 `README.md`／`README.en.md` 的 `https://mcp.sellersprite.com/mcp`，以及 `amazon-listing-builder` 的 `reference/sellersprite-mcp-integration.md`（欄位對映與已知陷阱）。若 v2 改了端點、認證或欄位，受影響的是這幾處。
+  - 已在 `ROADMAP.md` 近期表新增一列，由維護者用真實金鑰實測；實測前不宣稱相容，也不宣稱不相容。
+- **重新考慮條件**: 實測失敗、上游修補，或賣家精靈公布 v2 變更說明。
 
 ---
 

@@ -5,13 +5,13 @@
 
 ## 現況
 
-這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-10-28 的 `99c65df`（只在 README 加推廣連結）已於 2026-10-29 審為不引用，水位推進到該 commit（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。
+這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-10-28 的 `99c65df`（只在 README 加推廣連結）已於 2026-10-29 審為不引用，水位推進到該 commit（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。兩項上游邏輯錯誤已於 2026-10-31 決策：`analyze_category` 的占比前綴解析已修正（先紅後綠測試 `tests/test_category_report_safety.py`），`parse_category_report` 的 regex 欄位順序仍不修，皆載明於 `docs/fork/DECISIONS.md`。
 
 ## 近期：可以直接動手
 
 | 項目 | 為什麼 | 驗收方式 | 建議執行者 | 證據 |
 | --- | --- | --- | --- | --- |
-| 決定修或不修兩個上游邏輯錯誤：`analyze_category._calculate_scores` 讀不到帶中文標籤前綴的占比值（競爭烈度恆 18 分）、`parse_category_report.extract_products` regex 欄位順序與真實回應相反（恆得 0 產品） | 深掃報告發現 `top3_brands_sales_volume_share` 的值帶前綴，`safe_float` 解析不了而退回 0；`extract_products` 的 regex 欄位順序與真實回應相反。兩者同屬「上游邏輯錯誤是否由 fork 修」的取捨，一起決定；目前沒有人決定修不修 | 對每一個二擇一：(a) 加重現測試（修前紅、修後綠）並在 `docs/fork/DECISIONS.md` 記錄偏離上游；(b) 在 `docs/fork/DECISIONS.md` 新增一則「決定不修」並附理由。不論哪個，`pytest` 綠 | Claude Opus | `docs/fork/DECISIONS.md:13`（`analyze_category` 相關）；深掃報告（2026-10-26） |
+| 實測賣家精靈 MCP v2 是否破壞現有串接 | 上游 issue #8（2026-10-31）說賣家精靈 MCP 已升 v2；本 fork 的 `.mcp.json`、README 與 `amazon-listing-builder` 的整合文件寫的是 v1 行為，沒有金鑰無法在這裡驗證 | 維護者用真實金鑰跑一次賣家精靈的呼叫（端點、認證、欄位對映）；相容就在 `docs/fork/DECISIONS.md` 補實測結果與日期，不相容就列出要改的檔 | 維護者 | `docs/fork/DECISIONS.md` 2026-11-02；上游 issue #8；`.mcp.json:27` |
 | 主管協調 shared `repo-fleet-ops` canonical `check_upstream_updates.py` 補齊網站 `version.json` 缺失或非字串 `version` 的 fail-closed guard 與 property test，完成前不要以 fleet overwrite 覆蓋本 fork | 本 fork 的 guard 已修正此不可信 JSON 會誤讀為正常的缺陷，與 canonical copy 暫時 diverge | shared canonical 的 property test 與 guard 通過後，由主管安排一次有證據的 re-sync；本 repo 不直接修改 shared checker | 主管 | `tools/check_upstream_updates.py`、本 fork `tests/test_tools_audit_regressions.py` |
 
 ## 中期：等條件成立再做
@@ -30,6 +30,7 @@
 | 轉換回應「值」裡的簡體標籤（如 `销量最大产品月销量:10533`） | 影響小，且值屬 API 內容不是鍵名（`docs/fork/DECISIONS.md:12`） | 下游報告因此出現使用者看得到的錯字或解析錯誤 |
 | 修改 `keyword_collector._parse_product_info` 的簡體標籤比對 | 上游本就比對簡體、回應多半是 JSON | 實測該路徑在真實回應下取不到資料 |
 | 對上游開 PR／回貢 | 預設只打 `SanHsien/` 名下 repo | 維護者在新的對話中明確要求回貢 |
+| 修補 `parse_category_report.extract_products` 的 regex 欄位順序錯誤（真實回應下恆得 0 產品） | 屬上游獨立輔助腳本、非標準入口 `workflow.py`；要修實質是改用 `json.loads` 重寫，會擴大與上游的分歧（`analyze_category` 因會誤導選品評級，已另行修正，見 `docs/fork/DECISIONS.md` 2026-10-31） | 上游官方釋出修正，或維護者需要依賴該獨立腳本作為主力選品流程 |
 
 ## 維護方式
 

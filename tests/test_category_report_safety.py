@@ -110,3 +110,36 @@ def test_direct_generator_redacts_token_field_variants(tmp_path):
     output = (tmp_path / "reports" / "data" / "raw_data.json").read_text(encoding="utf-8")
 
     assert all(secret not in output for secret in secrets)
+
+
+def test_calculate_scores_ignores_chinese_label_prefix_on_values():
+    """A prefixed value must score exactly like the bare number (no silent 0 fallback)."""
+    analyzer = CategoryAnalyzer(api_key="sample-key")
+
+    def stats(prefix):
+        return {
+            "top100產品月銷額": f"{prefix}1,500,000",
+            "top3_brands_sales_volume_share": f"{prefix}84.11%",
+            "amazonOwned_sales_volume_share": f"{prefix}5%",
+            "low_reviews_sales_volume_share": f"{prefix}45%",
+            "average_price": f"{prefix}99.5",
+        }
+
+    expected = analyzer._calculate_scores(stats(""))
+    for prefix in ("销量前三的品牌月销量占比:", "占比：", "top3品牌占比: "):
+        assert analyzer._calculate_scores(stats(prefix)) == expected, prefix
+
+    # Unparseable text still falls back to the default instead of raising.
+    assert analyzer._calculate_scores({"top3_brands_sales_volume_share": "n/a"})["競爭烈度"] == 18
+
+
+def test_calculate_scores_does_not_misread_values_float_already_handled():
+    """The regex fallback must not turn '.5', '3e5' or an ASIN's digits into other numbers."""
+    analyzer = CategoryAnalyzer(api_key="sample-key")
+
+    def scores(**kw):
+        return analyzer._calculate_scores(kw)
+
+    assert scores(average_price=".5") == scores(average_price="0.5")
+    assert scores(average_price="3e5") == scores(average_price="300000")
+    assert scores(top3_brands_sales_volume_share="B0ABC12345") == scores(top3_brands_sales_volume_share="n/a")

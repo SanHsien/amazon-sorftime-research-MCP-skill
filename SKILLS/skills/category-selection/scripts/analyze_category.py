@@ -284,10 +284,13 @@ class CategoryAnalyzer:
     def _calculate_scores(self, stats: Dict) -> Dict:
         """計算五維評分"""
         def safe_float(value, default=0):
+            text = str(value).strip()
             try:
-                return float(str(value).replace('%', '').replace(',', ''))
-            except:
-                return default
+                return float(text.replace('%', '').replace(',', ''))
+            except ValueError:
+                pass
+            match = re.search(r'(?<![A-Za-z0-9.])-?\d[\d,]*(?:\.\d+)?(?=\s*%?\s*$)', text)
+            return float(match.group().replace(',', '')) if match else default
 
         revenue = safe_float(stats.get('top100產品月銷額', 0))
         top3_share = safe_float(stats.get('top3_brands_sales_volume_share', 0))
