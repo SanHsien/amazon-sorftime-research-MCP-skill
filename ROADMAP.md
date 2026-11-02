@@ -7,6 +7,8 @@
 
 這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-10-28 的 `99c65df`（只在 README 加推廣連結）已於 2026-10-29 審為不引用，水位推進到該 commit（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。兩項上游邏輯錯誤已於 2026-10-31 決策：`analyze_category` 的占比前綴解析已修正（先紅後綠測試 `tests/test_category_report_safety.py`），`parse_category_report` 的 regex 欄位順序仍不修，皆載明於 `docs/fork/DECISIONS.md`。
 
+`tools/dev_check.ps1` 與 CI 的 Dev Check 會跑 `ruff check tools tests`；上游的技能腳本與歷史報表保持原樣以利同步，不在 lint 範圍內（全 repo 掃描有 353 個既有問題，都在上游檔案）。
+
 ## 近期：可以直接動手
 
 | 項目 | 為什麼 | 驗收方式 | 建議執行者 | 證據 |
@@ -17,7 +19,6 @@
 
 | 項目 | 觸發條件 | 驗收方式 | 建議執行者 | 證據 |
 | --- | --- | --- | --- | --- |
-| 把 ruff 納入 lint gate，並取消 ruff 延後 | 維護者決定在 CI 或 `dev_check.ps1` 跑 ruff；或 ruff 超過 `deferredLatest`（延後自動到期） | CI 實際執行 `ruff check` 且綠；`.github/dependency-deferrals.json` 的 ruff 條目移除或更新；`check_dependency_freshness.py --strict` exit 0 | Codex | `.github/dependency-deferrals.json`（ruff 條目） |
 | 補 Sif、西柚洞察、賣家精靈三技能的回應鍵名簡繁相容 | 維護者實際使用這三個廠商之一，或拿到真實回應樣本（目前只驗證過 Sorftime） | 以真實回應樣本寫測試，修前紅修後綠；DECISIONS「已知未涵蓋」該項更新 | Claude Sonnet | `docs/fork/DECISIONS.md:12`；深掃報告「未涵蓋」 |
 | 對真實 Sorftime API 實機跑一次選品流程 | 維護者提供可用的付費 Sorftime 金鑰並同意消耗額度 | 一份完整選品流程的實際輸出（產品數、市場規模評分非預設值）貼入 `docs/fork/DECISIONS.md` | 維護者 | `docs/fork/DECISIONS.md:7`（鍵名事故以離線樣本驗證，未實機） |
 

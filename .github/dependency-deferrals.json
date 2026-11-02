@@ -2,8 +2,12 @@
   "_comment": "Reviewed-but-not-now decisions for tools/check_dependency_freshness.py. A deferral is for a floor that would genuinely break something if raised right now, with the reason recorded here; it is not a place to park 'waiting for upstream to move first'. Each entry needs deferredLatest so it expires by itself once the registry moves past the release it was reviewed against; a permanent policy belongs on the declaring line as `# freshness-hold:` instead.",
   "deferrals": {
     "ruff": {
-      "deferredLatest": "0.17.2",
-      "reason": "ruff is a dev-only tool and no workflow runs it (Dev Check runs pytest and the upstream baseline check), so the floor is only a tested-with promise for local linting. 0.16.9 to 0.17.2 changes nothing this repo exercises; raise the floor when a lint gate is adopted."
+      "deferredLatest": "0.17.3",
+      "reason": "2026-11-02: replaced the obsolete no-lint-gate deferral. Ruff 0.17.3 passes the tools/ and tests/ E4/E7/E9/F gate and all 58 tests with the latest PyPI dependencies in a system-temp venv. The gate uses no rule or option requiring a higher floor than 0.16.9; retain compatible installations rather than raising the minimum solely for freshness."
+    },
+    "pytest": {
+      "deferredLatest": "9.2.0",
+      "reason": "2026-11-02: pytest 9.2.0 passes all 58 tests and the Ruff lint gate with the latest PyPI dependencies in a system-temp venv. No new pytest API is required; retain the compatible 9.1.1 floor rather than raising the minimum solely for freshness."
     }
   }
 }

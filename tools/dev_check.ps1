@@ -18,6 +18,12 @@ if ($LASTEXITCODE -ne 0) {
     throw "Python not available"
 }
 
+Write-Host "==> Linting Fork Automation (tools/ and tests/)"
+python -m ruff check tools tests
+if ($LASTEXITCODE -ne 0) {
+    throw "Ruff lint failed with exit code $LASTEXITCODE"
+}
+
 Write-Host "==> Running Test Suite & Integrity Checks"
 python -m pytest tests -q
 if ($LASTEXITCODE -ne 0) {

@@ -34,6 +34,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Lint fork automation
+        run: python -m ruff check tools tests
+
       - name: Run test suite
         run: python -m pytest tests -v
 

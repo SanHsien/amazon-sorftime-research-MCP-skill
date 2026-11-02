@@ -162,7 +162,13 @@ This project is fully compatible with OpenAI Codex (both Desktop App and CLI):
 
 ## Quality Gate & Governance
 
+CI and the Windows gate run `ruff check tools tests` first, using the E4/E7/E9/F baseline rules, and stop on failure. This covers fork maintenance tools and tests; upstream skill scripts and historical report examples are outside this lint scope. `-Quick` and the no-argument command currently run the same complete checks.
+
 ```powershell
+# Install development dependencies and lint fork automation
+python -m pip install -r requirements.txt
+python -m ruff check tools tests
+
 # Run test suite & integrity checks
 python -m pytest tests -v
 

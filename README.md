@@ -172,9 +172,13 @@ claude
 
 ## Windows 開發環境與質量閘門
 
-本 fork 提供嚴格的本地驗收閘門與上游增量水位追蹤機制：
+本 fork 提供嚴格的本地驗收閘門與上游增量水位追蹤機制。CI 與 Windows 閘門均先執行 `ruff check tools tests`（E4/E7/E9/F 基礎規則），失敗即停止；此範圍涵蓋本 fork 的維護工具與測試，不涵蓋上游技能腳本與歷史報表範例。`-Quick` 與無引數版本目前執行相同的完整檢查：
 
 ```powershell
+# 0. 安裝開發依賴並檢查本 fork 的維護工具與測試
+python -m pip install -r requirements.txt
+python -m ruff check tools tests
+
 # 1. 執行單元測試與完整性檢查
 python -m pytest tests -v
 
