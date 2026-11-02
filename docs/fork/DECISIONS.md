@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-11-02: 上游檢查器回到艦隊正本
+
+- 10-29 在本 fork 補的 `version.json` guard 已移進 `repo-fleet-ops` 正本（`40423df`）並加性質測試，正本同步到各 fork。本檔案與正本重新逐位元組相同，`tools/check_upstream_updates.py` 這次沒有再改。
+
+---
+
 ## 2026-10-31: 修 analyze_category 占比值前綴解析；仍不修 parse_category_report
 
 - **背景與缺陷本質**:

@@ -12,7 +12,6 @@
 | 項目 | 為什麼 | 驗收方式 | 建議執行者 | 證據 |
 | --- | --- | --- | --- | --- |
 | 實測賣家精靈 MCP v2 是否破壞現有串接 | 上游 issue #8（2026-10-31）說賣家精靈 MCP 已升 v2；本 fork 的 `.mcp.json`、README 與 `amazon-listing-builder` 的整合文件寫的是 v1 行為，沒有金鑰無法在這裡驗證 | 維護者用真實金鑰跑一次賣家精靈的呼叫（端點、認證、欄位對映）；相容就在 `docs/fork/DECISIONS.md` 補實測結果與日期，不相容就列出要改的檔 | 維護者 | `docs/fork/DECISIONS.md` 2026-11-02；上游 issue #8；`.mcp.json:27` |
-| 主管協調 shared `repo-fleet-ops` canonical `check_upstream_updates.py` 補齊網站 `version.json` 缺失或非字串 `version` 的 fail-closed guard 與 property test，完成前不要以 fleet overwrite 覆蓋本 fork | 本 fork 的 guard 已修正此不可信 JSON 會誤讀為正常的缺陷，與 canonical copy 暫時 diverge | shared canonical 的 property test 與 guard 通過後，由主管安排一次有證據的 re-sync；本 repo 不直接修改 shared checker | 主管 | `tools/check_upstream_updates.py`、本 fork `tests/test_tools_audit_regressions.py` |
 
 ## 中期：等條件成立再做
 
