@@ -142,3 +142,17 @@
 - **決策**: 將全倉庫 378 個檔案全面翻譯為標準繁體中文（台灣跨境電商習慣用語），包含代碼註解、.mcp.json、SKILLS、提示詞與報表範例。
 - **檔名正名**: 11 處簡體中文檔名/目錄透過 git mv 重新命名並同步更新程式碼引用。
 - **平台專注**: 清除非 Windows 平台冗餘腳本與指令，專注 **Windows 11 + PowerShell** 開發與運營環境。
+
+## 2026-11-08: 賣家精靈 MCP v2（上游 Issue #8）無金鑰探測，列移至中期；上游 Issue #9 分流
+
+### 8. Issue #8 無金鑰探測
+- **探測結果**: 無金鑰對 `https://mcp.sellersprite.com/mcp` 送 `initialize`，回 HTTP 200，`serverInfo` 為 `sellersprite-mcp-server` 版本 1.0.0；無金鑰的 `tools/list` 只回單一工具 `secret_invalid`，所以 43 個工具的清單與欄位對映無法在沒有金鑰時驗證。上游 issue #8 仍 open 且無回覆。
+- **決策**: 仍不改程式碼、不宣稱相容或不相容；不使用 `.mcp.json` 內的上游金鑰做實測（金鑰歸屬不明，沿用「維持原樣」的決定）。ROADMAP 的對應列從近期移到中期，觸發條件是維護者取得自己的金鑰或賣家精靈公布 v2 變更說明。
+- **重新考慮條件**: 同上。
+
+### 9. Issue #9: listing 7 月新規已包含 highlight，是否適配最新規則
+- **問題本質**: 上游使用者（2026-11-05 開）提出 Amazon listing 規則已含 highlight，希望 `amazon-listing-builder` 跟進。2026-11-08 查：issue 內文為空、沒有留言；本 fork 的 `SKILLS/skills/amazon-listing-builder` 內沒有 highlight 字樣。
+- **決策 (no action)**: 沒有可對照的規則文件或欄位定義，無法判斷要改什麼，也無法驗證；不憑單句描述改 listing 生成規則。不新增 ROADMAP 列。
+- **重新考慮條件**: 提出者補上 Amazon 官方規則連結或欄位範例，或維護者要求 listing 輸出跟進該規則。
+
+水位：`reviewed_issue_through` 8 → 9，`reviewed_date` 2026-11-08。
