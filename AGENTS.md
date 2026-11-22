@@ -82,17 +82,7 @@ Skills located in `SKILLS/skills/skill-name/`:
 - `references/` - API docs, patterns loaded on-demand
 - `assets/` - Templates for output files (HTML, Excel templates)
 
-**category-selection Skill Updates (v6.0 - 2026-03-04)**
-
-Recent Improvements:
-- 自動編碼修復：整合 Mojibake (UTF-8/Latin-1 雙重編碼) 自動檢測和修復
-- 錯誤容錯機制：趨勢 API 失敗時不影響整體流程
-- Markdown 報告：新增自動生成 Markdown 分析報告
-- 執行狀態跟蹤：顯示每步執行狀態和最終總結
-- 關鍵詞解析增強：3 種解析策略支援更多資料格式
-- 獨立編碼修復工具：`fix_encoding.py` 可修復現有 JSON 檔案
-
-故障排查：
+**category-selection 故障排查**
 - 如遇亂碼: 執行 `python SKILLS/skills/category-selection/scripts/fix_encoding.py <json_file>`
 - 如遇解析失敗: 檢視 `SKILLS/skills/category-selection/SKILL.md` 中的故障排查章節
 
@@ -168,16 +158,8 @@ Located in `SKILLS/skills/category-selection/scripts/`:
 ### Report Generation Patterns
 
 **Excel Report Generation**
-Use `xlsxwriter` library (not `openpyxl` - simpler for large files):
-```python
-wb = xlsxwriter.Workbook(output_file)
-header_fmt = wb.add_format({'bold': True, 'bg_color': '#4472C4', 'font_color': 'white'})
-ws = wb.add_worksheet("Sheet Name")
-ws.write(row, col, value, format)
-chart = wb.add_chart({'type': 'column'})
-ws.insert_chart('A1', chart)
-wb.close()
-```
+Excel reports use `openpyxl` (declared in `requirements.txt`). Follow the existing generator,
+`SKILLS/skills/category-selection/scripts/generate_excel_report.py`, for sheet layout and styling.
 
 **HTML Dashboard Template**
 Located in `SKILLS/skills/category-selection/assets/dashboard_template.html`
@@ -220,11 +202,8 @@ Always validate ASIN first with `product_detail`. If "未查詢到對應產品":
 
 ### Python Dependencies
 
-Scripts in this project require:
-- `xlsxwriter` - Excel report generation
-- Standard library: `json`, `codecs`, `re`, `datetime`, `sys`
-
-Install with: `pip install xlsxwriter`
+Runtime dependencies are declared in `requirements.txt` (`requests` for MCP HTTP calls,
+`openpyxl` for Excel reports). Install with: `pip install -r requirements.txt`
 
 ### Report Naming Conventions
 

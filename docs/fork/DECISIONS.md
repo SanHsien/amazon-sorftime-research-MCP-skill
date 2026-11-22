@@ -177,3 +177,10 @@
 - **重新考慮條件**: 提出者補上 Amazon 官方規則連結或欄位範例，或維護者要求 listing 輸出跟進該規則。
 
 水位：`reviewed_issue_through` 8 → 9，`reviewed_date` 2026-11-08。
+
+---
+
+## 2026-11-22: AGENTS.md 與 keyword-research 參考連結校正（prompt 稽核）
+
+- **AGENTS.md**：Excel 段原本叫 agent 用 `xlsxwriter`、「不要用 openpyxl」，依賴段寫「只需 xlsxwriter＋標準庫」；實際 `generate_excel_report.py`、`generate_reports.py` 用 openpyxl，`requirements.txt`／`pyproject.toml` 只宣告 `requests`、`openpyxl`，全 repo 沒有 xlsxwriter import。兩段改成以 `requirements.txt` 為準。category-selection「v6.0 Recent Improvements」變更紀錄移除，只留故障排查兩行。AGENTS.md 是 fork 檔，不影響上游同步。
+- **keyword-research/SKILL.md（上游檔）**：參考文件連到不存在的 `references/sorftime-keyword-api.md`、`references/classification-rules.md`（上游也一樣）；改指向實際的 `references/sorftime-mcp-api.md` 與本檔「階段二」分類提示詞模板。下次同步上游若這兩行衝突，保留本 fork 版。

@@ -347,8 +347,8 @@ curl -s -X POST "https://mcp.sorftime.com?key={API_KEY}" \
 
 ## 參考文件
 
-- [Sorftime API 文件](references/sorftime-keyword-api.md)
-- [分類規則說明](references/classification-rules.md)
+- [Sorftime API 文件](references/sorftime-mcp-api.md)
+- 分類規則：見本檔「階段二：LLM 智慧分類」的分類提示詞模板
 
 ---
 
