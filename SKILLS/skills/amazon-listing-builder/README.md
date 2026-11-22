@@ -1,6 +1,6 @@
 # Amazon Listing Builder Skill
 
-> **AI 驅動的亞馬遜爆款 Listing 打造助手** — 基於 Cosmo 語義演算法 + Alexa/Rufus 對話式購物趨勢，透過"先分析、再生成、最後校驗"的工程化流程，把 Listing 從"關鍵詞堆砌"升級為"語義覆蓋 + 需求證據 + 答案型內容"。
+> **AI 驅動的亞馬遜爆款 Listing 打造助手** — 基於 Cosmo 語義演算法 + Alexa/Rufus 對話式購物趨勢，透過"先分析、再生成、最後校驗"的工程化流程，把 Listing 從"關鍵詞堆砌"升級為"語義覆蓋 + 需求證據 + 答案型內容"。已適配 **2026-07-27 美國站標題新規**：Item Name（≤75 字元）+ Item Highlights 商品亮點（≤125 字元）雙欄位結構。
 
 ---
 
@@ -25,7 +25,7 @@
 - **關鍵詞分層詞庫** — 把關鍵詞按 5 層（核心/功能/場景/問題/規格）組織，決定每個詞放哪裡
 - **使用者問題庫** — 從評論、QA、客服、Reddit/TikTok 提取真實買家疑慮
 - **賣點證據庫** — 每個賣點必須有材料/工藝/資料證據，杜絕"漂亮廢話"
-- **3 版標題對比** — 關鍵詞覆蓋版 / 轉化表達版 / 簡潔合規版，列出優缺點再由人決策
+- **3 版"標題 + 亮點"組合對比** — Item Name（≤75）+ Item Highlights（≤125，可搜尋索引）雙欄位，關鍵詞覆蓋版 / 轉化表達版 / 簡潔合規版，列出優缺點再由人決策
 - **五點決策鏈** — 每點對應一個使用者決策環節（核心價值 → 痛點 → 場景 → 規格 → 信任）
 - **A+ 7 屏模組結構** — 每屏對應一個語義關係，承接 Cosmo 演算法
 - **Search Terms 策略** — 只放補充索引詞，不重複、不堆砌、不超位元組
@@ -139,7 +139,7 @@ Claude 會呼叫 `examples/down-pillows-qa-example.md` 的模板風格生成。
 | 1 | 關鍵詞分層詞庫 | 5 層詞表（核心/功能/場景/問題/規格） | `workflow/step-1-keyword-library.md` |
 | 2 | 使用者問題庫 | 真實買家疑慮清單 | `workflow/step-2-question-library.md` |
 | 3 | 賣點證據庫 | 每個賣點對應材料/資料/圖片證據 | `workflow/step-3-evidence-library.md` |
-| 4 | 標題結構設計 | 品牌+核心詞+差異屬性+主場景+規格 | `workflow/step-4-title-design.md` |
+| 4 | 標題+亮點分層設計 | Item Name（≤75）+ Item Highlights（≤125）雙欄位 | `workflow/step-4-title-design.md` |
 | 5 | 五點描述 | 5 點對應 5 個決策環節 | `workflow/step-5-bullet-points.md` |
 | 6 | 描述 + A+ 內容 | 痛點 → 場景 → 方案 → 細節 → 對比 → 注意 | `workflow/step-6-description-aplus.md` |
 | 7 | Search Terms | 只放補充索引詞，不堆砌 | `workflow/step-7-search-terms.md` |
@@ -204,7 +204,7 @@ Claude 會呼叫 `examples/down-pillows-qa-example.md` 的模板風格生成。
 ### 案例 1：抗 UV 戶外模擬植物（端到端 9 步完整演示）
 **檔案**：`examples/uv-outdoor-plants-fullcase.md`
 
-包含完整的詞庫拆解、痛點證據對映、3 版標題對比、五點描述、7 段式描述、A+ 7 屏結構、ST 最佳化、10 題 QA、上線後資料迭代示例。
+包含完整的詞庫拆解、痛點證據對映、3 版"標題 + 亮點"組合對比（2026 新規雙欄位）、五點描述、7 段式描述、A+ 7 屏結構、ST 最佳化、10 題 QA、上線後資料迭代示例。
 
 ### 案例 2：down filled pillows QA（Alexa 風格示例）
 **檔案**：`examples/down-pillows-qa-example.md`
@@ -371,10 +371,10 @@ amazon-listing-builder（消費資料）
 - 高合規風險品類 / 新賬號 → 簡潔合規版
 
 ### Q4：Skill 支援哪些站點？
-**A**：方法論支援所有站點。字元限制差異：
-- 美國站：標題 200 字元、ST 250 位元組
-- 歐洲站：同美國
-- 日本站：標題 100 位元組、ST 100 位元組
+**A**：方法論支援所有站點。字元限制差異（2026-07 新規後）：
+- 美國站：標題 Item Name ≤75 字元 + 商品亮點 Item Highlights ≤125 字元（雙欄位）、ST 250 位元組
+- 歐洲站 / 加拿大站：同美國站
+- 日本站及媒介類目（圖書/音樂/影音）：以 `getDefinitionsProductType` 返回的類目 schema 為準
 
 ### Q5：上線後多久迭代一次？
 **A**：

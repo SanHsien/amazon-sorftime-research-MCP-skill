@@ -4,6 +4,27 @@
 
 ---
 
+## 2026-11-22: 上游增量審查（commit `cfdf288`、PR #10、Issue #11）
+
+### 1. Commit `cfdf288`：適配亞馬遜 2026-07 標題新規（Item Name 75 + Item Highlights 125 雙欄位）
+- **上游變更**：更新 `SKILLS/skills/amazon-listing-builder/` 下 13 個 Markdown 檔（`README.md`、`skill.md`、`workflow/step-1-keyword-library.md`、`workflow/step-4-title-design.md`、`workflow/step-7-search-terms.md`、`prompts/*`、`examples/*`、`reference/output-format-spec.md`），將美國站標題結構改為 `Item Name`（<= 75 字元）+ `Item Highlights`（<= 125 字元，`title_differentiation`）雙欄位，補上存量 Listing AI 自動拆分與 14 天審核視窗遷移指引。
+- **審查決策 (Adopt)**：**採用**。將 13 個檔案依 `tools/localize_traditional_chinese.py` 同款 `opencc('s2twp')` 轉為繁體中文套入本 fork（13 檔在本次採納前均與基線 `99c65df` 經 `s2twp` 逐位元組一致）。純 Skill 文件與提示詞更新，未夾帶執行腳本、混淆內容、新增網路端點或放寬審批要求。同時滿足 2026-11-08 Issue #9 紀錄之重看條件。
+- **重看條件**：Amazon 再度變更 `item_name` / `title_differentiation` 字數限制或 API 規格，或上游發布後續修訂。
+
+### 2. PR #10：`Fix/50 copy skill stale fact notes by qwen`
+- **狀態**：`CLOSED`（`mergedAt: null`，head `6fa05f5e0e4b8f3b2f74cedbd1599bd9835187e5`）。
+- **審查決策 (Reject)**：**拒絕（不採用）**。該 PR 由外部開發者自個人改造分支提交（168 檔、+24,772 行），整份覆寫根目錄 `README.md`，並塞入平行模組層 `SKILLS/modules/`、`SKILLS/scripts/`、非 MIT 授權之 `SKILLS/amz-review-analysis/` 與 `SKILLS/vendor/amazon-listing-doctor/`，與本 fork 既有 9 大 Skill 架構及維護邊界不相容，且上游已未合併關閉。
+- **重看條件**：上游作者正式重開並合併其中特定模組，或維護者明確指示引入該改造層。
+
+### 3. Issue #11：`感谢分享：优秀的项目 + 关于 .mcp.json 明文 API Key 的安全建议`
+- **狀態**：`OPEN`。
+- **審查決策 (Reject)**：**拒絕（不採用，維持 `2026-10-25` 既有決策）**。建議將根目錄 `.mcp.json` 四把上游廠商金鑰移出並以 `git filter-repo` 改寫歷史；依 `2026-10-25` 紀錄，該等值屬上游已公開之上游金鑰，本 fork 即使刪除也無法收回，故維持原樣不改歷史，且已提供 `.env.example` 供使用者自備憑證。
+- **重看條件**：上游採納並輪替／移除 `.mcp.json` 內金鑰，或維護者改變決定。
+
+水位：`reviewed_through` `99c65df` → `cfdf288`，`reviewed_pr_through` 0 → 10，`reviewed_issue_through` 9 → 11，`reviewed_date` `2026-11-22`。
+
+---
+
 ## 2026-11-02: 上游檢查器回到艦隊正本
 
 - 10-29 在本 fork 補的 `version.json` guard 已移進 `repo-fleet-ops` 正本（`40423df`）並加性質測試，正本同步到各 fork。本檔案與正本重新逐位元組相同，`tools/check_upstream_updates.py` 這次沒有再改。

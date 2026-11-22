@@ -59,7 +59,7 @@ for asin in competitor_asins:
 | ppc_bid | 廣告建議價 |
 | click_concentration | 點選集中度（0-1） |
 | conversion_concentration | 轉化集中度（0-1） |
-| suggested_position | 標題/五點/描述/ST/QA |
+| suggested_position | 標題（Item Name）/ 亮點（Highlights）/ 五點 / 描述 / ST / QA |
 | must_frontend | true/false（核心詞、功能詞、主場景詞預設 true） |
 | priority | P0/P1/P2 |
 

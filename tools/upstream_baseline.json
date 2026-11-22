@@ -1,10 +1,10 @@
 {
   "repo": "https://github.com/liangdabiao/amazon-sorftime-research-MCP-skill.git",
   "branch": "main",
-  "reviewed_through": "99c65df845e3f63f17865122fb5ea3076304e849",
-  "reviewed_date": "2026-11-08",
-  "reviewed_pr_through": 0,
-  "reviewed_issue_through": 9,
+  "reviewed_through": "cfdf288f868e2ed23bb1bbe73c37e4581bf88b87",
+  "reviewed_date": "2026-11-22",
+  "reviewed_pr_through": 10,
+  "reviewed_issue_through": 11,
   "track": "commit",
   "decision_log": "docs/fork/DECISIONS.md"
 }

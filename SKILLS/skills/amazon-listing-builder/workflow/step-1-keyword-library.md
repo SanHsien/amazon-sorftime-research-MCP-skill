@@ -54,19 +54,21 @@ mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=..."})
 
 舊方法：把 uv resistant artificial outdoor plants、outdoor artificial flowers、fake flowers outdoor 全塞標題，結果標題像詞庫垃圾桶。
 
-新方法：按使用者搜尋意圖把詞分成 5 層，每層放在不同位置（標題 / 五點 / 描述 / ST / QA），讓系統理解關係，讓買家讀得下去。
+新方法：按使用者搜尋意圖把詞分成 5 層，每層放在不同位置（標題 / 亮點 / 五點 / 描述 / ST / QA），讓系統理解關係，讓買家讀得下去。
 
 ---
 
 ## 二、五層詞庫結構
 
-| 層級 | 名稱 | 示例（抗 UV 戶外模擬植物） | 建議位置 |
+| 層級 | 名稱 | 示例（抗 UV 戶外模擬植物） | 建議位置（2026-07 新規：標題 Item Name ≤75 + 亮點 Highlights ≤125） |
 |------|------|--------------------------|---------|
-| 1 | 核心品類詞 | artificial flowers / artificial plants / fake flowers / faux plants | 標題開頭 + 五點 + 描述 |
-| 2 | 功能屬性詞 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | 標題 + 五點 1 |
-| 3 | 場景詞 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 標題 + 五點 3 + A+ |
-| 4 | 問題詞 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 五點 + QA + A+ |
-| 5 | 規格詞 | 12 bundles / plastic stems / 16 inch / flowers for pots | 標題 + 五點 4 |
+| 1 | 核心品類詞 | artificial flowers / artificial plants / fake flowers / faux plants | Item Name 開頭 + 亮點放同義詞變體 + 五點 + 描述 |
+| 2 | 功能屬性詞 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | Item Name 關鍵差異 + 亮點 + 五點 1 |
+| 3 | 場景詞 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 主場景進 Item Name 或亮點 + 次場景亮點 + 五點 3 + A+ |
+| 4 | 問題詞 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 亮點（簡短價值短語）+ 五點 + QA + A+ |
+| 5 | 規格詞 | 12 bundles / plastic stems / 16 inch / flowers for pots | Item Name + 亮點（包裝內容）+ 五點 4 |
+
+> ⚠️ 標題縮減到 75 字元後，放不下的 P0 詞優先挪到 Item Highlights（官方確認可搜尋索引），不要硬塞標題。
 
 ---
 
@@ -82,7 +84,7 @@ mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=..."})
 | `ppc` | 廣告建議價 |
 | `click_concentration` | 點選集中度（0~1） |
 | `conversion_concentration` | 轉化集中度（0~1） |
-| `suggested_position` | 標題 / 五點 / 描述 / ST / QA |
+| `suggested_position` | 標題（Item Name）/ 亮點（Highlights）/ 五點 / 描述 / ST / QA |
 | `must_frontend` | 是否必須前臺（true/false） |
 | `priority` | P0（必放）/ P1（推薦）/ P2（補充） |
 

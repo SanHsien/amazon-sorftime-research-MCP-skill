@@ -5,7 +5,7 @@
 
 ## 現況
 
-這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆（2026-11-08 重查 open 告警各 0）；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-10-28 的 `99c65df`（只在 README 加推廣連結）已於 2026-10-29 審為不引用，水位推進到該 commit（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。兩項上游邏輯錯誤已於 2026-10-31 決策：`analyze_category` 的占比前綴解析已修正（先紅後綠測試 `tests/test_category_report_safety.py`），`parse_category_report` 的 regex 欄位順序仍不修，皆載明於 `docs/fork/DECISIONS.md`。
+這是 liangdabiao/amazon-sorftime-research-MCP-skill（亞馬遜選品 MCP skill 工具集）的繁中、Windows-first 維護 fork。維護面健康：`main` 上 CodeQL、Dependency freshness、Dev Check、Upstream check 最近一次皆 success，open PR 0 筆、Dependabot 與 Code scanning 告警 0 筆（2026-11-08 重查 open 告警各 0）；issue 功能已停用，issue 數「未查到」不是 0（2026-10-29 `gh` 查詢）。上游 2026-11-12 的 `cfdf288`（適配亞馬遜 2026-07 標題雙欄位新規）已於 2026-11-22 採用並繁體化，同日拒收已關閉未合併 PR #10 與 Issue #11（維持 `.mcp.json` 上游金鑰原樣），水位推進至 `cfdf288`、PR #10、Issue #11（`tools/upstream_baseline.json`、`docs/fork/DECISIONS.md`）；`Dev Check` 會嚴格比對上游，上游再前進時會轉紅提醒。兩項上游邏輯錯誤已於 2026-10-31 決策：`analyze_category` 的占比前綴解析已修正（先紅後綠測試 `tests/test_category_report_safety.py`），`parse_category_report` 的 regex 欄位順序仍不修，皆載明於 `docs/fork/DECISIONS.md`。
 
 `tools/dev_check.ps1` 與 CI 的 Dev Check 會跑 `ruff check tools tests`；上游的技能腳本與歷史報表保持原樣以利同步，不在 lint 範圍內（全 repo 掃描有 353 個既有問題，都在上游檔案）。
 
